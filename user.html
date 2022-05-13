@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png" href="img/clt.png"/>
+    <link rel="stylesheet" href="css/cssu.css">
+    <script src="js/jquery.js"></script> 
+    <script src="js/javascu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    
+
+<div class="wrapper" id="side" >
+    <div class="uppermenu" style="z-index: 200 ;background-color: #008b8b; position: fixed; width: 100%; height: 50px; padding-left: 200px; border-left: 1px #152239 solid ;">
+            <div class="topperval" style="margin-top: 15px; text-align: center; margin-right: 200px;">
+        <a href="#" style="color: #e9ffff;"><em style="color: #e9ffff;">I S G I               </em>MARRAKECH</a>
+            </div>
+            <img  src="img/clt.png" style="width: 43px; height: 43px; position: fixed; top: 0; right: 0; border-radius: 50%;margin-top: 3px; margin-right: 7px;" >
+    </div>
+    <div class="sidebar" id="menu1" style="z-index: 200 ;">
+        <div id="logo1"class="logo" style="vertical-align: middle; align-self: center; position:  sticky; margin-bottom: 18px; margin-left: 28px;">
+            <a id="name1" href="#" style="color: #e9ffff;"><em style="color: #e9ffff;"><img src="img/cloud.jfif" alt="" style="width: 82px;left: 18px;position: relative;"></em></a>
+            <a id="name2" href="#" style="color: #e9ffff;"><em style="color: #e9ffff;"></em><img src="img/cloud.jfif" alt="" style="width: 43px;left: -7px;position: relative;"></a>
+        </div>
+      <ul class="nav-menu">
+        <li class="fas active" id="home"> <img src="img/home1.png"  class="img-menu"> <span class="menu-text">Home</span></li>
+        
+        <li class="fas " id="rec"><a href="#"><img src="img/rec.png" class="img-menu" > <span class="menu-text">Records</span></a></li>
+        <li class="fas" id="menu"><a href="#"> <img src="img/compte1.png" class="img-menu" > <span class="menu-text">Compte</span></a></li>
+      </ul>
+    </div>
+    <!--
+    <div class="sidebar" id="menu2" style="width: 50px; z-index: 200 ;">
+        <div id="logo2"class="logo" style="vertical-align: middle; align-self: center;align-items: center ;position:  static; margin-bottom: 9%; margin-left: 18%;">
+            <a  href="#" style=" position: static;color: white; align-self: center; align-items: center; bottom: 13px;"><em style="color: yellow;">G</em> S</a>
+        </div>
+     <ul class="nav-menu">
+        <li id="home">
+            <img src="img/home1.png" >
+        </li>
+        <li id="eleves"> 
+            <img src="img/eleves.png" > 
+        </li>
+        <li id="rec">
+            <img src="img/rec.png" > 
+        </li>
+        <li id="menu" > 
+            <img src="img/compte1.png" > 
+        </li>
+        <li id="exit">
+            <img src="img/exit.png" > 
+        </li>
+      </ul>
+    </div>
+--> 
+
+    <div class="main_content" style="z-index: 100; margin-left: 200px;">
+        <div class="home">
+            <table id="customers" style="margin-top: 20px;">
+                <tr>
+                  <th>idbat</th>
+                  <th>idpass</th>
+                  <th>note</th>
+                  <th>result</th>
+                  <th>datepassed</th>
+                </tr>
+               <tbody id="data">
+               </tbody>
+                  
+                  
+                
+               
+                
+                
+              </table>
+            <div class="centered " id="divshow">
+                <p>quiz show</p>
+                <button id="hidequiz" class="button-88">hide</button>
+            </div>
+        </div>
+        <div class="eleves"> 
+
+        </div>
+        <div class="rec"> 
+            <div class="one">
+                <h1>Demarer Votre Test</h1>
+              </div>
+            <div class="e1">
+               
+                <table class="examiner">
+                    <tr> <td><label for="username">Code Exam:</label></td></tr>
+                    <tr> <td ><input type="text" id="ixmid" placeholder="Your Code.." class="za"></td></tr>
+                    
+                   
+                    
+                   <tr><td class="tdbtndemarer"><button id="lunch" class="button-80" role="button">Demarer</button></td></tr>
+                    
+                    <!-- HTML !-->
+
+                    
+                </table>
+                    
+                
+            </div>
+            
+           
+              
+        </div>
+        <div class="menu"> 
+            <div class="containere">
+                
+                <div class="profile">
+                    <input type="file" id="myfilee" name="myfile">
+                    <img src="img/clt.png"  style="border-radius: 50%;border: 6px solid #45a049; max-width: 150px; max-height: 150px;" name="myfile">
+                  </div>
+            <div class="uploadfil">
+                <p><small>Select Profile Image</small></p>
+                
+                <div class="d-flex">
+                  
+                  
+                  <p><small>Only .jpg .png file allowed for upload</small></p>
+                </div>
+
+            </div>
+                <div>
+              <form action="/action_page.php">
+                <label for="username">UserName</label>
+                <input type="text" id="fname" name="username" placeholder="Your username.." class="z">
+            
+                <label for="oldpass">Old Password</label>
+                <input type="text" id="oldP" name="oldpass" placeholder="Your  old password.." class="z">
+            
+                <label for="nvpass">Noveau Passoword</label>
+                <input type="text" id="newP" name="nvpass" placeholder="Your nouveau passoword.." class="z">
+            
+                <label for="confirmpass"> Confirme</label>
+                <input type="text" id="confirmP" name="confirmpass" placeholder="confirme your passoword.." class="z">
+                
+              
+                
+              </form>
+              <button class="myBtn "  id=""> Submit </button>
+              <button class="myBtn"  id="logoutbtn"> Logout</button>
+            </div>
+            <div id="message"> </div>
+            </div>
+        </div>
+
+        
+    
+</div>
+
+  
+</body>
+</html>

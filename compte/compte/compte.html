@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=text]::before{
+    border-color:#4CAF50 ;
+}
+
+input[type=button] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=button]:hover {
+  background-color: #45a049;
+}
+
+.container2{
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  width: 300px;
+  margin: auto;
+  width: 300px;
+  padding: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+</style>
+
+<body>
+<div class="container2">
+    <div class="profile">
+        <img src="4212810.jpg" style="height:70px;border-radius: 50%; border: 10px solid #45a049;" alt="This is a small profile image of Digital Ocean’s mascot, a blue smiling shark.">
+      </div>
+
+    <div>
+  <form action="/action_page.php">
+    <label for="username">UserName</label>
+    <input type="text" id="fname" name="username" placeholder="Your username..">
+
+    <label for="oldpass">Old Password</label>
+    <input type="text" id="oldP" name="oldpass" placeholder="Your  old password..">
+
+    <label for="nvpass">Noveau Passoword</label>
+    <input type="text" id="newP" name="nvpass" placeholder="Your nouveau passoword..">
+
+    <label for="confirmpass"> Confirme</label>
+    <input type="text" id="confirmP" name="confirmpass" placeholder="confirme your passoword..">
+  
+    
+  </form>
+  <input type="submit" value="Submit" id="myBtn">
+</div>
+<div id="message"></div>
+</div>
+<SCript>
+
+document.getElementById("myBtn").onclick = function() {checkForm()};
+    function checkForm()
+   {
+    var oldP=document.getElementById("oldP").value;
+    var newP=document.getElementById("newP").value;
+    var confirmP =document.getElementById("confirmP").value;
+
+    if(oldP!=""&&newP!=""&&confirmP!="")
+    {
+      if(oldP!=newP)
+      {
+        if(newP==confirmP)
+         {
+          
+          document.getElementById("message").innerHTML="Modifier Avec secces"
+          document.getElementById("message").style.color="green";
+          return true;
+         }
+         else
+          {
+           
+            
+            document.getElementById("message").innerHTML="Confirm password is not same as you new password."
+          document.getElementById("message").style.color="red";
+          return false;
+          }
+      }
+      else
+     {
+        document.getElementById("message").innerHTML=" This Is Your Old Password,Please Provide A New Password"
+          document.getElementById("message").style.color="red";
+      
+      return false;
+     }
+    }
+    else
+    {
+        document.getElementById("message").innerHTML=" All Fields Are Required"
+          document.getElementById("message").style.color="red";
+     
+     return false;
+    }
+}
+
+</SCript>
+</body>
+</html>
+
+

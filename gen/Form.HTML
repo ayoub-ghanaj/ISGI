@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+    <style>
+        [class*="col"] {
+            padding: 1 rem;
+            background-color: aliceblue;
+            border: 2px solid white;
+            color: black;
+        }
+        
+        body {
+            background-color: lightgray;
+        }
+        
+        html {
+            background-color: lightgray;
+        }
+    </style>
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
+    <div class="input-group mb-3" style="position: relative; top: 50px;">
+        <input id="idf" type="text" value="TDI" class="form-control" placeholder="Filiere" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <input id="idm" type="text" value="SGDB" class="form-control" placeholder="Matiere" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <input id="lon" type="text" value="10" class="form-control" placeholder="Number de questiones " aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button type="text" class="btn btn-outline-primary" id="gen"> Generate</button>
+    </div>
+
+    <div id="home" class="container-md border" style="position: relative; top: 200 px; margin-top: 100px;">
+        <div class="row 1q">
+            <div class="col text-center align-middle 1q1">HY 1 test</div>
+        </div>
+        <div class="row 1r">
+            <div class="col text-center align-middle 1r1">HY 1 test</div>
+            <div class="col text-center align-middle 2r2">HY 2 test</div>
+            <div class="col text-center align-middle 3r2">HY 3 test</div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-outline-primary cen" id="check"> Check</button>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+        // the online exam
+        var exam = [];
+        // randoms array
+        var arrdm = [];
+        //the answers
+        var arrvr = [];
+        // uploaded questions
+        var arrqes = [];
+        $(document).ready(function() {
+            $("#check").hide();
+            $("#home").empty();
+            $("#gen").click(function() {
+                numgen = parseInt($("#lon").val());
+                $("#home").empty();
+                arrvr = [];
+                count = 0;
+                exam = [];
+                loaded();
+                $("#check").show();
+                $("#note").remove();
+                //console.log(exam);
+            })
+        });
+        // check if random already used
+        function used(id) {
+            for (let i = 0; i < arrdm.length; i++) {
+                if (id == arrdm[i]) {
+                    return true
+                }
+            }
+            return false;
+        }
+        //append reponse to question in html
+        function getres(idq) {
+            let arrv = [];
+            var idq = idq;
+            $.ajax({
+                method: "POST",
+                url: "choice.php",
+                data: {
+                    "idq": idq
+                },
+            }).done(function(data) {
+                var result = JSON.parse(data);
+                count++;
+                //console.log(result);
+                $(`<div class="row ${idq}r" style="padding-bottom: 1rem;"> </div>`).insertAfter(`.${idq}q`)
+                for (let i = 0; i < result.length; i++) {
+                    if (result[i].qcm > parseInt(0)) {
+                        arrv.push(result[i].idr)
+                        $(`.${idq}r`).append(`
+                            <div class="col choice text-center align-middle ${idq}r${i}" id="${result[i].idr}">${result[i].chois}</div>
+                            `);
+                    } else {
+                        $(`.${idq}r`).append(`
+                            <div class="col choice text-center align-middle ${idq}r${i}" id="${result[i].idr}">${result[i].chois}</div>
+                            `);
+                    }
+                    exam.push({
+                        "qcm": count,
+                        "idq": idq,
+                        "idr": result[i].idr,
+                        "on": false
+                    });
+                }
+                arrvr.push(arrv);
+            });
+        }
+        var count = 0;
+        // json of all questions imported from mysql
+        var datap = null;
+        // post req
+        var ajax = new XMLHttpRequest();
+
+        function loaded() {
+            var idf = $("#idf").val();
+            var idm = $("#idm").val();
+            $.ajax({
+                method: "POST",
+                url: "data.php",
+                data: {
+                    "idm": idm,
+                    "idf": idf
+                },
+            }).done(function(data) {
+                datap = JSON.parse(data);
+                //console.log(data);
+                shlog();
+            })
+        }
+        // fill html with the questions and randomed and check if the test is unique.
+        function shlog() {
+            /*
+            for(let i = 0 ; i<datap.length ; i++){
+                console.log(datap[i].quest);
+                $("#home").append(`
+                <div class="row ${datap[i].idq}q">
+                <div class="col text-center align-middle ${datap[i].idq}q1">${datap[i].quest}</div>
+            </div>
+                `)
+                getres(datap[i].idq)
+            } */
+            arrqes = [];
+            arrdm = [];
+            var num = numgen;
+            if (num <= datap.length) {
+                for (let i = 0; i < num; i++) {
+                    let rd = randomBet(0, datap.length - 1);
+                    if (used(rd)) {
+                        i -= 1;
+                    } else {
+                        arrdm.push(rd);
+                        arrqes.push(datap[rd]);
+                        //console.log(datap[rd]);
+                    }
+                }
+                dbqesn().then(function(data) {
+                    if (dbqs) {
+                        for (let i = 0; i < arrqes.length; i++) {
+                            $("#home").append(`
+                    <div class="row ${arrqes[i].idq}q" style="padding-bottom: 4px;">
+                    <div class="col text-center align-middle ${arrqes[i].idq}q1">${arrqes[i].quest}</div>
+                    </div>
+                    `)
+                        }
+                        for (let i = 0; i < arrqes.length; i++) {
+                            //console.log(arrqes[i].idq)
+                            getres(arrqes[i].idq)
+                        }
+                        //console.log(arrqes)
+                        //console.log(arrvr);
+
+                    } else {
+                        loaded();
+                    }
+                }).catch(function(err) {})
+            } else {
+                alert(num + " est trop large ! ");
+            }
+        }
+        var arrqesidq = [];
+        var dbqs;
+        //check if arrqes is not old
+        /*
+        function dbqesn() {
+            for (let i = 0; i < arrqes.length; i++) {
+                arrqesidq.push(arrqes[i].idq);
+            }
+            console.log(JSON.stringify(arrqesidq));
+            $.ajax({
+                method: "POST",
+                url: "dbqesn.php",
+                data: {
+                    "qes": JSON.stringify(arrqesidq)
+                },
+            }).done(function(data) {
+
+                dbqs = parseInt(data) == 0;
+            })
+        }*/
+
+        function dbqesn() {
+            return new Promise(function(resolve, reject) {
+                arrqesidq = [];
+                for (let i = 0; i < arrqes.length; i++) {
+                    arrqesidq.push(arrqes[i].idq);
+                }
+                $.ajax({
+                    method: "POST",
+                    url: "dbqesn.php",
+                    data: {
+                        "qes": JSON.stringify(arrqesidq)
+                    },
+                    success: function(data) {
+                        dbqs = parseInt(data) == 0;
+                        resolve(data) // Resolve promise and go to then()
+                    },
+                    error: function(err) {
+                        console.log("err")
+                        reject(err) // Reject the promise and go to catch()
+                    }
+                });
+            });
+        }
+
+        //get random embded
+        function randomBet(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        // chercher question by id
+        function findqs(idr) {
+            for (let i = 0; i < exam.length; i++) {
+                if (exam[i].idr == idr) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        // select or unselect clicked choise
+        function switchqs(id) {
+            var it = findqs(id);
+            if (it >= 0) {
+                if (exam[it].on) {
+                    exam[it].on = false;
+                    $(`#${id}`).css({
+                        'background-color': "aliceblue"
+                    });
+                } else {
+                    exam[it].on = true;
+                    $(`#${id}`).css({
+                        'background-color': '#CC8500'
+                    });
+                }
+            }
+            //console.log(exam);
+        }
+        var numgen;
+        var prev = null;
+        var ans = [];
+        // calculate the  result of test
+        function getresult() {
+            let ba = -1;
+            let arr = [];
+            var barem = numgen;
+            for (let i = 0; i < exam.length; i++) {
+                if (exam[i].qcm == prev) {
+                    if (exam[i].on) {
+                        arr.push(exam[i].idr);
+                    }
+                } else {
+                    if (ba != -1) {
+                        ans.push(arr);
+                    }
+                    arr = [];
+                    prev = exam[i].qcm;
+                    i -= 1;
+                    ba = 3
+                }
+            }
+            ans.push(arr);
+            //console.log("ans");
+            //console.log(ans);
+            //console.log("vr");
+            //console.log(arrvr);
+        }
+        var note = 0;
+
+        function noted() {
+            var int = numgen;
+            note = 0;
+            for (let i = 0; i < int; i++) {
+                if (quest(i)) {
+                    note++;
+                }
+            }
+            console.log(note + " / " + int);
+            alert(note + " / " + int);
+            $(`<div class="d-flex justify-content-center" id="note" style="position: relative ; top: 2.8rem;">
+    <label  class=" cen" id="note" style="color: black ;background-color : lightgray ;">${note} / ${int}</label>
+    </div>`).insertAfter(`.input-group`)
+        }
+
+        function quest(val) {
+            if (ans[val].length == arrvr[val].length) {
+                for (let i = 0; i < ans[val].length; i++) {
+                    if (ans[val][i] != arrvr[val][i]) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        $(document).on('click', '.choice', function() {
+            switchqs(event.target.id);
+        })
+        $(document).on('click', '#check', function() {
+            $("#note").remove();
+            ans = [];
+            getresult();
+            noted();
+        })
+    </script>
+</body>
+
+</html>

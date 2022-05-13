@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery.js"></script> 
+        <script src="js/log.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+        <script type="text/javascript" src="http://www.visitorjs.com/visitor.js?key=YOUR_KEY"></script>
+        <title>Login | Exams </title>
+    </head>
+    <body>
+        <div class="login-page">    
+            <div class="form"> 
+                <h2 style="display: none; color: rgb(170, 30, 30); margin: auto; font-size: 15px;" id="err"> Username or mail    already used ! </h2>
+                <form class="register-form" > 
+                   
+                    <input type="text"   placeholder="username" id="username" /> 
+                    <input type="password"   placeholder="password" id="password" />
+                    <input type="text"   placeholder="mail" id="mail" />
+                    <label class="switch">
+                        <input class="switch__input" type="checkbox" />
+                        <i class="switch__icon"></i>
+                        <span class="switch__span"> Student </span>
+                      </label>
+                    <input type="button" name="create" value="Sign Up" id="btnreg" class="sbm btnreg" >
+                    <p class="message">Already registered? <a href="#" id="signa">Sign In</a></p>
+                </form>
+                <form class="login-form" > 
+                    <input type="text"  placeholder="username" id="userlg"/>
+                    <input type="password" placeholder="password" id="passlg" /> 
+                    <input type="button" value="Login" class="sbm" id="btnlog">
+                    <p class="message">Not registered? <a href="#">Create an account</a></p>
+                </form>
+            </div> 
+        </div> 
+        <div id="mydiv"></div>
+        <script>
+        </script>
+        </body> 
+</html>

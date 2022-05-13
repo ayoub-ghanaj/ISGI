@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylexm.css">
+    <script src="js/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src=""></script>
+    <title>Exam | ISGI</title>
+    
+</head>
+<body>
+  <div class="cs" id="conts">
+  <div class="container">
+  <div > 
+    <img src="img/header.png" style="width: 100%; height: 300px;" id="imgheader" >
+    <table border="1px" style="display: none;" id="defaulthead">
+      <tr>
+        <th  rowspan="3"><img src="img/unknown (1).png"></th>
+        <th class="mot">مكتب التكوين وانعاش الشغل</th>
+        <th rowspan="3"><img src="img/unknown (1).png" alt=""></th>
+      </tr>
+      <tr>
+        <td class="mot">Office de la Formation Professionnelle et de la Promotion du Travail</td>
+      </tr>
+      <tr>
+        <td class="d">Direction de la Recherche et de l’Ingénierie de la Formation : Division Examen</td>
+      </tr>
+    </table>
+    
+    
+  </div>
+  
+  <div>
+    <table border="1px">
+      <tr>
+        <th>Filiére</th>
+        <th id="filie" style="width: 60%;">Thecnique De Devlopement Informatique</th>
+        <th>Variante</th>
+        <th id="vari" >V1</th>
+      </tr>
+    </table>
+  </div>
+ 
+  <div>
+    <table border="1px">
+      <tr>
+        <th>Matiere</th>
+        <th id="matie">TS</th>
+        <th>Durrée</th>
+        <th>2 Heure</th>
+        <th>Baréme</th>
+        <th id="bari">/100</th>
+
+      </tr>
+    </table>
+  </div>
+  <br>
+  <p id="demo"></p>
+  
+    <div class="quiz">
+      <form class="o-form o-quiz js-quiz" name="Eye Exam Quiz" id="exam">
+  
+        <h2 class="quiz-question">Q1: How do you spell "Red"?</h2>
+        <ul >
+          <li class="quiz-answer" ><input type="radio"  value="Red">Red </li>
+          <li class="quiz-answer" ><input type="radio"  value="Blue">Blue </li>
+          <li class="quiz-answer" ><input type="radio"  value="Req">Req </li>
+          <li class="quiz-answer" ><input type="radio"  value="sed">Sed </li>
+        </ul>
+        
+        <h2 class="quiz-question">Q2: How do you spell "Green"?</h2>
+        <ul >
+          <li class="quiz-answer" ><input type="radio"  value="Red">Red </li>
+          <li class="quiz-answer" ><input type="radio"  value="Blue">Blue </li>
+          <li class="quiz-answer" ><input type="radio"  value="Req">Req </li>
+          <li class="quiz-answer" ><input type="radio"  value="sed">Sed </li>
+        </ul>
+        
+        <h2 class="quiz-question">Q3: How do you spell "Blue"?</h2>
+        <ul >
+          <li class="quiz-answer" ><input type="radio"  value="Red">Red </li>
+          <li class="quiz-answer" ><input type="radio"  value="Blue">Blue </li>
+          <li class="quiz-answer" ><input type="radio"  value="Req">Req </li>
+          <li class="quiz-answer" ><input type="radio"  value="sed">Sed </li>
+        </ul>
+        
+        <h2 class="quiz-question">Q4: How do you spell "HTML"?</h2>
+        <ul >
+          <li class="quiz-answer" ><input type="radio"  value="Red">Red </li>
+          <li class="quiz-answer" ><input type="radio"  value="Blue">Blue </li>
+          <li class="quiz-answer" ><input type="radio"  value="Req">Req </li>
+          <li class="quiz-answer" ><input type="radio"  value="sed">Sed </li>
+        </ul>
+        
+        <h2 class="quiz-question">Q5: How do you spell "CSS"?</h2>
+        <ul >
+          <li class="quiz-answer" ><input type="radio"  value="Red">Red </li>
+          <li class="quiz-answer" ><input type="radio"  value="Blue">Blue </li>
+          <li class="quiz-answer" ><input type="radio"  value="Req">Req </li>
+          <li class="quiz-answer" ><input type="radio"  value="sed">Sed </li>
+        </ul>
+        
+        <h2 class="quiz-question">Q6: How do you spell "JavaScript"?</h2>
+        <ul >
+          <li class="quiz-answer" ><input type="radio"  value="Red">Red </li>
+          <li class="quiz-answer" ><input type="radio"  value="Blue">Blue </li>
+          <li class="quiz-answer" ><input type="radio"  value="Req">Req </li>
+          <li class="quiz-answer" ><input type="radio"  value="sed">Sed </li>
+        </ul>
+      </div>
+    </form>
+      <div class="wrapper1">
+        <button class="button-30"  id="mybtn" >Terminer</button>
+          
+        </div>
+     
+     
+    
+  </div>
+</div>
+<div class="Result" id="restt">
+  <header>
+    <div class="">
+        <h1>OFPPT QUIZ</h1> 
+    </div>
+</header>
+<main>
+    <div class="">
+         <h2>You'are Done</h2> 
+         <p>Congrats! you have completed the test</p>
+         <p>Final Score:  </p>
+         <a href="" class="start">Repeter</a>
+    </div> 
+</main>
+<footer>
+    <div class="">
+          Copyright   &copy; 2022  QUIZ OFPPT
+    </div>
+</footer>
+</div>
+      <div class="quiz-result"></div>
+      <script src="js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+.container{
+  background-color: #FFFFFF;
+    color: #222b3a;
+    
+}
+#demo{
+  color: #F5503D;
+  border: 2px solid #222b3a;
+  
+}
+.cs{
+  border: 2px solid #222b3a;
+}
+table{
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #FFFFFF;
+ 
+}
+img{
+  width: 100px;
+
+}
+.quiz-answer{
+  border: 1px solid #222b3a;
+}
+.mot{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  font-size: 50px;
+}
+.d{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  font-size: 25px;
+}
+body {
+    margin: 0;
+    padding: 20px;
+}
+.title{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    padding: 1px;
+    font-family: 'Raleway', cursive;
+    font-weight: 100;
+    position: relative;
+    background: -webkit-linear-gradient(left, #2285BA, #FFFFFF, #399D71);
+    background: -moz-linear-gradient(left, #2285BA, #FFFFFF, #399D71);
+    background: -ms-linear-gradient(left, #2285BA, #FFFFFF, #399D71);
+    background: -o-linear-gradient(left, #2285BA, #FFFFFF, #399D71);
+}
+
+.quiz {
+    padding: 0 30px 20px 30px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+.quiz ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.quiz-question {
+    font-weight: bold;
+    display: block;
+    padding: 30px 0 10px 0;
+    margin: 0;
+}
+.quiz-answer {
+    margin: 0;
+    padding: 10px;
+    background:#FFFFFF;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.quiz-answer:hover {
+    background: #eee;
+}
+
+.quiz-answer.active:before {
+    background-color: #333;
+    border-color: #333;
+}
+.quiz-answer.correct:before {
+    background-color: green;
+    border-color: green;
+}
+.quiz-answer.incorrect:before {
+    background-color: red;
+    border-color: red;
+}
+.quiz-answer.active.correct:before {
+    outline: 2px solid green;
+    outline-offset: 2px;
+}
+.quiz-result {
+    max-width: 960px;
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+.quiz-result.good {
+    background: green;
+}
+.quiz-result.mid {
+    background: orange;
+}
+.quiz-result.bad {
+    background: red;
+}
+
+
+
+
+p {
+    text-align: center;
+    font-size: 60px;
+    
+  }
+  
+  :root {
+    --primary-bg: white;
+    --fontcolor:#F5503D;
+    
+    
+    --fonthovercolor:white;
+    --hovercolorbg:#f38d81;
+      
+      
+  }
+  
+  .wrapper1{
+      text-align:center;
+    }
+
+
+    
+    
+    /* CSS */
+    .button-30 {
+      align-items: center;
+      appearance: none;
+      background-color: #FCFCFD;
+      border-radius: 4px;
+      border-width: 0;
+      box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+      box-sizing: border-box;
+      color: #36395A;
+      cursor: pointer;
+      display: inline-flex;
+      font-family: "JetBrains Mono",monospace;
+      height: 48px;
+      justify-content: center;
+      line-height: 1;
+      list-style: none;
+      overflow: hidden;
+      padding-left: 16px;
+      padding-right: 16px;
+      position: relative;
+      text-align: left;
+      text-decoration: none;
+      transition: box-shadow .15s,transform .15s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      will-change: box-shadow,transform;
+      font-size: 18px;
+    }
+    
+    .button-30:focus {
+      box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    }
+    
+    .button-30:hover {
+      box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+      transform: translateY(-2px);
+    }
+    
+    .button-30:active {
+      box-shadow: #D6D6E7 0 3px 7px inset;
+      transform: translateY(2px);
+    }
+    /*.Result{
+      display:none; /* remove the element from page and DOM. 
+visibility:hidden;
+    }*/
+    .Result{
+      font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6em;
+    }

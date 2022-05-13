@@ -1,0 +1,728 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="nprnt">ISGI | Admin / Prof </title>
+    <link rel="icon" href="img/clt.png">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/jquery.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/javsc.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script type="text/javascript" src="http://www.visitorjs.com/visitor.js?key=YOUR_KEY"></script>
+</head>
+<body >
+    
+
+<div class="wrapper" id="side" >
+    <div class="uppermenu nprnt" style="z-index: 200 ;background-color: #008b8b; position: fixed; width: 100%; height: 50px; padding-left: 200px; border-left: 1px #152239 solid ;">
+            <div class="topperval" style=" text-align: center;">
+        <a href="#" style="color: white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"> <H2 style="margin-top: 10px;">ISGI</H2> </a>
+            </div id="pfp1">
+            <div style="position: fixed; top: 0; right: 0;">
+            <img  src="img/clt.png" style="width: 43px; height: 43px;  border-radius: 50%;margin-top: 3px; margin-right: 0px;" id="pfpe" >
+            <label id="usernameid" style=" position: relative; border-radius: 50%;margin-top: 12px; top: -15px; margin-left: 7px;margin-right: 12px; font-size: 20px;color:  black;     font-family: 'Poppins', sans-serif;">
+                username
+            </label>
+          </div>
+    </div>
+    <div class="sidebar nprnt" id="menu1" style="z-index: 200 ;    border-right: 1px solid #08a4a7;">
+        <div id="logo1"class="logo" style="vertical-align: middle; align-self: center; position:  sticky; margin-bottom: 2px; margin-left: 28px;">
+            <div id="name1" href="#" style="color: white;"><img src="img/opt.png" style="width: 145px; height: 49px; display: block;"> <span style="color: #f3f3f3; margin-left: 29px; font-size: 25px;">OFPPT</span>  </div>
+            <div id="name2" href="#" style="color: white; display: none;"><img src="img/opt2b.png" style="width: 45px; height: 49px; display: block;"></div>
+    </div>
+      <ul class="nav-menu">
+        <li class="fas active" id="home"> <a href="#"> <img src="img/home1.png"  class="img-menu"> <span class="menu-text">Home</span></a></li>
+       <!-- <li class="fas" id="eleves"> <a href="#"> <img src="img/eleves.png" class="img-menu" > <span class="menu-text">Eleves</span></a></li>-->
+        <li class="fas" id="create"><a href="#"> <img src="img/pen.svg" class="img-menu" > <span class="menu-text">Create</span></a></li>
+        <li class="fas " id="rec"><a href="#"><img src="img/rec.png" class="img-menu" > <span class="menu-text">Records</span></a></li>
+        <li class="fas " id="imgen"><a href="#"><img src="img/rec.png" class="img-menu" > <span class="menu-text">Image EXM</span></a></li>
+        <li class="fas" id="menu"><a href="#"> <img src="img/compte1.png" class="img-menu" > <span class="menu-text">Compte</span></a></li>
+      </ul>
+    </div>
+    
+    <!--
+    <div class="sidebar" id="menu2" style="width: 50px; z-index: 200 ;">
+        <div id="logo2"class="logo" style="vertical-align: middle; align-self: center;align-items: center ;position:  static; margin-bottom: 9%; margin-left: 18%;">
+            <a  href="#" style=" position: static;color: white; align-self: center; align-items: center; bottom: 13px;"><em style="color: yellow;">G</em> S</a>
+        </div>
+     <ul class="nav-menu">
+        <li id="home">
+            <img src="img/home1.png" >
+        </li>
+        <li id="eleves"> 
+            <img src="img/eleves.png" > 
+        </li>
+        <li id="rec">
+            <img src="img/rec.png" > 
+        </li>
+        <li id="menu" > 
+            <img src="img/compte1.png" > 
+        </li>
+        <li id="exit">
+            <img src="img/exit.png" > 
+        </li>
+      </ul>
+    </div>
+--> 
+
+    <div class="main_content" style="z-index: 100; margin-left: 200px;">
+        <div class="home">
+           <!--
+           -->
+
+           <div class="boxContent">
+            <div class="firstRow">
+                <div class="cardOne">
+                    <div class="description">
+                        <p>Total Quiz</p>
+                        <h3 id="valc1" style="font-size: 30px;">20</h3>
+                    </div>
+                </div>
+                <div class="cardTwo">
+                    <div class="description">
+                        <p>Total Examin Passer</p>
+                        <h3 id="valc2" style="font-size: 30px;">300</h3>
+                    </div>
+                </div>
+                <div class="cardThree">
+                    <div class="description">
+                        <p> pourcentage de réussite</p>
+                        <h3 id="valc3" style="font-size: 30px;">10%</h3>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+        <div id="demo">
+            
+            
+            <!-- Responsive table starts here -->
+            <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
+            <div class="table-responsive-vertical shadow-z-1" id="examsholder">
+            <!-- Table starts here 
+            <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>avg de points</th>
+                    <th>nombre des reussis</th>
+                    <th>nombre dequestion</th>
+                  </tr>
+                </thead>-->
+            <table id="table" class="table table-hover table-mc-light-blue">
+                
+                <tbody>
+                  <tr>
+                    <td data-title="ID" style="text-align: center;">ID</td>
+                    <td data-title="avg de points" style="text-align: center;">avg points</td>
+                   
+                    <td data-title="nombre des reussis" style="text-align: center;">reussis</td>
+                    <td data-title="nombre dequestion" style="text-align: center;"> questions</td>
+                    <td data-title="Filiere" style="text-align: center;"> Filiere</td>
+                    <td data-title="Matiere" style="text-align: center;"> Matiere</td>
+                      
+                  </tr>
+                </tbody>
+            </table>
+                    <table id="table1" class="table table-hover table-mc-light-blue">
+                
+                      <tbody>
+                        <tr>
+                          <td  style="text-align: center;">1</td>
+                          <td style="text-align: center;"> <span style="visibility: hidden;">ance</span>35</td>
+                         
+                          <td  style="text-align: center;"><span style="visibility: hidden;">n</span>60 <span style="visibility: hidden;">nce</span></td>
+                          <td  style="text-align: center;"> 40</td>
+                          <td  style="text-align: center;"> TDI</td>
+                          <td  style="text-align: center;"> SGDB</td>
+                            
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="container" id="ele1" style="display: none;">
+                        <div class="row row--top-41">
+                          <div class="col-md-12">
+                            <h2 class="row__title">Etudients </h2>
+                          </div>
+                        </div>
+                        <div class="row row--top-21">
+                          <div class="col-md-12">
+                            <div class="table-container">
+                              <table class="table">
+                                <thead class="table__thead">
+                                  <tr>
+                                    <!-- <th class="table__th"><input id="selectAll" type="checkbox" class="table__select-row"></th> -->
+                                    <th class="table__th">Name</th>
+                                    <th class="table__th">Policy</th>
+                                    <th class="table__th">Policy status</th>
+                                    <th class="table__th">Destination</th>
+                                    <th class="table__th">Status</th>
+                                    <th class="table__th">Progress</th>
+                                    <th class="table__th"></th>
+                                  </tr>
+                                </thead>
+                                <tbody class="table__tbody">
+                                  <tr class="table-row table-row--chris">
+                                    <!-- <td class="table-row__td">
+                                      <input id="" type="checkbox" class="table__select-row">
+                                    </td> -->
+                                    <td class="table-row__td">
+                                      <div class="table-row__img"></div>
+                                      <div class="table-row__info">
+                                        <p class="table-row__name">Christin Ericssen</p>
+                                        <span class="table-row__small">CFO</span>
+                                      </div>
+                                    </td>
+                                    <td data-column="Policy" class="table-row__td">
+                                      <div class="">
+                                        <p class="table-row__policy">$5,000</p>
+                                        <span class="table-row__small">Basic Policy</span>
+                                      </div>                
+                                    </td>
+                                    <td data-column="Policy status" class="table-row__td">
+                                      <p class="table-row__p-status status--green status">Approved</p>
+                                    </td>
+                                    <td data-column="Destination" class="table-row__td">
+                                      Huston, US
+                                    </td>
+                                    <td  data-column="Status" class="table-row__td">
+                                      <p class="table-row__status status--green status">Active</p>
+                                    </td>
+                                    <td data-column="Progress" class="table-row__td">
+                                      <p class="table-row__progress status--blue status">On Track</p>
+                                    </td>
+                                    </td>
+                      <td class="table-row__td">
+                                     
+                                      <svg  version="1.1" class="table-row__edit" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve" data-toggle="tooltip" data-placement="bottom" title="Edit"><g>	<g>		<path d="M496.063,62.299l-46.396-46.4c-21.2-21.199-55.69-21.198-76.888,0l-18.16,18.161l123.284,123.294l18.16-18.161    C517.311,117.944,517.314,83.55,496.063,62.299z" style="fill: rgb(1, 185, 209);"></path>	</g></g><g>	<g>
+                              <path d="M22.012,376.747L0.251,494.268c-0.899,4.857,0.649,9.846,4.142,13.339c3.497,3.497,8.487,5.042,13.338,4.143    l117.512-21.763L22.012,376.747z" style="fill: rgb(1, 185, 209);"></path>	</g></g><g>	<g>		<polygon points="333.407,55.274 38.198,350.506 161.482,473.799 456.691,178.568   " style="fill: rgb(1, 185, 209);"></polygon>	</g></g><g></g><g></g><g></g>
+                      <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                                      
+                                      <svg data-toggle="tooltip" data-placement="bottom" title="Delete" version="1.1" class="table-row__bin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<path d="M436,60h-90V45c0-24.813-20.187-45-45-45h-90c-24.813,0-45,20.187-45,45v15H76c-24.813,0-45,20.187-45,45v30    c0,8.284,6.716,15,15,15h16.183L88.57,470.945c0.003,0.043,0.007,0.086,0.011,0.129C90.703,494.406,109.97,512,133.396,512    h245.207c23.427,0,42.693-17.594,44.815-40.926c0.004-0.043,0.008-0.086,0.011-0.129L449.817,150H466c8.284,0,15-6.716,15-15v-30    C481,80.187,460.813,60,436,60z M196,45c0-8.271,6.729-15,15-15h90c8.271,0,15,6.729,15,15v15H196V45z M393.537,468.408    c-0.729,7.753-7.142,13.592-14.934,13.592H133.396c-7.792,0-14.204-5.839-14.934-13.592L92.284,150h327.432L393.537,468.408z     M451,120h-15H76H61v-15c0-8.271,6.729-15,15-15h105h150h105c8.271,0,15,6.729,15,15V120z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M256,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C271,186.716,264.284,180,256,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M346,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C361,186.716,354.284,180,346,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M166,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C181,186.716,174.284,180,166,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                      <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                      </svg>                
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr class="table-row table-row--angie">
+                                    <!-- <td class="table-row__td">
+                                      <input id="" type="checkbox" class="table__select-row">
+                                    </td> -->
+                                    <td class="table-row__td">
+                                      <div class="table-row__img"></div>
+                                      <div class="table-row__info">
+                                        <p class="table-row__name">Angie E. Swift</p>
+                                        <span class="table-row__small">Vp of Sales</span>
+                                      </div>
+                                    </td>
+                                    <td data-column="Policy" class="table-row__td">
+                                      <div class="">
+                                        <p class="table-row__policy">$20,000</p>
+                                        <span class="table-row__small">All Inclusive Policy</span>
+                                      </div>                
+                                    </td>
+                                    <td data-column="Policy Status" class="table-row__td">
+                                      <p class="table-row__p-status status status--yellow">Awating Approval</p>
+                                    </td>
+                                    <td data-column="Destination" class="table-row__td">
+                                      Huston, US
+                                    </td>
+                                    <td data-column="Status" class="table-row__td">
+                                      <p class="table-row__status">Waiting</p>
+                                    </td>
+                                    <td data-column="Progress" class="table-row__td">
+                                      <p class="table-row__progress">Waiting</p>
+                                    </td>
+                                    <td class="table-row__td">
+                                     
+                                      <svg data-toggle="tooltip" data-placement="bottom" title="Edit" version="1.1" class="table-row__edit" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g>	<g>		<path d="M496.063,62.299l-46.396-46.4c-21.2-21.199-55.69-21.198-76.888,0l-18.16,18.161l123.284,123.294l18.16-18.161    C517.311,117.944,517.314,83.55,496.063,62.299z" style="fill: rgb(1, 185, 209);"></path>	</g></g><g>	<g>
+                              <path d="M22.012,376.747L0.251,494.268c-0.899,4.857,0.649,9.846,4.142,13.339c3.497,3.497,8.487,5.042,13.338,4.143    l117.512-21.763L22.012,376.747z" style="fill: rgb(1, 185, 209);"></path>	</g></g><g>	<g>		<polygon points="333.407,55.274 38.198,350.506 161.482,473.799 456.691,178.568   " style="fill: rgb(1, 185, 209);"></polygon>	</g></g><g></g><g></g><g></g>
+                      <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                                      
+                                      <svg data-toggle="tooltip" data-placement="bottom" title="Delete" version="1.1" class="table-row__bin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<path d="M436,60h-90V45c0-24.813-20.187-45-45-45h-90c-24.813,0-45,20.187-45,45v15H76c-24.813,0-45,20.187-45,45v30    c0,8.284,6.716,15,15,15h16.183L88.57,470.945c0.003,0.043,0.007,0.086,0.011,0.129C90.703,494.406,109.97,512,133.396,512    h245.207c23.427,0,42.693-17.594,44.815-40.926c0.004-0.043,0.008-0.086,0.011-0.129L449.817,150H466c8.284,0,15-6.716,15-15v-30    C481,80.187,460.813,60,436,60z M196,45c0-8.271,6.729-15,15-15h90c8.271,0,15,6.729,15,15v15H196V45z M393.537,468.408    c-0.729,7.753-7.142,13.592-14.934,13.592H133.396c-7.792,0-14.204-5.839-14.934-13.592L92.284,150h327.432L393.537,468.408z     M451,120h-15H76H61v-15c0-8.271,6.729-15,15-15h105h150h105c8.271,0,15,6.729,15,15V120z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M256,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C271,186.716,264.284,180,256,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M346,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C361,186.716,354.284,180,346,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M166,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C181,186.716,174.284,180,166,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                      <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                      </svg>                
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  
+                                  <tr class="table-row table-row--june table-row--red">
+                                    <!-- <td class="table-row__td">
+                                      <div class="table-row--overdue"></div>
+                                      <input id="" type="checkbox" class="table__select-row">
+                                    </td> -->
+                                    <td class="table-row__td">
+                                      <div class="table-row__img"></div>
+                                      <div class="table-row__info">
+                                        <p class="table-row__name">June Simmons</p>
+                                        <span class="table-row__small">Social content manager</span>
+                                      </div>
+                                    </td>
+                                    <td data-column="Policy" class="table-row__td">
+                                      <div class="">
+                                        <p class="table-row__policy">$5,000</p>
+                                        <span class="table-row__small">Basic Policy</span>
+                                      </div>                
+                                    </td>
+                                    <td data-column="Policy status" class="table-row__td">
+                                      <p class="table-row__p-status status--red status">Rejected</p>
+                                    </td>
+                                    <td data-column="destination" class="table-row__td">
+                                      Huston, US
+                                    </td>
+                                    <td data-column="status" class="table-row__td">
+                                      <p class="table-row__status">Rejected</p>
+                                    </td>
+                                    <td data-column="progress" class="table-row__td">
+                                      <p class="table-row__progress status status--red">Overdue</p>
+                                    </td>
+                      <td class="table-row__td">
+                                     
+                                      <svg  data-toggle="tooltip" data-placement="bottom" title="Edit" version="1.1" class="table-row__edit" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g>	<g>		<path d="M496.063,62.299l-46.396-46.4c-21.2-21.199-55.69-21.198-76.888,0l-18.16,18.161l123.284,123.294l18.16-18.161    C517.311,117.944,517.314,83.55,496.063,62.299z" style="fill: rgb(1, 185, 209);"></path>	</g></g><g>	<g>
+                              <path d="M22.012,376.747L0.251,494.268c-0.899,4.857,0.649,9.846,4.142,13.339c3.497,3.497,8.487,5.042,13.338,4.143    l117.512-21.763L22.012,376.747z" style="fill: rgb(1, 185, 209);"></path>	</g></g><g>	<g>		<polygon points="333.407,55.274 38.198,350.506 161.482,473.799 456.691,178.568   " style="fill: rgb(1, 185, 209);"></polygon>	</g></g><g></g><g></g><g></g>
+                      <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                                      
+                                      <svg data-toggle="tooltip" data-placement="bottom" title="Delete" version="1.1" class="table-row__bin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<path d="M436,60h-90V45c0-24.813-20.187-45-45-45h-90c-24.813,0-45,20.187-45,45v15H76c-24.813,0-45,20.187-45,45v30    c0,8.284,6.716,15,15,15h16.183L88.57,470.945c0.003,0.043,0.007,0.086,0.011,0.129C90.703,494.406,109.97,512,133.396,512    h245.207c23.427,0,42.693-17.594,44.815-40.926c0.004-0.043,0.008-0.086,0.011-0.129L449.817,150H466c8.284,0,15-6.716,15-15v-30    C481,80.187,460.813,60,436,60z M196,45c0-8.271,6.729-15,15-15h90c8.271,0,15,6.729,15,15v15H196V45z M393.537,468.408    c-0.729,7.753-7.142,13.592-14.934,13.592H133.396c-7.792,0-14.204-5.839-14.934-13.592L92.284,150h327.432L393.537,468.408z     M451,120h-15H76H61v-15c0-8.271,6.729-15,15-15h105h150h105c8.271,0,15,6.729,15,15V120z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M256,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C271,186.716,264.284,180,256,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M346,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C361,186.716,354.284,180,346,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M166,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C181,186.716,174.284,180,166,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                      <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                      </svg>                
+                                    </td>
+                                  </tr>
+                                  
+                                 
+                                  
+                                  
+                       
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      
+                      
+                      </div>
+                    
+            </div>
+            
+            <!-- Table Constructor change table classes, you don't need it in your project -->
+            
+        </div>
+
+           <!--
+           -->        
+        </div>
+        <div id="overlapclass" style="background-color: #afafafab; width: 94%; height: 100% ; position: fixed; z-index: 700; top: 67px; border-right: 12px;text-align: center; padding: 9px; display: none; overflow-y:scroll;overflow-x:hidden; padding-bottom: 60px;">
+          <div style="background-color: #ebebeb; margin: 30px; width: auto;height: 300px; min-width: 263px; margin: auto; text-align: center; padding-right: 129px; padding-bottom: 60px ">
+            <img src="img/x.png" id="closeoverlap" style=" width: 30px ; height: 25px ; text-align: right; position: fixed; right: 0px">
+            <h1 style="margin-bottom: 13px; color: black;" id="overhead">Eleves</h1>
+            <div class="table-responsive-vertical shadow-z-1" style="margin-top:  20px;overflow: scroll;">
+              <!-- Table starts here -->
+              <table id="table" class="table table-hover table-mc-light-blue" style=" max-height: 600px;">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="tablebatch">
+                    
+                  </tbody>
+                </table>
+              </div>
+          </div>
+
+        </div>
+        <div id="overlapclass1" style="background-color: #afafafab; width: 94%; height: 100% ; position: fixed; z-index: 700; top: 67px; border-right: 12px;text-align: center; padding: 9px; display: none; overflow-y:scroll;overflow-x:hidden; padding-bottom: 60px;">
+          <div style="background-color: #ebebeb; margin: 30px; width: auto;height: 300px; min-width: 263px; margin: auto; text-align: center; padding-right: 129px; padding-bottom: 60px ">
+            <img src="img/x.png" id="closeoverlap1" style=" width: 30px ; height: 25px ; text-align: right; position: fixed; right: 0px">
+            <h1 style="margin-bottom: 13px; color: black;" id="overhead">Choixs</h1>
+            <div class="table-responsive-vertical shadow-z-1" style="margin-top:  20px;overflow: scroll;">
+              <!-- Table starts here -->
+              <table id="table" class="table table-hover table-mc-light-blue" style=" max-height: 600px;">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th style="width: 100%;">choix</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tablemchoix">
+                    <tr>
+                      <td data-title="ID" id="row1">${dadata[k].idq}</td>
+                      <td data-title="Question" >${dadata[k].quest}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+
+        </div>
+        <div class="eleves" style="padding: 20px;"> 
+            <div class="container">
+              
+              
+                <div class="row row--top-40" >
+                  <div class="col-md-12" style="text-align: center;">
+                    <h2 class="row__title" style=" margin-bottom: 17px ;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif	;display: block;">Classes</h2>
+                    <select id="dropfilier1" style="background-color: rgb(221, 221, 221); border: 1px rgb(241, 241, 241);border-radius: 4px;width: 160px;height: 40px;  text-align: center; margin-right: 50px; margin-left: 50px; margin-bottom: 13px;">
+                      <option> Filier </option>
+                    </select>
+                    <select id="dropmatier1" style="background-color: rgb(221, 221, 221); border: 1px rgb(241, 241, 241);border-radius: 4px;width: 160px;height: 40px; text-align: center ; margin-left: 50px;  margin-right: 50px;">
+                      <option> Matiere </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row row--top-20">
+                  <div class="col-md-12">
+                    <div class="table-container">
+                      <table class="table">
+                        <thead class="table__thead">
+                          <tr>
+                            <!-- <th class="table__th"><input id="selectAll" type="checkbox" class="table__select-row"></th> -->
+                            <th class="table__th">Name</th>
+                            <th class="table__th">Policy</th>
+                            <th class="table__th">Policy status</th>
+                            <th class="table__th">Destination</th>
+                            <th class="table__th">Status</th>
+                            <th class="table__th">Progress</th>
+                            <th class="table__th"></th>
+                          </tr>
+                        </thead>
+                        <tbody class="table__tbody">
+                          <tr class="table-row table-row--chris" id="tbr1">
+                            <!-- <td class="table-row__td">
+                              <input id="" type="checkbox" class="table__select-row">
+                            </td> -->
+                            <td class="table-row__td">
+                              <div class="table-row__img"></div>
+                              <div class="table-row__info">
+                                <p class="table-row__name">Christin Ericssen</p>
+                                <span class="table-row__small">CFO</span>
+                              </div>
+                            </td>
+                            <td data-column="Policy" class="table-row__td">
+                              <div class="">
+                                <p class="table-row__policy">$5,000</p>
+                                <span class="table-row__small">Basic Policy</span>
+                              </div>                
+                            </td>
+                            <td data-column="Policy status" class="table-row__td">
+                              <p class="table-row__p-status status--green status">Approved</p>
+                            </td>
+                            <td data-column="Destination" class="table-row__td">
+                              Huston, US
+                            </td>
+                            <td  data-column="Status" class="table-row__td">
+                              <p class="table-row__status status--green status">Active</p>
+                            </td>
+                            <td data-column="Progress" class="table-row__td">
+                              <p class="table-row__progress status--blue status">On Track</p>
+                            </td>
+                            </td>
+              <td class="table-row__td">
+                             
+                              <svg  version="1.1" class="table-row__edit" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve" data-toggle="tooltip" data-placement="bottom" title="Edit"><g>	<g>		<path d="M496.063,62.299l-46.396-46.4c-21.2-21.199-55.69-21.198-76.888,0l-18.16,18.161l123.284,123.294l18.16-18.161    C517.311,117.944,517.314,83.55,496.063,62.299z" style="fill: rgb(1, 185, 209);"></path>	</g></g><g>	<g>
+                      <path d="M22.012,376.747L0.251,494.268c-0.899,4.857,0.649,9.846,4.142,13.339c3.497,3.497,8.487,5.042,13.338,4.143    l117.512-21.763L22.012,376.747z" style="fill: rgb(1, 185, 209);"></path>	</g></g><g>	<g>		<polygon points="333.407,55.274 38.198,350.506 161.482,473.799 456.691,178.568   " style="fill: rgb(1, 185, 209);"></polygon>	</g></g><g></g><g></g><g></g>
+              <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                              
+                              <svg data-toggle="tooltip" data-placement="bottom" title="Delete" version="1.1" class="table-row__bin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<path d="M436,60h-90V45c0-24.813-20.187-45-45-45h-90c-24.813,0-45,20.187-45,45v15H76c-24.813,0-45,20.187-45,45v30    c0,8.284,6.716,15,15,15h16.183L88.57,470.945c0.003,0.043,0.007,0.086,0.011,0.129C90.703,494.406,109.97,512,133.396,512    h245.207c23.427,0,42.693-17.594,44.815-40.926c0.004-0.043,0.008-0.086,0.011-0.129L449.817,150H466c8.284,0,15-6.716,15-15v-30    C481,80.187,460.813,60,436,60z M196,45c0-8.271,6.729-15,15-15h90c8.271,0,15,6.729,15,15v15H196V45z M393.537,468.408    c-0.729,7.753-7.142,13.592-14.934,13.592H133.396c-7.792,0-14.204-5.839-14.934-13.592L92.284,150h327.432L393.537,468.408z     M451,120h-15H76H61v-15c0-8.271,6.729-15,15-15h105h150h105c8.271,0,15,6.729,15,15V120z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M256,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C271,186.716,264.284,180,256,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M346,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C361,186.716,354.284,180,346,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M166,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C181,186.716,174.284,180,166,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+              <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                              </svg>                
+                            </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              
+              
+              </div>
+              
+        </div>
+        <!--create-->
+        <div class="create" >
+          <div style="text-align: center; margin-top: 5px;padding: 25px; background-color: #e4e4e4;"> 
+            <select id="dropfilier2" style="background-color: rgb(205, 205, 205); border: 1px rgb(241, 241, 241);border-radius: 4px;width: 160px;height: 40px;  text-align: center; margin-right: 50px; margin-left: 50px; margin-bottom: 13px;">
+              <option> Filier </option>
+            </select>
+            <select id="dropmatier2" style="background-color: rgb(205, 205, 205); border: 1px rgb(241, 241, 241);border-radius: 4px;width: 160px;height: 40px; text-align: center ; margin-left: 50px;  margin-right: 50px;">
+              <option> Matiere </option>
+            </select>
+            <select id="countquest" style="background-color: rgb(205, 205, 205); border: 1px rgb(241, 241, 241);border-radius: 4px;width: 160px;height: 40px; text-align: center ; margin-left: 50px;  margin-right: 50px; margin-top: 15px; margin-bottom: 15px;">
+              <option value="20"> 20 </option>
+              <option value="30"> 30 </option>
+              <option value="40"> 40 </option>
+            </select>
+            <input type="number" id="countvaria" min="1" step="1" value="1" placeholder="variants" style="background-color: rgb(205, 205, 205); border: 1px rgb(241, 241, 241);border-radius: 4px;width: 160px;height: 40px;  text-align: center; margin-right: 50px; margin-left: 50px; margin-bottom: 13px; height: 40px;  font-size: 20px">
+            <button id="maingen" style="background-color: rgb(205, 205, 205); border: 1px rgb(241, 241, 241);border-radius: 4px;width: 160px;height: 40px; text-align: center ; margin-left: 50px;  margin-right: 50px;margin: auto ;  font-size: 20px ;display: block;"> Generate </button>
+            <img id="headerport" src="img/import_icon_128503.png" style="width: 42px; height: 33px; margin-top: 9px;">
+            
+            <div class="table-responsive-vertical shadow-z-1" style="margin-top:  20px;">
+              <!-- Table starts here -->
+              <table id="table" class="table table-hover table-mc-light-blue">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Vari</th>
+                      <th>Matiere</th>
+                      <th>Filiere</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="tablebat2">
+                    
+                  </tbody>
+                </table>
+              </div>
+
+          </div> 
+        </div>
+        <!--addimg-->
+        <div class="imgen">
+          <div class="box1 nprnt">
+              <div class="btnimg">
+                <button class="button-1" role="button" id="countbarqsn"  style="position: fixed;right: 0;z-index: 100;">Download</button>
+                  <button class="button-1" role="button" id="btnexmswich">Image</button>
+                  <button class="button-1" role="button" id="btnecmswich">Text</button>
+                </div>
+                <div class="selectmatfil nprnt">
+                  <label for="dropitF">Filire:</label>
+                  <div class="old-select">
+                      
+                      <select id="dropitF">
+                      <option value="3" selected="selected" style="display: none;">Filier</option>
+                     
+                      </select>
+                      
+                  </div>
+                  <label for="dropinq">Nombre:</label>
+                  <div class="old-select">
+                      
+                      <select id="dropinq">
+                      <option value="" selected="selected" style="display: none;">nombre</option>
+                      <option value="20" >20</option>
+                      <option value="40" >40</option>
+                      <option value="60" >60</option>
+                      </select>
+                      
+                  </div>
+                  <label for="dropitM">Matiere:</label>
+                  <div class="old-select">
+                     
+                      <select id="dropitM">
+                        <option value="3" selected="selected" style="display: none;">Matiere</option>
+                    
+                      </select>
+                      
+                  </div>
+              
+              </div>
+              <div id="ajtexm">
+
+              
+             
+           
+
+
+
+
+             
+
+              <div class="centerlist">
+              <div class="listimg" id="imgqsn">
+                  <!-- <img class="a" src="img/exam.png" alt="">
+                  <label for="" class="infimg">information:Exerecise </label> -->
+              </div>
+          </div>
+      </div>
+      <div class="nprnt" id="modexm" style="display: none;padding-top: 25px;">
+          <div class="centerlist">
+              <div class="listimg" id="textqsn">
+                 <!-- <div class="divexamtext">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero error reiciendis odit officia. Doloremque temporibus harum, omnis saepe quibusdam voluptas aspernatur at mollitia sit commodi praesentium. Est delectus fuga et.
+                 </div> -->
+              </div>
+          </div>
+      </div>
+          </div>
+          <div class="box2 nprint1">
+              <div class="listexmchoice nprint2" id="offiexam">
+                
+                  <!-- <div>
+                      <div>
+                        <h3 class="titlebr">Bareme:</h3>
+                        <input type="text" class="inex">
+                      </div><br/>
+                      <div class="exl">aaa<br/> aaa </div>
+                      
+                      
+                  </div> -->
+                 
+                 
+                 
+              </div>
+          </div>
+         
+          
+      </div>
+        <!--rec-->
+        <div class="rec"> 
+          <h1 style="color: black; margin: 10px;"> Exams </h1>
+          <div  style="width: 97%; padding: 10ox; text-align:center; z-index: 100; border: 1px solid #1c6413; margin: 12px; margin-right: 21px; padding: 12px; vertical-align: bottom; background-color: f8f8ff;">
+            
+            
+            <div class="demo">
+              <div class="dropdown-container" >
+                <select id="dropmatier">
+                  <option value="1">Math</option>
+                </select>
+                <div class="select-icon">
+                  <svg focusable="false" viewBox="0 0 104 128" width="25" height="35" class="icon">
+                    <path d="m2e1 95a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 1 9 9zm0-3e1a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 1 9 9zm0-3e1a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 1 9 9zm14 55h68v1e1h-68zm0-3e1h68v1e1h-68zm0-3e1h68v1e1h-68z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo">
+              <div class="dropdown-container">
+                <select id="dropfilier">
+                  <option value="1">TDR</option>
+
+                </select>
+                <div class="select-icon">
+                  <svg focusable="false" viewBox="0 0 104 128" width="25" height="35" class="icon">
+                    <path d="m2e1 95a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 1 9 9zm0-3e1a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 1 9 9zm0-3e1a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 1 9 9zm14 55h68v1e1h-68zm0-3e1h68v1e1h-68zm0-3e1h68v1e1h-68z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="button_su " style="margin: auto;" id="switchexcel">
+              <span class="su_button_circle">
+              </span>
+              <a href="#" class="button_su_inner">
+                <span class="button_text_container" id="switchexcelval">
+                  Excel
+                </span>
+              </a>
+            </div>
+            <br>
+
+            <div class="questadd">
+            <div class="form__group field" style="display: block; margin-bottom: 21px;">
+              <input type="input" class="form__field" placeholder="Question" name="Question" id='Questionval' required style="margin: auto; display: block;" />
+              <label for="name" class="form__label">Question</label>
+            </div>
+            <div class="form__group field" style="margin-bottom: 21px;">
+              <input type="input" class="form__field1" placeholder="Reponse" name="Reponse" id='Reponse1val' required style="margin: auto; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 12px;" />
+              <label class="switch">
+                <input type="checkbox" checked id='Reponse1valch'>
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="form__group field" style="margin-bottom: 21px;">
+              <input type="input" class="form__field1" placeholder="Reponse" name="Reponse" id='Reponse2val' required style="margin: auto; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 12px;" />
+              <label class="switch">
+                <input type="checkbox" id='Reponse2valch'>
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="form__group field" style="margin-bottom: 21px;"> 
+              <input type="input" class="form__field1" placeholder="Reponse" name="Reponse" id='Reponse3val'  style="margin: auto; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 12px;" />
+              <label class="switch">
+                <input type="checkbox" id='Reponse3valch'>
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="form__group field" style="margin-bottom: 21px;">
+              <input type="input" class="form__field1" placeholder="Reponse" name="Reponse" id='Reponse4val'  style="margin: auto; margin-left: 10px;  margin-right: 10px; margin-top: 10px; margin-bottom: 12px;" />
+              <label class="switch">
+                <input type="checkbox" id='Reponse4valch'>
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <br>
+            <div class="button_su " style="margin-top: 21px; z-index: 100;" id="saveques">
+              <span class="su_button_circle">
+              </span>
+              <a href="#" class="button_su_inner">
+                <span class="button_text_container">
+                 Save
+                </span>
+              </a>
+            </div>
+          </div>
+          <div style=" width: 100%; height: 450px; display: none;" class="excel">
+            <h1 style="color: black;"> Template </h1>
+            <img src="img/exece.png" style="width: 90%; height: 350px; display: block; margin: auto;">
+            <div class="button_su  execelget" style="margin-top: 21px; z-index: 100;">
+              <span class="su_button_circle">
+              </span>
+              <a href="#" class="button_su_inner">
+                <span class="button_text_container">
+                 upload
+                </span>
+              </a>
+            </div>
+          </div>
+
+          </div>
+          <div class="table-responsive-vertical shadow-z-1" style="margin-top:  20px;">
+            <!-- Table starts here -->
+            <table id="table" class="table table-hover table-mc-light-blue">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th style="width: 100%;">Question</th>
+                    <th>Filiere</th>
+                    <th>Matiere</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="tabqsny">
+                 
+                  
+                </tbody>
+              </table>
+            </div>
+        </div>
+        <div class="menu"> 
+          <div class="container2">
+            <div class="profile">
+                <img src="img/clt.png" style="height:70px;border-radius: 50%;     min-height: 150px;min-width: 150px;border: 10px solid #45a049;"  class="pfpi" id="pfpe1" >
+              </div>
+        
+            <div>
+          <form >
+            <label for="oldpass">Old Password</label>
+            <input type="password" id="oldP" name="oldpass" placeholder="Your  old password..">
+        
+            <label for="nvpass">Noveau Passoword</label>
+            <input type="password" id="newP" name="nvpass" placeholder="Your nouveau passoword..">
+        
+            <label for="confirmpass"> Confirme</label>
+            <input type="password" id="confirmP"  name="confirmpass" placeholder="confirme your passoword..">
+          
+            
+          </form>
+          <input type="button" value="Submit" class="editeconf" id="editeconf">
+          <input type="button" value="Logout" class="editeconf" id="logoutbtn">
+        </div>
+        <div id="message"></div>
+        </div>
+              <input type="file" class="fileget" style="display: none;">
+              <input type="file" class="fileget1" accept=".xls,.xlsx" style="display: none;" id="fileget1">
+              <input type="file" class="fileget2" style="display: none;" id="fileget2">
+        </div>
+        
+    
+</div>
+
+
+</body>
+</html>
