@@ -1,6 +1,6 @@
 <?php
-$idexam = $_POST['idexam'];
 $conn = mysqli_connect("localhost", "root", "", "isgiexams");
+$idexam = $conn->real_escape_string($_POST['idexam']);
 $data = array();
 $result = mysqli_query($conn, "SELECT AVG(note) as avrg FROM passed WHERE idbat = ".$idexam.";" );
 while ($row = mysqli_fetch_object($result))

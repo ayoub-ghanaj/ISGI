@@ -1,3 +1,4 @@
+// #BY AYOUB GHANAJ
 var end = false;
 
 function ontimer(){
@@ -231,7 +232,7 @@ $(document).ready(()=>{
     }
     checkersess();
     //console.log('done');
-    }, 7000);
+    }, 5000);
 
 str = document.cookie;
 str = str.split('; ');
@@ -279,12 +280,14 @@ for (let i in str) {
         pass = "fail"
       }
       dbaddpass(username,idbatat,not,pass).then((data)=>{
-        document.cookie = 'batch=null;expires='+new Date(2020,11,13).toUTCString()+'';
-        document.cookie = 'exam=null;expires='+new Date(2020,11,13).toUTCString()+'';
           if(data == '1'){     
-            console.log("kain")
-            wait(10);
-           // window.location.href = "login.html";
+            document.cookie = 'batch=null;expires='+new Date(2020,11,13).toUTCString()+'';
+            document.cookie = 'exam=null;expires='+new Date(2020,11,13).toUTCString()+'';
+            document.cookie = 'done=true;expires='+new Date(2023,11,13).toUTCString()+'';
+            console.log("kain");
+            wait(0.5);
+            //alert("Bye")
+            window.close();
           }
           })
       //console.log(idbatat + ' / ' + not + " / " + ( nbtheqsn/2 <= not) +" /" +  username  )
@@ -299,8 +302,7 @@ for (let i in str) {
         });
         document.cookie = 'batch=null;expires='+new Date(2020,11,13).toUTCString()+'';
         document.cookie = 'exam=null;expires='+new Date(2020,11,13).toUTCString()+'';
-        wait(10);
-        //window.close();
+        
       }
     //$("#conts").hide();
     //$("#restt").show();
@@ -459,4 +461,11 @@ function dbaddpass(username1,idbat1,note1,pass1) {
           }
       });
   });
+}
+function wait(sec) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < sec*1000);
 }

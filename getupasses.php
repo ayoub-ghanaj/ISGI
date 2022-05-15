@@ -1,7 +1,7 @@
 <?php
 $username = $_POST['username'];
 $conn = mysqli_connect("localhost", "root", "", "isgiexams");
-$result = mysqli_query($conn, "SELECT * FROM passed WHERE username = '$username';" );
+$result = mysqli_query($conn, "SELECT * FROM passed WHERE username = '$username' ORDER BY datepassed DESC;" );
 $data = array();
 while ($row = mysqli_fetch_object($result))
 {

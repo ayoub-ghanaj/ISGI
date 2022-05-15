@@ -1,4 +1,5 @@
 
+// #BY AYOUB GHANAJ
 $(function() {
     $("li").click(function(e) {
       e.preventDefault();
@@ -204,6 +205,17 @@ $(function() {
 var str;
 const result = {};
 $(document).ready(()=>{
+    $('#pfpe1').click(function(){ 
+        $('.fileget').trigger('click');
+     });
+     $('.fileget').change(()=>{
+        console.log(username + "mchat");
+        file = $('.fileget')[0].files;
+        dbimgupdate().then((data)=>{
+            console.log(data);  
+        })
+        //console.log(file);
+     });
     $("#logoutbtn").click(()=>{
         dblogout(result.code+"=").then((data)=>{
             document.cookie = 'trader=null;time=2020;expires='+new Date(2020,11,13).toUTCString()+'';
@@ -237,7 +249,15 @@ $(document).ready(()=>{
                 let decrypted = CryptoJS.AES.decrypt(code.toString(),result.trader);
                 let plaintext = decrypted.toString(CryptoJS.enc.Utf8);
                 username = plaintext;
-
+                dbimg(username).then((data)=>{
+                    let datj = JSON.parse(data);
+                    //console.log(datj[0])
+                    if(datj.length >0){
+                        $("#pfpe").attr("src", "uploads/"+datj[0].link);
+                        $("#pfpe1").attr("src", "uploads/"+datj[0].link);
+                        $("#rela").attr('href', "uploads/"+datj[0].link);
+                    }
+                });
 
 
                 console.log(username);
@@ -282,8 +302,12 @@ $(document).ready(()=>{
                         
                     }
                     checkersess();
+                    if(result.done == "true"){
+                        location.reload(true);
+                        document.cookie = 'done=false;expires='+new Date(2020,11,13).toUTCString()+'';
+                    }
                     //console.log('done');
-                    }, 7000);
+                    }, 1000);
                 }}
                 )
             }
@@ -460,5 +484,50 @@ function getmypasses() {
                 reject(err) // Reject the promise and go to catch()
             }
         });
+    });
+}
+function dbimg(usernamee) {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "imgget.php",
+            data: {
+                "username": usernamee
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
+function dbimgupdate() {
+
+    return new Promise(function(resolve, reject) {
+        if(file.length > 0){
+            let form_data = new FormData();
+            form_data.append('username', username);
+            form_data.append('my_image', file[0]);
+            $.ajax({
+                url: 'imgupload.php',
+                type: 'post',
+                data: form_data,
+                contentType: false,
+                processData: false,
+                success: function(res){
+                    resolve(res)
+                },
+                error: function(err) {
+                    //console.log(err)
+                    reject(err) // Reject the promise and go to catch()
+                }
+            });
+         
+        }else {
+           $("#errorMs").text("Please select an image.");
+        }
     });
 }

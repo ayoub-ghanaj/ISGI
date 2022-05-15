@@ -1,6 +1,7 @@
 <?php
-$username  = $_POST['username'];
 $conn = mysqli_connect("localhost", "root", "", "isgiexams");
+$username  = $conn->real_escape_string($_POST['username']);
+
 $result = mysqli_query($conn, "SELECT COUNT(batchexam.idbat) as counts from batchexam where batchexam.username = \"".$username."\" ");
 $data = array();
 while ($row = mysqli_fetch_object($result))

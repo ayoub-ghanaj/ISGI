@@ -162,6 +162,8 @@ $(function() {
       $(".create").hide();
       $(".menu").hide();
       $(".imgen").hide();
+      $(".maimgtxt").hide();
+      $(".maflie").hide();
       $(".logo").click(()=>{
           if(igo){
               igo = false;
@@ -198,6 +200,8 @@ $(function() {
             $(".eleves").hide();
             $(".rec").hide();
             $(".menu").hide();
+            $(".maimgtxt").hide();
+            $(".maflie").hide();
             $(".create").hide();
             $(".imgen").hide();
         })
@@ -207,6 +211,8 @@ $(function() {
             $(".rec").hide();
             $(".menu").hide();
             $(".create").hide();
+            $(".maimgtxt").hide();
+            $(".maflie").hide();
             $(".imgen").hide();
         })
         $("#rec").click(()=>{
@@ -214,6 +220,8 @@ $(function() {
             $(".eleves").hide();
             $(".rec").show();
             $(".menu").hide();
+            $(".maimgtxt").hide();
+            $(".maflie").hide();
             $(".create").hide();
             $(".imgen").hide();
         })
@@ -221,14 +229,18 @@ $(function() {
             $(".home").hide();
             $(".eleves").hide();
             $(".rec").hide();
+            $(".maimgtxt").hide();
+            $(".maflie").hide();
             $(".menu").show();
             $(".create").hide();
             $(".imgen").hide();
         })
-        $("#pfp1").click(()=>{
+        $("#pfpe").click(()=>{
             $(".home").hide();
             $(".eleves").hide();
             $(".rec").hide();
+            $(".maimgtxt").hide();
+            $(".maflie").hide();
             $(".menu").show();
             $(".create").hide();
             $(".imgen").hide();
@@ -239,6 +251,8 @@ $(function() {
             $(".rec").hide();
             $(".menu").hide();
             $(".create").show();
+            $(".maimgtxt").hide();
+            $(".maflie").hide();
             $(".imgen").hide();
         });
         $("#imgen").click(()=>{
@@ -247,7 +261,30 @@ $(function() {
             $(".rec").hide();
             $(".menu").hide();
             $(".create").hide();
+            $(".maimgtxt").hide();
+            $(".maflie").hide();
             $(".imgen").show();
+        });
+        $("#maflie").click(()=>{
+            $(".home").hide();
+            $(".eleves").hide();
+            $(".rec").hide();
+            $(".menu").hide();
+            $(".create").hide();
+            $(".imgen").hide(); 
+            $(".maimgtxt").hide();
+            $(".maflie").show();
+           
+        });
+        $("#maimgtxt").click(()=>{
+            $(".home").hide();
+            $(".eleves").hide();
+            $(".rec").hide();
+            $(".menu").hide();
+            $(".create").hide();
+            $(".imgen").hide();
+            $(".maflie").hide();
+            $(".maimgtxt").show();
         });
         $("#closeoverlap").click(()=>{
             $("#overlapclass").hide();
@@ -662,6 +699,29 @@ $(document).ready(()=>{
 
     });
 
+    $("#MATBTNADD").click(()=>{
+        let matiere = $("#matieradded").val();
+        addmatier(matiere).then((data)=>{
+            //console.log(data);
+            if(data == '1'){
+                console.log("matiere ajouté")
+            }else{
+                alert("matiere existe déja")
+            }
+        })
+    })
+    $("#FIBTNADD").click(()=>{
+        let filiere = $("#filieradded").val();
+        addfiler(filiere).then((data)=>{
+            //console.log(data);
+            if(data == '1'){
+                console.log("filiere ajouté")
+            }else{
+                alert("filiere existe déja")
+            }
+        })
+    })
+
     $('.fileget1').change(()=>{
         let filer =  document.getElementById("fileget1").files[0];
         if(filer){
@@ -840,7 +900,7 @@ $(document).ready(()=>{
                     }
                     checkersess();
                     //console.log('done');
-                    }, 7000);
+                    }, 5000);
                 //when confirmed u exist 
                 $("#dropmatier").empty();
                 $("#dropfilier").empty();
@@ -853,16 +913,21 @@ $(document).ready(()=>{
                     if(datj.length >0){
                         $("#pfpe").attr("src", "uploads/"+datj[0].link);
                         $("#pfpe1").attr("src", "uploads/"+datj[0].link);
+                        $("#rela").attr('href', "uploads/"+datj[0].link);
                     }
                 });
 
                 dbmatier().then((data)=>{
                     $("#dropmatier").empty();
+                    $("#dropmatier6").empty();
                     $("#dropmatier1").empty();
                     $("#dropmatier2").empty();
                     $("#dropitM").empty();
                     let datamat = JSON.parse(data);
                     $("#dropmatier").append(`
+                    <option value="" style="display:none;" disabled selected>Matiere</option>
+                    `);
+                    $("#dropmatier6").append(`
                     <option value="" style="display:none;" disabled selected>Matiere</option>
                     `);
                     $("#dropitM").append(`
@@ -876,6 +941,9 @@ $(document).ready(()=>{
                     `);
                     for(let i = 0 ; i<datamat.length;i++){
                         $("#dropmatier").append(`
+                        <option value="${datamat[i].idm}">${datamat[i].nom}</option>
+                        `);
+                        $("#dropmatier6").append(`
                         <option value="${datamat[i].idm}">${datamat[i].nom}</option>
                         `);
                         $("#dropitM").append(`
@@ -893,9 +961,13 @@ $(document).ready(()=>{
                     $("#dropfilier").empty();
                     $("#dropfilier1").empty();
                     $("#dropfilier2").empty();
+                    $("#dropfilier6").empty();
                     $("#dropitF").empty();
                     let datamat = JSON.parse(data);
                     $("#dropfilier").append(`
+                        <option value="" style="display:none;" disabled selected>Filier</option>
+                        `);
+                        $("#dropfilier6").append(`
                         <option value="" style="display:none;" disabled selected>Filier</option>
                         `);
                         $("#dropitF").append(`
@@ -909,6 +981,9 @@ $(document).ready(()=>{
                         `);
                     for(let i = 0 ; i<datamat.length;i++){
                         $("#dropfilier").append(`
+                        <option value="${datamat[i].idf}">${datamat[i].nom}</option>
+                        `);
+                        $("#dropfilier6").append(`
                         <option value="${datamat[i].idf}">${datamat[i].nom}</option>
                         `);
                         $("#dropitF").append(`
@@ -1191,7 +1266,7 @@ $(document).ready(()=>{
                                       </div>                
                                     </td>
                                     <td data-column="Policy status" class="table-row__td">
-                                      <p class="table-row__p-status ">${dbpass[j].matiere}</p>
+                                      <p class="table-row__p-status ">${dbpass[j].matier}</p>
                                     </td>
                                     <td data-column="Destination" class="table-row__td">
                                       ${dbpass[j].note}
@@ -1210,6 +1285,14 @@ $(document).ready(()=>{
                                     </td>
                                   </tr>
                                                     `).insertAfter(`#tbody${databd[i].idbat}`);
+                                                    dbimg(dbpass[j].username).then((data)=>{
+                                                        let datj = JSON.parse(data);
+                                                        //console.log(datj[0])
+                                                        if(datj.length >0){
+                                                            $(`#pfpel${dbpass[j].idpass}`).attr("src", "uploads/"+datj[0].link);
+                                                        }else{
+                                                        }
+                                                    });
                                                     $(`#deletele${dbpass[j].idpass}`).click(()=>{
                                                         $(`#eleves${dbpass[j].idpass}`).hide();
                                                        // alert("r we there yet ?")
@@ -1914,4 +1997,133 @@ function baremcheck() {
         baremecount += parseInt($(`#thet${alltxtsselected[i]}`).val());
     }
     //alert(baremecount);
+}
+
+
+$(document).ready(()=>{
+
+      
+      $('.tab2 a').on('click', function (e) {
+        
+        e.preventDefault(); 
+        $(this).parent().addClass('active');
+        $(this).parent().siblings().removeClass('active');
+        
+        target = $(this).attr('href');
+      
+        $('.tab-content3 > div').not(target).hide();
+        
+        $(target).fadeIn(600);
+        
+      });
+    
+    
+
+
+      document.querySelector("html").classList.add('js');
+
+      var fileInput  = document.querySelector( ".input-file" ),  
+          button     = document.querySelector( ".input-file-trigger" ),
+          the_return = document.querySelector(".file-return");
+            
+      button.addEventListener( "keydown", function( event ) {  
+          if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+              fileInput.focus();  
+          }  
+      });
+      button.addEventListener( "click", function( event ) {
+         fileInput.focus();
+         return false;
+      });  
+      fileInput.addEventListener( "change", function( event ) {  
+          the_return.innerHTML = this.value;  
+      });  
+      
+      
+      
+      
+      
+      $('.form').find('input, textarea').on('keyup blur focus', function (e) {
+        
+          var $this = $(this),
+              label = $this.prev('label');
+        
+              if (e.type === 'keyup') {
+                    if ($this.val() === '') {
+                  label.removeClass('active highlight');
+                } else {
+                  label.addClass('active highlight');
+                }
+            } else if (e.type === 'blur') {
+                if( $this.val() === '' ) {
+                    label.removeClass('active highlight'); 
+                    } else {
+                    label.removeClass('highlight');   
+                    }   
+            } else if (e.type === 'focus') {
+              
+              if( $this.val() === '' ) {
+                    label.removeClass('highlight'); 
+                    } 
+              else if( $this.val() !== '' ) {
+                    label.addClass('highlight');
+                    }
+            }
+        
+        });
+        
+        $('.tab a').on('click', function (e) {
+          
+          e.preventDefault();
+          
+          $(this).parent().addClass('active');
+          $(this).parent().siblings().removeClass('active');
+          
+          target = $(this).attr('href');
+        
+          $('.tab-content > div').not(target).hide();
+          
+          $(target).fadeIn(600);
+          
+        });
+
+
+
+
+});
+function addmatier(mat) {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "matadd.php",
+            data: {
+                "mat": mat
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
+function addfiler(fil) {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "filadd.php",
+            data: {
+                "fil": fil
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
 }
