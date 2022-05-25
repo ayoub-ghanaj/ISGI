@@ -184,9 +184,9 @@ $(function() {
          $('.fileget').change(()=>{
             file = $('.fileget')[0].files;
             dbimgupdate().then((data)=>{
-                //console.log(data);  
+                //////console.log(data);  
             })
-            //console.log(file);
+            //////console.log(file);
          });
          $("#headerport").click(()=>{
             $('.fileget2').trigger('click');
@@ -465,7 +465,7 @@ jQuery.fn.removeClass = function( value ) {
                     resolve(data) // Resolve promise and go to then()
                 },
                 error: function(err) {
-                    //console.log(err)
+                    //////console.log(err)
                     reject(err) // Reject the promise and go to catch()
                 }
             });
@@ -482,7 +482,7 @@ jQuery.fn.removeClass = function( value ) {
                     resolve(data) // Resolve promise and go to then()
                 },
                 error: function(err) {
-                   // console.log(err)
+                   // ////console.log(err)
                     reject(err) // Reject the promise and go to catch()
                 }
             });
@@ -501,7 +501,7 @@ jQuery.fn.removeClass = function( value ) {
                     resolve(data) // Resolve promise and go to then()
                 },
                 error: function(err) {
-                    //console.log(err)
+                    //////console.log(err)
                     reject(err) // Reject the promise and go to catch()
                 }
             });
@@ -527,7 +527,7 @@ jQuery.fn.removeClass = function( value ) {
                     resolve(data) // Resolve promise and go to then()
                 },
                 error: function(err) {
-                    //console.log("err")
+                    //////console.log("err")
                     reject(err) // Reject the promise and go to catch()
                 }
             });
@@ -547,7 +547,7 @@ jQuery.fn.removeClass = function( value ) {
                     resolve(data) // Resolve promise and go to then()
                 },
                 error: function(err) {
-                    //console.log(err)
+                    //////console.log(err)
                     reject(err) // Reject the promise and go to catch()
                 }
             });
@@ -576,9 +576,9 @@ jQuery.fn.removeClass = function( value ) {
             window.location.href = "login.html";
         }
         if(result.trader != undefined && result.code != undefined){
-           // console.log(result.trader + " / " + result.code )
+           // ////console.log(result.trader + " / " + result.code )
             dbexistsess(result.code+"=").then((data)=>{
-                //console.log(data);
+                //////console.log(data);
                 if(JSON.parse(data)[0].existad == '1' ){
 
                 }else{
@@ -602,23 +602,44 @@ jQuery.fn.removeClass = function( value ) {
     var batch = [];
     var idbat;
 $(document).ready(()=>{
-    $("#countbarqsn").click(()=>{
-        baremcheck();
-       // alert(baremecount)
-        if(baremecount == $("#dropinq").val()){
-        window.print();
+    $("#AjoutTXTBTN").click(()=>{
+        let filiere= $("#dropfilier6").val();
+        let matiere= $("#dropmatier6").val();
+        let TXT = $("#TXTEXER").val();
+        TXT = TXT.replace(/\n/g, "<br>");
+        if(matiere !=null && filiere !=null && TXT !=""){
+            addtextexer(filiere,matiere,TXT).then((data)=>{
+                ////console.log(data);
+                if(data == "1"){
+                    alert("Ajout avec succes");
+                    $("#TXTEXER").val("");
+                }
+            }) 
         }
-        else{
-            alert("reparais le baremes")
-        }
-    })
+    });
+    $("#AjoutIMGBTN").click(()=>{
+        let filiere= $("#dropfilier6").val();
+        let matiere= $("#dropmatier6").val();
+        let IMG = $("#IMGEXER").val();
+    });
+
+    // $("#countbarqsn").click(()=>{
+    //     baremcheck();
+    //    // alert(baremecount)
+    //     if(baremecount == $("#dropinq").val()){
+    //     window.print();
+    //     }
+    //     else{
+    //         alert("reparais le baremes")
+    //     }
+    // })
 
     $("#dropitF").change(()=>{
-        getemxams();
+        getrandydata();
     })
 
     $("#dropitM").change(()=>{
-        getemxams();
+        getrandydata();
     })
 
     $("#maingen").click(()=>{
@@ -628,13 +649,13 @@ $(document).ready(()=>{
         let matiere = $("#dropmatier2").val();
         let filiere = $("#dropfilier2").val();
         let counter = 5 // parseInt($("#countquest").val());
-        //console.log(idbat);
+        //////console.log(idbat);
         if(variant && matiere &&  filiere && counter){
         dbbatch(idbat,matiere,filiere,'').then((data)=>{
-            // console.log("batch dart" + idbat)
-            // console.log(data);
+            // ////console.log("batch dart" + idbat)
+            // ////console.log(data);
             
-        //console.log(variant+ " / "+matiere + " / " + filiere +" / " + counter );
+        //////console.log(variant+ " / "+matiere + " / " + filiere +" / " + counter );
         if(variant && matiere &&  filiere && counter){
             for(let t = 0 ; t<= variant ; t++){
             dbloaded(matiere,filiere).then((data)=>{
@@ -650,7 +671,7 @@ $(document).ready(()=>{
                         } else {
                             arrdm.push(rd);
                             arrqes.push(datap[rd]);
-                            //console.log(datap[rd]);
+                            //////console.log(datap[rd]);
                         }
                     }
                     arrqesidq = [];
@@ -662,18 +683,18 @@ $(document).ready(()=>{
                 
                 
                 dbqesn(idxm,JSON.stringify({"code" : arrqesidq}) , (t+1),idbat).then((data)=>{
-                    console.log(data);
+                    ////console.log(data);
                     if(data != '1'){
                         t-=1;
                     }else{
                         
                         batch.push(idxm);
-                        //console.log(t +" / "+ batch.length)
+                        //////console.log(t +" / "+ batch.length)
                         if(batch.length == variant){
                            // alert(variant)
                         
                             dbupbatch(idbat,variant,JSON.stringify({"exams": batch})).then((data)=>{
-                                console.log(data);
+                                ////console.log(data);
                                 document.cookie = 'batch='+idbat+';expires='+new Date(2026,11,13).toUTCString()+'';
 
                                 showbat(idbat);
@@ -702,9 +723,9 @@ $(document).ready(()=>{
     $("#MATBTNADD").click(()=>{
         let matiere = $("#matieradded").val();
         addmatier(matiere).then((data)=>{
-            //console.log(data);
+            //////console.log(data);
             if(data == '1'){
-                console.log("matiere ajouté")
+                ////console.log("matiere ajouté")
             }else{
                 alert("matiere existe déja")
             }
@@ -713,9 +734,9 @@ $(document).ready(()=>{
     $("#FIBTNADD").click(()=>{
         let filiere = $("#filieradded").val();
         addfiler(filiere).then((data)=>{
-            //console.log(data);
+            //////console.log(data);
             if(data == '1'){
-                console.log("filiere ajouté")
+                ////console.log("filiere ajouté")
             }else{
                 alert("filiere existe déja")
             }
@@ -733,7 +754,7 @@ $(document).ready(()=>{
                 
                 workbook.SheetNames.forEach(sheet =>{
                     let rowObject = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheet]);
-                    //console.log(rowObject);
+                    //////console.log(rowObject);
                     //document.getElementById("jsondata").innerHTML = JSON.stringify(rowObject,undefined,4)
 
                     for(let i = 0 ; i < rowObject.length;i++){
@@ -784,10 +805,10 @@ $(document).ready(()=>{
                         }
                         if(mat != null && fil != null && rowObject[i].question){
                             sendquesman(ques,res1,res2,res3,res4,res1v,res2v,res3v,res4v,mat,fil).then((data)=>{
-                               //console.log(data);
+                               //////console.log(data);
                             });
                         }else{
-                           // console.log(ques+ " / " +res1+ " / " +res2+ " / " +res3+ " / " +res4+ " / " +res1v+ " / " +res2v+ " / " +res3v+ " / " +res4v)
+                           // ////console.log(ques+ " / " +res1+ " / " +res2+ " / " +res3+ " / " +res4+ " / " +res1v+ " / " +res2v+ " / " +res3v+ " / " +res4v)
                         }
                     }
                 })
@@ -799,7 +820,7 @@ $(document).ready(()=>{
          let oldpass = $("#oldP").val();
          let newpass =  $("#newP").val();
          dbeditpass(oldpass,newpass).then((data)=>{
-            // console.log(data);
+            // ////console.log(data);
          }) 
      });
 
@@ -837,7 +858,7 @@ $(document).ready(()=>{
         }
         if(mat != null && fil != null){
             sendquesman(ques,res1,res2,res3,res4,res1v,res2v,res3v,res4v,mat,fil).then((data)=>{
-              //console.log(data);
+              //////console.log(data);
             });
         }else{
             alert("sti group")
@@ -876,16 +897,16 @@ $(document).ready(()=>{
         window.location.href = "login.html";
     }
     if(result.trader != undefined && result.code != undefined){
-        //console.log(result.trader + " / " + result.code )
+        //////console.log(result.trader + " / " + result.code )
         dbexistsess(result.code+"=").then((data)=>{
-            //console.log(data);
+            //////console.log(data);
             if(JSON.parse(data)[0].existad == '1' ){
 
                 code = result.code+"=";
                 let decrypted = CryptoJS.AES.decrypt(code.toString(),result.trader);
                 let plaintext = decrypted.toString(CryptoJS.enc.Utf8);
                 username = plaintext; 
-               // console.log(username);
+               // //console.log(username);
                ;
 
                 setInterval(function(){
@@ -899,7 +920,7 @@ $(document).ready(()=>{
                         
                     }
                     checkersess();
-                    //console.log('done');
+                    ////console.log('done');
                     }, 5000);
                 //when confirmed u exist 
                 $("#dropmatier").empty();
@@ -909,7 +930,7 @@ $(document).ready(()=>{
 
                 dbimg(username).then((data)=>{
                     let datj = JSON.parse(data);
-                    //console.log(datj[0])
+                    ////console.log(datj[0])
                     if(datj.length >0){
                         $("#pfpe").attr("src", "uploads/"+datj[0].link);
                         $("#pfpe1").attr("src", "uploads/"+datj[0].link);
@@ -998,12 +1019,12 @@ $(document).ready(()=>{
                     }
                 });
                 dbcounters().then((data)=>{
-                   // console.log(data);
+                   // //console.log(data);
                     let datamat = JSON.parse(data);
-                    //console.log(datamat);
+                    ////console.log(datamat);
                     $("#valc1").text(datamat[0].counts);
                     $("#valc2").text(datamat[1].counts);
-                    //console.log( datamat[1].counts + " / " + datamat[2].counts )
+                    ////console.log( datamat[1].counts + " / " + datamat[2].counts )
                     let i = datamat[2].counts / datamat[1].counts * 100
                     i = i + "";
                     i = i.toString().substring(0, 5) ;
@@ -1015,7 +1036,7 @@ $(document).ready(()=>{
                 });
                 getmyques().then((data)=>{
                     let dadata = JSON.parse(data);
-                    //console.log(dadata);
+                    ////console.log(dadata);
                     for(let k=0 ; k< dadata.length ; k++){
                         $("#tabqsny").append(`
                         <tr>
@@ -1043,7 +1064,7 @@ $(document).ready(()=>{
                     }
                 })
                 dbexam().then((data)=>{ 
-                    //console.log(data)
+                    ////console.log(data)
                     let databd = JSON.parse(data);
                    
                     if(databd.length >= 0){
@@ -1074,8 +1095,8 @@ $(document).ready(()=>{
                             showen.push({ "id" :databd[i].idbat , "val" : true });
                             let len = showen.length;
                             dbavgxam(databd[i].idbat).then((data)=>{
-                                    //console.log(JSON.parse(data));
-                                   // console.log(databd);
+                                    ////console.log(JSON.parse(data));
+                                   // //console.log(databd);
                                     if(JSON.parse(data)[1].dub == null){
                                         dub = '----';
                                     }else{
@@ -1181,10 +1202,10 @@ $(document).ready(()=>{
                                               </div>
                                             </div>
                                         `).insertAfter(`#table${databd[i].idbat}`);
-                                        //console.log(data);
+                                        ////console.log(data);
                                         let dbpass = {};
                                         dbpass = JSON.parse(data);
-                                        //console.log(dbpass)
+                                        ////console.log(dbpass)
                                         for(let j = 0; j< dbpass.length ; j++){
                                            
                                             if(dbpass[j].result == "pass"){
@@ -1231,7 +1252,7 @@ $(document).ready(()=>{
                                                     `).insertAfter(`#tbody${databd[i].idbat}`);
                                                     dbimg(dbpass[j].username).then((data)=>{
                                                         let datj = JSON.parse(data);
-                                                        //console.log(datj[0])
+                                                        ////console.log(datj[0])
                                                         if(datj.length >0){
                                                             $(`#pfpel${dbpass[j].idpass}`).attr("src", "uploads/"+datj[0].link);
                                                         }else{
@@ -1242,7 +1263,7 @@ $(document).ready(()=>{
                                                         $(`#eleves${dbpass[j].idpass}`).hide();
                                                         //alert("r we there yet ?")
                                                         dbdelpass(dbpass[j].idpass).then((data)=>{
-                                                            //console.log(data);
+                                                            ////console.log(data);
                                                         })
 
                                                     })
@@ -1287,7 +1308,7 @@ $(document).ready(()=>{
                                                     `).insertAfter(`#tbody${databd[i].idbat}`);
                                                     dbimg(dbpass[j].username).then((data)=>{
                                                         let datj = JSON.parse(data);
-                                                        //console.log(datj[0])
+                                                        ////console.log(datj[0])
                                                         if(datj.length >0){
                                                             $(`#pfpel${dbpass[j].idpass}`).attr("src", "uploads/"+datj[0].link);
                                                         }else{
@@ -1297,7 +1318,7 @@ $(document).ready(()=>{
                                                         $(`#eleves${dbpass[j].idpass}`).hide();
                                                        // alert("r we there yet ?")
                                                         dbdelpass(dbpass[j].idpass).then((data)=>{
-                                                            //console.log(data);
+                                                            ////console.log(data);
                                                         })
 
                                                     })
@@ -1306,7 +1327,7 @@ $(document).ready(()=>{
                                         }
                                         if(i==0){
                                             for(let t = 0 ; t <showen.length;t++ ){
-                                                //console.log(showen);alert( " / " +    t);
+                                                ////console.log(showen);alert( " / " +    t);
                                                 $(`#tabler${showen[t].id}`).click(()=>{
                                                     
                                                     
@@ -1318,7 +1339,7 @@ $(document).ready(()=>{
                                                         $(`#ele${showen[t].id}`).hide();
                                                     }
                                                     
-                                                    //console.log(showen)
+                                                    ////console.log(showen)
                                                 })
                                             }
                                         }
@@ -1356,7 +1377,7 @@ function dbexistsess(sess) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1375,7 +1396,7 @@ function dblogout(sess) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-                //console.log(err)
+                ////console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1394,7 +1415,7 @@ function dbdelpass(idpass) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-                //console.log(err)
+                ////console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1413,7 +1434,7 @@ function dbexam() {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1432,7 +1453,7 @@ function dbimg(usernamee) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1451,7 +1472,7 @@ function dbpasses(exm) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1470,7 +1491,7 @@ function dbavgxam(id) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1488,7 +1509,7 @@ function dbpercentdb(id) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1518,7 +1539,7 @@ function dbimgupdate() {
                     resolve(res)
                 },
                 error: function(err) {
-                    //console.log(err)
+                    ////console.log(err)
                     reject(err) // Reject the promise and go to catch()
                 }
             });
@@ -1531,7 +1552,7 @@ function dbimgupdate() {
 function sendquesman(ques,res1,res2,res3,res4,res1v,res2v,res3v,res4v,mat,fil) {
 
     return new Promise(function(resolve, reject) {
-        //console.log("machat")
+        ////console.log("machat")
         $.ajax({
             url: 'addques.php',
             type: 'post',
@@ -1553,7 +1574,7 @@ function sendquesman(ques,res1,res2,res3,res4,res1v,res2v,res3v,res4v,mat,fil) {
                 resolve(res)
             },
             error: function(err) {
-                //console.log(err)
+                ////console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1574,7 +1595,7 @@ function dbeditpass(old , newpass) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1603,7 +1624,7 @@ function dbbatch(idbat,mat,fil,jsn) {
                     resolve(res)
                 },
                 error: function(err) {
-                    //console.log(err)
+                    ////console.log(err)
                     reject(err) // Reject the promise and go to catch()
                 }
             });
@@ -1626,7 +1647,7 @@ function dbbatch(idbat,mat,fil,jsn) {
                     resolve(res)
                 },
                 error: function(err) {
-                    //console.log(err)
+                    ////console.log(err)
                     reject(err) // Reject the promise and go to catch()
                 }
             });
@@ -1651,7 +1672,7 @@ function dbupbatch(idbat,count,jsn) {
                 resolve(res)
             },
             error: function(err) {
-                //console.log(err)
+                ////console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1671,7 +1692,7 @@ function dbseexm(exam) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1690,7 +1711,7 @@ function dbseebatch(batch) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1705,7 +1726,7 @@ function showbat(idbat){
     $("#overhead").text("Variants");
     $("#tablebatch").empty();
         let exams = JSON.parse(jsn[0].code).exams;
-        //console.log(exams);
+        ////console.log(exams);
         for(let i = 0 ; i<exams.length ; i++){
             $("#tablebatch").append(`
             <tr>
@@ -1729,7 +1750,7 @@ function showbat(idbat){
             `);
             $(`#show${exams[i]}`).click(()=>{
                //alert("wow" + exams[i])
-               console.log(exams[i]);
+               //console.log(exams[i]);
                 document.cookie = 'exam='+exams[i]+';expires='+new Date(2026,11,13).toUTCString()+'';
                 window.open('http://localhost:90/EFF/Project/quiz.html');
             })
@@ -1759,7 +1780,7 @@ function getmyques() {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1778,7 +1799,7 @@ function getmychoi(idqsnt) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1788,9 +1809,9 @@ function getmychoi(idqsnt) {
 function gettheques(idqsn){
     
     getmychoi(idqsn).then((data)=>{
-        //console.log(data)
+        ////console.log(data)
         let jsn = JSON.parse(data);
-        //console.log(jsn);
+        ////console.log(jsn);
         $("#overlapclass1").show();
     $("#tablemchoix").empty();
         for(let i = 0 ; i<jsn.length ; i++){
@@ -1828,7 +1849,7 @@ function getimgqsn(idf,idm) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -1847,157 +1868,2519 @@ function gettxtqsn(idf,idm) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // //console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
     });
 }
-var allimgs = [];
-var allimgsselected = [];
-var alltxtsselected = [];
-function lookforqsn(text){
-    for(let i = 0 ; i<allimgsselected.length;i++){
-        if(allimgsselected[i]==text){
-            return true;
-        }
-    }
-    return false;
-}
-function lookfortxt(text){
-    for(let i = 0 ; i<alltxtsselected.length;i++){
-        if(alltxtsselected[i]==text){
-            return true;
-        }
-    }
-    return false;
-}
-var barremcont;
-function refreshthemimgs(){
-    $("#offiexam").empty();
-    console.log(allimgsselected);
-    for(let i = 0 ; i <allimgsselected.length;i++){
-        $("#offiexam").append(`
-        <div>
-            <div class="nprnt">
-            <h3 class="titlebr nprnt">Bareme:</h3>
+// var allimgs = [];
+// var allimgsselected = [];
+// var alltxtsselected = [];
+// function lookforqsn(text){
+//     for(let i = 0 ; i<allimgsselected.length;i++){
+//         if(allimgsselected[i]==text){
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+// function lookfortxt(text){
+//     for(let i = 0 ; i<alltxtsselected.length;i++){
+//         if(alltxtsselected[i]==text){
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+// var barremcont;
+// function refreshthemimgs(){
+//     $("#offiexam").empty();
+//     //console.log(allimgsselected);
+//     for(let i = 0 ; i <allimgsselected.length;i++){
+//         $("#offiexam").append(`
+//         <div>
+//             <div class="nprnt">
+//             <h3 class="titlebr nprnt">Bareme:</h3>
             
-            </div><input type="text" class="inex " id="the${allimgsselected[i]}"><br/>
-            <div class="exl"><img class="inint" id="img${allimgsselected[i]}" src="${$(`#${allimgsselected[i]}`).attr('src')}" alt=""> </div>
-            
-        
-        </div>
-        `);
-    }
-    for(let i = 0 ; i <alltxtsselected.length;i++){
-        $("#offiexam").append(`
-        <div>
-            <div class="nprnt">
-            <h3 class="titlebr ">Bareme:</h3>
-            
-            </div><input type="text" class="inex" id="thet${alltxtsselected[i]}"><br/>
-            <div class="exl inint1" id="text${alltxtsselected[i]}" > ${$(`#${alltxtsselected[i]}`).text()} </div>
+//             </div><input type="text" class="inex " id="the${allimgsselected[i]}"><br/>
+//             <div class="exl"><img class="inint" id="img${allimgsselected[i]}" src="${$(`#${allimgsselected[i]}`).attr('src')}" alt=""> </div>
             
         
-        </div>
-        `);
-    }
-}
+//         </div>
+//         `);
+//     }
+//     for(let i = 0 ; i <alltxtsselected.length;i++){
+//         $("#offiexam").append(`
+//         <div>
+//             <div class="nprnt">
+//             <h3 class="titlebr ">Bareme:</h3>
+            
+//             </div><input type="text" class="inex" id="thet${alltxtsselected[i]}"><br/>
+//             <div class="exl inint1" id="text${alltxtsselected[i]}" > ${$(`#${alltxtsselected[i]}`).text()} </div>
+            
+        
+//         </div>
+//         `);
+//     }
+// }
 
-function checknq() {
-    if(allimgsselected.length + alltxtsselected.length >3){
-        return false;
-    }else{
-        return true;
-    }
-}
+// function checknq() {
+//     if(allimgsselected.length + alltxtsselected.length >3){
+//         return false;
+//     }else{
+//         return true;
+//     }
+// }
 
-function getemxams() {
+
+
+// function getemxams() {
+//     let idf = $("#dropitF").val();
+//     let idm = $("#dropitM").val();
+//     if(idf != null && idm != null){
+//         $("#imgqsn").empty();
+//         $("#textqsn").empty();
+//         getimgqsn(idf,idm).then((data)=>{
+//            // //console.log(data);
+//             //console.log(JSON.parse(data));
+//             let imjsn = JSON.parse(data);
+//             for(let i =0;i<imjsn.length;i++){
+//                 //allimgs.push(`imgq${imjsn[i].idqmg}`);
+//                 // $("#imgqsn").append(`
+//                 // <img class="a" id="imgq${imjsn[i].idqmg}" src="imgqsn/${imjsn[i].curl}" alt="">
+//                 // `);
+//                 // $(`#imgq${imjsn[i].idqmg}`).click((event)=>{
+//                 //     //console.log(event.target.id);
+                   
+//                 //     if(lookforqsn(`imgq${imjsn[i].idqmg}`) ){
+//                 //     $(`#imgq${imjsn[i].idqmg}`).css("border","0px solid green");
+//                 //     allimgsselected = allimgsselected.filter(function(item) {
+//                 //         return item !== `imgq${imjsn[i].idqmg}`;
+//                 //     })
+//                 //     refreshthemimgs()
+//                 //     //allimgsselected.remove(`#imgq${imjsn[i].idqmg}`);
+//                 //     }else{
+//                 //         if(checknq()){
+//                 //         $(`#imgq${imjsn[i].idqmg}`).css("border","2px solid green");
+//                 //         allimgsselected.push(`imgq${imjsn[i].idqmg}`);
+//                 //         ////console.log(allimgsselected);   
+//                 //         refreshthemimgs();
+//                 //         }
+//                 //     }
+                
+//                 // });
+//             }
+//         })
+//         gettxtqsn(idf,idm).then((data)=>{
+//             ////console.log(data);
+//             //console.log(JSON.parse(data));
+//             let imjsn1 = JSON.parse(data);
+//             for(let i =0;i<imjsn1.length;i++){
+//                 // $("#textqsn").append(`
+//                 // <div class="divexamtext" id="textq${imjsn1[i].idqtxt}">
+//                 //     ${imjsn1[i].txt}
+//                 //  </div>
+//                 // `);
+//                 // $(`#textq${imjsn1[i].idqtxt}`).click((event)=>{
+//                 //     //console.log(event.target.id);
+//                 //     if(lookfortxt(`textq${imjsn1[i].idqtxt}`)){
+//                 //        // alert(`textq${imjsn1[i].idqtxt}`)
+//                 //     $(`#textq${imjsn1[i].idqtxt}`).css("border","2px solid black");
+//                 //     alltxtsselected = alltxtsselected.filter(function(item) {
+//                 //         return item !== `textq${imjsn1[i].idqtxt}`;
+//                 //     })
+//                 //     refreshthemimgs()
+//                 //     //allimgsselected.remove(`#imgq${imjsn[i].idqmg}`);
+//                 //     }else{
+//                 //         if(checknq()){
+//                 //         $(`#textq${imjsn1[i].idqtxt}`).css("border","2px solid green");
+//                 //         alltxtsselected.push(`textq${imjsn1[i].idqtxt}`);
+//                 //         //alert(`textq${imjsn1[i].idqtxt}`)
+//                 //         ////console.log(allimgsselected);  
+//                 //         refreshthemimgs();
+//                 //         }
+//                 //     }
+                
+//                 // });
+//             }
+//         })
+//     }
+// }
+var imgready=false;
+var txtready=false;
+var choisestxt = [] ;
+var choisesimg = [] ;
+var allimgs;
+var alltext;
+var qsns;
+function getrandydata(){
     let idf = $("#dropitF").val();
     let idm = $("#dropitM").val();
-    if(idf != null && idm != null){
-        $("#imgqsn").empty();
-        $("#textqsn").empty();
+    if(idf != null && idm != null ){
+
         getimgqsn(idf,idm).then((data)=>{
-           // console.log(data);
-            //console.log(JSON.parse(data));
-            let imjsn = JSON.parse(data);
-            for(let i =0;i<imjsn.length;i++){
-                allimgs.push(`imgq${imjsn[i].idqmg}`);
-                $("#imgqsn").append(`
-                <img class="a" id="imgq${imjsn[i].idqmg}" src="imgqsn/${imjsn[i].curl}" alt="">
-                `);
-                $(`#imgq${imjsn[i].idqmg}`).click((event)=>{
-                    console.log(event.target.id);
-                   
-                    if(lookforqsn(`imgq${imjsn[i].idqmg}`) ){
-                    $(`#imgq${imjsn[i].idqmg}`).css("border","0px solid green");
-                    allimgsselected = allimgsselected.filter(function(item) {
-                        return item !== `imgq${imjsn[i].idqmg}`;
-                    })
-                    refreshthemimgs()
-                    //allimgsselected.remove(`#imgq${imjsn[i].idqmg}`);
-                    }else{
-                        if(checknq()){
-                        $(`#imgq${imjsn[i].idqmg}`).css("border","2px solid green");
-                        allimgsselected.push(`imgq${imjsn[i].idqmg}`);
-                        //console.log(allimgsselected);   
-                        refreshthemimgs();
-                        }
-                    }
-                
-                });
-            }
-        })
+            // //console.log(data);
+             //console.log(JSON.parse(data));
+             allimgs = JSON.parse(data);
+             imgready = true;
+             generate_examoff();
+         })
+        
+
+       
         gettxtqsn(idf,idm).then((data)=>{
-            console.log(data);
-            console.log(JSON.parse(data));
-            let imjsn1 = JSON.parse(data);
-            for(let i =0;i<imjsn1.length;i++){
-                $("#textqsn").append(`
-                <div class="divexamtext" id="textq${imjsn1[i].idqtxt}">
-                    ${imjsn1[i].txt}
-                 </div>
-                `);
-                $(`#textq${imjsn1[i].idqtxt}`).click((event)=>{
-                    console.log(event.target.id);
-                    if(lookfortxt(`textq${imjsn1[i].idqtxt}`)){
-                       // alert(`textq${imjsn1[i].idqtxt}`)
-                    $(`#textq${imjsn1[i].idqtxt}`).css("border","2px solid black");
-                    alltxtsselected = alltxtsselected.filter(function(item) {
-                        return item !== `textq${imjsn1[i].idqtxt}`;
-                    })
-                    refreshthemimgs()
-                    //allimgsselected.remove(`#imgq${imjsn[i].idqmg}`);
-                    }else{
-                        if(checknq()){
-                        $(`#textq${imjsn1[i].idqtxt}`).css("border","2px solid green");
-                        alltxtsselected.push(`textq${imjsn1[i].idqtxt}`);
-                        //alert(`textq${imjsn1[i].idqtxt}`)
-                        //console.log(allimgsselected);  
-                        refreshthemimgs();
-                        }
-                    }
-                
-                });
-            }
+            ////console.log(data);
+            //console.log(JSON.parse(data));
+            alltext = JSON.parse(data);
+            txtready = true;
+            generate_examoff();
         })
     }
+
+
 }
-var baremecount;
-function baremcheck() {
-    baremecount =0;
-    let count = allimgsselected.length ;
-    for(let i = 0 ; i<count ; i++){
-        console.log(parseInt( $(`#the${allimgsselected[i]}`).val()));
-    baremecount += parseInt( $(`#the${allimgsselected[i]}`).val());
+
+var exam_offic = [];
+
+function chercherxam(ty,val){
+    choisesimg = [];
+    choisestxt = [];
+    let gottim = false;
+    if(ty){
+        for(let i =0;i<allimgs.length;i++){
+            if(allimgs[i].barem == val){
+                choisesimg.push(i);
+                gottim = true;
+            }
+        }
+        
+    }else{
+        for(let i =0;i<alltext.length;i++){
+            if(alltext[i].barem == val){
+                choisestxt.push(i);
+                gottim = true;
+            }
+        }
     }
-    count = alltxtsselected.length;
-    for(let i = 0 ; i<count ; i++){
-        baremecount += parseInt($(`#thet${alltxtsselected[i]}`).val());
-    }
-    //alert(baremecount);
+    return gottim;
 }
+var oldies = [];
+
+function noreprandom(){
+
+    let val = randomise(6,9);
+    let exist = false;
+    for(let i =0;i<oldies.length;i++){
+        if(oldies[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldies.push(val);
+        return val;
+    }else{
+        if(oldies.length == 4){
+            oldies = [];
+            return 0;
+        }else{
+            return noreprandom();
+        }
+        
+    }
+}
+
+var oldies21 = [];
+
+function noreprandom21(){
+
+    let val = randomise(9,12);
+    let exist = false;
+    for(let i =0;i<oldies21.length;i++){
+        if(oldies21[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldies21.push(val);
+        return val;
+    }else{
+        if(oldies21.length == 4){
+            oldies21 = [];
+            return 0;
+        }else{
+            return noreprandom21();
+        }
+        
+    }
+}
+
+var oldies31 = [];
+
+function noreprandom31(){
+
+    let val = randomise(11,14);
+    let exist = false;
+    for(let i =0;i<oldies31.length;i++){
+        if(oldies31[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldies31.push(val);
+        return val;
+    }else{
+        if(oldies31.length == 4){
+            oldies31 = [];
+            return 0;
+        }else{
+            return noreprandom31();
+        }
+        
+    }
+}
+var oldies32 = [];
+
+function noreprandom32(){
+
+    let val = randomise(11,14);
+    let exist = false;
+    for(let i =0;i<oldies32.length;i++){
+        if(oldies32[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldies32.push(val);
+        return val;
+    }else{
+        if(oldies32.length == 4){
+            oldies32 = [];
+            return 0;
+        }else{
+            return noreprandom32();
+        }
+        
+    }
+}
+
+var oldies33 = [];
+
+function noreprandom33(){
+
+    let val = randomise(11,14);
+    let exist = false;
+    for(let i =0;i<oldies33.length;i++){
+        if(oldies33[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldies33.push(val);
+        return val;
+    }else{
+        if(oldies33.length == 4){
+            oldies33 = [];
+            return 0;
+        }else{
+            return noreprandom33();
+        }
+        
+    }
+}
+var oldies34 = [];
+
+function noreprandom34(){
+
+    let val = randomise(11,14);
+    let exist = false;
+    for(let i =0;i<oldies34.length;i++){
+        if(oldies34[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldies34.push(val);
+        return val;
+    }else{
+        if(oldies34.length == 4){
+            oldies34 = [];
+            return 0;
+        }else{
+            return noreprandom34();
+        }
+        
+    }
+}
+
+
+
+var oldies2 = [];
+
+function noreprandom2(){
+    ////console.log(oldies2);
+    let val = randomise(6,9);
+    let exist = false;
+    for(let i =0;i<oldies2.length;i++){
+        if(oldies2[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldies2.push(val);
+        return val;
+    }else{
+        if(oldies2.length == 4){
+            oldies2 = [];
+            return 0;
+        }else{
+            return noreprandom2();
+        }
+        
+    }
+}
+
+var oldies22 = [];
+
+function noreprandom22(){
+    ////console.log(oldies22);
+    let val = randomise(9,12);
+    let exist = false;
+    for(let i =0;i<oldies22.length;i++){
+        if(oldies22[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldies22.push(val);
+        return val;
+    }else{
+        if(oldies22.length == 4){
+            oldies22 = [];
+            return 0;
+        }else{
+            return noreprandom22();
+        }
+        
+    }
+}
+
+var oldies23 = [];
+
+function noreprandom23(){
+    ////console.log(oldies23);
+    let val = randomise(9,12);
+    let exist = false;
+    for(let i =0;i<oldies23.length;i++){
+        if(oldies23[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldies23.push(val);
+        return val;
+    }else{
+        if(oldies23.length == 4){
+            oldies23 = [];
+            return 0;
+        }else{
+            return noreprandom23();
+        }
+        
+    }
+}
+
+
+
+var oldies3 = [];
+var lenofthjsn ;
+function noreprandom3(){
+    //console.log(oldies3);
+    //console.log(thjsn);   
+    let val = randomise(0,thjsn.length-1);
+    let exist = false;
+    for(let i =0;i<oldies3.length;i++){
+        if(oldies3[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        //alert("hada dzad = "+val +" /len:"  + thjsn.length);
+        oldies3.push(val);
+        return val;
+    }else{
+        
+        if(oldies3.length == thjsn.length){
+            oldies3 = [];
+            return -1;
+        }else{
+            return noreprandom3();
+        }
+        
+    }
+}
+
+
+function check_if_exam_doop(typ,val){
+
+    for(let i = 0;i<exam_offic.length;i++){
+        if(exam_offic[i].id == val && exam_offic[i].type == typ){
+            return true;
+        }
+    }
+    return false;
+}
+
+var first = 0;
+var sec = 0;
+var third = 0;
+var fourth = 0;
+var fifth = 0;
+var thjsn  ;
+var fwd = 0;
+function generate_examoff(){
+    
+    
+    let barem = $("#dropinq").val();
+    barem = parseInt(barem);
+    if(imgready && txtready){
+        exam_offic = [];
+        //alert("generate_examoff");
+        if(barem == 20){
+            qsns = 3;
+            let firstq =true;
+            while(firstq){
+                 first =  noreprandom();
+                 //console.log(first);
+                 if (first == 0){
+                    firstq = false;
+                    //alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                if(second == 1){
+                    second = true;
+                }else{
+                    second = false;
+                }
+                // exam 1
+                if(chercherxam(second,first)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(allimgs[choisesimg[rddsa]]);
+                        firstq = false;
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                    }
+                    
+
+                }else if(chercherxam(!second,first)){
+                    if(!second){
+                         let rddsa = randomise(0,choisesimg.length-1);
+                        exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(allimgs[choisesimg[rddsa]]);
+                        firstq = false;
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                    }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        //alert(first + "sdada");
+        if(first>0){
+
+            let firstq =true;
+            while(firstq){
+                //alert("2")
+                 sec =  noreprandom2();
+                 //console.log(sec + " : sec");
+                 if (sec == 0){
+                    firstq = false;
+                    alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                 if(second == 1){
+                    second = true;
+                 }else{
+                     second = false;
+                 }
+                //exam 2
+                if(chercherxam(second,sec)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("sec 1 i :" +history.length + " " + choisesimg.length + " " + sec + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : sec});
+                           // alert("2 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                        
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("sec 1 t:" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : sec});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(gotit){
+                    break;
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                
+                   }
+                    
+
+                }else if(chercherxam(!second,sec)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                           // alert("sec 2 i:" +history.length + " " + choisesimg.length + " " + sec + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : sec});
+                            //alert("2 dazz");
+                            ////console.log(exam_offic);
+                            ////console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                       
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                     
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("sec 2 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : sec});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                   }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        }else{
+            alert("you don't have enogh questions");
+
+            //fallback
+        } 
+        var gotit = false;
+        if(sec>0){
+
+            let firstq =true;
+           
+            while(firstq){
+                 third =   20 - (first+sec) ;
+                 //console.log(third + " : third");
+                 if (third == 0){
+                    firstq = false;
+                    //alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                if(second == 1){
+                    second = true;
+                }else{
+                    second = false;
+                }
+                if(chercherxam(second,third)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("3 1 i:"+history.length + " " + choisesimg.length + " " + third + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : third});
+                            //alert("3 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        firstq = false;
+                        gotit = false;
+                        //alert("you don't have enogh questions qcm time");
+                    }
+                    
+                        
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                     gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("3 1 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : third});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                    }
+                    
+
+                }else if(chercherxam(!second,third)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("3 2 i:"+history.length + " " + choisesimg.length + " " + third + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : third});
+                           //alert("3 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        firstq = false;
+                        gotit = false;
+                        //alert("you don't have enogh questions");
+                    }
+                    
+                     
+
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("3 2 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : third});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+
+                    }
+                    
+
+                }else{
+                    firstq = false;
+                    //third = 0;
+                    break;
+                }
+        }
+        if(gotit){
+            ////console.log(allimgs);
+            //console.log(exam_offic);
+            dumpdata();
+        }
+
+
+        }  
+        if(!gotit && sec>0){ // if we didn't get any question
+            if(exam_offic[2] == undefined){
+                let idf = $("#dropitF").val();
+            let idm = $("#dropitM").val();
+            dbloaded(idm,idf).then((data)=>{
+                thjsn = JSON.parse(data);
+                ////console.log(thjsn);
+                ////console.log('thjsn');
+                if(thjsn.length >0){
+                    var lastwsn = 0 ;
+                    oldies3 = [];
+                    fwd = 0;
+                    while(fwd< (20 - (sec+first))){
+                        ////console.log(thjsn);
+                        ////console.log("thjsnloop" + (fwd+1));
+                        let qsn = noreprandom3();
+                            if(qsn==-1){
+                               ////console.log(-1);
+                                ////console.log(exam_offic);
+                                break;
+                                }
+                       //alert("f:" + f + "/ exam_offic.length" + exam_offic.length + "/ qsn" + qsn);
+                        lastwsn = fwd;
+                        ////console.log(thjsn[qsn]);
+                        ////console.log(); 
+                        exam_offic.push({"type":3, "id" : thjsn[qsn].idq,"barem" : 1});
+                        //console.log("rahzedt " + thjsn[qsn].idq); 
+                        fwd++;
+                        //alert(sec)
+                        ////console.log( first);
+
+                    }
+
+                    if(lastwsn == 19-(first +sec)){
+                        //console.log("done");
+                        //console.log(exam_offic);
+                    }else{
+                        alert("you don't have enogh questions" + lastwsn);
+                        ////console.log(exam_offic);
+                    }
+                }
+                dumpdata();
+            })  
+            }
+            
+            //alert("hna l qcm");
+        }
+        }else if(barem == 40){
+            qsns = 4;
+            let firstq =true;
+            while(firstq){
+                 first =  noreprandom21();
+                 //console.log(first);
+                 if (first == 0){
+                    firstq = false;
+                    //alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                if(second == 1){
+                    second = true;
+                }else{
+                    second = false;
+                }
+                // exam 1
+                if(chercherxam(second,first)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(allimgs[choisesimg[rddsa]]);
+                        firstq = false;
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                    }
+                    
+
+                }else if(chercherxam(!second,first)){
+                    if(!second){
+                         let rddsa = randomise(0,choisesimg.length-1);
+                        exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(allimgs[choisesimg[rddsa]]);
+                        firstq = false;
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                    }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        //alert(first + "sdada");
+        if(first>0){
+
+            let firstq =true;
+            while(firstq){
+                //alert("2")
+                 sec =  noreprandom22();
+                 //console.log(sec + " : sec");
+                 if (sec == 0){
+                    firstq = false;
+                    alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                 if(second == 1){
+                    second = true;
+                 }else{
+                     second = false;
+                 }
+                //exam 2
+                if(chercherxam(second,sec)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("sec 1 i :" +history.length + " " + choisesimg.length + " " + sec + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : sec});
+                           // alert("2 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                        
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("sec 1 t:" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : sec});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(gotit){
+                    break;
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                
+                   }
+                    
+
+                }else if(chercherxam(!second,sec)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                           // alert("sec 2 i:" +history.length + " " + choisesimg.length + " " + sec + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : sec});
+                            //alert("2 dazz");
+                            ////console.log(exam_offic);
+                            ////console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                       
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                     
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("sec 2 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : sec});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                   }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        }else{
+            //alert("you don't have enogh questions");
+
+            //fallback
+        } 
+        if(sec>0){
+
+            let firstq =true;
+            while(firstq){
+                //alert("2")
+                third =  noreprandom23();
+                 //console.log(third + " : third");
+                 if (third == 0){
+                    firstq = false;
+                    alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                 if(second == 1){
+                    second = true;
+                 }else{
+                     second = false;
+                 }
+                //exam 2
+                if(chercherxam(second,third)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("third 1 i :" +history.length + " " + choisesimg.length + " " + third + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : third});
+                           // alert("2 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                        
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("third 1 t:" +history.length + " " + choisestxt.length + " " + third + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : third});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(gotit){
+                    break;
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                
+                   }
+                    
+
+                }else if(chercherxam(!second,third)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                           // alert("third 2 i:" +history.length + " " + choisesimg.length + " " + third + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : third});
+                            //alert("2 dazz");
+                            ////console.log(exam_offic);
+                            ////console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                       
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                     
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("third 2 t :" +history.length + " " + choisestxt.length + " " + third + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : third});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                   }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        }else{
+            //alert("you don't have enogh questions");
+
+            //fallback
+        } 
+        var gotit = false;
+        if(third>0){
+
+            let firstq =true;
+           
+            while(firstq){
+                 fourth =  40 - (first+sec+third);
+                 //console.log(fourth + " : fourth");
+                 if (fourth == 0){
+                    firstq = false;
+                    //alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                if(second == 1){
+                    second = true;
+                }else{
+                    second = false;
+                }
+                if(chercherxam(second,fourth)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("3 1 i:"+history.length + " " + choisesimg.length + " " + fourth + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : fourth});
+                            //alert("3 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        firstq = false;
+                        gotit = false;
+                        //alert("you don't have enogh questions qcm time");
+                    }
+                    
+                        
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                     gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("3 1 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : fourth});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                    }
+                    
+
+                }else if(chercherxam(!second,fourth)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("3 2 i:"+history.length + " " + choisesimg.length + " " + fourth + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : fourth});
+                           //alert("3 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        //console.log(exam_offic);
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        firstq = false;
+                        gotit = false;
+                        //alert("you don't have enogh questions");
+                    }
+                    
+                     
+
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("3 2 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : fourth});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+
+                    }
+                    
+
+                }else{
+                    firstq = false;
+                    //fourth = 0;
+                    break;
+                }
+        }
+        if(gotit){
+            ////console.log(allimgs);
+            //console.log(exam_offic);
+            dumpdata(); 
+        }
+
+
+        }  
+        if(!gotit && third>0){ // if we didn't get any question
+            if(exam_offic[3] == undefined){
+                let idf = $("#dropitF").val();
+            let idm = $("#dropitM").val();
+            dbloaded(idm,idf).then((data)=>{
+                thjsn = JSON.parse(data);
+                ////console.log(thjsn);
+                ////console.log('thjsn');
+                if(thjsn.length >0){
+                    var lastwsn = 0 ;
+                    oldies3 = [];
+                    fwd = 0;
+                    while(fwd< (40 - (sec+first+third))){
+                        ////console.log(thjsn);
+                        ////console.log("thjsnloop" + (fwd+1));
+                        let qsn = noreprandom3();
+                            if(qsn==-1){
+                               ////console.log(-1);
+                                ////console.log(exam_offic);
+                                break;
+                                }
+                       ////console.log("f:" + f + "/ exam_offic.length" + exam_offic.length + "/ qsn" + qsn);
+                        lastwsn = fwd;
+                        ////console.log(thjsn[qsn]);
+                        ////console.log(); 
+                        exam_offic.push({"type":3, "id" : thjsn[qsn].idq,"barem" : 1});
+                        //console.log(exam_offic);
+                        //console.log("rahzedt " + thjsn[qsn].idq); 
+                        fwd++;
+                        //alert(sec)
+                        ////console.log( first);
+
+                    }
+
+                    if(lastwsn == 19-(first +sec)){
+                        //console.log("done");
+                        //console.log(exam_offic);
+                    }else{
+                        alert("you don't have enogh questions" + lastwsn);
+                        ////console.log(exam_offic);
+                    }
+                }
+                dumpdata();
+            })  
+            }
+            
+            //alert("hna l qcm");
+        }
+        }else if(barem == 60){
+            qsns = 5;
+            let firstq =true;
+            while(firstq){
+                 first =  noreprandom31();
+                 //console.log(first);
+                 if (first == 0){
+                    firstq = false;
+                    //alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                if(second == 1){
+                    second = true;
+                }else{
+                    second = false;
+                }
+                // exam 1
+                if(chercherxam(second,first)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(allimgs[choisesimg[rddsa]]);
+                        firstq = false;
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                    }
+                    
+
+                }else if(chercherxam(!second,first)){
+                    if(!second){
+                         let rddsa = randomise(0,choisesimg.length-1);
+                        exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(allimgs[choisesimg[rddsa]]);
+                        firstq = false;
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                    }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        //alert(first + "sdada");
+        if(first>0){
+
+            let firstq =true;
+            while(firstq){
+                //alert("2")
+                 sec =  noreprandom32();
+                 //console.log(sec + " : sec");
+                 if (sec == 0){
+                    firstq = false;
+                    alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                 if(second == 1){
+                    second = true;
+                 }else{
+                     second = false;
+                 }
+                //exam 2
+                if(chercherxam(second,sec)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("sec 1 i :" +history.length + " " + choisesimg.length + " " + sec + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : sec});
+                           // alert("2 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                        
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("sec 1 t:" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : sec});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(gotit){
+                    break;
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                
+                   }
+                    
+
+                }else if(chercherxam(!second,sec)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                           // alert("sec 2 i:" +history.length + " " + choisesimg.length + " " + sec + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : sec});
+                            //alert("2 dazz");
+                            ////console.log(exam_offic);
+                            ////console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                       
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                     
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("sec 2 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : sec});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                   }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        }else{
+            //alert("you don't have enogh questions");
+
+            //fallback
+        } 
+        if(sec>0){
+
+            let firstq =true;
+            while(firstq){
+                //alert("2")
+                third =  noreprandom33();
+                 //console.log(third + " : third");
+                 if (third == 0){
+                    firstq = false;
+                    alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                 if(second == 1){
+                    second = true;
+                 }else{
+                     second = false;
+                 }
+                //exam 2
+                if(chercherxam(second,third)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("third 1 i :" +history.length + " " + choisesimg.length + " " + third + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : third});
+                           // alert("2 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                        
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("third 1 t:" +history.length + " " + choisestxt.length + " " + third + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : third});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(gotit){
+                    break;
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                
+                   }
+                    
+
+                }else if(chercherxam(!second,third)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                           // alert("third 2 i:" +history.length + " " + choisesimg.length + " " + third + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : third});
+                            //alert("2 dazz");
+                            ////console.log(exam_offic);
+                            ////console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                       
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                     
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("third 2 t :" +history.length + " " + choisestxt.length + " " + third + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : third});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                   }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        }else{
+            //alert("you don't have enogh questions");
+
+            //fallback
+        } 
+
+        if(third>0){
+
+            let firstq =true;
+            while(firstq){
+                //alert("2")
+                fourth =  noreprandom34();
+                 //console.log(fourth + " : fourth");
+                 if (fourth == 0){
+                    firstq = false;
+                    alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                 if(second == 1){
+                    second = true;
+                 }else{
+                     second = false;
+                 }
+                //exam 2
+                if(chercherxam(second,fourth)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("fourth 1 i :" +history.length + " " + choisesimg.length + " " + fourth + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : fourth});
+                           // alert("2 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                        
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("fourth 1 t:" +history.length + " " + choisestxt.length + " " + fourth + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : fourth});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(gotit){
+                    break;
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                
+                   }
+                    
+
+                }else if(chercherxam(!second,fourth)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                           // alert("fourth 2 i:" +history.length + " " + choisesimg.length + " " + fourth + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : fourth});
+                            //alert("2 dazz");
+                            ////console.log(exam_offic);
+                            ////console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                       
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                     
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("third 2 t :" +history.length + " " + choisestxt.length + " " + third + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : fourth});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                   }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        }else{
+            //alert("you don't have enogh questions");
+
+            //fallback
+        } 
+
+        var gotit = false;
+        if(fourth>0){
+
+            let firstq =true;
+           
+            while(firstq){
+                 fifth =  60 - (first+sec+third+fourth);
+                 //console.log(fifth + " : fifth");
+                 if (fifth == 0){
+                    firstq = false;
+                    //alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                if(second == 1){
+                    second = true;
+                }else{
+                    second = false;
+                }
+                if(chercherxam(second,fifth)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("3 1 i:"+history.length + " " + choisesimg.length + " " + fifth + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : fifth});
+                            //alert("3 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        firstq = false;
+                        gotit = false;
+                        //alert("you don't have enogh questions qcm time");
+                    }
+                    
+                        
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                     gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("3 1 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : fifth});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                    }
+                    
+
+                }else if(chercherxam(!second,fifth)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("3 2 i:"+history.length + " " + choisesimg.length + " " + fifth + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : fifth});
+                           //alert("3 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                        }
+                    }
+                    if(gotit){
+                        //console.log(exam_offic);
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        firstq = false;
+                        gotit = false;
+                        //alert("you don't have enogh questions");
+                    }
+                    
+                     
+
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("3 2 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : fifth});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+
+                    }
+                    
+
+                }else{
+                    firstq = false;
+                    //fourth = 0;
+                    break;
+                }
+        }
+        if(gotit){
+            ////console.log(allimgs);
+            //console.log(exam_offic);
+            dumpdata(); 
+        }
+
+
+        }  
+        if(!gotit && fourth>0){ // if we didn't get any question
+            if(exam_offic[4] == undefined){
+                let idf = $("#dropitF").val();
+            let idm = $("#dropitM").val();
+            dbloaded(idm,idf).then((data)=>{
+                thjsn = JSON.parse(data);
+                ////console.log(thjsn);
+                ////console.log('thjsn');
+                if(thjsn.length >0){
+                    var lastwsn = 0 ;
+                    oldies3 = [];
+                    fwd = 0;
+                    while(fwd< (60 - (sec+first+third+fourth))){
+                        ////console.log(thjsn);
+                        ////console.log("thjsnloop" + (fwd+1));
+                        let qsn = noreprandom3();
+                            if(qsn==-1){
+                               ////console.log(-1);
+                                ////console.log(exam_offic);
+                                break;
+                                }
+                       ////console.log("f:" + f + "/ exam_offic.length" + exam_offic.length + "/ qsn" + qsn);
+                        lastwsn = fwd;
+                        ////console.log(thjsn[qsn]);
+                        ////console.log(); 
+                        exam_offic.push({"type":3, "id" : thjsn[qsn].idq,"barem" : 1});
+                        //////console.log(exam_offic);
+                        //////console.log("rahzedt " + thjsn[qsn].idq); 
+                        fwd++;
+                        //alert(sec)
+                        //////console.log( first);
+
+                    }
+
+                    if(lastwsn == 19-(first +sec)){
+                        ////console.log("done");
+                        ////console.log(exam_offic);
+                    }else{
+                        alert("you don't have enogh questions" + lastwsn);
+                        //////console.log(exam_offic);
+                    }
+                }
+                dumpdata();
+            })  
+            }
+            
+            //alert("hna l qcm");
+        }
+        }
+        txtready = false;
+        imgready = false;
+    }
+    
+}
+function dumpdata(){
+    first  = 0;
+    sec = 0;
+    third = 0;
+    fourth= 0;
+    fifth = 0;
+    gotit = false;
+    oldies = [];
+    oldies2 = [];
+    oldies3 = [];
+    thjsn =[];
+    oldies21 = [];
+    oldies22 = [];
+    oldies23 = [];
+    exam_offic = [];
+}
+
+// var baremecount;
+// function baremcheck() {
+//     baremecount =0;
+//     let count = allimgsselected.length ;
+//     for(let i = 0 ; i<count ; i++){
+//         ////console.log(parseInt( $(`#the${allimgsselected[i]}`).val()));
+//     baremecount += parseInt( $(`#the${allimgsselected[i]}`).val());
+//     }
+//     count = alltxtsselected.length;
+//     for(let i = 0 ; i<count ; i++){
+//         baremecount += parseInt($(`#thet${alltxtsselected[i]}`).val());
+//     }
+//     //alert(baremecount);
+// }
 
 
 $(document).ready(()=>{
@@ -2086,10 +4469,6 @@ $(document).ready(()=>{
           $(target).fadeIn(600);
           
         });
-
-
-
-
 });
 function addmatier(mat) {
     return new Promise(function(resolve, reject) {
@@ -2103,7 +4482,7 @@ function addmatier(mat) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // ////console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
@@ -2121,9 +4500,61 @@ function addfiler(fil) {
                 resolve(data) // Resolve promise and go to then()
             },
             error: function(err) {
-               // console.log(err)
+               // ////console.log(err)
                 reject(err) // Reject the promise and go to catch()
             }
         });
+    });
+}
+
+function addtextexer(fil,mat,txt) {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "addtxtexer.php",
+            data: {
+                "txt": txt,
+                "fil": fil,
+                "mat": mat,
+                "user" : username 
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // ////console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
+function dbimgupdate(mat, fil) {
+
+    return new Promise(function(resolve, reject) {
+        let fili = $('#my-file')[0].files;
+        if(fili.length > 0){
+            let form_data = new FormData();
+            form_data.append('user', username);
+            form_data.append('mat', mat);
+            form_data.append('fil', fil);
+            form_data.append('my_image', fili[0]);
+            $.ajax({
+                url: 'imgexerupload.php',
+                type: 'post',
+                data: form_data,
+                contentType: false,
+                processData: false,
+                success: function(res){
+                    resolve(res)
+                },
+                error: function(err) {
+                    //////console.log(err)
+                    reject(err) // Reject the promise and go to catch()
+                }
+            });
+         
+        }else {
+           $("#errorMs").text("Please select an image.");
+        }
     });
 }

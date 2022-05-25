@@ -1,6 +1,8 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "", "isgiexams");
-$username = $conn->real_escape_string($_POST['username']);
+$username = $conn->real_escape_string($_POST['user']);
+$mat = $conn->real_escape_string($_POST['mat']);
+$fil = $conn->real_escape_string($_POST['fil']);
 # check if image sent
 if (isset($_FILES['my_image'])) {
 
@@ -45,17 +47,21 @@ if (isset($_FILES['my_image'])) {
 				$new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
 
 				# crating upload path on root directory
-				$img_upload_path = "uploads/".$new_img_name;
+				$img_upload_path = "imgqsn/".$new_img_name;
 
 				# move uploaded image to 'uploads' folder
 				move_uploaded_file($tmp_name, $img_upload_path);
 
 				# inserting imge name into database
-                $sql = "INSERT INTO pfpu(username,link) VALUES('$username','$new_img_name');";
-                mysqli_query($conn, $sql);
+                $sql = "INSERT INTO questionimg (idf,idm,username,curl) VALUES($mat,$fil,'$username','$new_img_name');";
+                if(mysqli_query($conn, $sql)){
+					$res = '1';
+				}else{
+					$res = '0';
+				}
                 
                 # response array
-				$res = array('error' => 0, 'src'=> $new_img_name);
+				
 
                 echo json_encode($res);
 			    exit();
@@ -88,4 +94,18 @@ if (isset($_FILES['my_image'])) {
 	    echo json_encode($error);
 	    exit();
 	}
+}else {
+    # error message
+    $em = "no image found!";
+
+    # response array
+    $error = array('error' => 1, 'em'=> $em);
+
+    /** 
+    printing out php array and 
+    converting it into JSON format
+    **/
+
+    echo json_encode($error);
+    exit();
 }

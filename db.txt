@@ -244,3 +244,6 @@ code varchar(2800) ,
     FOREIGN KEY (idf) REFERENCES filier(idf) ON DELETE CASCADE,
     FOREIGN KEY (idm) REFERENCES matier(idm) ON DELETE CASCADE
 );
+
+
+
