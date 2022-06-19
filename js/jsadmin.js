@@ -1,4 +1,21 @@
-
+function dbexistsess(sess) {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "sessioncheck.php",
+            data: {
+                "sess": sess,
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
 $(function() {
     $("li").click(function(e) {
       e.preventDefault();
@@ -98,9 +115,83 @@ $(function() {
             $(".logo").css('margin-bottom', '18px');
         }
     }
-
+    var str;
+    const result = {};
     $(document).ready(()=>{
         resizes();
+        $(".logoutbtn").click(()=>{
+            dblogout(result.code+"=").then((data)=>{
+                document.cookie = 'trader=null;time=2020;expires='+new Date(2020,11,13).toUTCString()+'';
+                document.cookie = 'code=null;time=2020;expires='+new Date(2020,11,13).toUTCString()+'';
+                window.location.href = "login.html";
+            })
+                document.cookie = 'trader=null;time=2020;expires='+new Date(2020,11,13).toUTCString()+'';
+                document.cookie = 'code=null;time=2020;expires='+new Date(2020,11,13).toUTCString()+'';
+                window.location.href = "login.html";
+    
+        })
+        str = document.cookie;
+
+    
+        str = str.split('; ');
+        for (let i in str) {
+            const cur = str[i].split('=');
+            result[cur[0]] = cur[1];
+        }
+    
+        if(result.code == undefined || result.trader == undefined){
+            window.location.href = "login.html";
+        }
+        if(result.trader != undefined && result.code != undefined){
+            //console.log(result.trader + " / " + result.code )
+            dbexistsess(result.code+"=").then((data)=>{
+                //console.log(data);
+               // console.log(JSON.parse(data));
+                if(JSON.parse(data)[2].existad == '1' ){
+                    
+                    code = result.code+"=";
+                    let decrypted = CryptoJS.AES.decrypt(code.toString(),result.trader);
+                    let plaintext = decrypted.toString(CryptoJS.enc.Utf8);
+                    username = plaintext;
+                    dbimg(username).then((data)=>{
+                        let datj = JSON.parse(data);
+                        //console.log(datj[0])
+                        if(datj.length >0){
+                            $("#pfpe").attr("src", "uploads/"+datj[0].link);
+                            $("#pfpe1").attr("src", "uploads/"+datj[0].link);
+                            $("#rela").attr('href', "uploads/"+datj[0].link);
+                        }
+                    });
+    
+    
+                    console.log(username);
+                    
+                    
+    
+    
+                    setInterval(function(){
+                        result.code = undefined ;
+                         result.trader  = undefined;
+                        str = document.cookie;
+                        str = str.split('; ');
+                        for (let i in str) {
+                            const cur = str[i].split('=');
+                            result[cur[0]] = cur[1];
+                            
+                        }
+                        checkersess();
+                        if(result.done == "true"){
+                            location.reload(true);
+                            document.cookie = 'done=false;expires='+new Date(2020,11,13).toUTCString()+'';
+                        }
+                        //console.log('done');
+                        }, 1000);
+                    }}
+                    )
+                }
+
+
+
         $("#name2").hide();
         $("#menu2").hide();
         $("#menu1").show();
@@ -128,7 +219,45 @@ $(function() {
             $(".uppermenu").css('margin-left', '200px');
             $(".topperval").css('margin-right', '200px');
         })*/
+       
     })
+    function checkersess(){
+        if(result.code == undefined || result.trader == undefined){
+            window.location.href = "login.html";
+        }
+        if(result.trader != undefined && result.code != undefined){
+           // console.log(result.trader + " / " + result.code )
+            dbexistsess(result.code+"=").then((data)=>{
+                //console.log(data);
+                if(JSON.parse(data)[2].existad == '1' ){
+    
+                }else{
+                    document.cookie = 'trader=null;time=2020;expires='+new Date(2020,11,13).toUTCString()+'';
+                    document.cookie = 'code=null;time=2020;expires='+new Date(2020,11,13).toUTCString()+'';
+                    window.location.href = "login.html";
+                }
+            })
+        }
+    }
+    
+    function dbexistsess(sess) {
+        return new Promise(function(resolve, reject) {
+            $.ajax({
+                method: "POST",
+                url: "sessioncheck.php",
+                data: {
+                    "sess": sess,
+                },
+                success: function(data) {
+                    resolve(data) // Resolve promise and go to then()
+                },
+                error: function(err) {
+                   // console.log(err)
+                    reject(err) // Reject the promise and go to catch()
+                }
+            });
+        });
+    }
     $(document).on('click', '#home', function() {
         $(".home").show();
         $(".eleves").hide();
@@ -153,6 +282,7 @@ $(function() {
             $(".rec").hide();
             $(".menu").show();
     })
+    
     var w = window.innerWidth;
     function resizes(){
          w = window.innerWidth;
@@ -519,7 +649,6 @@ $("#btnmdbox").click(function(){
     $(document).ready(function(){
        
        var username= $("#mdboxuser").val();
-      
        var passw=$("#mdboxpass").val();
        var email= $("#mdboxemail").val();
        var rank=$("#mdboxrank").val();
@@ -715,14 +844,23 @@ function Updateproffesseur(username,passw,email,rank,loger,sessions,dated){
 
     });
 }
-    
 
 
-
-    
-
-        
-
-
-
-         
+function dbimg(usernamee) {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "imgget.php",
+            data: {
+                "username": usernamee
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}

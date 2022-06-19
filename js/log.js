@@ -25,14 +25,23 @@ $(document).ready(()=>{
         dbexistsess(result.code+"=").then((data)=>{
             //console.log(data);
             if(JSON.parse(data)[0].existad == '1' ){
+                document.cookie = 'temp='+ null +';expires='+new Date(2020,11,13).toUTCString()+'';
                 //queryString = "?user=" + result.username + "&code="+ result.code;
                 //console.log('go');
                 window.location.href = "page.html" //+ queryString;
             }
             else if (JSON.parse(data)[1].existus == '1' ){
+                document.cookie = 'temp='+ null +';expires='+new Date(2020,11,13).toUTCString()+'';
                 window.location.href = "user.html" 
+            }else if(JSON.parse(data)[2].existad == '1' ){
+                document.cookie = 'temp='+ null +';expires='+new Date(2020,11,13).toUTCString()+'';
+                window.location.href = "admin.html";
             }
         })
+    }
+    if(result.temp != undefined){
+        $("#err").text("verify your email");
+        $("#err").show();
     }
     
     $("#btnlog").click(()=>{
@@ -44,12 +53,13 @@ $(document).ready(()=>{
             console.log(dbval);
             if(dbval[0].existad == '1' ){
                 //alert("kain ")
-                dbsecmake(usernamelog,passlog,dbval[2]).then((data)=>{
+                dbsecmake(usernamelog,passlog).then((data)=>{
                     console.log(data);
                     //console.log(data + " / " + usernamelog + " / " + coded + " / " + passlog );
                     if(data == '1'){
                         document.cookie = 'trader='+ cookierand +';expires='+new Date(2022,11,13).toUTCString()+'';
                         document.cookie = 'code = '+ encrypted.toString().slice(0,-1)  +';expires='+new Date(2022,11,13).toUTCString()+'';
+                        document.cookie = 'temp='+ null +';expires='+new Date(2020,11,13).toUTCString()+'';
                        // queryString = "?user=" + usernamelog + "&code="+ coded;
                          window.location.href = "page.html";
                     }
@@ -57,7 +67,7 @@ $(document).ready(()=>{
             }
             else if (dbval[1].existus == '1' ){
                     // user normal
-                    dbsecmake(usernamelog,passlog,dbval[2]).then((data)=>{
+                    dbsecmake(usernamelog,passlog).then((data)=>{
                         //console.log(data);
                         //console.log(data + " / " + usernamelog + " / " + coded + " / " + passlog );
                         if(data == '1'){
@@ -67,6 +77,18 @@ $(document).ready(()=>{
                              window.location.href = "user.html";
                         }
                     })
+            }else if(dbval[2].existad == '1'){
+                //alert("raktema")
+                dbsecmake(usernamelog,passlog).then((data)=>{
+                    //console.log(data);
+                    //console.log(data + " / " + usernamelog + " / " + coded + " / " + passlog );
+                    if(data == '1'){
+                        document.cookie = 'trader='+ cookierand +';expires='+new Date(2022,11,13).toUTCString()+'';
+                        document.cookie = 'code = '+ encrypted.toString().slice(0,-1)  +';expires='+new Date(2022,11,13).toUTCString()+'';
+                       // queryString = "?user=" + usernamelog + "&code="+ coded;
+                         window.location.href = "admin.html";
+                    }
+                })
             }else{
                 $("#err").text("Wrong username or password !");
               
@@ -74,7 +96,18 @@ $(document).ready(()=>{
             }
         })
     })
-
+    $('#userlg').keypress(function(event){
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '13'){
+            $( "#btnlog" ).trigger( "click" );  
+        }
+      });
+      $('#passlg').keypress(function(event){
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '13'){
+            $( "#btnlog" ).trigger( "click" );
+        }
+      });
    $(".switch__input").change(()=>{
         if($(".switch__input").is(":checked")){
             
@@ -96,15 +129,24 @@ $(document).ready(()=>{
        }
     })
     $("#btnreg").click(()=>{
+        userdoup().then((data)=>{
+            console.log(data);
+            let exist = JSON.parse(data);
+            console.log(exist);
+            if(exist[0].exist == "0"){
         if(validateEmail($("#mail").val())){
         dbadduser().then((data)=>{
-            if(data != "1"){
+            console.log(data);
+            if(data == "false"){
                 $("#err").text("username or mail already used !");
                 $("#err").show();
             }else{
                 $("#err").hide();
+                document.cookie = 'temp='+ true +';expires='+new Date(2022,11,13).toUTCString()+'';
                 $("#userlg").val(username);
                 $("#signa").trigger("click");
+                $("#err").text("Verify your mail !");
+                $("#err").show();
             }
        
          })
@@ -112,6 +154,11 @@ $(document).ready(()=>{
         $("#err").text("Wrong email!");
         $("#err").show();
     }
+    }else{
+        $("#err").text("username or mail already used !");
+                $("#err").show();
+    }
+    });
     })
    
 })
@@ -224,6 +271,25 @@ function dbexistsess(sess) {
             url: "sessioncheck.php",
             data: {
                 "sess": sess,
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+                console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
+function userdoup() {
+    username = $("#username").val();
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "userdoupchk.php",
+            data: {
+                "username": username,
             },
             success: function(data) {
                 resolve(data) // Resolve promise and go to then()

@@ -8,7 +8,7 @@ $passoword="";
 $database="isgiexams";
 $conn=mysqli_connect($host,$username,$passoword,$database);
 
-$result=$conn->query("SELECT * FROM users WHERE username='$request'");
+$result=$conn->query("SELECT * FROM users WHERE usernameLIKE '%$request%'");
 
 ?>
 <?php while($data =$result->fetch_assoc()):?>

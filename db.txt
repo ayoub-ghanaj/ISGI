@@ -85,7 +85,7 @@ FOREIGN KEY (idcls) REFERENCES class(idcls) ON DELETE CASCADE
 );
 
 CREATE TABLE passed(
-idpass INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+idpass varchar(255) PRIMARY KEY ,
 username varchar(40),
 idbat int NOT null,
 note  float ,
@@ -247,3 +247,66 @@ code varchar(2800) ,
 
 
 
+create table passedhistory(
+    idph INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    idpass varchar(255),
+    unsrs varchar(1255),
+    exam varchar(1255),
+	FOREIGN KEY (idpass) REFERENCES passed(idpass) ON DELETE CASCADE 
+);
+CREATE table examings(
+    idexe  INT PRIMARY KEY AUTO_INCREMENT ,
+    exam VARCHAR(2555),
+    idf INT,
+    idm INT,
+    barem INT,
+    username varchar(40),
+    FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE,
+    FOREIGN KEY (idf) REFERENCES filier(idf) ON DELETE CASCADE,
+    FOREIGN KEY (idm) REFERENCES matier(idm) ON DELETE CASCADE
+);
+CREATE TABLE temusers(
+idtempu int primary key AUTO_INCREMENT,
+username varchar(40) ,
+passw varchar(40) NOT null,
+email varchar(200) ,
+rank varchar(30),
+loger varchar(20),
+sessions INT,
+confirmed Varchar(20),
+dated DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+create table chate(
+idmsg int PRIMARY Key  AUTO_INCREMENT,
+sender varchar(40),
+message varchar(2555),
+receiver varchar(40),
+datesend DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+stats int,
+FOREIGN KEY (sender) REFERENCES users(username) ON DELETE CASCADE,
+FOREIGN KEY (receiver) REFERENCES users(username) ON DELETE CASCADE
+);
+select * from `table` limit start 10, range 10;
+
+SELECT contacts  from (SELECT DISTINCT sender as contacts FROM chate WHERE sender = '$username' or receiver = '$username' UNION SELECT DISTINCT receiver as contacts FROM chate WHERE sender = '$username' or receiver = '$username') AS contacters
+
+ALTER TABLE `questionimg` ADD `deffi` VARCHAR(250) NOT NULL AFTER `barem`; 
+
+// 0 new
+// 1 wsal
+// 2 chaf
+// 3 deleted
+
+//colors
+// login logo
+//error
+//messagat
+// socket serveur PHP
+//object timer
+
+//tel net
+
+
+
+//#255f15

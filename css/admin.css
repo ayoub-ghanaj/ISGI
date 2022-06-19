@@ -431,7 +431,7 @@ color: turquoise;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
-  background-image: url("img/icons8-search-24.png");
+  background-image: url("../img/icons8-search-24.png");
   background-size: cover;
 }
 .refreshButton{
@@ -444,7 +444,7 @@ color: turquoise;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
-  background-image: url("img/icons8-refresh-24.png");
+  background-image: url("../img/icons8-refresh-24.png");
   background-size: cover;
   position: relative;
   left: 8px;
@@ -496,7 +496,7 @@ color: turquoise;
   left: 47%;
   bottom: 43px;
   /* top: 13px; */
-  background-image: url("img/icons8-insert-30.png");
+  background-image: url("../img/icons8-insert-30.png");
   background-size: cover;
   width: 35px;
   height: 36px;

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="nprnt">ISGI | Admin / Prof </title>
+    <title class="nprnt">ISGI | Prof </title>
     <link rel="icon" id="rela" href="img/clt.png">
     <link rel="stylesheet" href="css/css.css">
     <script src="js/jquery.js"></script> 
@@ -31,7 +31,7 @@
     </div>
     <div class="sidebar nprnt" id="menu1" style="z-index: 200 ;    border-right: 1px solid #08a4a7;">
         <div id="logo1"class="logo" style="vertical-align: middle; align-self: center; position:  sticky; margin-bottom: 2px; margin-left: 28px;">
-            <div id="name1" href="#" style="color: white;"><img src="img/opt.png" style="width: 145px; height: 49px; display: block;"> <span style="color: #f3f3f3; margin-left: 29px; font-size: 25px;">OFPPT</span>  </div>
+            <div id="name1" href="#" style="color: white;"><img src="img/ofpptimg1.png" style="width: 103px; height: 104px; margin: auto; margin-right: 50px; margin-bottom: 15px; display: block;"> </div>
             <div id="name2" href="#" style="color: white; display: none;"><img src="img/opt2b.png" style="width: 45px; height: 49px; display: block;"></div>
     </div>
       <ul class="nav-menu">
@@ -43,6 +43,7 @@
         <li class="fas " id="imgen"><a href="#"><img src="img/pen.png" class="img-menu" > <span class="menu-text">Image EXM</span></a></li>
         <li class="fas " id="maimgtxt"><a href="#"><img src="img/adimgtxt.png" class="img-menu" > <span class="menu-text">Inpute Images</span></a></li>
         <li class="fas" id="menu"><a href="#"> <img src="img/compte1.png" class="img-menu" > <span class="menu-text">Compte</span></a></li>
+
       </ul>
     </div>
     
@@ -86,7 +87,7 @@
                 </div>
                 <div class="cardTwo">
                     <div class="description">
-                        <p>Total Examin Passer</p>
+                        <p>Total Exams Passer</p>
                         <h3 id="valc2" style="font-size: 30px;">300</h3>
                     </div>
                 </div>
@@ -480,6 +481,21 @@
                 </div>
               </div>
             </div>
+            <div class="demo" style="margin-left:  128px; margin-bottom: 12px;">
+              <div class="dropdown-container">
+                <select id="dropdiff6" style="background-color: #0b7c6a;     border-bottom: 2px solid #000000;">
+                  <option selected style="display:none;" >defficulte :</option>
+                  <option value="facile">facile</option>
+                  <option value="moyen">moyen</option>
+                  <option value="difficile">difficile</option>
+                </select>
+                <div class="select-icon">
+                  <svg focusable="false" viewBox="0 0 104 128" width="25" height="35" class="icon">
+                    <path d="m2e1 95a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 1 9 9zm0-3e1a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 1 9 9zm0-3e1a9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 9 -9 9 9 0 0 1 9 9zm14 55h68v1e1h-68zm0-3e1h68v1e1h-68zm0-3e1h68v1e1h-68z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
             <div class="tab-content">
               <div id="IMG">   
                 <h1 class="hh2">Ajouter Exam(image):</h1>
@@ -492,6 +508,7 @@
                         <input class="input-file" id="my-file" type="file">
                         <label tabindex="0" for="my-file" class="input-file-trigger label4">Select a file...</label>
                       </div>
+                      <input type="number" id="file-Barem" class="" min="1" max="16" placeholder="Barem" style="margin-top: 1rem;z-index: 1000;width: 243px;height: 50px;background-color: white;text-align: center;font-size: 28px;">
                       <p class="file-return"></p>
                   </div>
               
@@ -512,6 +529,7 @@
                   
                     <div class="input-file-container">  
                         <textarea id="TXTEXER"  cols="40" rows="12" style="width: 210%; height: 350px; max-height: 350px;font-size:20px;"></textarea>
+                        <input type="number" id="text-barem" class="" min="1" max="16" placeholder="Barem" style="margin-top: 1rem;z-index: 1000;width: 243px;height: 50px;background-color: white;text-align: center;font-size: 28px;">
                       </div>
                       <p class="file-return"></p>
                 </div>
@@ -628,93 +646,73 @@
         </div>
         <!--addimg-->
         <div class="imgen">
-          <div class="box1 nprnt">
-              <div class="btnimg">
-                <button class="button-1" role="button" id="countbarqsn"  style="position: fixed;right: 0;z-index: 100;">Download</button>
-                  <button class="button-1" role="button" id="btnexmswich">Image</button>
-                  <button class="button-1" role="button" id="btnecmswich">Text</button>
-                </div>
-                <div class="selectmatfil nprnt">
-                  <!-- <label for="dropitF">Filire:</label> -->
-                  <div class="old-select">
-                      
-                      <select id="dropitF">
-                      <option value="3" selected="selected" style="display: none;">Filier</option>
-                     
-                      </select>
-                      
-                  </div>
-                  <!-- <label for="dropinq">Nombre:</label> -->
-                  <div class="old-select">
-                      
-                      <select id="dropinq">
-                      <option value="" selected="selected" style="display: none;">nombre</option>
-                      <option value="20" >20</option>
-                      <option value="40" >40</option>
-                      <option value="60" >60</option>
-                      </select>
-                      
-                  </div>
-                  <!-- <label for="dropitM">Matiere:</label> -->
-                  <div class="old-select">
-                     
-                      <select id="dropitM">
-                        <option value="3" selected="selected" style="display: none;">Matiere</option>
-                    
-                      </select>
-                      
-                  </div>
-              
+          <div class="generate">
+            <div class="ingr">
+              <div style="text-align: center;"> 
+              <div class="custom-select" style="width:200px;">
+                <select class="ak" id="dropitF" style="width:170px;height: 41px; text-align: center;">
+                  <option>Select Filier:</option>
+                </select>
               </div>
-              <div id="ajtexm">
-
               
+              <div class="custom-select" style="width:200px;">
+                <select class="ak" id="dropitdiff" style="width:170px;height: 41px; text-align: center;">
+                  <option style="display:none" selected>Select la dificulte:</option>
+                  <option value="facile">Facile</option>
+                  <option value="moyen">Moyen</option>
+                  <option value="difficile">Difficile</option>
+                </select>
+              </div>
+
+              <div class="custom-select" style="width:200px; ">
+                <select class="ak" id="dropitM" style="width:170px;height: 41px; text-align: center;">
+                  <option>Select Matiere:</option>
+                </select>
+              </div>
+        
+              <div class="custom-select" style="width:200px;">
+                <select class="ak" id="dropinq" style="text-align: center;width:170px;height: 41px;">
+                  <option selected style="display: none;"> Select Bareme:</option>
+                  <option value="20">20</option>
+                  <option value="40">40</option>
+                  <option value="60">60</option>
+                  
+                </select>
+              </div>
+            </div>
+              
+                <button class="button-80"  id="imgGenExam"  role="button" style="display: block; margin: auto;">Generer</button>
              
+              
+            </div>
            
-
-
-
-
-             
-
-              <div class="centerlist">
-              <div class="listimg" id="imgqsn">
-                  <!-- <img class="a" src="img/exam.png" alt="">
-                  <label for="" class="infimg">information:Exerecise </label> -->
-              </div>
+            
           </div>
-      </div>
-      <div class="nprnt" id="modexm" style="display: none;padding-top: 25px;">
-          <div class="centerlist">
-              <div class="listimg" id="textqsn">
-                 <!-- <div class="divexamtext">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero error reiciendis odit officia. Doloremque temporibus harum, omnis saepe quibusdam voluptas aspernatur at mollitia sit commodi praesentium. Est delectus fuga et.
-                 </div> -->
-              </div>
-          </div>
-      </div>
-          </div>
-          <div class="box2 nprint1">
-              <div class="listexmchoice nprint2" id="offiexam">
+    
+    
+          <table id="customers">
+            <tr>
+              <th>id</th>
+              <th>filiere</th>
+              <th>matiere</th>
+              <th>barem</th>
+              <th></th>
+              <th></th>
+            </tr>
+           
+              <tbody id="tabexams2">
+    
                 
-                  <!-- <div>
-                      <div>
-                        <h3 class="titlebr">Bareme:</h3>
-                        <input type="text" class="inex">
-                      </div><br/>
-                      <div class="exl">aaa<br/> aaa </div>
-                      
-                      
-                  </div> -->
-                 
-                 
-                 
-              </div>
-          </div>
-         
-          
+              </tbody>
+          </table>
+        <div class="centered " id="divshow">
+            <p>quiz show</p>
+            <button id="hidequiz" class="button-88">hide</button>
+        </div>
       </div>
-        <!--rec-->
+      <!--chat-->
+
+      <!--rec-->
         <div class="rec" style="    background-color: #e9e9e9;"> 
           <h1 style="color: black; margin: 10px;"> Exams </h1>
           <div  style="width: 97%; padding: 10ox; text-align:center; z-index: 100; border: 1px solid #1c6413; margin: 12px; margin-right: 21px; padding: 12px; vertical-align: bottom; background-color: f8f8ff;">

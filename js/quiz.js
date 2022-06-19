@@ -62,6 +62,7 @@ var arrvr = [];
 // uploaded questions
 var ans = [];
 var arrqes = [];
+var idqs = [];
 function loadexam(idxm){
   getmyhead(idxm).then((data)=>{
     if(data == '[]'){
@@ -108,6 +109,8 @@ function loadexam(idxm){
           getmychoi(examp[i]).then((data)=>{
             let jss = JSON.parse(data);
             let arrv = [];
+            let idsss= [];
+            let idqqq;
             //console.log(jss);
             for(let j = 0 ; j<jss.length ; j++){
               $(`#row${vss[0].idq}`).append(`
@@ -118,6 +121,8 @@ function loadexam(idxm){
               }else{
                 arrv.push(true);
               }
+              idsss.push(jss[j].idr);
+              idqqq = vss[0].idq;
               //arrv.push(jss[j].idr)
               exam.push({
                 "qcm": i,
@@ -143,6 +148,7 @@ function loadexam(idxm){
             }
             nbtheqsn = arrv.length+1
             arrvr.push(arrv);
+            idqs.push({ "idq":idqqq,"idrs": idsss});
             $("#bari").text(" /" +(arrv.length+1));
             
           })
@@ -172,6 +178,10 @@ function flip(){
 var taken = 0;
 var note = 0 ;
 function calculatit(){
+  //console.log(exam);
+ // console.log(arrvr);
+ // console.log(idqs);
+ // alert("hbes")
   note = 0;
   //console.log(exam);
   //console.log(arrvr)
@@ -271,6 +281,7 @@ for (let i in str) {
 
   $("#mybtn").click(()=>{
     if(canpass){
+      //alert("can pass exam");
       if(end == false){
       let not = calculatit();
       let pass;
@@ -280,6 +291,7 @@ for (let i in str) {
         pass = "fail"
       }
       dbaddpass(username,idbatat,not,pass).then((data)=>{
+        console.log(data);
           if(data == '1'){     
             document.cookie = 'batch=null;expires='+new Date(2020,11,13).toUTCString()+'';
             document.cookie = 'exam=null;expires='+new Date(2020,11,13).toUTCString()+'';
@@ -450,7 +462,9 @@ function dbaddpass(username1,idbat1,note1,pass1) {
             "username" : username1,
             "idxbat" : idbat1,
             "note" : note1,
-            "pass" : pass1
+            "pass" : pass1,
+            "exam" : JSON.stringify({"exam" : idqs , "correct" : arrvr}),
+            "unsrs": JSON.stringify(exam),
           },
           success: function(data) {
               resolve(data) // Resolve promise and go to then()

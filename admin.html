@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title class="nprnt">ISGI | Prof </title>
+    <link rel="icon" id="rela" href="img/clt.png">
     <link rel="stylesheet" href="css\admin.css">
-    <script src="js\jquery.js"></script> 
+    <script src="js\jquery.js"></script>
     <script src="js\jsadmin.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
 </head>
 <body>
@@ -18,7 +20,7 @@
             <div class="topperval" style="margin-top: 15px; text-align: center; margin-right: 200px;">
         <a href="#" style="color: white;"><em style="color: #e9ffff;">I S G I</em> M A R R A K E CH </a>
             </div>
-            <img src="img/icons8-user-96.png" style="width: 43px; height: 43px; position: fixed; top: 0; right: 0; border-radius: 50%;margin-top: 3px; margin-right: 7px;" >
+            <img src="img/icons8-user-96.png" id="pfpe" style="width: 43px; height: 43px; position: fixed; top: 0; right: 0; border-radius: 50%;margin-top: 3px; margin-right: 7px;" >
     </div>
     <div class="sidebar" id="menu1" style="z-index: 200 ;">
         <div id="logo1"class="logo" style="vertical-align: middle; align-self: center; position:  sticky; margin-bottom: 18px; margin-left: 28px;">
@@ -32,8 +34,7 @@
         <li class="fas active" id="home"> <img src="img/home1.png"  class="img-menu"> <span class="menu-text">Home</span></li>
         <li class="fas" id="eleves"> <a href="#"> <img src="img/eleves.png" class="img-menu" > <span class="menu-text">Eleves</span></a></li>
         <li class="fas " id="rec"><a href="#"><img src="img/rec.png" class="img-menu" > <span class="menu-text">Records</span></a></li>
-        <li class="fas" id="menu"><a href="#"> <img src="img/compte1.png" class="img-menu" > <span class="menu-text">Compte</span></a></li>
-        <li class="fas" id="exit"><a href="#"> <img src="img/exit.png" class="img-menu" >  <span class="menu-text">Exit</span></a></li>
+        <li class="fas" id="menu"><a href="#"> <img src="img/compte1.png" class="img-menu" > <span class="menu-text">Compte</span></a></li> 
       </ul>
     </div>
     <!--
@@ -306,7 +307,11 @@
             </tr>
             <tr>
                 <td><label for="mdboxrank">Rank</label></td>
-                <td><input type="text" id="mdboxrankpro" class="inputboxmd"></td>
+                <td><select type="text" id="mdboxrankpro" class="inputboxmd">
+                    <option>Teacher</option>
+                    <option>Student</option>
+                    <option>Admin</option>    
+                </select></td>
             </tr>
             <tr>
                 <td><label for="mdboxloger">Loger</label></td>
@@ -352,7 +357,11 @@
 
                     <tr>
                         <td><label for="mdboxrank">Rank</label>   </td>
-                        <td> <input type="text" id="Ajboxrankpro" class="inputboxmd" readonly></td>
+                        <td> <select type="text" id="Ajboxrankpro" class="inputboxmd" >
+                            <option>Teacher</option>
+                            <option>Student</option>
+                            <option>Admin</option>
+                            </select></td>
                     </tr>
                       
 
@@ -455,7 +464,11 @@
            </tr>
            <tr> 
                <td><label for="mdboxrank">Rank</label></td>
-               <td><input type="text" id="mdboxranketud" class="inputboxmd"></td>
+               <td><select type="text" id="mdboxranketud" class="inputboxmd"> 
+                    <option>Teacher</option>
+                    <option>Student</option>
+                    <option>Admin</option>
+               </select> </td>
            </tr>
            <tr>
                <td><label for="mdboxloger">Loger</label> </td>
@@ -554,7 +567,7 @@
         <div class="menu"> 
             <div class="containere">
                 <div class="profile">
-                    <img src="img/icons8-user-96.png" style="height:70px;border-radius: 50%; border: 10px solid #45a049;" alt="This is a small profile image of Digital Ocean’s mascot, a blue smiling shark.">
+                    <img src="img/icons8-user-96.png" id="pfpe1" style="height:70px;border-radius: 50%; border: 10px solid #45a049;" alt="This is a small profile image of Digital Ocean’s mascot, a blue smiling shark.">
                   </div>
             
                 <div>
@@ -573,7 +586,8 @@
               
                 
               </form>
-              <input type="submit" value="Submit" id="myBtn">
+              <input type="submit" value="Submit" id="myBtn" class="">
+              <input type="button" value="Logout" id="myBtn" class="logoutbtn">
             </div>
             <div id="message"></div>
             </div>

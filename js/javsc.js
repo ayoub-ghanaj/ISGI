@@ -1,4 +1,4 @@
-//Laravel
+    //Laravel
 
 
 // #BY AYOUB GHANAJ
@@ -25,8 +25,9 @@ $(function() {
               width: "50"
           })
           $(".main_content").css('margin-left', '200px');
-          
+          $(".main-grid").css('padding-left', '200px');
           $(".uppermenu").css('padding-left', '200px');
+          $(".chat").css('width', 'calc(65% - 130px)');
          // $("#overlap").css('padding-right', '200px');
          // $(".topperval").css('margin-right', '200px');
           $(".img-menu").css('margin-left', '20px');
@@ -43,6 +44,9 @@ $(function() {
           $(".uppermenu").animate({
               paddingLeft: "-=150px"
           }, 400);
+          $(".chat").animate({
+            width: "+=96px"
+        }, 400);
         //  $("#overlap").animate({
          //   paddingRight: "-=150px"
         //}, 400);
@@ -63,19 +67,23 @@ $(function() {
             $("#name2").show();
           $(".sidebar").css('padding-top', '5px'); 
            $(".menu-text").hide();
+           $(".chat").css('width', 'calc(65% - 34px)');
           $(".logo").css('margin-left', '1px');
           $(".logo").css('margin-top', '0px');
+          $(".main-grid").css('padding-left', '50px');
+            //$(".maingrid").css('padding-top', '50px');
           $(".logo").css('margin-bottom', '2px');
       }
       else
-      {
+      {  
           mode = 1
           $('.side').css('width', '200px');
           $(".sidebar").animate({
               width: "200"
           })
           $(".main_content").css('margin-left', '50px'); 
-          
+          $(".main-grid").css('padding-left', '50px');
+          $(".chat").css('width', 'calc(65% - 34px)');
           $(".uppermenu").css('padding-left', '50px');
          // $(".topperval").css('margin-right', '50px');
         // $("#overlap").css('padding-right', '50px');
@@ -90,6 +98,9 @@ $(function() {
         //  $(".topperval").animate({
         //      marginRight: "+=150px"
          // }, 450);
+         $(".chat").animate({
+            width: "-=96px"
+        }, 400);
           $(".uppermenu").animate({
               paddingLeft: "+=150px"
           }, 400);
@@ -103,6 +114,8 @@ $(function() {
                  // $("#overlap").css('padding-right', '200px');
             //      $(".topperval").css('margin-right', '200px');
                   $(".img-menu").css('margin-left', '20px');
+                  
+                  //width: calc(65% - 130px);
              }, 470);
           //$(".main_content").css('margin-left', '200px'); 
           //$(".uppermenu").css('margin-left', '200px');
@@ -119,6 +132,8 @@ $(function() {
         //  $("#name1").show();
           $(".logo").css('margin-left', '28px');
           $(".logo").css('margin-top', '0px');
+          $(".chat").css('width', 'calc(65% - 130px)');
+          $(".main-grid").css('padding-left', '200px');
           $(".logo").css('margin-bottom', '2px');
       }
   }
@@ -138,6 +153,19 @@ $(function() {
     }
   }
   $(document).ready(()=>{
+    setTimeout(() => {
+        switcher(mode);
+    }, 10);
+    setTimeout(() => {
+        switcher(mode);
+    }, 430);
+    $('.discussion').click(function(e) {
+        if (!$( this ).hasClass('search')) {
+        $('.discussion').removeClass('message-active');
+        $(this).addClass('message-active');
+        e.preventDefault();
+        }
+    });
     $("#btnexmswich").click(()=>{
         $("#ajtexm").show();
         $("#modexm").hide();    
@@ -161,6 +189,7 @@ $(function() {
       $(".rec").hide();
       $(".create").hide();
       $(".menu").hide();
+      $(".chatt").hide();
       $(".imgen").hide();
       $(".maimgtxt").hide();
       $(".maflie").hide();
@@ -196,16 +225,21 @@ $(function() {
         
 
         $("#home").click(()=>{
+            $("#overlapclass1").hide();
+            $("#overlapclass").hide();
             $(".home").show();
             $(".eleves").hide();
             $(".rec").hide();
             $(".menu").hide();
             $(".maimgtxt").hide();
             $(".maflie").hide();
+            $(".chatt").hide();
             $(".create").hide();
             $(".imgen").hide();
         })
         $("#eleves").click(()=>{
+            $("#overlapclass1").hide();
+            $("#overlapclass").hide();
             $(".home").hide();
             $(".eleves").show();
             $(".rec").hide();
@@ -213,9 +247,12 @@ $(function() {
             $(".create").hide();
             $(".maimgtxt").hide();
             $(".maflie").hide();
+            $(".chatt").hide();
             $(".imgen").hide();
         })
         $("#rec").click(()=>{
+            $("#overlapclass1").hide();
+            $("#overlapclass").hide();
             $(".home").hide();
             $(".eleves").hide();
             $(".rec").show();
@@ -223,9 +260,12 @@ $(function() {
             $(".maimgtxt").hide();
             $(".maflie").hide();
             $(".create").hide();
+            $(".chatt").hide();
             $(".imgen").hide();
         })
         $("#menu").click(()=>{
+            $("#overlapclass1").hide();
+            $("#overlapclass").hide();
             $(".home").hide();
             $(".eleves").hide();
             $(".rec").hide();
@@ -233,9 +273,12 @@ $(function() {
             $(".maflie").hide();
             $(".menu").show();
             $(".create").hide();
+            $(".chatt").hide();
             $(".imgen").hide();
         })
         $("#pfpe").click(()=>{
+            $("#overlapclass1").hide();
+            $("#overlapclass").hide();
             $(".home").hide();
             $(".eleves").hide();
             $(".rec").hide();
@@ -243,9 +286,12 @@ $(function() {
             $(".maflie").hide();
             $(".menu").show();
             $(".create").hide();
+            $(".chatt").hide();
             $(".imgen").hide();
         });
         $("#create").click(()=>{
+            $("#overlapclass1").hide();
+            $("#overlapclass").hide();
             $(".home").hide();
             $(".eleves").hide();
             $(".rec").hide();
@@ -253,9 +299,12 @@ $(function() {
             $(".create").show();
             $(".maimgtxt").hide();
             $(".maflie").hide();
+            $(".chatt").hide();
             $(".imgen").hide();
         });
         $("#imgen").click(()=>{
+            $("#overlapclass1").hide();
+            $("#overlapclass").hide();
             $(".home").hide();
             $(".eleves").hide();
             $(".rec").hide();
@@ -263,9 +312,12 @@ $(function() {
             $(".create").hide();
             $(".maimgtxt").hide();
             $(".maflie").hide();
+            $(".chatt").hide();
             $(".imgen").show();
         });
         $("#maflie").click(()=>{
+            $("#overlapclass1").hide();
+            $("#overlapclass").hide();
             $(".home").hide();
             $(".eleves").hide();
             $(".rec").hide();
@@ -273,10 +325,13 @@ $(function() {
             $(".create").hide();
             $(".imgen").hide(); 
             $(".maimgtxt").hide();
+            $(".chatt").hide();
             $(".maflie").show();
            
         });
         $("#maimgtxt").click(()=>{
+            $("#overlapclass1").hide();
+            $("#overlapclass").hide();
             $(".home").hide();
             $(".eleves").hide();
             $(".rec").hide();
@@ -284,7 +339,21 @@ $(function() {
             $(".create").hide();
             $(".imgen").hide();
             $(".maflie").hide();
+            $(".chatt").hide();
             $(".maimgtxt").show();
+        });
+        $("#chat").click(()=>{
+            $("#overlapclass1").hide();
+            $("#overlapclass").hide();
+            $(".home").hide();
+            $(".eleves").hide();
+            $(".rec").hide();
+            $(".menu").hide();
+            $(".create").hide();
+            $(".imgen").hide();
+            $(".maflie").hide();
+            $(".maimgtxt").hide();
+            $(".chatt").show();
         });
         $("#closeoverlap").click(()=>{
             $("#overlapclass").hide();
@@ -293,7 +362,6 @@ $(function() {
             $("#overlapclass1").hide();
         });
   })
-
 
 
 
@@ -347,7 +415,7 @@ $(function() {
 
 // table home 
 $(document).ready(function() {
-
+    resizes();
   var table = $('#table');
 
   // Table bordered
@@ -601,14 +669,35 @@ jQuery.fn.removeClass = function( value ) {
     var arrqesidq = [];
     var batch = [];
     var idbat;
+
 $(document).ready(()=>{
+    $("#editeconf").click(()=>{
+        let oldpass = $("#oldP").val();  ;
+        let newpass = $("#newP").val(); ;
+        let conf = $("#confirmP").val();
+        if(newpass == conf && oldpass != '' && newpass !=''){
+            passchange(newpass,oldpass).then((data)=>{
+                if(data == '1'){
+                    $("#oldP").val('');
+                    $("#newP").val('');
+                    $("#confirmP").val('');
+                    // // $("#passchange").modal("hide");
+                    alert("Password changed successfully");
+                }else{
+                    alert("Old password is incorrect");
+                }
+            })
+        }
+    });
     $("#AjoutTXTBTN").click(()=>{
         let filiere= $("#dropfilier6").val();
         let matiere= $("#dropmatier6").val();
         let TXT = $("#TXTEXER").val();
+        let barem = $("#text-barem").val();
+        let deffi = $("#dropdiff6").val();
         TXT = TXT.replace(/\n/g, "<br>");
-        if(matiere !=null && filiere !=null && TXT !=""){
-            addtextexer(filiere,matiere,TXT).then((data)=>{
+        if(matiere !=null && filiere !=null && TXT !="" && barem !="" && deffi !=null){
+            addtextexer(filiere,matiere,TXT,barem,deffi).then((data)=>{
                 ////console.log(data);
                 if(data == "1"){
                     alert("Ajout avec succes");
@@ -617,10 +706,22 @@ $(document).ready(()=>{
             }) 
         }
     });
+    var img;
     $("#AjoutIMGBTN").click(()=>{
         let filiere= $("#dropfilier6").val();
         let matiere= $("#dropmatier6").val();
-        let IMG = $("#IMGEXER").val();
+        let barem = $("#file-Barem").val();
+        let diff = $("#dropdiff6").val();
+        //img = $("#my-file").val();
+        if(filiere !=null && matiere !=null && barem !="" && diff !=""){
+            addimgexer(filiere,matiere,barem,diff).then((data)=>{
+                console.log(data);
+                if(data == "1"){
+                    alert("Ajout avec succes");
+                    $("#IMGEXER").val("");
+                }
+            }) 
+        }
     });
 
     // $("#countbarqsn").click(()=>{
@@ -634,13 +735,17 @@ $(document).ready(()=>{
     //     }
     // })
 
-    $("#dropitF").change(()=>{
-        getrandydata();
-    })
+    // $("#dropitF").change(()=>{
+    //     getrandydata();
+    // })
 
-    $("#dropitM").change(()=>{
+    // $("#dropitM").change(()=>{
+    //     getrandydata();
+    // })
+    $("#imgGenExam").click(()=>{
+        //alert("hy")
         getrandydata();
-    })
+    });
 
     $("#maingen").click(()=>{
         batch = [];
@@ -648,7 +753,7 @@ $(document).ready(()=>{
         let variant = parseInt($("#countvaria").val());
         let matiere = $("#dropmatier2").val();
         let filiere = $("#dropfilier2").val();
-        let counter = 5 // parseInt($("#countquest").val());
+        let counter = parseInt($("#countquest").val());
         //////console.log(idbat);
         if(variant && matiere &&  filiere && counter){
         dbbatch(idbat,matiere,filiere,'').then((data)=>{
@@ -907,7 +1012,8 @@ $(document).ready(()=>{
                 let plaintext = decrypted.toString(CryptoJS.enc.Utf8);
                 username = plaintext; 
                // //console.log(username);
-               ;
+               //alert("anajit" + username);
+              // chatload();
 
                 setInterval(function(){
                     result.code = undefined ;
@@ -921,7 +1027,7 @@ $(document).ready(()=>{
                     }
                     checkersess();
                     ////console.log('done');
-                    }, 5000);
+                    }, 500);
                 //when confirmed u exist 
                 $("#dropmatier").empty();
                 $("#dropfilier").empty();
@@ -937,12 +1043,45 @@ $(document).ready(()=>{
                         $("#rela").attr('href', "uploads/"+datj[0].link);
                     }
                 });
+                //getexm2
+                dbgetexm2(username).then((data)=>{
+                    //console.log(data);
+                    let datj = JSON.parse(data);
+                    //console.log(datj);
+                    $("#tabexams2").empty();
+                    for(let i = 0 ; i<datj.length ; i++){
+                        $("#tabexams2").append(`
+                        <tr>
+                        <td>${datj[i].idexe}</td>
+                        <td>${datj[i].fil}</td>
+                        <td>${datj[i].mat}</td>
+                        <td>${datj[i].barem}</td>
+                        <td><div class="cb"><button id="showimgquiz${datj[i].idexe}" class="button-88">show</button></div></td>
+                <td><div class="cb"><button id="Deletimgequiz${datj[i].idexe}" class="button-88">Delete</button></div></td>
+                        </tr>
+                        `);
+                        $("#showimgquiz"+datj[i].idexe).click(()=>{
+                            document.cookie = 'eximag='+datj[i].idexe+';time=2020;expires='+new Date(2028,11,13).toUTCString()+'';
+                            window.open("http://localhost:90/EFF/Project/imgquiz.html");
+                        });
+                        $("#Deletimgequiz"+datj[i].idexe).click(()=>{
+                            deleexmg2(`${datj[i].idexe}`).then((data)=>{
+                                alert(data)
+                                if(data == "1"){
+                                    reloadexams2();
+                                }
+                            });
+                        });
+                    }
 
+                });
                 dbmatier().then((data)=>{
                     $("#dropmatier").empty();
                     $("#dropmatier6").empty();
+                    $("#dropmatier7").empty();
                     $("#dropmatier1").empty();
                     $("#dropmatier2").empty();
+                    //alert("kheat");
                     $("#dropitM").empty();
                     let datamat = JSON.parse(data);
                     $("#dropmatier").append(`
@@ -951,8 +1090,11 @@ $(document).ready(()=>{
                     $("#dropmatier6").append(`
                     <option value="" style="display:none;" disabled selected>Matiere</option>
                     `);
-                    $("#dropitM").append(`
+                    $("#dropmatier7").append(`
                     <option value="" style="display:none;" disabled selected>Matiere</option>
+                    `);
+                    $("#dropitM").append(`
+                    <option value="" style="display:none;" disabled selected>Select Matiere:</option>
                     `);
                     $("#dropmatier1").append(`
                     <option value="" style="display:none;" disabled selected>Matiere</option>
@@ -965,6 +1107,9 @@ $(document).ready(()=>{
                         <option value="${datamat[i].idm}">${datamat[i].nom}</option>
                         `);
                         $("#dropmatier6").append(`
+                        <option value="${datamat[i].idm}">${datamat[i].nom}</option>
+                        `);
+                        $("#dropmatier7").append(`
                         <option value="${datamat[i].idm}">${datamat[i].nom}</option>
                         `);
                         $("#dropitM").append(`
@@ -983,6 +1128,8 @@ $(document).ready(()=>{
                     $("#dropfilier1").empty();
                     $("#dropfilier2").empty();
                     $("#dropfilier6").empty();
+                    $("#dropfilier7").empty();
+                    //console.log("khwat");
                     $("#dropitF").empty();
                     let datamat = JSON.parse(data);
                     $("#dropfilier").append(`
@@ -991,8 +1138,11 @@ $(document).ready(()=>{
                         $("#dropfilier6").append(`
                         <option value="" style="display:none;" disabled selected>Filier</option>
                         `);
-                        $("#dropitF").append(`
+                        $("#dropfilier7").append(`
                         <option value="" style="display:none;" disabled selected>Filier</option>
+                        `);
+                        $("#dropitF").append(`
+                        <option value="" style="display:none;" disabled selected>Select Filier:</option>
                         `);
                         $("#dropfilier1").append(`
                         <option value="" style="display:none;" disabled selected>Filier</option>
@@ -1005,6 +1155,9 @@ $(document).ready(()=>{
                         <option value="${datamat[i].idf}">${datamat[i].nom}</option>
                         `);
                         $("#dropfilier6").append(`
+                        <option value="${datamat[i].idf}">${datamat[i].nom}</option>
+                        `);
+                        $("#dropfilier7").append(`
                         <option value="${datamat[i].idf}">${datamat[i].nom}</option>
                         `);
                         $("#dropitF").append(`
@@ -1153,7 +1306,7 @@ $(document).ready(()=>{
                                                 </a>
                                               </div>
                                         
-                                              <div class="button_su"  style="margin: auto;">
+                                              <!--<div class="button_su" id="dele${databd[i].idbat}"  style="margin: auto;">
                                                 <span class="su_button_circle">
                                                 </span>
                                                 <a href="#" class="button_su_inner">
@@ -1161,7 +1314,7 @@ $(document).ready(()=>{
                                                    Delete
                                                   </span>
                                                 </a>
-                                              </div>
+                                              </div>-->
                                               
                                                     
                                             </div> 
@@ -1171,6 +1324,14 @@ $(document).ready(()=>{
                                         $(`#showbat${databd[i].idbat}`).click(()=>{
                                             showbat(databd[i].idbat);
                                         })
+                                        // $(`#dele${databd[i].idbat}`).click(()=>{
+                                        //     dbdelexam(`${databd[i].idbat}`).then((data)=>{
+                                        //         alert(data)
+                                        //         if(data == "1"){
+                                        //             reloadexams1();
+                                        //         }
+                                        //     });
+                                        // });
                                     dbpasses(databd[i].idbat).then((data=>{
                                         $(`
                                         <div class="container" id="ele${databd[i].idbat}" style="display: none;" >
@@ -1191,6 +1352,7 @@ $(document).ready(()=>{
                                                                 <th class="table__th">Note</th>
                                                                 <th class="table__th">Status</th>
                                                                 <th class="table__th">date</th>
+                                                                <th class="table__th"></th>
                                                                 <th class="table__th"></th>
                                                                 </tr>
                                                             </thead>
@@ -1243,10 +1405,13 @@ $(document).ready(()=>{
                       <td class="table-row__td">
                                      
                                       
-                                      
+                                        
                                       <svg data-toggle="tooltip" data-placement="bottom" title="Delete" version="1.1" id="deletele${dbpass[j].idpass}" class="table-row__bin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<path d="M436,60h-90V45c0-24.813-20.187-45-45-45h-90c-24.813,0-45,20.187-45,45v15H76c-24.813,0-45,20.187-45,45v30    c0,8.284,6.716,15,15,15h16.183L88.57,470.945c0.003,0.043,0.007,0.086,0.011,0.129C90.703,494.406,109.97,512,133.396,512    h245.207c23.427,0,42.693-17.594,44.815-40.926c0.004-0.043,0.008-0.086,0.011-0.129L449.817,150H466c8.284,0,15-6.716,15-15v-30    C481,80.187,460.813,60,436,60z M196,45c0-8.271,6.729-15,15-15h90c8.271,0,15,6.729,15,15v15H196V45z M393.537,468.408    c-0.729,7.753-7.142,13.592-14.934,13.592H133.396c-7.792,0-14.204-5.839-14.934-13.592L92.284,150h327.432L393.537,468.408z     M451,120h-15H76H61v-15c0-8.271,6.729-15,15-15h105h150h105c8.271,0,15,6.729,15,15V120z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M256,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C271,186.716,264.284,180,256,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M346,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C361,186.716,354.284,180,346,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M166,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C181,186.716,174.284,180,166,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g>
                       <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
                                       </svg>                
+                                    </td>
+                                    <td data-column="Show" class="table-row__td">
+                                        <img src="img/b9da86621775cd18447abbfacf20c04c.svg" id="idpass${dbpass[j].idpass}" style="width: 30px;height: 22px;">
                                     </td>
                                   </tr>
                                                     `).insertAfter(`#tbody${databd[i].idbat}`);
@@ -1260,13 +1425,18 @@ $(document).ready(()=>{
                                                     });
                                                     
                                                     $(`#deletele${dbpass[j].idpass}`).click(()=>{
-                                                        $(`#eleves${dbpass[j].idpass}`).hide();
-                                                        //alert("r we there yet ?")
+                                                        
                                                         dbdelpass(dbpass[j].idpass).then((data)=>{
-                                                            ////console.log(data);
+                                                            if(data == "1"){
+                                                                $(`#eleves${dbpass[j].idpass}`).hide();
+                                                            }
                                                         })
 
                                                     })
+                                                    $(`#idpass${dbpass[j].idpass}`).click(()=>{
+                                                        document.cookie = 'exahys='+dbpass[j].idpass+';time=2020;expires='+new Date(2028,11,13).toUTCString()+'';
+                                                        window.open('http://localhost:90/EFF/Project/quizhistory.html');
+                                                    });
 
                                             }else{
                                                 $(`
@@ -1299,10 +1469,13 @@ $(document).ready(()=>{
                                       <p class="table-row__progress status--blue status">${dbpass[j].datepassed}</p>
                                     </td>
                                     </td>
-                      <td class="table-row__td">
+                      <td class="table-row__td">             
                                       <svg data-toggle="tooltip" data-placement="bottom" title="Delete" version="1.1" class="table-row__bin" id="deletele${dbpass[j].idpass}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<path d="M436,60h-90V45c0-24.813-20.187-45-45-45h-90c-24.813,0-45,20.187-45,45v15H76c-24.813,0-45,20.187-45,45v30    c0,8.284,6.716,15,15,15h16.183L88.57,470.945c0.003,0.043,0.007,0.086,0.011,0.129C90.703,494.406,109.97,512,133.396,512    h245.207c23.427,0,42.693-17.594,44.815-40.926c0.004-0.043,0.008-0.086,0.011-0.129L449.817,150H466c8.284,0,15-6.716,15-15v-30    C481,80.187,460.813,60,436,60z M196,45c0-8.271,6.729-15,15-15h90c8.271,0,15,6.729,15,15v15H196V45z M393.537,468.408    c-0.729,7.753-7.142,13.592-14.934,13.592H133.396c-7.792,0-14.204-5.839-14.934-13.592L92.284,150h327.432L393.537,468.408z     M451,120h-15H76H61v-15c0-8.271,6.729-15,15-15h105h150h105c8.271,0,15,6.729,15,15V120z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M256,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C271,186.716,264.284,180,256,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M346,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C361,186.716,354.284,180,346,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g>	<g>		<path d="M166,180c-8.284,0-15,6.716-15,15v212c0,8.284,6.716,15,15,15s15-6.716,15-15V195C181,186.716,174.284,180,166,180z" style="fill: rgb(158, 171, 180);"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g>
                       <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
                                       </svg>                
+                                    </td>
+                                    <td data-column="Show" class="table-row__td">
+                                        <img src="img/b9da86621775cd18447abbfacf20c04c.svg" id="idpass${dbpass[j].idpass}" style="width: 30px;height: 22px;">
                                     </td>
                                   </tr>
                                                     `).insertAfter(`#tbody${databd[i].idbat}`);
@@ -1322,6 +1495,10 @@ $(document).ready(()=>{
                                                         })
 
                                                     })
+                                                    $(`#idpass${dbpass[j].idpass}`).click(()=>{
+                                                        document.cookie = 'exahys='+dbpass[j].idpass+';time=2020;expires='+new Date(2028,11,13).toUTCString()+'';
+                                                        window.open('http://localhost:90/EFF/Project/quizhistory.html');
+                                                    });
                                             }
 
                                         }
@@ -1521,6 +1698,39 @@ function randomise(min,max){
 }
 var coded;
 
+
+function addimgexer(fil,mat,barem,diff){
+    var img =  $('#my-file')[0].files;
+    return new Promise(function(resolve, reject) {
+        if(img.length > 0){
+            let form_data = new FormData();
+            form_data.append('username', username);
+            form_data.append('mat', mat);
+            form_data.append('fil', fil);
+            form_data.append('barem', barem);
+            form_data.append('diff', diff);
+            form_data.append('my_image', img[0]);
+            console.log(form_data);
+            $.ajax({
+                url: 'addimgexer.php',
+                type: 'post',
+                data: form_data,
+                contentType: false,
+                processData: false,
+                success: function(res){
+                    resolve(res)
+                },
+                error: function(err) {
+                    ////console.log(err)
+                    reject(err) // Reject the promise and go to catch()
+                }
+            });
+         
+        }else {
+           $("#errorMs").text("Please select an image.");
+        }
+    });
+}
 
 function dbimgupdate() {
 
@@ -1817,7 +2027,7 @@ function gettheques(idqsn){
         for(let i = 0 ; i<jsn.length ; i++){
             $("#tablemchoix").append(`
             <tr>
-                      <td data-title="ID" id="row1">${jsn[i].idr}</td>
+                      <td data-title="ID" id="row1" >${jsn[i].idr}</td>
                       <td data-title="Question" >${jsn[i].chois}</td>
             </tr>
             `);
@@ -1836,14 +2046,15 @@ function gettheques(idqsn){
 function nl2br(str){
     return str.replace(/(?:\r\n|\r|\n)/g, '<br>');
 }
-function getimgqsn(idf,idm) {
+function getimgqsn(idf,idm,defi) {
     return new Promise(function(resolve, reject) {
         $.ajax({
             method: "POST",
             url: "dbgetimgqsn.php",
             data: {
                 "idf": idf,
-                "idm":idm
+                "idm":idm,
+                "defi":defi
             },
             success: function(data) {
                 resolve(data) // Resolve promise and go to then()
@@ -1855,14 +2066,15 @@ function getimgqsn(idf,idm) {
         });
     });
 }
-function gettxtqsn(idf,idm) {
+function gettxtqsn(idf,idm,defi) {
     return new Promise(function(resolve, reject) {
         $.ajax({
             method: "POST",
             url: "dbgetextqsn.php",
             data: {
                 "idf": idf,
-                "idm":idm
+                "idm":idm,
+                "defi":defi
             },
             success: function(data) {
                 resolve(data) // Resolve promise and go to then()
@@ -2017,11 +2229,12 @@ var qsns;
 function getrandydata(){
     let idf = $("#dropitF").val();
     let idm = $("#dropitM").val();
-    if(idf != null && idm != null ){
-
-        getimgqsn(idf,idm).then((data)=>{
-            // //console.log(data);
-             //console.log(JSON.parse(data));
+    let deffi = $("#dropitdiff").val();
+    if(idf != null && idm != null && deffi != null){
+        //alert("" + idf + " " + idm + " " + deffi);
+        getimgqsn(idf,idm,deffi).then((data)=>{
+                //console.log(data);
+             console.log(JSON.parse(data));
              allimgs = JSON.parse(data);
              imgready = true;
              generate_examoff();
@@ -2029,9 +2242,9 @@ function getrandydata(){
         
 
        
-        gettxtqsn(idf,idm).then((data)=>{
+        gettxtqsn(idf,idm,deffi).then((data)=>{
             ////console.log(data);
-            //console.log(JSON.parse(data));
+            console.log(JSON.parse(data));
             alltext = JSON.parse(data);
             txtready = true;
             generate_examoff();
@@ -2110,6 +2323,79 @@ function noreprandom21(){
             return 0;
         }else{
             return noreprandom21();
+        }
+        
+    }
+}
+var oldies41 = [];
+
+function noreprandom41(){
+
+    let val = randomise(17,20);
+    let exist = false;
+    for(let i =0;i<oldies41.length;i++){
+        if(oldies41[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldies41.push(val);
+        return val;
+    }else{
+        if(oldies41.length == 4){
+            oldies41 = [];
+            return 0;
+        }else{
+            return noreprandom41();
+        }
+        
+    }
+}
+var oldies42 = [];
+
+function noreprandom42(){
+
+    let val = randomise(17,20);
+    let exist = false;
+    for(let i =0;i<oldies42.length;i++){
+        if(oldies42[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldies42.push(val);
+        return val;
+    }else{
+        if(oldies42.length == 4){
+            oldies42 = [];
+            return 0;
+        }else{
+            return noreprandom42();
+        }
+        
+    }
+}
+
+var oldies43 = [];
+
+function noreprandom43(){
+
+    let val = randomise(17,20);
+    let exist = false;
+    for(let i =0;i<oldies43.length;i++){
+        if(oldies43[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldies43.push(val);
+        return val;
+    }else{
+        if(oldies43.length == 4){
+            oldies43 = [];
+            return 0;
+        }else{
+            return noreprandom43();
         }
         
     }
@@ -2339,13 +2625,12 @@ var fifth = 0;
 var thjsn  ;
 var fwd = 0;
 function generate_examoff(){
-    
-    
+    let fil = $("#dropitF").val();
+    let mat = $("#dropitM").val();
     let barem = $("#dropinq").val();
     barem = parseInt(barem);
     if(imgready && txtready){
         exam_offic = [];
-        //alert("generate_examoff");
         if(barem == 20){
             qsns = 3;
             let firstq =true;
@@ -2591,7 +2876,7 @@ function generate_examoff(){
         } 
         var gotit = false;
         if(sec>0){
-
+            console.log(exam_offic);
             let firstq =true;
            
             while(firstq){
@@ -2635,6 +2920,7 @@ function generate_examoff(){
                             //console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -2673,6 +2959,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(history.length == choisestxt.length){
@@ -2711,6 +2998,7 @@ function generate_examoff(){
                             //console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -2750,6 +3038,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(history.length == choisestxt.length){
@@ -2770,12 +3059,17 @@ function generate_examoff(){
         }
         if(gotit){
             ////console.log(allimgs);
-            //console.log(exam_offic);
+            console.log(exam_offic);
+            //SEND 1
+            addexm2(fil,mat,JSON.stringify(exam_offic),barem).then(function(data){
+                console.log(data);
+            });
             dumpdata();
         }
+        console.log(exam_offic);
 
-
-        }  
+        }
+        console.log(exam_offic);
         if(!gotit && sec>0){ // if we didn't get any question
             if(exam_offic[2] == undefined){
                 let idf = $("#dropitF").val();
@@ -2810,19 +3104,26 @@ function generate_examoff(){
                     }
 
                     if(lastwsn == 19-(first +sec)){
-                        //console.log("done");
-                        //console.log(exam_offic);
+                        console.log("done");
+                        console.log(exam_offic);
+                        //SEND 1 1
+                        addexm2(fil,mat,JSON.stringify(exam_offic),barem).then(function(data){
+                            console.log(data);
+                        });
+                        dumpdata();
                     }else{
-                        alert("you don't have enogh questions" + lastwsn);
+                        dumpdata();
+                        alert("you don't have enogh questions");
                         ////console.log(exam_offic);
                     }
                 }
-                dumpdata();
+                
             })  
             }
             
             //alert("hna l qcm");
         }
+        
         }else if(barem == 40){
             qsns = 4;
             let firstq =true;
@@ -2925,6 +3226,7 @@ function generate_examoff(){
                             //console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -2965,6 +3267,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(gotit){
@@ -3004,6 +3307,7 @@ function generate_examoff(){
                             ////console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -3045,6 +3349,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(history.length == choisestxt.length){
@@ -3112,6 +3417,7 @@ function generate_examoff(){
                             //console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -3152,6 +3458,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(gotit){
@@ -3191,6 +3498,7 @@ function generate_examoff(){
                             ////console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -3232,6 +3540,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(history.length == choisestxt.length){
@@ -3299,6 +3608,7 @@ function generate_examoff(){
                             //console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -3337,6 +3647,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(history.length == choisestxt.length){
@@ -3375,6 +3686,7 @@ function generate_examoff(){
                             //console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -3415,6 +3727,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(history.length == choisestxt.length){
@@ -3435,13 +3748,19 @@ function generate_examoff(){
         }
         if(gotit){
             ////console.log(allimgs);
-            //console.log(exam_offic);
+            //SEND 2
+            console.log(exam_offic);
+            addexm2(fil,mat,JSON.stringify(exam_offic),barem).then(function(data){
+                console.log(data);
+            });
             dumpdata(); 
         }
 
 
         }  
         if(!gotit && third>0){ // if we didn't get any question
+            console.log(exam_offic);
+            alert("you don't have enogh questions qcm time");
             if(exam_offic[3] == undefined){
                 let idf = $("#dropitF").val();
             let idm = $("#dropitM").val();
@@ -3475,26 +3794,39 @@ function generate_examoff(){
 
                     }
 
-                    if(lastwsn == 19-(first +sec)){
-                        //console.log("done");
-                        //console.log(exam_offic);
+                    if(lastwsn == (39 - (sec+first+third))){
+                        console.log("done");
+                        xconsole.log(exam_offic);
+                        addexm2(fil,mat,JSON.stringify(exam_offic),barem).then(function(data){
+                                console.log(data);
+                            });
+                            dumpdata();
                     }else{
-                        alert("you don't have enogh questions" + lastwsn);
+                        alert("you don't have enogh questions" );
                         ////console.log(exam_offic);
                     }
                 }
-                dumpdata();
+                //SEND 2 2
+                
+
             })  
             }
             
             //alert("hna l qcm");
         }
+        
         }else if(barem == 60){
+            //alert("60");
+            console.log(exam_offic  );
             qsns = 5;
+            let trio = randomise(1,2);
+            //delete
+            trio = 1;   
+            if(trio == 1){
+
             let firstq =true;
             while(firstq){
                  first =  noreprandom31();
-                 //console.log(first);
                  if (first == 0){
                     firstq = false;
                     //alert("you don't have enogh questions");
@@ -3511,7 +3843,8 @@ function generate_examoff(){
                     if(second){
                         let rddsa = randomise(0,choisesimg.length-1);
                         exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : first});
-                        //console.log(exam_offic);
+                        console.log(exam_offic);
+                        console.log("1 dazz");
                         //console.log(allimgs[choisesimg[rddsa]]);
                         firstq = false;
                     }else{
@@ -3527,7 +3860,8 @@ function generate_examoff(){
                     if(!second){
                          let rddsa = randomise(0,choisesimg.length-1);
                         exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : first});
-                        //console.log(exam_offic);
+                        console.log(exam_offic);
+                        console.log("1 dazz");
                         //console.log(allimgs[choisesimg[rddsa]]);
                         firstq = false;
                     }else{
@@ -3551,7 +3885,8 @@ function generate_examoff(){
             while(firstq){
                 //alert("2")
                  sec =  noreprandom32();
-                 //console.log(sec + " : sec");
+                 console.log(sec + " : sec");
+                 console.log(exam_offic);
                  if (sec == 0){
                     firstq = false;
                     alert("you don't have enogh questions");
@@ -3587,10 +3922,12 @@ function generate_examoff(){
                         if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
                             exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : sec});
                            // alert("2 dazz");
-                            //console.log(exam_offic);
+                           console.log("2 dazz");
+                            console.log(exam_offic);
                             //console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -3601,11 +3938,6 @@ function generate_examoff(){
                     }
                         
                    }else{
-                    //    let rddsa = randomise(0,choisestxt.length-1);
-                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
-                    //    //console.log(exam_offic);
-                    //    //console.log(alltext[choisestxt[rddsa]]);
-                    //    firstq = false;
                     let rddsa = randomise(0,choisestxt.length-1);
                     let history = [];
                     let gotit = false;
@@ -3631,6 +3963,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(gotit){
@@ -3665,11 +3998,12 @@ function generate_examoff(){
                              
                         if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
                             exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : sec});
-                            //alert("2 dazz");
-                            ////console.log(exam_offic);
+                            console.log("2 dazz");
+                            console.log(exam_offic);
                             ////console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -3711,6 +4045,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(history.length == choisestxt.length){
@@ -3738,7 +4073,7 @@ function generate_examoff(){
             while(firstq){
                 //alert("2")
                 third =  noreprandom33();
-                 //console.log(third + " : third");
+                 console.log(third + " : third");
                  if (third == 0){
                     firstq = false;
                     alert("you don't have enogh questions");
@@ -3778,6 +4113,7 @@ function generate_examoff(){
                             //console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -3818,6 +4154,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(gotit){
@@ -3857,6 +4194,7 @@ function generate_examoff(){
                             ////console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -3898,6 +4236,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(history.length == choisestxt.length){
@@ -4110,7 +4449,7 @@ function generate_examoff(){
 
         var gotit = false;
         if(fourth>0){
-
+            
             let firstq =true;
            
             while(firstq){
@@ -4290,7 +4629,11 @@ function generate_examoff(){
         }
         if(gotit){
             ////console.log(allimgs);
-            //console.log(exam_offic);
+            //SEND 3
+            addexm2(fil,mat,JSON.stringify(exam_offic),barem).then(function(data){
+                console.log(data);
+            });
+            console.log(exam_offic);
             dumpdata(); 
         }
 
@@ -4330,25 +4673,755 @@ function generate_examoff(){
 
                     }
 
-                    if(lastwsn == 19-(first +sec)){
+                    if(lastwsn == 59-(sec+first+third+fourth)){
                         ////console.log("done");
-                        ////console.log(exam_offic);
+                        console.log(exam_offic);
+
+                        addexm2(fil,mat,JSON.stringify(exam_offic),barem).then(function(data){
+                            console.log(data);
+                        });
+                        dumpdata();
                     }else{
                         alert("you don't have enogh questions" + lastwsn);
                         //////console.log(exam_offic);
                     }
                 }
-                dumpdata();
+                //SEND 3 3
+                
             })  
             }
             
             //alert("hna l qcm");
         }
+        }else{
+            //alert("val2")
+            let firstq =true;
+            while(firstq){
+                 first =  noreprandom41();
+                 //console.log(first);
+                 if (first == 0){
+                    firstq = false;
+                    //alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                if(second == 1){
+                    second = true;
+                }else{
+                    second = false;
+                }
+                // exam 1
+                if(chercherxam(second,first)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(allimgs[choisesimg[rddsa]]);
+                        firstq = false;
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                    }
+                    
+
+                }else if(chercherxam(!second,first)){
+                    if(!second){
+                         let rddsa = randomise(0,choisesimg.length-1);
+                        exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(allimgs[choisesimg[rddsa]]);
+                        firstq = false;
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                    }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        //alert(first + "sdada");
+        if(first>0){
+
+            let firstq =true;
+            while(firstq){
+                //alert("2")
+                 sec =  noreprandom42();
+                 console.log(sec + " : sec");
+                 if (sec == 0){
+                    firstq = false;
+                    console.log(exam_offic)
+                    alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                 if(second == 1){
+                    second = true;
+                 }else{
+                     second = false;
+                 }
+                //exam 2
+                if(chercherxam(second,sec)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("sec 1 i :" +history.length + " " + choisesimg.length + " " + sec + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : sec});
+                            //alert("2 dazz");
+                            console.log(exam_offic);
+                            console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                            break;
+                        }
+
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                        
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("sec 1 t:" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : sec});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                        break;
+                    }
+                }
+                if(gotit){
+                    break;
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                
+                   }
+                    
+
+                }else if(chercherxam(!second,sec)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                           // alert("sec 2 i:" +history.length + " " + choisesimg.length + " " + sec + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : sec});
+                            //alert("2 dazz");
+                            ////console.log(exam_offic);
+                            ////console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                            break;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                       
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                     
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("sec 2 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : sec});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                        break;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                   }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        }else{
+            //alert("you don't have enogh questions");
+
+            //fallback
+        } 
+        if(sec>0){
+            console.log(exam_offic)
+            //alert(2)
+            let firstq =true;
+            while(firstq){
+                //alert("2")
+                third =  noreprandom43();
+                //alert("third:" + third)
+                 //console.log(third + " : third");
+                 if (third == 0){
+                    firstq = false;
+                    console.log(exam_offic)
+                    alert("you don't have enogh questions43");
+                    break;
+                 }
+                let second = randomise(1,2);
+                 if(second == 1){
+                    second = true;
+                 }else{
+                     second = false;
+                 }
+                //exam 2
+                if(chercherxam(second,third)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("third 1 i :" +history.length + " " + choisesimg.length + " " + third + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : third});
+                           // alert("2 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                            break;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                        
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("third 1 t:" +history.length + " " + choisestxt.length + " " + third + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : third});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                        break;
+                    }
+                }
+                if(gotit){
+                    //console.log("hawa")
+                    //console.log(exam_offic);
+                    break;
+                    
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                
+                   }
+                    
+
+                }else if(chercherxam(!second,third)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                           // alert("third 2 i:" +history.length + " " + choisesimg.length + " " + third + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : third});
+                            //alert("2 dazz");
+                            ////console.log(exam_offic);
+                            ////console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                            break;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                       
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                     
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("third 2 t :" +history.length + " " + choisestxt.length + " " + third + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : third});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                        break;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                   }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        }else{
+            //alert("you don't have enogh questions");
+
+            //fallback
+        } 
+        var gotit = false;
+        if(third>0){
+
+            let firstq =true;
+           
+            while(firstq){
+                 fourth =  60 - (first+sec+third);
+                 //console.log(fourth + " : fourth");
+                 if (fourth == 0){
+                    gotit = true;
+                    //alert("you don't have enogh questions44");
+                    break;
+                 }
+                let second = randomise(1,2);
+                if(second == 1){
+                    second = true;
+                }else{
+                    second = false;
+                }
+                if(chercherxam(second,fourth)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("3 1 i:"+history.length + " " + choisesimg.length + " " + fourth + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : fourth});
+                            //alert("3 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                            break;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        firstq = false;
+                        gotit = false;
+                        //alert("you don't have enogh questions qcm time");
+                    }
+                    
+                        
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                     gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("3 1 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : fourth});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                        break;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                    }
+                    
+
+                }else if(chercherxam(!second,fourth)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("3 2 i:"+history.length + " " + choisesimg.length + " " + fourth + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : fourth});
+                           //alert("3 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                            break;
+                        }
+                    }
+                    if(gotit){
+                        //console.log(exam_offic);
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        firstq = false;
+                        gotit = false;
+                        //alert("you don't have enogh questions");
+                    }
+                    
+                     
+
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("3 2 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : fourth});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                        break;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+
+                    }
+                    
+
+                }else{
+                    firstq = false;
+                    //fourth = 0;
+                    break;
+                }
+        }
+        if(gotit){
+            ////console.log(allimgs);
+            //SEND 2
+            //console.log(exam_offic);
+            addexm2(fil,mat,JSON.stringify(exam_offic),barem).then(function(data){
+                console.log(data);
+            });
+            dumpdata(); 
+        }
+
+
+        } 
+        if(!gotit && third>0){ // if we didn't get any question
+            //console.log("u don't have enogh questions to make an exam");
+            console.log((60 - (sec+first+third)));
+            if(exam_offic[3] == undefined){
+                let idf = $("#dropitF").val();
+            let idm = $("#dropitM").val();
+            dbloaded(idm,idf).then((data)=>{
+                thjsn = JSON.parse(data);
+                oldies3 =[];
+                console.log(thjsn);
+                console.log('thjsn');
+                if(thjsn.length >0){
+                    var lastwsn = 0 ;
+                    oldies3 = [];
+                    fwd = 0;
+                    while(fwd< (60 - (sec+first+third))){
+                        ////console.log(thjsn);
+                        ////console.log("thjsnloop" + (fwd+1));
+                        let qsn = noreprandom3();
+                            if(qsn==-1){
+                               ////console.log(-1);
+                                ////console.log(exam_offic);
+                                break;
+                                }
+                       ////console.log("f:" + f + "/ exam_offic.length" + exam_offic.length + "/ qsn" + qsn);
+                        lastwsn = fwd;
+                        ////console'.log(thjsn[qsn]);
+                        console.log(lastwsn ); 
+                        console.log(59 - (sec+first+third))
+                        exam_offic.push({"type":3, "id" : thjsn[qsn].idq,"barem" : 1});
+                        console.log(exam_offic);
+                        //console.log("rahzedt " + thjsn[qsn].idq); 
+                        fwd++;
+                        //alert(sec)
+                        //////console.log( first);
+
+                    }
+
+                    if(lastwsn == (59 - (sec+first+third))){
+                        console.log("done");
+                        //console.log(exam_offic);
+                        addexm2(fil,mat,JSON.stringify(exam_offic),barem).then(function(data){
+                                    console.log(data);
+                                });
+                        dumpdata();
+                    }else{
+                        dumpdata();
+                        alert("you don't have enogh questions" );
+                        //////console.log(exam_offic);
+                    }
+                }
+                //SEND 3 3
+                
+            })  
+            }
+            
+            //alert("hna l qcm");
+        } 
+        }
         }
         txtready = false;
         imgready = false;
+        
     }
     
+}
+function dbaddExamImg(mat,fil,exam) {
+    let texam =  exam;
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "filadd.php",
+            data: {
+                "username": username,
+                "exam" : texam,
+                "mat" : mat,
+                "fil" : fil
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // ////console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
 }
 function dumpdata(){
     first  = 0;
@@ -4364,7 +5437,15 @@ function dumpdata(){
     oldies21 = [];
     oldies22 = [];
     oldies23 = [];
+    oldies41 = [];
+    oldies42 = [];
+    oldies43 = [];
+    oldies31 = [];
+    oldies32 = [];
+    oldies33 = [];
+    oldies34 = [];
     exam_offic = [];
+    reloadexams2();
 }
 
 // var baremecount;
@@ -4507,7 +5588,7 @@ function addfiler(fil) {
     });
 }
 
-function addtextexer(fil,mat,txt) {
+function addtextexer(fil,mat,txt,barem,deffi) {
     return new Promise(function(resolve, reject) {
         $.ajax({
             method: "POST",
@@ -4516,7 +5597,9 @@ function addtextexer(fil,mat,txt) {
                 "txt": txt,
                 "fil": fil,
                 "mat": mat,
-                "user" : username 
+                "user" : username,
+                "barem" : barem,
+                "deffi" : deffi
             },
             success: function(data) {
                 resolve(data) // Resolve promise and go to then()
@@ -4528,33 +5611,220 @@ function addtextexer(fil,mat,txt) {
         });
     });
 }
-function dbimgupdate(mat, fil) {
-
+function addexm2(fil,mat,txt,barem) {
     return new Promise(function(resolve, reject) {
-        let fili = $('#my-file')[0].files;
-        if(fili.length > 0){
-            let form_data = new FormData();
-            form_data.append('user', username);
-            form_data.append('mat', mat);
-            form_data.append('fil', fil);
-            form_data.append('my_image', fili[0]);
-            $.ajax({
-                url: 'imgexerupload.php',
-                type: 'post',
-                data: form_data,
-                contentType: false,
-                processData: false,
-                success: function(res){
-                    resolve(res)
-                },
-                error: function(err) {
-                    //////console.log(err)
-                    reject(err) // Reject the promise and go to catch()
-                }
-            });
-         
-        }else {
-           $("#errorMs").text("Please select an image.");
-        }
+        $.ajax({
+            method: "POST",
+            url: "addexmimgx.php",
+            data: {
+                "exm": txt,
+                "fil": fil,
+                "mat": mat,
+                "user" : username,
+                "barem" : barem
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // ////console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
     });
 }
+function dbgetexm2() {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "getexams2.php",
+            data: {
+                "username": username
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // //console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
+function deleexmg2(idxm) {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "delexemg2.php",
+            data: {
+                "idexe": idxm
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // //console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
+
+///passchange
+
+function passchange(newpass,oldpass) {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "newpass.php",
+            data: {
+                "newpass": newpass,
+                "username" : username,
+                "oldpass" : oldpass
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // //console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
+
+function reloadexams2(){
+    dbgetexm2(username).then((data)=>{
+        //console.log(data);
+        let datj = JSON.parse(data);
+        //console.log(datj);
+        $("#tabexams2").empty();
+        for(let i = 0 ; i<datj.length ; i++){
+            $("#tabexams2").append(`
+            <tr>
+            <td>${datj[i].idexe}</td>
+            <td>${datj[i].fil}</td>
+            <td>${datj[i].mat}</td>
+            <td>${datj[i].barem}</td>
+            <td><div class="cb"><button id="showimgquiz${datj[i].idexe}" class="button-88">show</button></div></td>
+    <td><div class="cb"><button id="Deletimgequiz${datj[i].idexe}" class="button-88">Delete</button></div></td>
+            </tr>
+            `);
+            $("#showimgquiz"+datj[i].idexe).click(()=>{
+                document.cookie = 'eximag='+datj[i].idexe+';time=2020;expires='+new Date(2028,11,13).toUTCString()+'';
+                window.open("http://localhost:90/EFF/Project/imgquiz.html");
+            });
+            $("#Deletimgequiz"+datj[i].idexe).click(()=>{
+                deleexmg2(`${datj[i].idexe}`).then((data)=>{
+                    if(data == "1"){
+                        reloadexams2();
+                    }
+                });
+            });
+        }
+
+    });
+}
+
+function reloadexams1(){
+    $("#tablebat2").empty();
+    dbexam().then((data)=>{ 
+        ////console.log(data)
+        let databd = JSON.parse(data);
+       
+        if(databd.length >= 0){
+            //generer home table
+            
+            
+
+            for(let i = databd.length-1 ; i >=0;i--){
+
+
+
+                        ////console.log(JSON.parse(data));
+                       // //console.log(databd);
+                        
+                        
+
+                        
+
+                            $("#tablebat2").append(`
+                            <tr id="rowbats${databd[i].idbat}">
+                            <td data-title="ID" >${databd[i].idbat}</td>
+                            <td data-title="Vari">${databd[i].vari}</td>
+                           
+                            <td data-title="Matiere">${databd[i].filier}</td>
+                            <td data-title="Filiere">
+                            ${databd[i].filier}
+                              </td>
+                              <td data-title="" style="padding-top: 7px;  padding-right: 0px;  padding-bottom: 2px;  padding-left: 0 px;">
+                                <div class='wrapper1'>
+                                  
+                                  
+                                  <div class="button_su" style="margin: auto;" id="showbat${databd[i].idbat}">
+                                    <span class="su_button_circle">
+                                    </span>
+                                    <a href="#" class="button_su_inner">
+                                      <span class="button_text_container">
+                                        Show
+                                      </span>
+                                    </a>
+                                  </div>
+                            
+                                  <div class="button_su" id="dele${databd[i].idbat}" style="margin: auto;">
+                                    <span class="su_button_circle">
+                                    </span>
+                                    <a href="#" class="button_su_inner">
+                                      <span class="button_text_container">
+                                       Delete
+                                      </span>
+                                    </a>
+                                  </div>
+                                  
+                                        
+                                </div> 
+                              </td>
+                          </tr>
+                            `);
+                            $(`#showbat${databd[i].idbat}`).click(()=>{
+                                showbat(databd[i].idbat);
+                            })
+                            $(`#dele${databd[i].idbat}`).click(()=>{
+                                dbdelexam(`${databd[i].idbat}`).then((data)=>{
+                                    if(data == "1"){
+                                        reloadexams1();
+                                    }
+                                });
+                            });
+                        
+                        
+        
+            }
+    
+        }
+    })
+}
+            
+
+        
+
+
+
+
+// function dbdelexam(idexam){
+//     return new Promise((resolve,reject)=>{
+//         $.ajax({
+//             url:"delexam.php",
+//             type:"POST",
+//             data:{
+//                 "idexe":idexam
+//             },
+//             success:function(data){
+//                 resolve(data);
+//             },
+//             error:function(data){
+//                 reject(data);
+//             }
+//         })
+//     });
+// }

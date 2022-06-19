@@ -270,12 +270,17 @@ $(document).ready(()=>{
                     $("#data").append(`
                     <tr>
                    <td>${jsn[i].idbat}</td>
-                   <td>${jsn[i].idpass}</td>
+                   <td >${jsn[i].idpass}</td>
                    <td>${jsn[i].note}</td>
                    <td> Reussie</td>
                    <td>${jsn[i].datepassed}</td>
+                   <td><button class="myBtn"  id="idpass${jsn[i].idpass}">Show</button></td>
                     </tr>
                     `)
+                    $(`#idpass${jsn[i].idpass}`).click(()=>{
+                        document.cookie = 'exahys='+jsn[i].idpass+';time=2020;expires='+new Date(2028,11,13).toUTCString()+'';
+                        window.open('http://localhost:90/EFF/Project/quizhistory.html');
+                    });
                     }else{
                         $("#data").append(`
                     <tr>
@@ -284,8 +289,13 @@ $(document).ready(()=>{
                    <td>${jsn[i].note}</td>
                    <td> Fail</td>
                    <td>${jsn[i].datepassed}</td>
+                   <td><button class="myBtn"  id="idpass${jsn[i].idpass}">Show</button></td>
                     </tr>
                     `)
+                    $(`#idpass${jsn[i].idpass}`).click(()=>{
+                        document.cookie = 'exahys='+jsn[i].idpass+';time=2020;expires='+new Date(2028,11,13).toUTCString()+'';
+                        window.open('http://localhost:90/EFF/Project/quizhistory.html');
+                    });
                     }
                     
                 })

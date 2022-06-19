@@ -10,7 +10,13 @@ while ($row = mysqli_fetch_object($result))
     break;
 }
 
-$result = mysqli_query($con, "SELECT EXISTS(SELECT username from users WHERE rank = 'Student   ' AND username='".$login."' AND  passw = '".$logger."') as existus;" );
+$result = mysqli_query($con, "SELECT EXISTS(SELECT username from users WHERE rank = 'Student' AND username='".$login."' AND  passw = '".$logger."') as existus;" );
+while ($row = mysqli_fetch_object($result))
+{
+    array_push($data, $row);
+    break;
+}
+$result = mysqli_query($con, "SELECT EXISTS(SELECT username from users WHERE rank = 'Admin' AND username='".$login."' AND  passw = '".$logger."') as existad;" );
 while ($row = mysqli_fetch_object($result))
 {
     array_push($data, $row);
