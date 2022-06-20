@@ -213,7 +213,11 @@ $(function() {
          $('.fileget').change(()=>{
             file = $('.fileget')[0].files;
             dbimgupdate().then((data)=>{
-                //////console.log(data);  
+                console.log(data);
+                let ff = JSON.parse(data);
+                if(ff.error== '0'){
+                    reloadpfp();
+                }  
             })
             //////console.log(file);
          });
@@ -911,6 +915,9 @@ $(document).ready(()=>{
                         if(mat != null && fil != null && rowObject[i].question){
                             sendquesman(ques,res1,res2,res3,res4,res1v,res2v,res3v,res4v,mat,fil).then((data)=>{
                                //////console.log(data);
+                               if(data = '1' && i ==    (rowObject.length-1)){
+                                reloeadqueses();
+                                }
                             });
                         }else{
                            // ////console.log(ques+ " / " +res1+ " / " +res2+ " / " +res3+ " / " +res4+ " / " +res1v+ " / " +res2v+ " / " +res3v+ " / " +res4v)
@@ -964,9 +971,14 @@ $(document).ready(()=>{
         if(mat != null && fil != null){
             sendquesman(ques,res1,res2,res3,res4,res1v,res2v,res3v,res4v,mat,fil).then((data)=>{
               //////console.log(data);
+
+              if(data = '1'){
+                  reloeadqueses();
+              }
+
             });
         }else{
-            alert("sti group")
+            alert("select a group")
         }
         
         
@@ -5807,7 +5819,17 @@ function reloadexams1(){
             
 
         
-
+function reloadpfp(){
+    dbimg(username).then((data)=>{
+        let datj = JSON.parse(data);
+        //console.log(datj[0])
+        if(datj.length >0){
+            $("#pfpe").attr("src", "uploads/"+datj[0].link);
+            $("#pfpe1").attr("src", "uploads/"+datj[0].link);
+            $("#rela").attr('href', "uploads/"+datj[0].link);
+        }
+    });
+}
 
 
 
@@ -5828,3 +5850,36 @@ function reloadexams1(){
 //         })
 //     });
 // }
+
+function reloeadqueses() {
+    $("#tabqsny").empty();
+    getmyques().then((data)=>{
+        let dadata = JSON.parse(data);
+        ////console.log(dadata);
+        for(let k=0 ; k< dadata.length ; k++){
+            $("#tabqsny").append(`
+            <tr>
+            <td data-title="ID" id="row1">${dadata[k].idq}</td>
+            <td data-title="Question">${dadata[k].quest}</td>
+            <td data-title="Filiere">${dadata[k].filier}</td>
+            <td data-title="Matiere">${dadata[k].matier}</td>
+              <td data-title="" style="padding-top: 7px;  padding-right: 0px;  padding-bottom: 2px;  padding-left: 0 px;">
+                <div class='wrapper1'>
+                  <div class="button_su" style="margin: auto;" id="qsnshow${dadata[k].idq}">
+                    <span class="su_button_circle">
+                    </span>
+                    <a href="#" class="button_su_inner">
+                      <span class="button_text_container">
+                        Show
+                      </span>
+                    </a>
+                </div> 
+              </td>
+          </tr>
+            `);
+            $( `#qsnshow${dadata[k].idq}`).click(()=>{
+                gettheques(dadata[k].idq);
+            })
+        }
+    })
+}

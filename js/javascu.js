@@ -205,6 +205,26 @@ $(function() {
 var str;
 const result = {};
 $(document).ready(()=>{
+
+    $("#editeconf").click(()=>{
+        let oldpass = $("#oldP").val();  ;
+        let newpass = $("#newP").val(); ;
+        let conf = $("#confirmP").val();
+        if(newpass == conf && oldpass != '' && newpass !=''){
+            passchange(newpass,oldpass).then((data)=>{
+                if(data == '1'){
+                    $("#oldP").val('');
+                    $("#newP").val('');
+                    $("#confirmP").val('');
+                    // // $("#passchange").modal("hide");
+                    alert("Password changed successfully");
+                }else{
+                    alert("Old password is incorrect");
+                }
+            })
+        }
+    });
+
     $('#pfpe1').click(function(){ 
         $('.fileget').trigger('click');
      });
@@ -212,7 +232,11 @@ $(document).ready(()=>{
         console.log(username + "mchat");
         file = $('.fileget')[0].files;
         dbimgupdate().then((data)=>{
-            console.log(data);  
+            console.log(data);
+            let ff = JSON.parse(data);
+            if(ff.error== '0'){
+                reloadpfp();
+            }
         })
         //console.log(file);
      });
@@ -538,6 +562,39 @@ function dbimgupdate() {
          
         }else {
            $("#errorMs").text("Please select an image.");
+        }
+    });
+}
+
+function passchange(newpass,oldpass) {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "newpass.php",
+            data: {
+                "newpass": newpass,
+                "username" : username,
+                "oldpass" : oldpass
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // //console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
+
+function reloadpfp(){
+    dbimg(username).then((data)=>{
+        let datj = JSON.parse(data);
+        //console.log(datj[0])
+        if(datj.length >0){
+            $("#pfpe").attr("src", "uploads/"+datj[0].link);
+            $("#pfpe1").attr("src", "uploads/"+datj[0].link);
+            $("#rela").attr('href', "uploads/"+datj[0].link);
         }
     });
 }
