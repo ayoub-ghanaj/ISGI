@@ -2,9 +2,8 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "", "isgiexams");
 $username = $conn->real_escape_string($_POST['username']);
-$oldpass = $conn->real_escape_string($_POST['oldpass']);
 $newpass = $conn->real_escape_string($_POST['newpass']);
-$result = mysqli_query($conn,"SELECT EXISTS(SELECT * FROM users WHERE username = '$username' and passw = '$oldpass') as eixst");
+$result = mysqli_query($conn,"SELECT EXISTS(SELECT * FROM users WHERE username = '$username') as eixst");
 
 while ($row = mysqli_fetch_array($result)) 
 {

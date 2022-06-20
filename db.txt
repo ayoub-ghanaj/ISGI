@@ -293,6 +293,14 @@ SELECT contacts  from (SELECT DISTINCT sender as contacts FROM chate WHERE sende
 
 ALTER TABLE `questionimg` ADD `deffi` VARCHAR(250) NOT NULL AFTER `barem`; 
 
+
+create table resetrequest(
+idreq varchar(50) primary key,
+username varchar(40),
+FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
+);
+
+
 // 0 new
 // 1 wsal
 // 2 chaf

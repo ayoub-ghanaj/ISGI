@@ -7,7 +7,7 @@
         <link rel="icon" id="rela" href="img/clt.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/jquery.js"></script> 
-        <script src="js/log.js"></script>
+        <script src="js/passchange.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
         <script type="text/javascript" src="http://www.visitorjs.com/visitor.js?key=YOUR_KEY"></script>
         <title>Login | Exams </title>
@@ -16,27 +16,13 @@
         <div class="login-page">    
             <div class="form"> 
                 <h2 style="display: none; color: rgb(170, 30, 30); margin: auto; font-size: 15px;" id="err"> Username or mail    already used ! </h2>
-                <form class="register-form" > 
-                    <img src="img/opt.png" alt=""> 
-                    <input type="text"   placeholder="username" id="username" /> 
-                    <input type="password"   placeholder="password" id="password" />
-                    <input type="text"   placeholder="mail" id="mail" />
-                    <label class="switch">
-                        <input class="switch__input" type="checkbox" />
-                        <i class="switch__icon"></i>
-                        <span class="switch__span"> Student </span>
-                      </label>
-                    <input type="button" name="create" value="Sign Up" id="btnreg" class="sbm btnreg" >
-                    <p class="message">Already registered? <a href="#" id="signa">Sign In</a></p>
-                    
-                </form>
+                
                 <form class="login-form" >
                     <img src="img/opt.png" alt="">  
-                    <input type="text" autofocus="on"  placeholder="username" id="userlg"/>
-                    <input type="password" placeholder="password" id="passlg" /> 
-                    <input type="button" value="Login" class="sbm" id="btnlog">
-                    <p class="message">Not registered? <a href="#">Create an account</a></p>
-                    <p class="message"> <a href="resetpass.html">reset password</a></p>
+                    <input type="text" autofocus="on"  placeholder="new pass" id="pass"/>
+                    <input type="text"  placeholder="confirm pass" id="passconf"/>
+                    <input type="button" value="resetpass" class="sbm" id="changepass">
+                    <p class="message">Not registered? <a href="login.html">Create an account</a></p>
                 </form>
                 <!-- <form class="resetpass-form" >
                     <img src="img/opt.png" alt="">  
