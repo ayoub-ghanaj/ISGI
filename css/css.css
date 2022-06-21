@@ -78,6 +78,7 @@
 
 .fas{
   padding: 1rem;
+  border: 1px solid #0d8989;
 }
  
 .wrapper .sidebar .social_media{
@@ -2502,7 +2503,7 @@ select:focus {
 		padding-top: 12px;
 		padding-bottom: 12px;
 		text-align: left;
-		background-color: #0bdbb6;
+		background-color: #1eb140;
 		color: #e9ffff;
 		
 	  }

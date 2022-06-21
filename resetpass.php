@@ -18,7 +18,7 @@ if($email != ''){
         // Message
         $message = "<h1>Hi there.</h1> <br> <a href=\"http://localhost:90/EFF/Project/passchange.html?id=$usename&uniq=$uniq\">Click here to reset your password $usename</a>";
         // Headers
-        $headers="From:The Sender Name<ISGI@noreply.ma>\r\n";
+        $headers="From:ISGI PASSWORD RESET<ISGI@noreply.ma>\r\n";
         $headers.="Reply-To:ayoubfwd@gmail.com\r\n";
         $headers .="Content-type: text/html\r\n";
         // Send email
