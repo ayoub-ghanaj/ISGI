@@ -1,0 +1,180 @@
+#DROP DATABASE isgiexams;
+#CREATE DATABASE isgiexams;
+
+#USE isgiexams;
+
+
+
+create table matier(
+    idm  INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    nom VARCHAR(100));
+create table filier(
+    idf  INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    nom VARCHAR(100));
+    
+
+     
+     
+
+
+
+CREATE TABLE users(
+username varchar(40) primary key,
+passw varchar(40) NOT null,
+email varchar(200) UNIQUE,
+rank varchar(30),
+loger varchar(20),
+sessions INT,
+dated DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE table question(
+    idq  varchar(255) PRIMARY KEY ,
+    quest VARCHAR(1000),
+    idf INT,
+    idm INT,
+    username varchar(40),
+    FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE,
+    FOREIGN KEY (idf) REFERENCES filier(idf) ON DELETE CASCADE,
+    FOREIGN KEY (idm) REFERENCES matier(idm) ON DELETE CASCADE
+);
+create table respond(
+idr  INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+chois varchar(550),
+qcm  boolean,
+idq varchar(255) ,
+FOREIGN KEY (idq) REFERENCES question(idq) ON DELETE CASCADE );
+
+
+CREATE TABLE batchexam(
+idbat INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+code LONGTEXT,
+username varchar(40),
+header varchar(255) DEFAULT 'default',
+idf INT,
+idm INT,
+vari int,
+FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE,
+FOREIGN KEY (idf) REFERENCES filier(idf) ON DELETE CASCADE,
+FOREIGN KEY (idm) REFERENCES matier(idm) ON DELETE CASCADE
+);
+
+CREATE TABLE exam(
+idexam INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+code LONGTEXT UNIQUE,
+username varchar(40),
+idbat int ,
+vari int,
+FOREIGN KEY (idbat) REFERENCES batchexam(idbat) ON DELETE CASCADE,
+FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE passed(
+idpass varchar(255) PRIMARY KEY ,
+username varchar(40),
+idbat int NOT null,
+note  float ,
+result varchar(200),
+datepassed DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (idbat) REFERENCES batchexam(idbat) ON DELETE CASCADE,
+FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
+);
+CREATE TABLE contact(idc int PRIMARY key NOT null AUTO_INCREMENT,nom varchar(20),email varchar(20),message LONGTEXT ,lire bit DEFAULT 0);
+
+
+
+create table pfpu(
+idpfp INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+username varchar(40),
+link varchar(2000),
+datepf DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
+);
+
+CREATE TABLE sessionu(
+idses varchar(255) NOT NULL  PRIMARY KEY,
+username varchar(40),
+browser varchar(40),
+ip varchar(100),
+location varchar(1000),
+os varchar(40),
+dateses DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+devicname varchar(40),
+stat int ,
+FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
+);
+
+DELIMITER $$
+Create Procedure sp_sess (IN S_Name VARCHAR(40))
+BEGIN
+	UPDATE users SET sessions = sessions+1 WHERE username = S_Name;
+	SELECT sessions FROM users WHERE username = S_Name;
+END$$
+DELIMITER ;
+
+CREATE table questionimg(
+    idqmg INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    curl VARCHAR(1000),
+    idf INT,
+    idm INT,
+    deffi VARCHAR(250) NOT NULL ,
+    username varchar(40),
+    FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE,
+    FOREIGN KEY (idf) REFERENCES filier(idf) ON DELETE CASCADE,
+    FOREIGN KEY (idm) REFERENCES matier(idm) ON DELETE CASCADE
+);
+CREATE table questiontxt(
+    idqtxt INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    txt VARCHAR(3000),
+    idf INT,
+    idm INT,
+    username varchar(40),
+    deffi VARCHAR(250) NOT NULL ,
+    FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE,
+    FOREIGN KEY (idf) REFERENCES filier(idf) ON DELETE CASCADE,
+    FOREIGN KEY (idm) REFERENCES matier(idm) ON DELETE CASCADE
+);
+
+
+create table passedhistory(
+    idph INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    idpass varchar(255),
+    unsrs LONGTEXT,
+    exam LONGTEXT,
+	FOREIGN KEY (idpass) REFERENCES passed(idpass) ON DELETE CASCADE 
+);
+
+CREATE table examings(
+    idexe  INT PRIMARY KEY AUTO_INCREMENT ,
+    exam VARCHAR(2555),
+    idf INT,
+    idm INT,
+    barem INT,
+    username varchar(40),
+    FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE,
+    FOREIGN KEY (idf) REFERENCES filier(idf) ON DELETE CASCADE,
+    FOREIGN KEY (idm) REFERENCES matier(idm) ON DELETE CASCADE
+);
+
+
+CREATE TABLE temusers(
+idtempu int primary key AUTO_INCREMENT,
+username varchar(40) ,
+passw varchar(40) NOT null,
+email varchar(200) ,
+rank varchar(30),
+loger varchar(20),
+sessions INT,
+confirmed Varchar(20),
+dated DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+create table resetrequest(
+idreq varchar(50) primary key,
+username varchar(40),
+FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
+);

@@ -51,6 +51,8 @@ $(function() {
             $(".uppermenu").animate({
                 paddingLeft: "-=150px"
             }, 400);
+            $("#name1").hide();
+            $("#name2").show();
             setTimeout(function() {
                 $(".main_content").css('margin-left', '50px'); 
                 $(".uppermenu").css('padding-left', '50px');
@@ -82,6 +84,8 @@ $(function() {
             $(".main_content").animate({
                 marginLeft: "+=150px"
             }, 450);
+            $("#name2").hide();
+            $("#name1").show();
             $(".img-menu").animate({
                 marginLeft: "+=20px"
             }, 400);
@@ -148,9 +152,9 @@ $(function() {
                         $("#newP").val('');
                         $("#confirmP").val('');
                         // // $("#passchange").modal("hide");
-                        alert("Password changed successfully");
+                        ////////alert("Password changed successfully");
                     }else{
-                        alert("Old password is incorrect");
+                        ////////alert("Old password is incorrect");
                     }
                 })
             }
@@ -235,6 +239,7 @@ $(function() {
         $(".home").show();
         $(".eleves").hide();
         $(".rec").hide();
+        $(".contact").hide();
         $(".menu").hide();
         $(".logo").click(()=>{
             if(igo){
@@ -255,7 +260,42 @@ $(function() {
             $(".uppermenu").css('margin-left', '200px');
             $(".topperval").css('margin-right', '200px');
         })*/
-       
+        $(document).on('click', '#home', function() {
+            $(".home").show();
+            $(".eleves").hide();
+            $(".rec").hide();
+            $(".menu").hide();
+            $(".contact").hide();
+        })
+        $(document).on('click', '#eleves', function() {
+            $(".home").hide();
+            $(".eleves").show();
+            $(".rec").hide();
+            $(".menu").hide();
+            $(".contact").hide();
+        })
+        $(document).on('click', '#rec', function() {
+            $(".home").hide();
+            $(".eleves").hide();
+            $(".rec").show();
+            $(".menu").hide();
+            $(".contact").hide();
+        })
+        $(document).on('click', '#menu', function() {
+            $(".home").hide();
+                $(".eleves").hide();
+                $(".rec").hide();
+                $(".menu").show();
+                $(".contact").hide();
+        })
+        $(document).on('click', '#contactid', function() {
+    
+            $(".home").hide();
+                $(".eleves").hide();
+                $(".rec").hide();
+                $(".menu").hide();
+                $(".contact").show();
+        })
     })
     function checkersess(){
         if(result.code == undefined || result.trader == undefined){
@@ -294,30 +334,7 @@ $(function() {
             });
         });
     }
-    $(document).on('click', '#home', function() {
-        $(".home").show();
-        $(".eleves").hide();
-        $(".rec").hide();
-        $(".menu").hide();
-    })
-    $(document).on('click', '#eleves', function() {
-        $(".home").hide();
-        $(".eleves").show();
-        $(".rec").hide();
-        $(".menu").hide();
-    })
-    $(document).on('click', '#rec', function() {
-        $(".home").hide();
-        $(".eleves").hide();
-        $(".rec").show();
-        $(".menu").hide();
-    })
-    $(document).on('click', '#menu', function() {
-        $(".home").hide();
-            $(".eleves").hide();
-            $(".rec").hide();
-            $(".menu").show();
-    })
+   
     
     var w = window.innerWidth;
     function resizes(){
@@ -335,7 +352,10 @@ $(function() {
         
        if(igo && mode == 1){
            switcher(1);
+           $("#name1").hide();
+           $("#name2").show();
            igo = false;
+
            setTimeout(function() {
                igo = true;
               }, 500);
@@ -372,6 +392,12 @@ $(function() {
 
          //data user
 $(document).ready(function(){
+    setTimeout(() => {
+        switcher(mode);
+    }, 10);
+    setTimeout(() => {
+        switcher(mode);
+    }, 430);
     $.ajax({
     type:"GET",
     url:"datauser.php",
@@ -429,11 +455,14 @@ $(document).ready(function(){
     success:function(response){
         if(response==1){
             var e=ide+"proffesseur"
-            alert(e);
+            ////alert("hada etudiant");
+
             document.getElementById(e).style.display="none";
+            
+            
         }
         else if(response==0){
-            alert("ma to9afche");
+            //alert("ma to9afche");
         }
     }
     
@@ -441,9 +470,7 @@ $(document).ready(function(){
         });
     }
     
-    
-    
-    
+       
     //delete user
     function deletedatauser(id){
         $(document).ready(function(){
@@ -456,11 +483,16 @@ $(document).ready(function(){
     },
     success:function(response){
         if(response==1){
-            alert("3azwa tmshate");
+            
             document.getElementById(id).style.display="none";
+            $('.alertDeleteuser').css({'display':'none'});
+            $('.alertDeleteuser').css({'display':'block'});
+            $('.alertDeleteuser').css({'background-color':'#ff9800'});
+            $('.alertDeleteuser').html("Supprimer Avec Secces");
+            $("#nraj3o").trigger("click");
         }
         else if(response==0){
-            alert("ma to9afche");
+            //alert("ma to9afche");
         }
     }
     
@@ -480,11 +512,16 @@ $(document).ready(function(){
     success:function(response){
         if(response==1){
             var e=ide+"etudiant"
-            alert(e);
+            ////alert('supprimer');
+            ////alert(e);
             document.getElementById(e).style.display="none";
+            $('.alertsuppprof').css({'display':'none'});
+            $('.alertsuppprof').css({'display':'block'});
+            $('.alertsuppprof').css({'background-color':'#04AA6D'});
+            $('.alertsuppprof').html("suprrimer Avec Secces");
         }
         else if(response==0){
-            alert("ma to9afche");
+            //alert("ma to9afche");
         }
     }
     
@@ -599,7 +636,7 @@ $( "#serchbuttonetudian" ).click(function() {
     $.ajax({
     url:'serchedataetudiant.php',
     type:'POST',
-    data:'request='+value,
+    data:{'request':value},
     
     beforeSend:function(){
     $("#dataetud").html('Working on...')
@@ -682,16 +719,18 @@ $('.modifieruserbox').css({'display':'none'});
 
 //btn modifier user
 $("#btnmdbox").click(function(){
+    //alert("jj");
     $(document).ready(function(){
        
        var username= $("#mdboxuser").val();
+      
        var passw=$("#mdboxpass").val();
        var email= $("#mdboxemail").val();
        var rank=$("#mdboxrank").val();
-       var loger= $("#mdboxloger").val();
+ //var loger= $("#mdboxloger").val();
        var sessions=$("#mdboxsession").val();
        var dated= $("#mdboxdatted").val();
-       alert(username+" /"+passw+" /"+email+" /"+rank+" /"+loger+" /"+sessions+" /"+dated);
+       //alert(username+" /"+passw+" /"+email+" /"+rank+" /"+" /"+sessions+" /"+dated);
     $.ajax({
     url:'modifierdatauser.php',
     type:'POST',
@@ -700,17 +739,28 @@ $("#btnmdbox").click(function(){
         "passw":passw,
         "email":email,
         "rank":rank,
-        "loger":loger,
+        //"loger":loger,
         "sessions":sessions,
         "dated":dated,
         "action":"modifierus"
     },
     success:function(response){
         if(response==1){
-           alert("Modifier avec secces");
+            $('.alertmodifieruser').css({'display':'none'});
+            $('.alertmodifieruser').css({'display':'block'});
+            $('.alertmodifieruser').css({'background-color':'#04AA6D'});
+            $('#alertmodifieruser').text("Modifier Avec Secces");
+            $("#nraj3o").trigger("click");
+            $("#refreshprofesseur").trigger("click");
+            $("#refreshetudiant").trigger("click");
+
+           // $("#btncancelboxetud").trigger("Click");
         }
         else if(response==0){
-            alert("il ya un problem");
+            $('.alertmodifieruser').css({'display':'none'});
+            $('.alertmodifieruser').css({'display':'block'});
+            $('.alertmodifieruser').css({'background-color':'#04AA6D'});
+            $('#alertmodifieruser').text("Problem");
         }
     }
     
@@ -731,16 +781,16 @@ $("#btncancelboxpro").click(function(){
 //btn modifier PROF
 $("#btnmdboxpro").click(function(){
     $(document).ready(function(){
-       
+      // //alert("ma3ert malo");
        var username= $("#mdboxuserpro").val();
       
        var passw=$("#mdboxpasspro").val();
        var email= $("#mdboxemailpro").val();
        var rank=$("#mdboxrankpro").val();
-       var loger= $("#mdboxlogerpro").val();
+       //var loger= $("#mdboxlogerpro").val();
        var sessions=$("#mdboxsessionpro").val();
        var dated= $("#mdboxdattedpro").val();
-       alert(username+" /"+passw+" /"+email+" /"+rank+" /"+loger+" /"+sessions+" /"+dated);
+       //alert(username+" /"+passw+" /"+email+" /"+rank+" /"+sessions+" /"+dated);
     $.ajax({
     url:'modifierdatauser.php',
     type:'POST',
@@ -749,17 +799,23 @@ $("#btnmdboxpro").click(function(){
         "passw":passw,
         "email":email,
         "rank":rank,
-        "loger":loger,
+       // "loger":loger,
         "sessions":sessions,
         "dated":dated,
         "action":"modifierus"
     },
     success:function(response){
         if(response==1){
-           alert("Modifier avec secces");
+            $('.alertmodifierprof').css({'display':'none'});
+            $('.alertmodifierprof').css({'display':'block'});
+            $('.alertmodifierprof').css({'background-color':'#04AA6D'});
+            $('.alertmodifierprof').html("Modifier Avec Secces");
         }
         else if(response==0){
-            alert("il ya un problem");
+            $('.alertmodifierprof').css({'display':'none'});
+            $('.alertmodifierprof').css({'display':'block'});
+            $('.alertmodifierprof').css({'background-color':'#f44336'});
+            $('.alertmodifierprof').html("Erreur");
         }
     }
     
@@ -778,16 +834,16 @@ $("#btncancelboxetud").click(function(){
 //btn modifier etudiant
 $("#btnmdboxetud").click(function(){
     $(document).ready(function(){
-       
+      
        var username= $("#mdboxuseretud").val();
       
        var passw=$("#mdboxpassetud").val();
        var email= $("#mdboxemailetud").val();
        var rank=$("#mdboxranketud").val();
-       var loger= $("#mdboxlogeretud").val();
+      // var loger= $("#mdboxlogeretud").val();
        var sessions=$("#mdboxsessionetud").val();
        var dated= $("#mdboxdattedetud").val();
-       alert(username+" /"+passw+" /"+email+" /"+rank+" /"+loger+" /"+sessions+" /"+dated);
+       //alert(username+" /"+passw+" /"+email+" /"+rank+"  /"+sessions+" /"+dated);
     $.ajax({
     url:'modifierdatauser.php',
     type:'POST',
@@ -796,17 +852,20 @@ $("#btnmdboxetud").click(function(){
         "passw":passw,
         "email":email,
         "rank":rank,
-        "loger":loger,
+        //"loger":loger,
         "sessions":sessions,
         "dated":dated,
         "action":"modifierus"
     },
     success:function(response){
         if(response==1){
-           alert("Modifier avec secces");
+            $('.alertmodifieretd').css({'display':'none'});
+            $('.alertmodifieretd').css({'display':'block'});
+            $('.alertmodifieretd').css({'background-color':'#04AA6D'});
+            $('.alertmodifieretd').html("Modifier Avec Secces");
         }
         else if(response==0){
-            alert("il ya un problem");
+            //alert("il ya un problem");
         }
     }
     
@@ -829,17 +888,17 @@ $("#btnmdboxetud").click(function(){
     
     
 //show info modifier etudiant
-function Updateeleve(username,passw,email,rank,loger,sessions,dated){
+function Updateeleve(username,passw,email,rank,sessions,dated){
     $(document).ready(function(){
       
         $('.modifieretudiantbox').css({'display':'block'});
-      alert(username +passw +email+rank+loger+sessions+dated)
-
+      //alert(username +passw +email+rank+sessions+dated);
+////alert("ma3ert malo");
       $("#mdboxuseretud").val(username);
       $("#mdboxpassetud").val(passw);
       $("#mdboxemailetud").val(email);
       $("#mdboxranketud").val(rank);
-      $("#mdboxlogeretud").val(loger);
+     // $("#mdboxlogeretud").val(loger);
       $("#mdboxsessionetud").val(sessions);
       $("#mdboxdattedetud").val(dated);
 
@@ -847,16 +906,16 @@ function Updateeleve(username,passw,email,rank,loger,sessions,dated){
 }
 
   //show info modifier user
-  function Updateuser(username,passw,email,rank,loger,sessions,dated){
+  function Updateuser(username,passw,email,rank,sessions,dated){
     $(document).ready(function(){
         $('.modifieruserbox').css({'display':'block'});
-      alert(username +passw +email+rank+loger+sessions+dated)
-
+     //alert(username +passw +email+rank+sessions+dated)
+//alert("ma3ert malo");
       $("#mdboxuser").val(username);
       $("#mdboxpass").val(passw);
       $("#mdboxemail").val(email);
       $("#mdboxrank").val(rank);
-      $("#mdboxloger").val(loger);
+     // $("#mdboxloger").val(loger);
       $("#mdboxsession").val(sessions);
       $("#mdboxdatted").val(dated);
 
@@ -864,22 +923,23 @@ function Updateeleve(username,passw,email,rank,loger,sessions,dated){
 }
 
 //show info modifier proffesuer
-function Updateproffesseur(username,passw,email,rank,loger,sessions,dated){
+function Updateproffesseur(username,passw,email,rank,sessions,dated){
     $(document).ready(function(){
-      
+      ////alert("ma3ert malo");
         $('.modifierprobox').css({'display':'block'});
-      alert(username +passw +email+rank+loger+sessions+dated)
+      ////alert(username +passw +email+rank+sessions+dated);
 
       $("#mdboxuserpro").val(username);
       $("#mdboxpasspro").val(passw);
       $("#mdboxemailpro").val(email);
       $("#mdboxrankpro").val(rank);
-      $("#mdboxlogerpro").val(loger);
+     // $("#mdboxlogerpro").val(loger);
       $("#mdboxsessionpro").val(sessions);
       $("#mdboxdattedpro").val(dated);
 
     });
 }
+    
 
 
 function dbimg(usernamee) {
@@ -995,5 +1055,166 @@ function reloadpfp(){
             $("#pfpe1").attr("src", "uploads/"+datj[0].link);
             $("#rela").attr('href', "uploads/"+datj[0].link);
         }
+    });
+}
+
+
+
+// chartjs
+var darr1=[];
+var darr2=[];
+var colar=[];
+$(document).ready(()=>{
+statistacs1().then((data)=>{
+    let statjsn = JSON.parse(data);
+    console.log(statjsn);
+    darr2 = [];
+    darr1 = [];
+    for(let i =0 ; i< statjsn.length ; i++){
+        darr1.push(statjsn[i].nom);
+        darr2.push(parseInt(statjsn[i].counter));
+        colar.push(rgbarandom());
+    }
+    chart1(darr1,darr2,colar);
+})
+statistacs2().then((data)=>{
+    let statjsn = JSON.parse(data);
+    chart2(statjsn[0].newbie);
+})
+statistacs3().then((data)=>{
+    let statjsn = JSON.parse(data);
+    console.log(statjsn)
+    let val = (((statjsn[0].dub)/(statjsn[1].allp))*100);
+    chart3(val);
+})
+});
+
+
+function chart1(arr1,arr2,color){
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: arr1,
+        datasets: [{
+          data: arr2,
+          backgroundColor: color,
+          borderColor: color,
+          borderWidth: 1
+        }]
+      },
+      options: {
+           //cutoutPercentage: 40,
+        responsive: false,
+    
+      }
+    });
+}
+function chart2(val){
+    let colora = rgbarandom();
+    var ctx = document.getElementById("myChart1");
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['','New Users'],
+        datasets: [{
+          label: 'New Users count ',
+          data: [0,val],
+          backgroundColor: [colora],
+          borderColor: [colora],
+          borderWidth: 1
+        }]
+      },
+      options: {
+           //cutoutPercentage: 40,
+        responsive: false,
+    
+      }
+    });
+}
+function chart3(S){
+    let s = S.toFixed(2);
+    let F = (100-s).toFixed(2);
+    let coloraS = rgbarandom();
+    let coloraF = rgbarandom();
+    var ctx = document.getElementById("myChart2");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Fail','Succes'],
+        datasets: [{
+          label: 'succes rate',
+          data: [F,s],
+          backgroundColor: [coloraF,coloraS],
+          borderColor: [coloraF,coloraS],
+          borderWidth: 1
+        }]
+      },
+      options: {
+           //cutoutPercentage: 40,
+        responsive: false,
+    
+      }
+    });
+}
+function rgbarandom(){
+    let randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+    let r = randomBetween(0, 255);
+    let g = randomBetween(0, 255);
+    let b = randomBetween(0, 255);
+    return rgb = `rgb(${r},${g},${b})`;
+}
+
+function statistacs1() {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "statistacs.php",
+            data: {
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
+function statistacs2() {
+
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "statistacs1.php",
+            data: {
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
+function statistacs3() {
+
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "statistacs2.php",
+            data: {
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
     });
 }

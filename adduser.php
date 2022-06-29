@@ -15,7 +15,7 @@ if($rank == '0'){
         // Message
         $message = "<h1>Hi there.</h1> <br> <a href=\"http://localhost:90/EFF/Project/verify.html?id=$uniq\">Click here to verify your account $usename</a>";
         // Headers
-        $headers="From:The Sender Name<ISGI@noreply.ma>\r\n";
+        $headers="From:Email Verification ISGI<ISGI@noreply.ma>\r\n";
         $headers.="Reply-To:ayoubfwd@gmail.com\r\n";
         $headers .="Content-type: text/html\r\n";
         // Send email

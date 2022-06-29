@@ -24,7 +24,7 @@ function AjouterUser(){
     $passw=$_POST["passw"];
     $email=$_POST["email"];
     $rank=$_POST["rank"];
-    $loger=$_POST["loger"];
+  //  $loger=$_POST["loger"];
     $sessions=$_POST["sessions"];
     $dated=$_POST["dated"];
    // ($username+" /"+$passw+" /"+$email+" /"+$rank+" /"+$loger+" /"+$sessions+" /"+$dated);
@@ -35,7 +35,7 @@ function AjouterUser(){
 
 
 
-if(mysqli_query($conn,"insert into users VALUES('$username','$passw','$email','$rank','$loger',$sessions,'$dated')")){
+if(mysqli_query($conn,"insert into users VALUES('$username','$passw','$email','$rank',$sessions,'$dated')")){
     echo 1;
 }
 

@@ -451,10 +451,18 @@ color: turquoise;
 }
 /*Resize the wrap to see the search bar change!*/
 .wrap{
-  width: 30%;
-  
-  
-  padding-bottom: 6px;
+  width: 23%;
+
+position: relative;
+left: 3px;
+top: 38px;
+}
+.warps{
+  width: 23%;
+  padding: 8px;
+  display: inline-block;
+position: relative;
+right: 564px
 }
 
 .Ajouteruserbox{
@@ -493,8 +501,8 @@ color: turquoise;
 }
 .btnajouteruser{
   position: relative;
-  left: 47%;
-  bottom: 43px;
+  left: -22%;
+  bottom: 6px;
   /* top: 13px; */
   background-image: url("../img/icons8-insert-30.png");
   background-size: cover;
@@ -569,3 +577,216 @@ color: turquoise;
   align-items: center;
 }
 
+.selectfilter{
+  position: relative;
+    width: 50px;
+    height: 10px;
+    left: 91px;
+    top: 5px;
+}
+.selectfilternm{
+  position: relative;
+width: 50px;
+height: 10px;
+left: 27px;
+top: 5px;
+}
+
+.selectfilternmpro{
+  position: relative;
+  width: 50px;
+  height: 10px;
+  left: 27px;
+  top: 5px;
+}
+.selectfilterdatepro{
+  position: relative;
+  width: 50px;
+  height: 10px;
+  left: 92px;
+  top: 5px;
+}
+.selectfilternameetd{
+  position: relative;
+  width: 50px;
+  height: 10px;
+  left: 29px;
+  top: 5px;
+}
+.selectfilterdateetd{
+  position: relative;
+  width: 50px;
+  height: 10px;
+  left: 94px;
+  top: 5px;
+}
+
+.selectfilternamecontact{
+  position: relative;
+width: 50px;
+height: 10px;
+left: 134px;
+top: 5px;
+}
+/*message alert*/
+.alertajouteruser {
+  
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+  display: none;
+}
+.alertmodifieruser{
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+ display: none;
+}
+.alertDeleteuser{
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+ display: none;
+}
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.alertajouterprof{
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+ display: none;
+}
+.alertmodifierprof{
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+ display: none;
+}
+.alertsuppprof{
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+ display: none;
+}
+.alertajouteretd{
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+  display: none;
+}
+.alertmodifieretd{
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+  display: none;
+}
+.closebtn:hover {
+  color: black;
+}
+#ascname{
+  width: 14px;
+  height: 14px;
+  position: relative;
+  left: 45px;
+  bottom: 12px;
+}
+#descname{
+  width: 14px;
+height: 14px;
+position: relative;
+left: 26px;
+top: 16px;
+}
+
+#ascdate{
+  width: 14px;
+  height: 14px;
+  position: relative;
+  left: 112px;
+  bottom: 13px;
+}
+#descdate{
+  width: 14px;
+height: 14px;
+position: relative;
+left: 93px;
+top: 15px;
+}
+#ascnamepro{
+  width: 14px;
+  height: 14px;
+  position: relative;
+  left: 45px;
+  bottom: 12px;
+}
+#descnamepro{
+  width: 14px;
+  height: 14px;
+  position: relative;
+  left: 26px;
+  top: 16px;
+}
+#ascdatepro{
+  width: 14px;
+  height: 14px;
+  position: relative;
+  left: 117px;
+  bottom: 14px;
+}
+#descdatepro{
+  width: 14px;
+  height: 14px;
+  position: relative;
+  left: 99px;
+  top: 16px;
+}
+#ascnameetd{
+  width: 14px;
+height: 14px;
+position: relative;
+left: 43px;
+bottom: 14px;
+}
+#descnameetd{
+  width: 14px;
+  height: 14px;
+  position: relative;
+  left: 24px;
+  top: 18px;
+}
+#ascdateetd{
+  width: 14px;
+  height: 14px;
+  position: relative;
+  left: 110px;
+  bottom: 15px;
+}
+#descdateetd{
+  width: 14px;
+  height: 14px;
+  position: relative;
+  left: 92px;
+top: 17px;
+}
+#ascnamecontact{
+  width: 14px;
+  height: 14px;
+  position: relative;
+  left: 93px;
+  bottom: 15px;
+}
+#descnameontact{
+  width: 14px;
+  height: 14px;
+  position: relative;
+  left: 75px;
+  top: 13px;
+}

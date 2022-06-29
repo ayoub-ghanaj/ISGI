@@ -9,17 +9,20 @@ $(document).ready(function(){
         var conf = $("#passconf").val();
         if(pass == conf && pass != ""){
             gettemp(id,uniq).then((data)=>{
-                console.log(data);
-                let jsn = JSON.parse(data);
-                if(jsn[0].resexist = '1'){
+                //console.log(data);
+                let jsnb = JSON.parse(data);
+               // console.log(jsnb)
+                if(jsnb[0].resexist == '1'){
                     passchange(id,pass).then((data)=>{
-                        console.log(data);
+                        //console.log(data);
                         //alert(data.length);
                         if(data.trim() == '1'){
                             alert("Password changed");
                             window.location.href = "login.html";
                         }
                     })
+                }else{
+                    window.location.href = "home.html";
                 }
             })
         }

@@ -21,7 +21,7 @@ $(document).ready(function(){
         }else{
             dbadduser(1,temp[0].username,temp[0].email,temp[0].passw).then((data)=>{
                 if(data == "1"){
-                    deltemps(temp[0].username).then(()=>{
+                    deltemps(temp[0].username,temp[0].email).then(()=>{
                         window.location.href = "login.html";
                     });
                 }
@@ -68,13 +68,15 @@ function dbadduser( rank,username,mailv,pass) {
         });
     });
 }
-function deltemps(username) {
+function deltemps(username,email) {
     return new Promise(function(resolve, reject) {
         $.ajax({
             method: "POST",
             url: "deltemps.php",
             data: {
-                "username" : username
+                "username" : username,
+                "email": email
+
             }, 
             success: function(data) {
                 resolve(data) // Resolve promise and go to then()

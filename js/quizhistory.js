@@ -125,8 +125,9 @@ for (let i in str) {
   });
   getmyhistory(result.exahys).then((data)=>{
     $("#exam").empty();
-    //console.log(data);
+    console.log(result.exahys);
     let jsn = JSON.parse(data);
+    console.log(jsn);
     let exam = JSON.parse(jsn[0].exam);
     let qsn = JSON.parse(jsn[0].unsrs);
     let int = 0;

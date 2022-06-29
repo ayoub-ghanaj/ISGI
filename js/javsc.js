@@ -761,14 +761,15 @@ $(document).ready(()=>{
         //////console.log(idbat);
         if(variant && matiere &&  filiere && counter){
         dbbatch(idbat,matiere,filiere,'').then((data)=>{
-            // ////console.log("batch dart" + idbat)
-            // ////console.log(data);
+            console.log("batch dart" + idbat)
+            console.log(data);
             
-        //////console.log(variant+ " / "+matiere + " / " + filiere +" / " + counter );
+        //console.log(variant+ " / "+matiere + " / " + filiere +" / " + counter );
         if(variant && matiere &&  filiere && counter){
-            for(let t = 0 ; t<= variant ; t++){
+            for(let t = 0 ; t< variant ; t++){
             dbloaded(matiere,filiere).then((data)=>{
                 let datap = JSON.parse(data);
+                console.log(datap);
                 arrqes = [];
                 arrdm = [];
                 var num = counter;
@@ -788,11 +789,11 @@ $(document).ready(()=>{
                     arrqesidq.push(arrqes[j].idq);
                 }
                 
-                let idxm = Date.now().toString() + randomise(1,91993233103) ;
+                let idxm = Date.now().toString().substring(7); + randomise(1,91993233103) ;
                 
-                
+                console.log("mcha : " + idxm + " idbat  :" + idbat)
                 dbqesn(idxm,JSON.stringify({"code" : arrqesidq}) , (t+1),idbat).then((data)=>{
-                    ////console.log(data);
+                    console.log(data);
                     if(data != '1'){
                         t-=1;
                     }else{
@@ -803,7 +804,7 @@ $(document).ready(()=>{
                            // alert(variant)
                         
                             dbupbatch(idbat,variant,JSON.stringify({"exams": batch})).then((data)=>{
-                                ////console.log(data);
+                                console.log(data);
                                 document.cookie = 'batch='+idbat+';expires='+new Date(2026,11,13).toUTCString()+'';
 
                                 showbat(idbat);
@@ -973,7 +974,12 @@ $(document).ready(()=>{
               //////console.log(data);
 
               if(data = '1'){
-                  reloeadqueses();
+                    reloeadqueses();
+                    $("#Questionval").val("");
+                    $("#Reponse1val").val("");
+                    $("#Reponse2val").val("");
+                    $("#Reponse3val").val("");
+                    $("#Reponse4val").val("");
               }
 
             });
@@ -1300,7 +1306,7 @@ $(document).ready(()=>{
                                         <td data-title="ID" >${databd[i].idbat}</td>
                                         <td data-title="Vari">${databd[i].vari}</td>
                                        
-                                        <td data-title="Matiere">${databd[i].filier}</td>
+                                        <td data-title="Matiere">${databd[i].matiere}</td>
                                         <td data-title="Filiere">
                                         ${databd[i].filier}
                                           </td>
@@ -1439,6 +1445,7 @@ $(document).ready(()=>{
                                                     $(`#deletele${dbpass[j].idpass}`).click(()=>{
                                                         
                                                         dbdelpass(dbpass[j].idpass).then((data)=>{
+                                                            console.log(data);
                                                             if(data == "1"){
                                                                 $(`#eleves${dbpass[j].idpass}`).hide();
                                                             }
@@ -1943,7 +1950,10 @@ function dbseebatch(batch) {
 function showbat(idbat){
     
     dbseebatch(idbat).then((data)=>{
+        console.log(idbat);
+        
         let jsn = JSON.parse(data);
+        console.log(jsn);
         $("#overlapclass").show();
     $("#overhead").text("Variants");
     $("#tablebatch").empty();
@@ -2292,9 +2302,9 @@ function chercherxam(ty,val){
 }
 var oldies = [];
 
-function noreprandom(){
+function noreprandom( int){
 
-    let val = randomise(6,9);
+    let val = randomise((int-4),int);
     let exist = false;
     for(let i =0;i<oldies.length;i++){
         if(oldies[i] ==val ){
@@ -2314,12 +2324,36 @@ function noreprandom(){
         
     }
 }
+var oldiesolo = [];
+
+function noreprandomsolo( int){
+
+    let val = randomise((int-4),int);
+    let exist = false;
+    for(let i =0;i<oldiesolo.length;i++){
+        if(oldiesolo[i] ==val ){
+            exist = true;
+        }
+    }
+    if(!exist){
+        oldiesolo.push(val);
+        return val;
+    }else{
+        if(oldiesolo.length == 4){
+            oldiesolo = [];
+            return 0;
+        }else{
+            return noreprandomsolo();
+        }
+        
+    }
+}
 
 var oldies21 = [];
 
-function noreprandom21(){
+function noreprandom21(int){
 
-    let val = randomise(9,12);
+    let val = randomise((int-4),int);
     let exist = false;
     for(let i =0;i<oldies21.length;i++){
         if(oldies21[i] ==val ){
@@ -2341,9 +2375,9 @@ function noreprandom21(){
 }
 var oldies41 = [];
 
-function noreprandom41(){
+function noreprandom41(int){
 
-    let val = randomise(17,20);
+    let val = randomise((int-4),int);
     let exist = false;
     for(let i =0;i<oldies41.length;i++){
         if(oldies41[i] ==val ){
@@ -2365,9 +2399,9 @@ function noreprandom41(){
 }
 var oldies42 = [];
 
-function noreprandom42(){
+function noreprandom42(int){
 
-    let val = randomise(17,20);
+    let val = randomise((int-4),int);
     let exist = false;
     for(let i =0;i<oldies42.length;i++){
         if(oldies42[i] ==val ){
@@ -2390,9 +2424,9 @@ function noreprandom42(){
 
 var oldies43 = [];
 
-function noreprandom43(){
+function noreprandom43(int){
 
-    let val = randomise(17,20);
+    let val = randomise((int-4),int);
     let exist = false;
     for(let i =0;i<oldies43.length;i++){
         if(oldies43[i] ==val ){
@@ -2415,9 +2449,9 @@ function noreprandom43(){
 
 var oldies31 = [];
 
-function noreprandom31(){
+function noreprandom31(int){
 
-    let val = randomise(11,14);
+    let val = randomise((int-4),int);
     let exist = false;
     for(let i =0;i<oldies31.length;i++){
         if(oldies31[i] ==val ){
@@ -2439,9 +2473,9 @@ function noreprandom31(){
 }
 var oldies32 = [];
 
-function noreprandom32(){
+function noreprandom32(int){
 
-    let val = randomise(11,14);
+    let val = randomise((int-4),int);
     let exist = false;
     for(let i =0;i<oldies32.length;i++){
         if(oldies32[i] ==val ){
@@ -2464,9 +2498,9 @@ function noreprandom32(){
 
 var oldies33 = [];
 
-function noreprandom33(){
+function noreprandom33(int){
 
-    let val = randomise(11,14);
+    let val = randomise((int-4),int);
     let exist = false;
     for(let i =0;i<oldies33.length;i++){
         if(oldies33[i] ==val ){
@@ -2488,9 +2522,9 @@ function noreprandom33(){
 }
 var oldies34 = [];
 
-function noreprandom34(){
+function noreprandom34(int){
 
-    let val = randomise(11,14);
+    let val = randomise((int-4),int);
     let exist = false;
     for(let i =0;i<oldies34.length;i++){
         if(oldies34[i] ==val ){
@@ -2515,9 +2549,9 @@ function noreprandom34(){
 
 var oldies2 = [];
 
-function noreprandom2(){
+function noreprandom2(int){
     ////console.log(oldies2);
-    let val = randomise(6,9);
+    let val = randomise((int-4),int);
     let exist = false;
     for(let i =0;i<oldies2.length;i++){
         if(oldies2[i] ==val ){
@@ -2540,9 +2574,9 @@ function noreprandom2(){
 
 var oldies22 = [];
 
-function noreprandom22(){
+function noreprandom22(int){
     ////console.log(oldies22);
-    let val = randomise(9,12);
+    let val = randomise((int-4),int);
     let exist = false;
     for(let i =0;i<oldies22.length;i++){
         if(oldies22[i] ==val ){
@@ -2565,9 +2599,9 @@ function noreprandom22(){
 
 var oldies23 = [];
 
-function noreprandom23(){
+function noreprandom23(int){
     ////console.log(oldies23);
-    let val = randomise(9,12);
+    let val = randomise((int-4),int);
     let exist = false;
     for(let i =0;i<oldies23.length;i++){
         if(oldies23[i] ==val ){
@@ -2639,15 +2673,15 @@ var fwd = 0;
 function generate_examoff(){
     let fil = $("#dropitF").val();
     let mat = $("#dropitM").val();
+    let barem_off =parseInt( $("#dropinq").val());
     let barem = $("#dropinq").val();
     barem = parseInt(barem);
     if(imgready && txtready){
         exam_offic = [];
-        if(barem == 20){
-            qsns = 3;
+        if( barem < 12 && barem >= 8){
             let firstq =true;
             while(firstq){
-                 first =  noreprandom();
+                 first =  noreprandomsolo(Math.floor(barem/2));
                  //console.log(first);
                  if (first == 0){
                     firstq = false;
@@ -2704,7 +2738,7 @@ function generate_examoff(){
             let firstq =true;
             while(firstq){
                 //alert("2")
-                 sec =  noreprandom2();
+                 sec =  barem - first;
                  //console.log(sec + " : sec");
                  if (sec == 0){
                     firstq = false;
@@ -2745,6 +2779,7 @@ function generate_examoff(){
                             //console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -2785,6 +2820,7 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
                     }
                 }
                 if(gotit){
@@ -2824,6 +2860,7 @@ function generate_examoff(){
                             ////console.log(allimgs[choisesimg[rddsa]]);
                             firstq = false;
                             gotit = true;
+                            break;
                         }
                     }
                     if(gotit){
@@ -2865,6 +2902,322 @@ function generate_examoff(){
                         //console.log(alltext[choisestxt[rddsa]]);
                         firstq = false;
                         gotit = true;
+                        break;
+                    }
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                if(gotit){
+                    break;
+                }
+                   }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        }else{
+            alert("you don't have enogh questions");
+
+            //fallback
+        } 
+        var gotit = false;
+        if(sec>0){
+            addexm2(fil,mat,JSON.stringify(exam_offic),barem).then(function(data){
+                console.log(data);
+            });
+            console.log(exam_offic);
+            dumpdata(); 
+        }
+        else{
+            if(!gotit && first>0){ // if we didn't get any question
+                //console.log("u don't have enogh questions to make an exam");
+               
+                if(exam_offic[3] == undefined){
+                    let idf = $("#dropitF").val();
+                let idm = $("#dropitM").val();
+                dbloaded(idm,idf).then((data)=>{
+                    thjsn = JSON.parse(data);
+                    oldies3 =[];
+                    console.log(thjsn);
+                    console.log('thjsn');
+                    if(thjsn.length >0){
+                        var lastwsn = 0 ;
+                        oldies3 = [];
+                        fwd = 0;
+                        while(fwd< (barem - (sec+first+third))){
+                            ////console.log(thjsn);
+                            ////console.log("thjsnloop" + (fwd+1));
+                            let qsn = noreprandom3();
+                                if(qsn==-1){
+                                   ////console.log(-1);
+                                    ////console.log(exam_offic);
+                                    break;
+                                    }
+                           ////console.log("f:" + f + "/ exam_offic.length" + exam_offic.length + "/ qsn" + qsn);
+                            lastwsn = fwd;
+                            ////console'.log(thjsn[qsn]);
+                            console.log(lastwsn ); 
+                            exam_offic.push({"type":3, "id" : thjsn[qsn].idq,"barem" : 1});
+                            console.log(exam_offic);
+                            //console.log("rahzedt " + thjsn[qsn].idq); 
+                            fwd++;
+                            //alert(sec)
+                            //////console.log( first);
+    
+                        }
+    
+                        if(lastwsn == ((barem-1) - (sec+first+third))){
+                            console.log("done");
+                            //console.log(exam_offic);
+                            addexm2(fil,mat,JSON.stringify(exam_offic),barem).then(function(data){
+                                        console.log(data);
+                                    });
+                            dumpdata();
+                        }else{
+                            dumpdata();
+                            alert("you don't have enogh questions" );
+                            //////console.log(exam_offic);
+                        }
+                    }
+                    //SEND 3 3
+                    
+                })  
+                }
+                
+                //alert("hna l qcm");
+            } 
+        }
+        }
+        else if(barem <= 30 && barem >=12){
+            qsns = 3;
+            let firstq =true;
+            while(firstq){
+                 first =  noreprandom(Math.floor(barem/3));
+                 //console.log(first);
+                 if (first == 0){
+                    firstq = false;
+                    //alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                if(second == 1){
+                    second = true;
+                }else{
+                    second = false;
+                }
+                // exam 1
+                if(chercherxam(second,first)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(allimgs[choisesimg[rddsa]]);
+                        firstq = false;
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                    }
+                    
+
+                }else if(chercherxam(!second,first)){
+                    if(!second){
+                         let rddsa = randomise(0,choisesimg.length-1);
+                        exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(allimgs[choisesimg[rddsa]]);
+                        firstq = false;
+                    }else{
+                        let rddsa = randomise(0,choisestxt.length-1);
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                    }
+                    
+
+                }else{
+                    continue;
+                    
+                }
+        }
+        //alert(first + "sdada");
+        if(first>0){
+
+            let firstq =true;
+            while(firstq){
+                //alert("2")
+                 sec =  noreprandom2(Math.floor(barem/3));
+                 //console.log(sec + " : sec");
+                 if (sec == 0){
+                    firstq = false;
+                    alert("you don't have enogh questions");
+                    break;
+                 }
+                let second = randomise(1,2);
+                 if(second == 1){
+                    second = true;
+                 }else{
+                     second = false;
+                 }
+                //exam 2
+                if(chercherxam(second,sec)){
+                    if(second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                            //alert("sec 1 i :" +history.length + " " + choisesimg.length + " " + sec + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : sec});
+                           // alert("2 dazz");
+                            //console.log(exam_offic);
+                            //console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                            break;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                        
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("sec 1 t:" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : sec});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                        break;
+                    }
+                }
+                if(gotit){
+                    break;
+                }
+                if(history.length == choisestxt.length){
+                    //alert("you don't have enogh questions");
+                }
+                
+                   }
+                    
+
+                }else if(chercherxam(!second,sec)){
+                    if(!second){
+                        let rddsa = randomise(0,choisesimg.length-1);
+                        let history = [];
+                        let gotit = false;
+                        while(history.length < choisesimg.length){
+                           // alert("sec 2 i:" +history.length + " " + choisesimg.length + " " + sec + " / " + allimgs[choisesimg[0]].idqmg + " / " + choisesimg[0] );
+                           
+                            let rddsa1 = false;
+                            for(let i =0;i<history.length;i++){
+                                if(history[i] == rddsa){
+                                    rddsa = randomise(0,choisesimg.length-1);
+                                    rddsa1 = true;
+                                }
+                            }
+                            if(rddsa1){
+                                continue;
+                            }
+                            history.push(rddsa);
+                             
+                        if(!check_if_exam_doop(1,allimgs[choisesimg[rddsa]].idqmg)){
+                            exam_offic.push({"type":1, "id" : allimgs[choisesimg[rddsa]].idqmg,"barem" : sec});
+                            //alert("2 dazz");
+                            ////console.log(exam_offic);
+                            ////console.log(allimgs[choisesimg[rddsa]]);
+                            firstq = false;
+                            gotit = true;
+                            break;
+                        }
+                    }
+                    if(gotit){
+                        break;
+                    }
+                       
+                    if(history.length == choisesimg.length){
+                        //alert("you don't have enogh questions");
+                    }
+                     
+                   }else{
+                    //    let rddsa = randomise(0,choisestxt.length-1);
+                    //    exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : first});
+                    //    //console.log(exam_offic);
+                    //    //console.log(alltext[choisestxt[rddsa]]);
+                    //    firstq = false;
+                    let rddsa = randomise(0,choisestxt.length-1);
+                    let history = [];
+                    let gotit = false;
+                    while(history.length < choisestxt.length){
+                        //alert("sec 2 t :" +history.length + " " + choisestxt.length + " " + sec + " / " + alltext[choisestxt[0]].idqtxt + " / " + choisestxt[0] );
+                       
+                        let rddsa1 = false;
+                        for(let i =0;i<history.length;i++){
+                            if(history[i] == rddsa){
+                                rddsa = randomise(0,choisestxt.length-1);
+                                rddsa1 = true;
+                            }
+                        }
+                        if(rddsa1){
+                            continue;
+                        }
+                        history.push(rddsa);
+                         
+                    if(!check_if_exam_doop(2,alltext[choisestxt[rddsa]].idqtxt)){
+                        exam_offic.push({"type":2, "id" : alltext[choisestxt[rddsa]].idqtxt,"barem" : sec});
+                        //alert("2 dazz");
+                        //console.log(exam_offic);
+                        //console.log(alltext[choisestxt[rddsa]]);
+                        firstq = false;
+                        gotit = true;
+                        break;
                     }
                 }
                 if(history.length == choisestxt.length){
@@ -2892,7 +3245,7 @@ function generate_examoff(){
             let firstq =true;
            
             while(firstq){
-                 third =   20 - (first+sec) ;
+                 third =   barem - (first+sec) ;
                  //console.log(third + " : third");
                  if (third == 0){
                     firstq = false;
@@ -3094,7 +3447,7 @@ function generate_examoff(){
                     var lastwsn = 0 ;
                     oldies3 = [];
                     fwd = 0;
-                    while(fwd< (20 - (sec+first))){
+                    while(fwd< (barem - (sec+first))){
                         ////console.log(thjsn);
                         ////console.log("thjsnloop" + (fwd+1));
                         let qsn = noreprandom3();
@@ -3115,7 +3468,7 @@ function generate_examoff(){
 
                     }
 
-                    if(lastwsn == 19-(first +sec)){
+                    if(lastwsn == (barem -1 )-(first +sec)){
                         console.log("done");
                         console.log(exam_offic);
                         //SEND 1 1
@@ -3136,11 +3489,11 @@ function generate_examoff(){
             //alert("hna l qcm");
         }
         
-        }else if(barem == 40){
+        }else if(barem >= 30 && barem <= 50){
             qsns = 4;
             let firstq =true;
             while(firstq){
-                 first =  noreprandom21();
+                 first =  noreprandom21(Math.floor(barem/4));
                  //console.log(first);
                  if (first == 0){
                     firstq = false;
@@ -3197,7 +3550,7 @@ function generate_examoff(){
             let firstq =true;
             while(firstq){
                 //alert("2")
-                 sec =  noreprandom22();
+                 sec =  noreprandom22(Math.floor(barem/4));
                  //console.log(sec + " : sec");
                  if (sec == 0){
                     firstq = false;
@@ -3388,7 +3741,7 @@ function generate_examoff(){
             let firstq =true;
             while(firstq){
                 //alert("2")
-                third =  noreprandom23();
+                third =  noreprandom23(Math.floor(barem/4));
                  //console.log(third + " : third");
                  if (third == 0){
                     firstq = false;
@@ -3580,7 +3933,7 @@ function generate_examoff(){
             let firstq =true;
            
             while(firstq){
-                 fourth =  40 - (first+sec+third);
+                 fourth =  barem - (first+sec+third);
                  //console.log(fourth + " : fourth");
                  if (fourth == 0){
                     firstq = false;
@@ -3784,7 +4137,7 @@ function generate_examoff(){
                     var lastwsn = 0 ;
                     oldies3 = [];
                     fwd = 0;
-                    while(fwd< (40 - (sec+first+third))){
+                    while(fwd< (barem - (sec+first+third))){
                         ////console.log(thjsn);
                         ////console.log("thjsnloop" + (fwd+1));
                         let qsn = noreprandom3();
@@ -3806,7 +4159,7 @@ function generate_examoff(){
 
                     }
 
-                    if(lastwsn == (39 - (sec+first+third))){
+                    if(lastwsn == ((barem -1) - (sec+first+third))){
                         console.log("done");
                         xconsole.log(exam_offic);
                         addexm2(fil,mat,JSON.stringify(exam_offic),barem).then(function(data){
@@ -3827,7 +4180,7 @@ function generate_examoff(){
             //alert("hna l qcm");
         }
         
-        }else if(barem == 60){
+        }else if(barem >= 50){
             //alert("60");
             console.log(exam_offic  );
             qsns = 5;
@@ -3838,7 +4191,7 @@ function generate_examoff(){
 
             let firstq =true;
             while(firstq){
-                 first =  noreprandom31();
+                 first =  noreprandom31(Math.floor(barem/5));
                  if (first == 0){
                     firstq = false;
                     //alert("you don't have enogh questions");
@@ -3896,7 +4249,7 @@ function generate_examoff(){
             let firstq =true;
             while(firstq){
                 //alert("2")
-                 sec =  noreprandom32();
+                 sec =  noreprandom32(Math.floor(barem/5));
                  console.log(sec + " : sec");
                  console.log(exam_offic);
                  if (sec == 0){
@@ -4084,7 +4437,7 @@ function generate_examoff(){
             let firstq =true;
             while(firstq){
                 //alert("2")
-                third =  noreprandom33();
+                third =  noreprandom33(Math.floor(barem/5));
                  console.log(third + " : third");
                  if (third == 0){
                     firstq = false;
@@ -4276,7 +4629,7 @@ function generate_examoff(){
             let firstq =true;
             while(firstq){
                 //alert("2")
-                fourth =  noreprandom34();
+                fourth =  noreprandom34(Math.floor(barem/5));
                  //console.log(fourth + " : fourth");
                  if (fourth == 0){
                     firstq = false;
@@ -4663,7 +5016,7 @@ function generate_examoff(){
                     var lastwsn = 0 ;
                     oldies3 = [];
                     fwd = 0;
-                    while(fwd< (60 - (sec+first+third+fourth))){
+                    while(fwd< (barem - (sec+first+third+fourth))){
                         ////console.log(thjsn);
                         ////console.log("thjsnloop" + (fwd+1));
                         let qsn = noreprandom3();
@@ -4685,7 +5038,7 @@ function generate_examoff(){
 
                     }
 
-                    if(lastwsn == 59-(sec+first+third+fourth)){
+                    if(lastwsn == (barem-1)-(sec+first+third+fourth)){
                         ////console.log("done");
                         console.log(exam_offic);
 
@@ -4709,7 +5062,7 @@ function generate_examoff(){
             //alert("val2")
             let firstq =true;
             while(firstq){
-                 first =  noreprandom41();
+                 first =  noreprandom41(Math.floor(barem/4));
                  //console.log(first);
                  if (first == 0){
                     firstq = false;
@@ -4766,7 +5119,7 @@ function generate_examoff(){
             let firstq =true;
             while(firstq){
                 //alert("2")
-                 sec =  noreprandom42();
+                 sec =  noreprandom42(Math.floor(barem/4));
                  console.log(sec + " : sec");
                  if (sec == 0){
                     firstq = false;
@@ -4960,7 +5313,7 @@ function generate_examoff(){
             let firstq =true;
             while(firstq){
                 //alert("2")
-                third =  noreprandom43();
+                third =  noreprandom43(Math.floor(barem/4));
                 //alert("third:" + third)
                  //console.log(third + " : third");
                  if (third == 0){
@@ -5157,7 +5510,7 @@ function generate_examoff(){
             let firstq =true;
            
             while(firstq){
-                 fourth =  60 - (first+sec+third);
+                 fourth =  barem - (first+sec+third);
                  //console.log(fourth + " : fourth");
                  if (fourth == 0){
                     gotit = true;
@@ -5349,7 +5702,7 @@ function generate_examoff(){
         } 
         if(!gotit && third>0){ // if we didn't get any question
             //console.log("u don't have enogh questions to make an exam");
-            console.log((60 - (sec+first+third)));
+           
             if(exam_offic[3] == undefined){
                 let idf = $("#dropitF").val();
             let idm = $("#dropitM").val();
@@ -5362,7 +5715,7 @@ function generate_examoff(){
                     var lastwsn = 0 ;
                     oldies3 = [];
                     fwd = 0;
-                    while(fwd< (60 - (sec+first+third))){
+                    while(fwd< (barem - (sec+first+third))){
                         ////console.log(thjsn);
                         ////console.log("thjsnloop" + (fwd+1));
                         let qsn = noreprandom3();
@@ -5375,7 +5728,6 @@ function generate_examoff(){
                         lastwsn = fwd;
                         ////console'.log(thjsn[qsn]);
                         console.log(lastwsn ); 
-                        console.log(59 - (sec+first+third))
                         exam_offic.push({"type":3, "id" : thjsn[qsn].idq,"barem" : 1});
                         console.log(exam_offic);
                         //console.log("rahzedt " + thjsn[qsn].idq); 
@@ -5385,7 +5737,7 @@ function generate_examoff(){
 
                     }
 
-                    if(lastwsn == (59 - (sec+first+third))){
+                    if(lastwsn == ((barem-1) - (sec+first+third))){
                         console.log("done");
                         //console.log(exam_offic);
                         addexm2(fil,mat,JSON.stringify(exam_offic),barem).then(function(data){
@@ -5765,7 +6117,7 @@ function reloadexams1(){
                             <td data-title="ID" >${databd[i].idbat}</td>
                             <td data-title="Vari">${databd[i].vari}</td>
                            
-                            <td data-title="Matiere">${databd[i].filier}</td>
+                            <td data-title="Matiere">${databd[i].matier}</td>
                             <td data-title="Filiere">
                             ${databd[i].filier}
                               </td>

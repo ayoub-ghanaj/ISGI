@@ -6,556 +6,629 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="nprnt">ISGI | Prof </title>
     <link rel="icon" id="rela" href="img/clt.png">
-    <link rel="stylesheet" href="css\admin.css">
     <script src="js\jquery.js"></script>
-    <script src="js\jsadmin.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-
+    <link rel="stylesheet" href="css\admin.css">
+    <script src="js\jsadmin.js"></script>
 </head>
 <body>
     
 
-<div class="wrapper" id="side" >
-    <div class="uppermenu" style="z-index: 200 ;background-color: rgb(0, 139, 139);; position: fixed; width: 100%; height: 50px; padding-left: 200px; border-left: 1px #152239 solid ;">
-            <div class="topperval" style="margin-top: 15px; text-align: center; margin-right: 200px;">
-        <a href="#" style="color: white;"><em style="color: #e9ffff;">I S G I</em> M A R R A K E CH </a>
+    <div class="wrapper" id="side" >
+        <div class="uppermenu" style="z-index: 200 ;background-color: rgb(0, 139, 139);; position: fixed; width: 100%; height: 50px; padding-left: 200px; border-left: 1px #152239 solid ;">
+                <div class="topperval" style="margin-top: 15px; text-align: center; margin-right: 200px;">
+            <a href="#" style="color: white;"><em style="color: #e9ffff;">I S G I</em> </a>
+                </div>
+                <img src="img/icons8-user-96.png" style="width: 43px; height: 43px; position: fixed; top: 0; right: 0; border-radius: 50%;margin-top: 3px; margin-right: 7px;" >
+        </div>
+        <div class="sidebar" id="menu1" style="z-index: 200 ;">
+            <div id="logo1"class="logo" style="vertical-align: middle; align-self: center; position:  sticky; margin-bottom: 18px; margin-left: 28px;">
+                <a id="name1" href="#" style="color: white;"><img src="img/cloud.jfif" alt="" style="width: 82px;left: 18px;position: relative;"></a>
+                <a id="name2" href="#" style="color: white;"><img src="img/cloud.jfif" alt="" style="width: 43px;left: -7px;position: relative;"></a>
             </div>
-            <img src="img/icons8-user-96.png" id="pfpe" style="width: 43px; height: 43px; position: fixed; top: 0; right: 0; border-radius: 50%;margin-top: 3px; margin-right: 7px;" >
-    </div>
-    <div class="sidebar" id="menu1" style="z-index: 200 ;">
-        <div id="logo1"class="logo" style="vertical-align: middle; align-self: center; position:  sticky; margin-bottom: 18px; margin-left: 28px;">
-            <a id="name1" href="#" style="color: white;"><img src="img/cloud.jfif" alt="" style="width: 82px;left: 18px;position: relative;"></a>
-            <a id="name2" href="#" style="color: white;"><img src="img/cloud.jfif" alt="" style="width: 43px;left: -7px;position: relative;"></a>
-        </div>
-
-        
+    
             
-      <ul class="nav-menu">
-        <li class="fas active" id="home"> <img src="img/home1.png"  class="img-menu"> <span class="menu-text">Home</span></li>
-        <li class="fas" id="eleves"> <a href="#"> <img src="img/eleves.png" class="img-menu" > <span class="menu-text">Eleves</span></a></li>
-        <li class="fas " id="rec"><a href="#"><img src="img/rec.png" class="img-menu" > <span class="menu-text">Records</span></a></li>
-        <li class="fas" id="menu"><a href="#"> <img src="img/compte1.png" class="img-menu" > <span class="menu-text">Compte</span></a></li> 
-      </ul>
-    </div>
-    <!--
-    <div class="sidebar" id="menu2" style="width: 50px; z-index: 200 ;">
-        <div id="logo2"class="logo" style="vertical-align: middle; align-self: center;align-items: center ;position:  static; margin-bottom: 9%; margin-left: 18%;">
-            <a  href="#" style=" position: static;color: white; align-self: center; align-items: center; bottom: 13px;"><em style="color: yellow;">G</em> S</a>
+                
+          <ul class="nav-menu">
+            <li class="fas active" id="home"> <img src="img/home1.png"  class="img-menu"> <span class="menu-text">Home</span></li>
+            <li class="fas" id="eleves"> <a href="#"> <img src="img/teacher-256.png" class="img-menu" > <span class="menu-text">Teacher</span></a></li>
+            <li class="fas " id="rec"><a href="#"><img src="img/eleves.png" class="img-menu" > <span class="menu-text">Student</span></a></li>
+            <li class="fas" id="contactid"><a href="#"> <img src="img/chat-256.png" class="img-menu" > <span class="menu-text">Contact</span></a></li>
+            <li class="fas" id="menu"><a href="#"> <img src="img/compte1.png" class="img-menu" > <span class="menu-text">Compte</span></a></li>
+          
+           <!-- <li class="fas" id="exit"><a href="#"> <img src="img/exit.png" class="img-menu" >  <span class="menu-text">Exit</span></a></li>-->
+          </ul>
         </div>
-     <ul class="nav-menu">
-        <li id="home">
-            <img src="img/home1.png" >
-        </li>
-        <li id="eleves"> 
-            <img src="img/eleves.png" > 
-        </li>
-        <li id="rec">
-            <img src="img/rec.png" > 
-        </li>
-        <li id="menu" > 
-            <img src="img/compte1.png" > 
-        </li>
-        <li id="exit">
-            <img src="img/exit.png" > 
-        </li>
-      </ul>
-    </div>
---> 
-
-    <div class="main_content" style="z-index: 100; margin-left: 200px;">
-        <div class="home">
-            <div class="boxContent">
-                <div class="firstRow">
-                    <div class="cardOne">
-                        <div class="description">
-                            <p>Totale des user</p>
-                            <h3 id="datatotaleuser"></h3>
+        <!--
+        <div class="sidebar" id="menu2" style="width: 50px; z-index: 200 ;">
+            <div id="logo2"class="logo" style="vertical-align: middle; align-self: center;align-items: center ;position:  static; margin-bottom: 9%; margin-left: 18%;">
+                <a  href="#" style=" position: static;color: white; align-self: center; align-items: center; bottom: 13px;"><em style="color: yellow;">G</em> S</a>
+            </div>
+         <ul class="nav-menu">
+            <li id="home">
+                <img src="img/home1.png" >
+            </li>
+            <li id="eleves"> 
+                <img src="img/eleves.png" > 
+            </li>
+            <li id="rec">
+                <img src="img/rec.png" > 
+            </li>
+            <li id="menu" > 
+                <img src="img/compte1.png" > 
+            </li>
+            <li id="exit">
+                <img src="img/exit.png" > 
+            </li>
+          </ul>
+        </div>
+    --> 
+    
+        <div class="main_content" style="z-index: 100; margin-left: 200px;">
+            <div class="home">
+                
+                <div class="boxContent">
+                    <div class="firstRow">
+                        <div class="cardOne" style="height: 300px;">
+                            <div class="description">
+                                <div class="container" style="height: 305px; width: 332px; ">
+                                    <canvas id="myChart"></canvas>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardTwo">
-                        <div class="description">
-                            <p>Totale des Professeurs</p>
-                            <h3 id="datatotalproffeseur"></h3>
+                        <div class="cardTwo" style="height: 300px;">
+                            <div class="description">
+                                <div class="container" style="height: 175px; width: 332px; ">
+                                    <canvas id="myChart1"></canvas>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardThree">
-                        <div class="description">
-                            <p>Totale des etudiants</p>
-                            <h3 id="datatotaleetudiant"></h3>
+                        <div class="cardThree" style="height: 300px;">
+                            <div class="description">
+                                <div class="container" style="height: 305px; width: 332px; ">
+                                    <canvas id="myChart2"></canvas>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-           
-       <!-- <span>Search</span>
-        <input type="text" >
-        <button >Search</button>
-        <button id="nraj3o">rojooo3</button>-->
-           <div id="tablecontainer">
-            <table id="customers">
-                <caption> <h3>Search User:</h3> <div class="wrap">
-                    <div class="search">
-                       <input type="text" class="searchTerm" id="serchatext" placeholder="What are you looking for?">
-                       <button type="submit" class="searchButton" id="serchbutton">
-                        <button id="nraj3o"  class="refreshButton"></button>
-                         <i class="fa fa-search"></i>
-                      </button>
-                    </div>
-
-                 </div> <button id="idbtnajouteruser"   class="btnajouteruser"></button></caption>
-                 
+               
+           <!-- <span>Search</span>
+            <input type="text" >
+            <button >Search</button>
+            <button id="nraj3o">rojooo3</button>-->
+            <div class="alertDeleteuser">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+               
+              </div>
+               <div id="tablecontainer">
+                <table id="customers">
+                    <caption>  <div class="wrap">
+                        <div class="search">
+                           <input type="text" class="searchTerm" id="serchatext" placeholder="Search User:">
+                           <button type="submit" class="searchButton" id="serchbutton">
+                            <button id="nraj3o"  class="refreshButton"></button>
+                             <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+    
+                     </div> <button id="idbtnajouteruser"   class="btnajouteruser"></button></caption>
                      
-               
-                <tr>
-                  <th>username</th>
-                  <th>passoword</th>
-                  <th>email</th>
-                  <th>rank</th>
-                  <th>loger</th>
-                  <th>sessions</th>
-                  <th>dated</th>
-                  <th>Supprimer</th>
-                  <th>Modifier</th>
-                </tr>
-               
-                  <tbody id="mydata">
-
-
-
-                    
-                  </tbody>
-                 
-                
-               
-                
-                
-              </table>
-           </div>
-           
-            <div class="modifieruserbox">
-                <div class="centermd">
-                    <table>
-                        <tr>
-                          <td><label >Username</label> </td>     
-                           <td><input type="text" id="mdboxuser" class="inputboxmd"></td> 
-                        </tr>
-                        <tr>
-                         <td><label for="mdboxpass">passoword</label> </td>     
-                         <td><input type="text" id="mdboxpass" class="inputboxmd"></td>   
-                        </tr>
-                        <tr>
-                            
-                           
-                            <td> <label for="mdboxemail">email</label>  </td>
-                            <td> <input type="text" id="mdboxemail" class="inputboxmd"></td>
-                        </tr>
+                         
+                   
+                    <tr>
+                      <th>username 
+                        <img id="ascname" src="img/up-arrow.png"/>
+                        <img id="descname" src="img/arrow-down-sign-to-navigate (1).png"/>
+                     
+    
+                      </th>
+                      <th>passoword</th>
+                      <th>email</th>
+                      <th>rank</th>
+                      
+                      <th>sessions</th>
+                      <th>dated 
+                        <img id="ascdate" src="img/up-arrow.png"/>
+                        <img id="descdate" src="img/arrow-down-sign-to-navigate (1).png" />
+                   </th>
+                      
+                      <th>Supprimer</th>
+                      <th>Modifier</th>
+                    </tr>
+                   
+                      <tbody id="mydata">
+    
+    
+    
                         
-
-                        <tr>
-                            <td><label for="mdboxrank">Rank</label>   </td>
-                            <td> <input type="text" id="mdboxrank" class="inputboxmd"></td>
-                        </tr>
-                          
- 
-                        <tr>
-                            <td><label for="mdboxloger">Loger</label> </td>
-                            <td><input type="text" id="mdboxloger" class="inputboxmd"></td>
-                        </tr>
+                      </tbody>
+                     
+                    
+                   
+                    
+                    
+                  </table>
+               </div>
+             
+                <div class="modifieruserbox">
+                    <div class="alertmodifieruser">
+                        <p id="alertmodifieruser"></p>
+                        <span class="closebtn" onclick="this.parentElement.style.visibility='hidden';">&times;</span> 
                        
- 
-                        <tr>
-                            <td> <label for="mdboxsession">Session</label>  </td>
-                            <td><input type="text" id="mdboxsession" class="inputboxmd"></td>
-                        </tr>
-                          
- 
-                        <tr>
-                            <td><label for="mdboxdatted">Datted</label> </td>
-                            <td><input type="text" id="mdboxdatted" class="inputboxmd"></td>
-                        </tr>
-                        <tr>
-                            <td><button id="btnmdbox" class="btnm">Modifier</button></td>
-                            <td><button id="btncancelbox" class="btnm">Cancel</button></td> 
-                        </tr>
+                      </div>
+                    <div class="centermd">
+                        <table>
+                            <tr>
+                              <td><label >Username</label> </td>     
+                               <td><input type="text" id="mdboxuser" class="inputboxmd"></td> 
+                            </tr>
+                            <tr>
+                             <td><label for="mdboxpass">passoword</label> </td>     
+                             <td><input type="text" id="mdboxpass" class="inputboxmd"></td>   
+                            </tr>
+                            <tr>
+                                
+                               
+                                <td> <label for="mdboxemail">email</label>  </td>
+                                <td> <input type="text" id="mdboxemail" class="inputboxmd"></td>
+                            </tr>
+                            
+    
+                            <tr>
+                                <td><label for="mdboxrank">Rank</label>   </td>
+                                <td><select  id="mdboxrank" class="inputboxmd">
+                                    <option value="Teacher">Teacher</option>
+                                    <option value="Student ">Student </option>
+                                </select> </td>
+                                
+                            </tr>
+                              
+     
+                          <!--  <tr>
+                                <td><label for="mdboxloger">Loger</label> </td>
+                                <td><input type="text" id="mdboxloger" class="inputboxmd"></td>
+                            </tr>-->
+                           
+     
+                            <tr>
+                                <td> <label for="mdboxsession">Session</label>  </td>
+                                <td><input type="text" id="mdboxsession" class="inputboxmd"></td>
+                            </tr>
+                              
+     
+                            <tr>
+                                <td><label for="mdboxdatted">Datted</label> </td>
+                                <td><input type="text" id="mdboxdatted" class="inputboxmd"></td>
+                            </tr>
+                            <tr>
+                                <td><button id="btnmdbox" class="btnm">Modifier</button></td>
+                                <td><button id="btncancelbox" class="btnm">Cancel</button></td> 
+                            </tr>
+                           
+                        </table>
+     
+     
+    
+    
+    
+    </div>
+                </div>
+    
+    
+                <div class="Ajouteruserbox">
+                    <div class="alertajouteruser">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
                        
-                    </table>
- 
- 
-
-
-
-</div>
+                      </div>
+                    <div class="centermd">
+                        <table>
+                            <tr>
+                              <td><label >Username</label> </td>     
+                               <td><input type="text" id="Ajboxuser" class="inputboxmd"></td> 
+                            </tr>
+                            <tr>
+                             <td><label for="mdboxpass">passoword</label> </td>     
+                             <td><input type="text" id="Ajboxpass" class="inputboxmd"></td>   
+                            </tr>
+                            <tr>
+                                
+                               
+                                <td> <label for="mdboxemail">email</label>  </td>
+                                <td> <input type="text" id="Ajboxemail" class="inputboxmd"></td>
+                            </tr>
+                            
+    
+                            <tr>
+                                <td><label for="mdboxrank">Rank</label>   </td>
+                                <td> 
+                                <select  id="Ajboxrank" class="inputboxmd">
+                                    <option value="Teacher">Teacher</option>
+                                    <option value="Student">Student</option>
+                                </select></td>
+                            </tr>
+                              
+     
+                          <!--- <tr>
+                                <td><label for="mdboxloger">Loger</label> </td>
+                                <td><input type="text" id="Ajboxloger" class="inputboxmd"></td>
+                            </tr>--> 
+                           
+     
+                            <tr>
+                                <td> <label for="mdboxsession">Session</label>  </td>
+                                <td><input type="text" id="Ajboxsession" class="inputboxmd"></td>
+                            </tr>
+                              
+     
+                            <tr>
+                                <td><label for="mdboxdatted">Datted</label> </td>
+                                <td><input type="text" id="Ajboxdatted" class="inputboxmd"></td>
+                            </tr>
+                            <tr>
+                                <td><button id="btnAjbox" class="btnm">Ajouter</button></td>
+                                <td><button id="btncancelboxAj" class="btnm">Cancel</button></td> 
+                            </tr>
+                           
+                        </table>
+     
+     
+    
+                        
+    
+    </div>
+                </div> 
+               
             </div>
-
-
-            <div class="Ajouteruserbox">
+            <div class="eleves"> 
+    
+               
+    
+               
+                
+    <!--<span>Searchnadi</span>
+    
+    <input type="text" id="serchatextproffesseur">
+    <button id="serchbuttonproffeseur">Search</button>
+    <button id="refreshprofesseur">rojooo3</button>-->
+    
+    <table id="customers">
+        <caption>  <div class="wrap">
+            <div class="search">
+               <input type="text" class="searchTerm" id="serchatextproffesseur" placeholder="serchatextproffesseur:">
+               <button type="submit" class="searchButton" id="serchbuttonproffeseur">
+                <button  id="refreshprofesseur"  class="refreshButton"></button>
+                 <i class="fa fa-search"></i>
+              </button>
+            </div>
+         </div><button id="btnajouteruserpro"   class="btnajouteruser"></button></caption>
+         <div class="alertsuppprof">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+           
+          </div>
+    <tr>
+        <th>username
+            
+                <img id="ascnamepro" src="img/up-arrow.png"/>
+                <img id="descnamepro" src="img/arrow-down-sign-to-navigate (1).png"/>
+           
+        </th>
+        <th>passoword</th>
+        <th>email</th>
+        <th>rank</th>
+       
+        <th>sessions</th>
+        <th>dated
+    
+            
+                <img id="ascdatepro" src="img/up-arrow.png"/>
+                <img id="descdatepro" src="img/arrow-down-sign-to-navigate (1).png"/>
+         
+        </th>
+        <th>Supprimer</th>
+        <th>Modifier</th>
+    </tr>
+    
+    <tbody id="dataprof">
+    
+    
+    
+    
+    </tbody>
+    
+    
+    
+    
+    
+    </table>
+    
+    
+        <div class="centermd">
+            
+            <div class="modifierprobox">
+                <div class="alertmodifierprof">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                   
+                  </div>
+            <table>
+                <tr>
+                    <td><label for="mdboxuser">Username</label>    </td>
+                    <td><input type="text" id="mdboxuserpro" class="inputboxmd"></td>
+                </tr>
+                <tr>
+                    <td><label for="mdboxpass">passoword</label> </td>
+                    <td><input type="text" id="mdboxpasspro" class="inputboxmd"></td>
+                </tr>
+                <tr>
+                    <td><label for="mdboxemail">email</label>   </td>
+                    <td><input type="text" id="mdboxemailpro" class="inputboxmd"></td>
+                </tr>
+                <tr>
+                    <td><label for="mdboxrank">Rank</label></td>
+                    <td><input type="text" id="mdboxrankpro" class="inputboxmd" readonly></td>
+                </tr>
+               <!-- <tr>
+                    <td><label for="mdboxloger">Loger</label></td>
+                    <td><input type="text" id="mdboxlogerpro" class="inputboxmd"></td>
+                </tr>-->
+                <tr>
+                    <td><label for="mdboxsession">Session</label>  </td>
+                    <td><input type="text" id="mdboxsessionpro" class="inputboxmd"></td>
+                </tr>
+                <tr>
+                    <td><label for="mdboxdatted">Datted</label></td>
+                    <td><input type="text" id="mdboxdattedpro" class="inputboxmd"></td>
+                </tr>
+                <tr>
+                    <td><button id="btnmdboxpro" class="btnm">Modifier</button></td>
+                    <td><button id="btncancelboxpro" class="btnm">Cancel</button></td>
+                </tr>
+            </table>
+    
+    </div>
+            </div>
+    
+    
+    
+            <div class="AjouterProbox">
+                <div class="alertajouterprof">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                   
+                  </div>
                 <div class="centermd">
                     <table>
                         <tr>
                           <td><label >Username</label> </td>     
-                           <td><input type="text" id="Ajboxuser" class="inputboxmd"></td> 
+                           <td><input type="text" id="Ajboxuserpro" class="inputboxmd"></td> 
                         </tr>
                         <tr>
                          <td><label for="mdboxpass">passoword</label> </td>     
-                         <td><input type="text" id="Ajboxpass" class="inputboxmd"></td>   
+                         <td><input type="text" id="Ajboxpasspro" class="inputboxmd"></td>   
                         </tr>
                         <tr>
                             
                            
                             <td> <label for="mdboxemail">email</label>  </td>
-                            <td> <input type="text" id="Ajboxemail" class="inputboxmd"></td>
+                            <td> <input type="text" id="Ajboxemailpro" class="inputboxmd"></td>
                         </tr>
                         
-
+    
                         <tr>
                             <td><label for="mdboxrank">Rank</label>   </td>
-                            <td> <input type="text" id="Ajboxrank" class="inputboxmd"></td>
+                            <td> <input type="text" id="Ajboxrankpro" class="inputboxmd" readonly></td>
                         </tr>
                           
- 
-                        <tr>
+    
+                       <!--<tr>
                             <td><label for="mdboxloger">Loger</label> </td>
-                            <td><input type="text" id="Ajboxloger" class="inputboxmd"></td>
-                        </tr>
+                            <td><input type="text" id="Ajboxlogerpro" class="inputboxmd" ></td>
+                        </tr>--> 
                        
- 
+    
                         <tr>
                             <td> <label for="mdboxsession">Session</label>  </td>
-                            <td><input type="text" id="Ajboxsession" class="inputboxmd"></td>
+                            <td><input type="text" id="Ajboxsessionpro" class="inputboxmd"></td>
                         </tr>
                           
- 
+    
                         <tr>
                             <td><label for="mdboxdatted">Datted</label> </td>
-                            <td><input type="text" id="Ajboxdatted" class="inputboxmd"></td>
+                            <td><input type="text" id="Ajboxdattedpro" class="inputboxmd"></td>
                         </tr>
                         <tr>
-                            <td><button id="btnAjbox" class="btnm">Ajouter</button></td>
-                            <td><button id="btncancelboxAj" class="btnm">Cancel</button></td> 
+                            <td><button id="btnAjboxpro" class="btnm">Ajouter</button></td>
+                            <td><button id="btncancelboxAjpro" class="btnm">Cancel</button></td> 
                         </tr>
                        
                     </table>
- 
- 
-
-
-
-</div>
+    
+    
+    
+    
+    
+    </div>
             </div> 
-        </div>
-        <div class="eleves"> 
-
-           
-
-            <h1 class="titletabledata">Les Inforamation :</h1>
-            
-<!--<span>Searchnadi</span>
-
-<input type="text" id="serchatextproffesseur">
-<button id="serchbuttonproffeseur">Search</button>
-<button id="refreshprofesseur">rojooo3</button>-->
-<table id="customers">
-    <caption> <h3>Search Proffeseur:</h3> <div class="wrap">
-        <div class="search">
-           <input type="text" class="searchTerm" id="serchatextproffesseur" placeholder="What are you looking for?">
-           <button type="submit" class="searchButton" id="serchbuttonproffeseur">
-            <button  id="refreshprofesseur"  class="refreshButton"></button>
-             <i class="fa fa-search"></i>
-          </button>
-        </div>
-     </div><button id="btnajouteruserpro"   class="btnajouteruser"></button></caption>
-<tr>
-    <th>username</th>
-    <th>passoword</th>
-    <th>email</th>
-    <th>rank</th>
-    <th>loger</th>
-    <th>sessions</th>
-    <th>dated</th>
-    <th>Supprimer</th>
-    <th>Modifier</th>
-</tr>
-
-<tbody id="dataprof">
-
-
-
-
-</tbody>
-
-
-
-
-
-</table>
-
-<div class="modifierprobox">
-    <div class="centermd">
-
-        <table>
-            <tr>
-                <td><label for="mdboxuser">Username</label>    </td>
-                <td><input type="text" id="mdboxuserpro" class="inputboxmd"></td>
-            </tr>
-            <tr>
-                <td><label for="mdboxpass">passoword</label> </td>
-                <td><input type="text" id="mdboxpasspro" class="inputboxmd"></td>
-            </tr>
-            <tr>
-                <td><label for="mdboxemail">email</label>   </td>
-                <td><input type="text" id="mdboxemailpro" class="inputboxmd"></td>
-            </tr>
-            <tr>
-                <td><label for="mdboxrank">Rank</label></td>
-                <td><select type="text" id="mdboxrankpro" class="inputboxmd">
-                    <option>Teacher</option>
-                    <option>Student</option>
-                    <option>Admin</option>    
-                </select></td>
-            </tr>
-            <tr>
-                <td><label for="mdboxloger">Loger</label></td>
-                <td><input type="text" id="mdboxlogerpro" class="inputboxmd"></td>
-            </tr>
-            <tr>
-                <td><label for="mdboxsession">Session</label>  </td>
-                <td><input type="text" id="mdboxsessionpro" class="inputboxmd"></td>
-            </tr>
-            <tr>
-                <td><label for="mdboxdatted">Datted</label></td>
-                <td><input type="text" id="mdboxdattedpro" class="inputboxmd"></td>
-            </tr>
-            <tr>
-                <td><button id="btnmdboxpro" class="btnm">Modifier</button></td>
-                <td><button id="btncancelboxpro" class="btnm">Cancel</button></td>
-            </tr>
-        </table>
-
-</div>
-        </div>
-
-
-
-        <div class="AjouterProbox">
-            <div class="centermd">
-                <table>
-                    <tr>
-                      <td><label >Username</label> </td>     
-                       <td><input type="text" id="Ajboxuserpro" class="inputboxmd"></td> 
-                    </tr>
-                    <tr>
-                     <td><label for="mdboxpass">passoword</label> </td>     
-                     <td><input type="text" id="Ajboxpasspro" class="inputboxmd"></td>   
-                    </tr>
-                    <tr>
-                        
-                       
-                        <td> <label for="mdboxemail">email</label>  </td>
-                        <td> <input type="text" id="Ajboxemailpro" class="inputboxmd"></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td><label for="mdboxrank">Rank</label>   </td>
-                        <td> <select type="text" id="Ajboxrankpro" class="inputboxmd" >
-                            <option>Teacher</option>
-                            <option>Student</option>
-                            <option>Admin</option>
-                            </select></td>
-                    </tr>
-                      
-
-                    <tr>
-                        <td><label for="mdboxloger">Loger</label> </td>
-                        <td><input type="text" id="Ajboxlogerpro" class="inputboxmd" ></td>
-                    </tr>
-                   
-
-                    <tr>
-                        <td> <label for="mdboxsession">Session</label>  </td>
-                        <td><input type="text" id="Ajboxsessionpro" class="inputboxmd"></td>
-                    </tr>
-                      
-
-                    <tr>
-                        <td><label for="mdboxdatted">Datted</label> </td>
-                        <td><input type="text" id="Ajboxdattedpro" class="inputboxmd"></td>
-                    </tr>
-                    <tr>
-                        <td><button id="btnAjboxpro" class="btnm">Ajouter</button></td>
-                        <td><button id="btncancelboxAjpro" class="btnm">Cancel</button></td> 
-                    </tr>
-                   
-                </table>
-
-
-
-
-
-</div>
-        </div> 
-        </div>
-        <div class="rec"> 
-
-            
-            
-           <h1 class="titletabledata">Les Inforamation :</h1>
-
-           <div class="tableetudiant">
-              <!-- <span>Search</span>
-           
-               <input type="text" id="serchatextetudiant">
-               <button id="serchbuttonetudian">Search</button>
-               <button id="refreshetudiant">rojooo3</button>-->
-           
-               <table id="customers">
-                <caption> <h3>Search Etudiant:</h3> <div class="wrap">
-                    <div class="search">
-                       <input type="text" class="searchTerm" id="serchatextetudiant" placeholder="What are you looking for?">
-                       <button type="submit" class="searchButton" id="serchbuttonetudian">
-                        <button id="refreshetudiant"  class="refreshButton"></button>
-                         <i class="fa fa-search"></i>
-                      </button>
-                    </div>
-                 </div><button id="btnajouteruseretudiant"   class="btnajouteruser"></button></caption>
-                   
-                   <tr>
-                       <th>username</th>
-                       <th>passoword</th>
-                       <th>email</th>
-                       <th>rank</th>
-                       <th>loger</th>
-                       <th>sessions</th>
-                       <th>dated</th>
-                       <th>Supprimer</th>
-                       <th>Modifier</th>
-                   </tr>
-                  
-                     <tbody id="dataetud">
-               
-               
-               
-                       
-                     </tbody>
-                    
-                   
-                  
-                   
-                   
-                 </table>
-           </div>
-           
-                 <div class="modifieretudiantbox">
-               <div class="centermd">
-           <table>
-               <tr>
+            </div>
+            <div class="rec"> 
+    
                 
-           
-                   <td><label for="mdboxuser">Username</label></td>
-                   <td><input type="text" id="mdboxuseretud" class="inputboxmd"></td>
-               </tr>
-           <tr>
-               <td><label for="mdboxpass">passoword</label>   </td>
-               <td><input type="text" id="mdboxpassetud" class="inputboxmd"></td>
-           </tr>
-           <tr>
-               <td><label for="mdboxemail">email</label>  </td>
-               <td><input type="text" id="mdboxemailetud" class="inputboxmd"></td>
-           </tr>
-           <tr> 
-               <td><label for="mdboxrank">Rank</label></td>
-               <td><select type="text" id="mdboxranketud" class="inputboxmd"> 
-                    <option>Teacher</option>
-                    <option>Student</option>
-                    <option>Admin</option>
-               </select> </td>
-           </tr>
-           <tr>
-               <td><label for="mdboxloger">Loger</label> </td>
-               <td><input type="text" id="mdboxlogeretud" class="inputboxmd"></td>
-           </tr>
-           <tr>
-               <td><label for="mdboxsession">Session</label></td>
-               <td><input type="text" id="mdboxsessionetud" class="inputboxmd"></td>
-           </tr>
-           <tr>
-               <td><label for="mdboxdatted">Datted</label> </td>
-               <td><input type="text" id="mdboxdattedetud" class="inputboxmd"></td>
-           </tr>
-           <tr>
-               <td><button id="btnmdboxetud" class="btnm">Modifier</button></td>
-               <td><button id="btncancelboxetud" class="btnm">Cancel</button></td>
-           </tr>
-           
-           </table>
-           
-           
-           
-           
-            
-           
-             
-           
-             
-           
-             
-           
-           
-           
-           
-           </div>
-           
-           
-                 
-           </div>
-           <div class="AjouterEtudiantbox">
-            <div class="centermd">
-                <table>
-                    <tr>
-                      <td><label >Username</label> </td>     
-                       <td><input type="text" id="Ajboxuseretd" class="inputboxmd"></td> 
-                    </tr>
-                    <tr>
-                     <td><label for="mdboxpass">passoword</label> </td>     
-                     <td><input type="text" id="Ajboxpassetd" class="inputboxmd"></td>   
-                    </tr>
-                    <tr>
+                
+               
+    
+               <div class="tableetudiant">
+                  <!-- <span>Search</span>
+               
+                   <input type="text" id="serchatextetudiant">
+                   <button id="serchbuttonetudian">Search</button>
+                   <button id="refreshetudiant">rojooo3</button>-->
+               
+                   <table id="customers">
+                    <caption>  <div class="wrap">
+                        <div class="search">
+                           <input type="text" class="searchTerm" id="serchatextetudiant" placeholder="serche etudiant">
+                           <button type="submit" class="searchButton" id="serchbuttonetudian">
+                            <button id="refreshetudiant"  class="refreshButton"></button>
+                             <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+                     </div><button id="btnajouteruseretudiant"   class="btnajouteruser"></button></caption>
+                     <div class="alertsupetd">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                       
+                      </div>
+                       <tr>
+                           <th>username   
+                            
+                                <img id="ascnameetd" src="img/up-arrow.png"/>
+                                <img id="descnameetd" src="img/arrow-down-sign-to-navigate (1).png"/>
+                          
+    
+                           </th>
+                           <th>passoword</th>
+                           <th>email</th>
+                           <th>rank</th>
+                          
+                           <th>sessions</th>
+                           <th>dated
+                           
+                                <img id="ascdateetd" src="img/up-arrow.png">
+                                <img id="descdateetd" src="img/arrow-down-sign-to-navigate (1).png">
+                           </th>
+                           <th>Supprimer</th>
+                           <th>Modifier</th>
+                       </tr>
+                      
+                         <tbody id="dataetud">
+                   
+                   
+                   
+                           
+                         </tbody>
                         
                        
-                        <td> <label for="mdboxemail">email</label>  </td>
-                        <td> <input type="text" id="Ajboxemailetd" class="inputboxmd"></td>
-                    </tr>
+                      
+                       
+                       
+                     </table>
+               </div>
+               
+                     <div class="modifieretudiantbox">
+                        <div class="alertmodifieretd">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                           
+                          </div>
+                   <div class="centermd">
+               <table>
+                   <tr>
                     
-
-                    <tr>
-                        <td><label for="mdboxrank">Rank</label>   </td>
-                        <td> <input type="text" id="Ajboxranketd" class="inputboxmd" readonly></td>
-                    </tr>
-                      
-
-                    <tr>
-                        <td><label for="mdboxloger">Loger</label> </td>
-                        <td><input type="text" id="Ajboxlogeretd" class="inputboxmd" ></td>
-                    </tr>
+               
+                       <td><label for="mdboxuser">Username</label></td>
+                       <td><input type="text" id="mdboxuseretud" class="inputboxmd"></td>
+                   </tr>
+               <tr>
+                   <td><label for="mdboxpass">passoword</label>   </td>
+                   <td><input type="text" id="mdboxpassetud" class="inputboxmd"></td>
+               </tr>
+               <tr>
+                   <td><label for="mdboxemail">email</label>  </td>
+                   <td><input type="text" id="mdboxemailetud" class="inputboxmd"></td>
+               </tr>
+               <tr> 
+                   <td><label for="mdboxrank">Rank</label></td>
+                   <td><input type="text" id="mdboxranketud" class="inputboxmd" readonly></td>
+               </tr>
+              <!-- <tr>
+                   <td><label for="mdboxloger">Loger</label> </td>
+                   <td><input type="text" id="mdboxlogeretud" class="inputboxmd"></td>
+               </tr>-->
+               <tr>
+                   <td><label for="mdboxsession">Session</label></td>
+                   <td><input type="text" id="mdboxsessionetud" class="inputboxmd"></td>
+               </tr>
+               <tr>
+                   <td><label for="mdboxdatted">Datted</label> </td>
+                   <td><input type="text" id="mdboxdattedetud" class="inputboxmd"></td>
+               </tr>
+               <tr>
+                   <td><button id="btnmdboxetud" class="btnm">Modifier</button></td>
+                   <td><button id="btncancelboxetud" class="btnm">Cancel</button></td>
+               </tr>
+               
+               </table>
+               
+               
+               
+               
+                
+               
+                 
+               
+                 
+               
+                 
+               
+               
+               
+               
+               </div>
+               
+               
+                     
+               </div>
+               <div class="AjouterEtudiantbox">
+                <div class="alertajouteretd">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
                    
-
-                    <tr>
-                        <td> <label for="mdboxsession">Session</label>  </td>
-                        <td><input type="text" id="Ajboxsessionetd" class="inputboxmd"></td>
-                    </tr>
-                      
-
-                    <tr>
-                        <td><label for="mdboxdatted">Datted</label> </td>
-                        <td><input type="text" id="Ajboxdattedetd" class="inputboxmd"></td>
-                    </tr>
-                    <tr>
-                        <td><button id="btnAjboxetd" class="btnm">Ajouter</button></td>
-                        <td><button id="btncancelboxAjetd" class="btnm">Cancel</button></td> 
-                    </tr>
-                   
-                </table>
-
+                  </div>
+                <div class="centermd">
+                    <table>
+                        <tr>
+                          <td><label >Username</label> </td>     
+                           <td><input type="text" id="Ajboxuseretd" class="inputboxmd"></td> 
+                        </tr>
+                        <tr>
+                         <td><label for="mdboxpass">passoword</label> </td>     
+                         <td><input type="text" id="Ajboxpassetd" class="inputboxmd"></td>   
+                        </tr>
+                        <tr>
+                            
+                           
+                            <td> <label for="mdboxemail">email</label>  </td>
+                            <td> <input type="text" id="Ajboxemailetd" class="inputboxmd"></td>
+                        </tr>
+                        
+    
+                        <tr>
+                            <td><label for="mdboxrank">Rank</label>   </td>
+                            <td> <input type="text" id="Ajboxranketd" class="inputboxmd" readonly></td>
+                        </tr>
+                          
+    
+                     <!--  <tr>
+                            <td><label for="mdboxloger">Loger</label> </td>
+                            <td><input type="text" id="Ajboxlogeretd" class="inputboxmd" ></td>
+                        </tr>--> 
+                       
+    
+                        <tr>
+                            <td> <label for="mdboxsession">Session</label>  </td>
+                            <td><input type="text" id="Ajboxsessionetd" class="inputboxmd"></td>
+                        </tr>
+                          
+    
+                        <tr>
+                            <td><label for="mdboxdatted">Datted</label> </td>
+                            <td><input type="text" id="Ajboxdattedetd" class="inputboxmd"></td>
+                        </tr>
+                        <tr>
+                            <td><button id="btnAjboxetd" class="btnm">Ajouter</button></td>
+                            <td><button id="btncancelboxAjetd" class="btnm">Cancel</button></td> 
+                        </tr>
+                       
+                    </table>
+    
 
 
 
@@ -567,11 +640,11 @@
         <div class="menu"> 
             <div class="containere">
                 <div class="profile">
-                    <img src="img/icons8-user-96.png" id="pfpe1" style="height:70px;border-radius: 50%; border: 10px solid #45a049;" alt="This is a small profile image of Digital Ocean’s mascot, a blue smiling shark.">
+                    <img src="img/icons8-user-96.png" id="pfpe1" style="height: 200px;width: 200px;border-radius: 50%; border: 10px solid #45a049;" alt="This is a small profile image of Digital Ocean’s mascot, a blue smiling shark.">
                   </div>
             
                 <div>
-              <form action="/action_page.php">
+              <form >
                 
             
                 <label for="oldpass">Old Password</label>
@@ -593,6 +666,51 @@
                 
             
         </div>
+        <div class="contact">
+            
+            <table id="customers">
+                <caption> <div class="wraps">
+                    <div class="search" style="width: 271px;
+                    padding-bottom: 10px;
+                    padding-top: 16px;">
+                       <input type="text" class="searchTerm" id="serchatextcontact" placeholder="serch contact">
+                       <button type="submit" class="searchButton" id="serchbuttoncontact">
+                        <button id="refreshcontact"  class="refreshButton"></button>
+                         <i class="fa fa-search"></i>
+                      </button>
+                    </div>
+                 </div></caption>
+                   
+                   <tr>
+                       <th>Nom   
+                       
+                            <img id="ascnamecontact" src="img/up-arrow.png">
+                            <img id="descnameontact" src="img/arrow-down-sign-to-navigate (1).png">
+                    
+                       </th>
+                       <th>email</th>
+                       <th>message</th>
+                       <th>Supprimer</th>
+                      
+                       
+                     
+                       
+                   </tr>
+                  
+                     <tbody id="contactdata">
+               
+               
+               
+                       
+                     </tbody>
+                    
+                   
+                  
+                   
+                   
+                 </table>
+        </div>
+
 
         
     
@@ -600,59 +718,425 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
+   //delete contact
+   function deletedatacontact(idc){
+    $(document).ready(function(){
+        ////alert("sjjs");
+$.ajax({
+url:'deletedcontact.php',
+type:'POST',
+data:{ 
+    "idc":idc,
+    "action":"delete"
+},
+success:function(response){
+    if(response==1){
+        
+        document.getElementById(idc).style.display="none";
+       
+
+    }
+    else if(response==0){
+        //alert("ma to9afche");
+    }
+}
+
+});       
+    });
+}
+
+//filter nom desc contact
+$( "#descnameontact" ).click(function() {
+    
+    $(document).ready(function(){
+    $.ajax({
+    type:"GET",
+    url:"filterdatedesccontact.php",
+    dataType:"Html",
+    success:function(data){
+    $('#contactdata').html(data);
+    }
+    });
+    
+    
+    
+    });
+
+}); 
+
+
+//filter nom asc contact
+$( "#ascnamecontact" ).click(function() {
+    
+    $(document).ready(function(){
+    $.ajax({
+    type:"GET",
+    url:"filterdateasccontact.php",
+    dataType:"Html",
+    success:function(data){
+    $('#contactdata').html(data);
+    }
+    });
+    
+    
+    
+    });
+
+}); 
+
+
+//search contact
+$( "#serchbuttoncontact" ).click(function() {
+    var value=$("#serchatextcontact").val()
+    $.ajax({
+    url:'serchedatacontact.php',
+    type:'POST',
+    data:{'request':value},
+    
+    beforeSend:function(){
+    $("#contactdata").html('Working on...')
+    },
+    success:function(data){
+        $("#contactdata").html(data);
+    }
+    });
+    
+    
+    
+      
+    });
+
+
+//referch contact
+$( "#refreshcontact" ).click(function() {
+    
+    $(document).ready(function(){
+    $.ajax({
+    type:"GET",
+    url:"datacontact.php",
+    dataType:"Html",
+    success:function(data){
+    $('#contactdata').html(data);
+    }
+    
+    });
+    
+    
+    
+    });
+
+});
+//data contact
+$(document).ready(function(){
+$.ajax({
+type:"GET",
+url:"datacontact.php",
+dataType:"Html",
+success:function(data){
+$('#contactdata').html(data);
+}
+
+});
+
+
+
+});
+
+
+//filter date  etudiant  asc  
+$( "#ascdateetd" ).click(function() {
+    //alert("akaka");
+    $(document).ready(function(){
+    $.ajax({
+    type:"GET",
+    url:"filterdateascetd.php",
+    dataType:"Html",
+    success:function(data){
+    $('#dataetud ').html(data);
+    }
+    });
+    
+    
+    
+    });
+
+}); 
+
+//filter date  etudiant desc
+$( "#descdateetd" ).click(function() {
+    //alert("akaka");
+    $(document).ready(function(){
+    $.ajax({
+    type:"GET",
+    url:"filterdatedescetd.php",
+    dataType:"Html",
+    success:function(data){
+    $('#dataetud ').html(data);
+    }
+    });
+    
+    
+    
+    });
+
+}); 
+
+
+//filter name  etudiant  asc
+$( "#ascnameetd" ).click(function() {
+    //alert("akaka");
+    $(document).ready(function(){
+    $.ajax({
+    type:"GET",
+    url:"filternameascetd.php",
+    dataType:"Html",
+    success:function(data){
+    $('#dataetud ').html(data);
+    }
+    });
+    
+    
+    
+    });
+
+}); 
+//filter name etudiant  desc
+$( "#descnameetd" ).click(function() {
+    //alert("akaka");
+    $(document).ready(function(){
+    $.ajax({
+    type:"GET",
+    url:"filternamedescetd.php",
+    dataType:"Html",
+    success:function(data){
+    $('#dataetud ').html(data);
+    }
+    });
+    
+    
+    
+    });
+
+}); 
+
+
+//filter date  prof   desc
+$( "#descdatepro" ).click(function() {
+    
+    $(document).ready(function(){
+    $.ajax({
+    type:"GET",
+    url:"filterdatedescprof.php",
+    dataType:"Html",
+    success:function(data){
+    $('#dataprof').html(data);
+    }
+    });
+    
+    
+    
+    });
+
+}); 
+//filter date  prof   asc
+$( "#ascdatepro" ).click(function() {
+    
+    $(document).ready(function(){
+    $.ajax({
+    type:"GET",
+    url:"filterdateascprof.php",
+    dataType:"Html",
+    success:function(data){
+    $('#dataprof').html(data);
+    }
+    });
+    
+    
+    
+    });
+
+}); 
+
+
+
+//filter name prof   
+$( "#descnamepro" ).click(function() {
+    
+    $(document).ready(function(){
+    $.ajax({
+    type:"GET",
+    url:"filternamedescpro.php",
+    dataType:"Html",
+    success:function(data){
+    $('#dataprof').html(data);
+    }
+    });
+    
+    
+    
+    });
+
+}); 
+
+
+//filter name prof asc
+$( "#ascnamepro" ).click(function() {
+  
+    $(document).ready(function(){
+    $.ajax({
+    type:"GET",
+    url:"filternamepro.php",
+    dataType:"Html",
+    success:function(data){
+    $('#dataprof').html(data);
+    }
+    });
+    
+    
+    
+    });
+
+});    
+//filter name user asc ascname
+$( "#descname" ).click(function() {
+    
+    $(document).ready(function(){
+    $.ajax({
+    type:"GET",
+    url:"filternameuserdesc.php",
+    dataType:"Html",
+    success:function(data){
+    $('#mydata').html(data);
+    }
+    });
+    
+    
+    
+    });
+
+});    
+
+
+
+//filter name user desc ascname
+$( "#ascname" ).click(function() {
+    
+        $(document).ready(function(){
+        $.ajax({
+        type:"GET",
+        url:"filternameuserasc.php",
+        dataType:"Html",
+        success:function(data){
+        $('#mydata').html(data);
+        }
+        });
+        
+        
+        
+        });
+    
+    });    
+
+//filter date user asc descdate
+    
+$( "#ascdate" ).click(function() {
+        $(document).ready(function(){
+        $.ajax({
+        type:"GET",
+        url:"filteruserdate.php",
+        dataType:"Html",
+        success:function(data){
+        $('#mydata').html(data);
+        }
+        });
+        
+        
+        
+        });
+    
+    });
+
+    //filter date user desc 
+    
+$( "#descdate" ).click(function() {
+ 
+        $(document).ready(function(){
+        $.ajax({
+        type:"GET",
+        url:"filteruserdatedesc.php",
+        dataType:"Html",
+        success:function(data){
+        $('#mydata').html(data);
+        }
+        });
+        
+        
+        
+        });
+    
+    });
+
+
+
 //show box ajouter etdiant
 
 
 $("#btnajouteruseretudiant").click(function(){
-    $('.AjouterEtudiantbox').css({'display':'block'});
-    $("#Ajboxranketd").val("etudiant");
-          
+$('.AjouterEtudiantbox').css({'display':'block'});
+$("#Ajboxranketd").val("Student");
+      
 });
 //cancel button ajouter etdiant
 $("#btncancelboxAjetd").click(function(){
-    $('.AjouterEtudiantbox').css({'display':'none'});
+$('.AjouterEtudiantbox').css({'display':'none'});
 });
 
 //btn ajouter prof
 
 $("#btnAjboxetd").click(function(){
-   
-   $(document).ready(function(){
-       alert("ajjaja");
-    
-      var username= $("#Ajboxuseretd").val();
-     
-     var passw=$("#Ajboxpassetd").val();
-       var email= $("#Ajboxemailetd").val();
-      var rank =$("#Ajboxranketd").val();
-      var loger= $("#Ajboxlogeretd").val();
-      var sessions=$("#Ajboxsessionetd").val();
-      var dated= $("#Ajboxdattedetd").val();
-     // alert(username+"/"+passw+"/"+email+"/"+rank+"/"+loger+"/"+sessions+"/"+dated);
-   $.ajax({
-   url:'AjouterUser.php',
-   type:'POST',
-   data:{ 
-       "username":username,
-       "passw":passw,
-       "email":email,
-       "rank":rank,
-       "loger":loger,
-       "sessions":sessions,
-       "dated":dated,
-       "action":"Ajouetuser"
-   },
-   success:function(response){
-       if(response==1){
-          alert("Ajouter avec secces");
-       }
-       else if(response==0){
-           alert("il ya un problem");
-       }
+
+$(document).ready(function(){
+   //alert("ajjaja");
+
+  var username= $("#Ajboxuseretd").val();
+ 
+ var passw=$("#Ajboxpassetd").val();
+   var email= $("#Ajboxemailetd").val();
+  var rank =$("#Ajboxranketd").val();
+  var loger= $("#Ajboxlogeretd").val();
+  var sessions=$("#Ajboxsessionetd").val();
+  var dated= $("#Ajboxdattedetd").val();
+ // //alert(username+"/"+passw+"/"+email+"/"+rank+"/"+loger+"/"+sessions+"/"+dated);
+$.ajax({
+url:'AjouterUser.php',
+type:'POST',
+data:{ 
+   "username":username,
+   "passw":passw,
+   "email":email,
+   "rank":rank,
+   "loger":loger,
+   "sessions":sessions,
+   "dated":dated,
+   "action":"Ajouetuser"
+},
+success:function(response){
+   if(response==1){
+    $('.alertajouteretd').css({'display':'none'});
+        $('.alertajouteretd').css({'display':'block'});
+        $('.alertajouteretd').css({'background-color':'#04AA6D'});
+        $('.alertajouteretd').html("Ajouter Avec Secces");
    }
-   
-   });       
-       });
+   else if(response==0){
+    $('.alertajouteretd').css({'display':'none'});
+        $('.alertajouteretd').css({'display':'block'});
+        $('.alertajouteretd').css({'background-color':'#f44336'});
+        $('.alertajouteretd').html("Exist Deja");
+   }
+}
+
+});       
+   });
 
 
 });
@@ -664,163 +1148,133 @@ $("#btnAjboxetd").click(function(){
 
 
 $("#btnajouteruserpro").click(function(){
-    $('.AjouterProbox').css({'display':'block'});
-    $("#Ajboxrankpro").val("professeur");
-          
+$('.AjouterProbox').css({'display':'block'});
+$("#Ajboxrankpro").val("Teacher");
+      
 });
 //cancel button ajouter pro
 $("#btncancelboxAjpro").click(function(){
-    $('.AjouterProbox').css({'display':'none'});
+$('.AjouterProbox').css({'display':'none'});
 });
- //btn ajouter prof
+//btn ajouter prof
 
- $("#btnAjboxpro").click(function(){
-   
-    $(document).ready(function(){
-      //  alert("ajjaja");
-     
-       var username= $("#Ajboxuserpro").val();
-      
-      var passw=$("#Ajboxpasspro").val();
-        var email= $("#Ajboxemailpro").val();
-       var rank =$("#Ajboxrankpro").val();
-       var loger= $("#Ajboxlogerpro").val();
-       var sessions=$("#Ajboxsessionpro").val();
-       var dated= $("#Ajboxdattedpro").val();
-     //  alert(username+"/"+passw+"/"+email+"/"+rank+"/"+loger+"/"+sessions+"/"+dated);
-    $.ajax({
-    url:'AjouterUser.php',
-    type:'POST',
-    data:{ 
-        "username":username,
-        "passw":passw,
-        "email":email,
-        "rank":rank,
-        "loger":loger,
-        "sessions":sessions,
-        "dated":dated,
-        "action":"Ajouetuser"
-    },
-    success:function(response){
-        if(response==1){
-           alert("Ajouter avec secces");
-        }
-        else if(response==0){
-            alert("il ya un problem");
-        }
+$("#btnAjboxpro").click(function(){
+
+$(document).ready(function(){
+  //  //alert("ajjaja");
+ 
+   var username= $("#Ajboxuserpro").val();
+  
+  var passw=$("#Ajboxpasspro").val();
+    var email= $("#Ajboxemailpro").val();
+   var rank =$("#Ajboxrankpro").val();
+   var loger= $("#Ajboxlogerpro").val();
+   var sessions=$("#Ajboxsessionpro").val();
+   var dated= $("#Ajboxdattedpro").val();
+ //  //alert(username+"/"+passw+"/"+email+"/"+rank+"/"+loger+"/"+sessions+"/"+dated);
+$.ajax({
+url:'AjouterUser.php',
+type:'POST',
+data:{ 
+    "username":username,
+    "passw":passw,
+    "email":email,
+    "rank":rank,
+    "loger":loger,
+    "sessions":sessions,
+    "dated":dated,
+    "action":"Ajouetuser"
+},
+success:function(response){
+    if(response==1){
+        $('.alertajouterprof').css({'display':'none'});
+        $('.alertajouterprof').css({'display':'block'});
+        $('.alertajouterprof').css({'background-color':'#04AA6D'});
+        $('.alertajouterprof').html("ajouter Avec Secces");
     }
-    
-    });       
-        });
-
-
-});
-
-
-
-
-
-
-
- //show box ajouter user   
-$("#idbtnajouteruser").click(function(){
-    $('.Ajouteruserbox').css({'display':'block'});
-          
-});
-//cancel button ajouter user
-$("#btncancelboxAj").click(function(){
-    $('.Ajouteruserbox').css({'display':'none'});
-});
-  //btn ajouter user
-
-  $("#btnAjbox").click(function(){
-   //   alert("ajjaja");
-    $(document).ready(function(){
-       
-       var username= $("#Ajboxuser").val();
-      
-       var passw=$("#Ajboxpass").val();
-       var email= $("#Ajboxemail").val();
-       var rank=$("#Ajboxrank").val();
-       var loger= $("#Ajboxloger").val();
-       var sessions=$("#Ajboxsession").val();
-       var dated= $("#Ajboxdatted").val();
-    //   alert(username+" /"+passw+" /"+email+" /"+rank+" /"+loger+" /"+sessions+" /"+dated);
-    $.ajax({
-    url:'AjouterUser.php',
-    type:'POST',
-    data:{ 
-        "username":username,
-        "passw":passw,
-        "email":email,
-        "rank":rank,
-        "loger":loger,
-        "sessions":sessions,
-        "dated":dated,
-        "action":"Ajouetuser"
-    },
-    success:function(response){
-        if(response==1){
-           alert("Ajouter avec secces");
-        }
-        else if(response==0){
-            alert("il ya un problem");
-        }
-    }
-    
-    });       
-        });
-
-
-});
-
-//form log
-document.getElementById("myBtn").onclick = function() {checkForm()};
-    function checkForm()
-   {
-    var oldP=document.getElementById("oldP").value;
-    var newP=document.getElementById("newP").value;
-    var confirmP =document.getElementById("confirmP").value;
-
-    if(oldP!=""&&newP!=""&&confirmP!="")
-    {
-      if(oldP!=newP)
-      {
-        if(newP==confirmP)
-         {
-          
-          document.getElementById("message").innerHTML="Modifier Avec secces"
-          document.getElementById("message").style.color="green";
-          return true;
-         }
-         else
-          {
-           
-            
-            document.getElementById("message").innerHTML="Confirm password is not same as you new password."
-          document.getElementById("message").style.color="red";
-          return false;
-          }
-      }
-      else
-     {
-        document.getElementById("message").innerHTML=" This Is Your Old Password,Please Provide A New Password"
-          document.getElementById("message").style.color="red";
-      
-      return false;
-     }
-    }
-    else
-    {
-        document.getElementById("message").innerHTML=" All Fields Are Required"
-          document.getElementById("message").style.color="red";
-     
-     return false;
+    else if(response==0){
+        $('.alertajouterprof').css({'display':'none'});
+        $('.alertajouterprof').css({'display':'block'});
+        $('.alertajouterprof').css({'background-color':'#f44336'});
+        $('.alertajouterprof').html("Deja Exist");
     }
 }
 
+});       
+    });
 
 
+});
+
+
+
+
+
+
+
+//show box ajouter user   
+$("#idbtnajouteruser").click(function(){
+$('.Ajouteruserbox').css({'display':'block'});
+      
+});
+//cancel button ajouter user
+$("#btncancelboxAj").click(function(){
+$('.Ajouteruserbox').css({'display':'none'});
+});
+//btn ajouter user
+
+$("#btnAjbox").click(function(){
+//   //alert("ajjaja");
+$(document).ready(function(){
+   
+   var username= $("#Ajboxuser").val();
+  
+   var passw=$("#Ajboxpass").val();
+   var email= $("#Ajboxemail").val();
+   var rank=$("#Ajboxrank").val();
+  // var loger= $("#Ajboxloger").val();
+   var sessions=$("#Ajboxsession").val();
+   var dated= $("#Ajboxdatted").val();
+   //alert(username+" /"+passw+" /"+email+" /"+rank+" /"+sessions+" /"+dated);
+$.ajax({
+url:'AjouterUser.php',
+type:'POST',
+data:{ 
+    "username":username,
+    "passw":passw,
+    "email":email,
+    "rank":rank,
+   // "loger":loger,
+    "sessions":sessions,
+    "dated":dated,
+    "action":"Ajouetuser"
+},
+success:function(response){
+    if(response==1){
+        $('.alertajouteruser').css({'display':'none'});
+        $('.alertajouteruser').css({'display':'block'});
+        $('.alertajouteruser').css({'background-color':'#04AA6D'});
+        $('.alertajouteruser').html("Ajouter Avec Secces");
+        
+      
+
+    }
+    else if(response==0){
+        $('.alertajouteruser').css({'display':'none'});
+        $('.alertajouteruser').css({'display':'block'});
+        $('.alertajouteruser').css({'background-color':'#f44336'});
+        $('.alertajouteruser').html(" Problem")
+        
+       
+
+    }
+}
+
+});       
+    });
+
+
+});
 
 </script>
 
