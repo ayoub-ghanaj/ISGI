@@ -146,7 +146,7 @@ function loadexam(idxm){
               })
               cop++;
             }
-            nbtheqsn = arrv.length+1
+            nbtheqsn = (arrv.length+1)
             arrvr.push(arrv);
             idqs.push({ "idq":idqqq,"idrs": idsss});
             $("#bari").text(" /" +(arrv.length+1));
@@ -224,6 +224,10 @@ $(document).ready(()=>{
   dbexistsess(result.code+"=").then((data)=>{
     if(JSON.parse(data)[0].existad == '1' ){
         canpass = false;
+        $("#printbtn").click(()=>{
+          window.print();
+        });
+        $("#printbtn").show();
     }
     else if (JSON.parse(data)[1].existus == '1' ){
             canpass = true;
@@ -296,7 +300,6 @@ for (let i in str) {
             document.cookie = 'batch=null;expires='+new Date(2020,11,13).toUTCString()+'';
             document.cookie = 'exam=null;expires='+new Date(2020,11,13).toUTCString()+'';
             document.cookie = 'done=true;expires='+new Date(2023,11,13).toUTCString()+'';
-            console.log("kain");
             wait(0.5);
             //alert("Bye")
             window.close();
@@ -308,7 +311,8 @@ for (let i in str) {
       }
     }else{
         let not = calculatit();
-        document.getElementById("demo").innerHTML = not +" / " +nbtheqsn;
+        console.log(arrvr);
+        document.getElementById("demo").innerHTML = not +" / " +arrvr.length;
         $('html, body').animate({
           scrollTop: $("#demo").offset().top
         });

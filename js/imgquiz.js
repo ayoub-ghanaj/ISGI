@@ -153,6 +153,9 @@ for (let i in str) {
         let jsn = JSON.parse(data);
         console.log(jsn);
         let exam = JSON.parse(jsn[0].exam);
+        if(jsn[0].header != "none"){
+          $(".container").prepend(`<img src="${jsn[0].header}"  style="width : 100%; height : 100%; max-height : 350px;" > `);
+        }
         console.log(exam);
         $("#examimg").empty();
         $("#examqcm").empty();

@@ -13,6 +13,7 @@ $(function() {
   var file ;
   var file1 ;
   var file2 ;
+  var file3 ;
   var mode = 1;
   function switcher(int){
       if(int ==1){
@@ -223,6 +224,9 @@ $(function() {
          });
          $("#headerport").click(()=>{
             $('.fileget2').trigger('click');
+         });
+         $("#headerport1").click(()=>{
+            $('.fileget3').trigger('click');
          });
         $('.execelget').click(function(){ $('.fileget1').trigger('click'); });
         
@@ -827,6 +831,10 @@ $(document).ready(()=>{
     })
     $(".fileget2").change(()=>{
         file2 = $('.fileget2')[0].files;
+
+    });
+    $(".fileget3").change(()=>{
+        file3 = $('.fileget3')[0].files;
 
     });
 
@@ -5975,26 +5983,77 @@ function addtextexer(fil,mat,txt,barem,deffi) {
         });
     });
 }
+// function addexm2(fil,mat,txt,barem) {
+//     return new Promise(function(resolve, reject) {
+//         $.ajax({
+//             method: "POST",
+//             url: "addexmimgx.php",
+//             data: {
+//                 "exm": txt,
+//                 "fil": fil,
+//                 "mat": mat,
+//                 "user" : username,
+//                 "barem" : barem
+//             },
+//             success: function(data) {
+//                 resolve(data) // Resolve promise and go to then()
+//             },
+//             error: function(err) {
+//                // ////console.log(err)
+//                 reject(err) // Reject the promise and go to catch()
+//             }
+//         });
+//     });
+// }
 function addexm2(fil,mat,txt,barem) {
+
     return new Promise(function(resolve, reject) {
-        $.ajax({
-            method: "POST",
-            url: "addexmimgx.php",
-            data: {
-                "exm": txt,
-                "fil": fil,
-                "mat": mat,
-                "user" : username,
-                "barem" : barem
-            },
-            success: function(data) {
-                resolve(data) // Resolve promise and go to then()
-            },
-            error: function(err) {
-               // ////console.log(err)
-                reject(err) // Reject the promise and go to catch()
-            }
-        });
+        if( file3 && file3.length > 0){
+            let form_data = new FormData();
+            form_data.append('user', username);
+            form_data.append('exm', txt);
+            form_data.append('barem', barem);
+            form_data.append('mat', mat);
+            form_data.append('fil', fil);
+            form_data.append('my_image', file3[0]);
+            $.ajax({
+                url: 'addexmimgx.php',
+                type: 'post',
+                data: form_data,
+                contentType: false,
+                processData: false,
+                success: function(res){
+                    resolve(res)
+                },
+                error: function(err) {
+                    ////console.log(err)
+                    reject(err) // Reject the promise and go to catch()
+                }
+            });
+         
+        }else {
+            let form_data = new FormData();
+            form_data.append('user', username);
+            form_data.append('exm', txt);
+            form_data.append('barem', barem);
+            form_data.append('mat', mat);
+            form_data.append('fil', fil);
+            //form_data.append('my_image', file[0]);
+            $.ajax({
+                url: 'addexmimgx.php',
+                type: 'post',
+                data: form_data,
+                contentType: false,
+                processData: false,
+                success: function(res){
+                    resolve(res)
+                },
+                error: function(err) {
+                    ////console.log(err)
+                    reject(err) // Reject the promise and go to catch()
+                }
+            });
+        }
     });
 }
 function dbgetexm2() {
@@ -6087,6 +6146,239 @@ function reloadexams2(){
             });
         }
 
+    });
+}
+
+$(document).ready(()=>{
+    $("#dropitF").change(()=>{
+        reloadexamsimg2()
+    });
+    $("#dropitM").change(()=>{
+        reloadexamsimg2()
+    });
+})
+function reloadexamsimg2(){
+    let fila = $("#dropitF").val();
+    let mata = $("#dropitM").val();
+    dbgetexm3(fila,mata).then((data)=>{
+        //console.log(data);
+        let datj = JSON.parse(data);
+        //console.log(datj);
+        $("#tabexams2").empty();
+        for(let i = 0 ; i<datj.length ; i++){
+            $("#tabexams2").append(`
+            <tr>
+            <td>${datj[i].idexe}</td>
+            <td>${datj[i].fil}</td>
+            <td>${datj[i].mat}</td>
+            <td>${datj[i].barem}</td>
+            <td><div class="cb"><button id="showimgquiz${datj[i].idexe}" class="button-88">show</button></div></td>
+    <td><div class="cb"><button id="Deletimgequiz${datj[i].idexe}" class="button-88">Delete</button></div></td>
+            </tr>
+            `);
+            $("#showimgquiz"+datj[i].idexe).click(()=>{
+                document.cookie = 'eximag='+datj[i].idexe+';time=2020;expires='+new Date(2028,11,13).toUTCString()+'';
+                window.open("http://localhost:90/EFF/Project/imgquiz.html");
+            });
+            $("#Deletimgequiz"+datj[i].idexe).click(()=>{
+                deleexmg2(`${datj[i].idexe}`).then((data)=>{
+                    if(data == "1"){
+                        reloadexams2();
+                    }
+                });
+            });
+        }
+
+    });
+}
+
+function dbgetexm3(fil,mat) {
+    return new Promise(function(resolve, reject) {
+        if(fil !=null && mat != null){
+            $.ajax({
+                method: "POST",
+                url: "getexams3.php",
+                data: {
+                    "username": username,
+                    "fil" : fil,
+                    "mat" : mat
+                },
+                success: function(data) {
+                    resolve(data) // Resolve promise and go to then()
+                },
+                error: function(err) {
+                // //console.log(err)
+                    reject(err) // Reject the promise and go to catch()
+                }
+            });
+        }else if(fil !=null){
+            $.ajax({
+                method: "POST",
+                url: "getexams3.php",
+                data: {
+                    "username": username,
+                    "fil" : fil,
+                    "mat" : 'none'
+                },
+                success: function(data) {
+                    resolve(data) // Resolve promise and go to then()
+                },
+                error: function(err) {
+                // //console.log(err)
+                    reject(err) // Reject the promise and go to catch()
+                }
+            });
+        }
+        else if(mat !=null){
+            $.ajax({
+                method: "POST",
+                url: "getexams3.php",
+                data: {
+                    "username": username,
+                    "fil" : 'none',
+                    "mat" : mat
+                },
+                success: function(data) {
+                    resolve(data) // Resolve promise and go to then()
+                },
+                error: function(err) {
+                // //console.log(err)
+                    reject(err) // Reject the promise and go to catch()
+                }
+            });
+        }
+    });
+}
+
+
+
+$(document).ready(()=>{
+    $("#dropfilier2").change(()=>{
+        reloadexams3()
+    });
+    $("#dropmatier2").change(()=>{
+        reloadexams3()
+    });
+})
+function reloadexams3(){
+    let fila = $("#dropfilier2").val();
+    let mata = $("#dropmatier2").val();
+        $("#tablebat2").empty();
+        dbgetexm4( fila,mata).then((data)=>{ 
+        ////console.log(data)
+        let databd = JSON.parse(data);
+        //console.log(databd)
+        if(databd.length >= 0){
+            //generer home table
+            for(let i = databd.length-1 ; i >=0;i--){
+                $("#tablebat2").append(`
+                <tr id="rowbats${databd[i].idbat}">
+                <td data-title="ID" >${databd[i].idbat}</td>
+                <td data-title="Vari">${databd[i].vari}</td>
+            
+                <td data-title="Matiere">${databd[i].matiere}</td>
+                <td data-title="Filiere">
+                ${databd[i].filier}
+                </td>
+                <td data-title="" style="padding-top: 7px;  padding-right: 0px;  padding-bottom: 2px;  padding-left: 0 px;">
+                    <div class='wrapper1'>
+                    
+                    
+                    <div class="button_su" style="margin: auto;" id="showbat${databd[i].idbat}">
+                        <span class="su_button_circle">
+                        </span>
+                        <a href="#" class="button_su_inner">
+                        <span class="button_text_container">
+                            Show
+                        </span>
+                        </a>
+                    </div>
+                
+                    <div class="button_su" id="dele${databd[i].idbat}" style="margin: auto;">
+                        <span class="su_button_circle">
+                        </span>
+                        <a href="#" class="button_su_inner">
+                        <span class="button_text_container">
+                        Delete
+                        </span>
+                        </a>
+                    </div>
+                    
+                            
+                    </div> 
+                </td>
+            </tr>
+                `);
+                $(`#showbat${databd[i].idbat}`).click(()=>{
+                    showbat(databd[i].idbat);
+                })
+                $(`#dele${databd[i].idbat}`).click(()=>{
+                    dbdelexam(`${databd[i].idbat}`).then((data)=>{
+                        if(data == "1"){
+                            reloadexams1();
+                        }
+                    });
+                });
+            }
+    
+        }
+    })
+}
+function dbgetexm4(fil,mat) {
+    return new Promise(function(resolve, reject) {
+        if(fil !=null && mat != null){
+            $.ajax({
+                method: "POST",
+                url: "getexams4.php",
+                data: {
+                    "username": username,
+                    "fil" : fil,
+                    "mat" : mat
+                },
+                success: function(data) {
+                    resolve(data) // Resolve promise and go to then()
+                },
+                error: function(err) {
+                // //console.log(err)
+                    reject(err) // Reject the promise and go to catch()
+                }
+            });
+        }else if(fil !=null){
+            $.ajax({
+                method: "POST",
+                url: "getexams4.php",
+                data: {
+                    "username": username,
+                    "fil" : fil,
+                    "mat" : 'none'
+                },
+                success: function(data) {
+                    resolve(data) // Resolve promise and go to then()
+                },
+                error: function(err) {
+                // //console.log(err)
+                    reject(err) // Reject the promise and go to catch()
+                }
+            });
+        }
+        else if(mat !=null){
+            $.ajax({
+                method: "POST",
+                url: "getexams4.php",
+                data: {
+                    "username": username,
+                    "fil" : 'none',
+                    "mat" : mat
+                },
+                success: function(data) {
+                    resolve(data) // Resolve promise and go to then()
+                },
+                error: function(err) {
+                // //console.log(err)
+                    reject(err) // Reject the promise and go to catch()
+                }
+            });
+        }
     });
 }
 
