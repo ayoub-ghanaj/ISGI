@@ -1,0 +1,496 @@
+===Database isgiexams
+
+== Table structure for table batchexam
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idbat**//|int(11)|No|
+|**code**|longtext|Yes|NULL
+|username|varchar(40)|Yes|NULL
+|header|varchar(255)|Yes|default
+|idf|int(11)|Yes|NULL
+|idm|int(11)|Yes|NULL
+|vari|int(11)|No|
+== Dumping data for table batchexam
+
+|3453969|{&quot;exams&quot;:[&quot;454029&quot;,&quot;454230&quot;,&quot;454432&quot;,&quot;454635&quot;,&quot;454836&quot;]}|ayoubg|default|1|1|5
+|7160006|{&quot;exams&quot;:[&quot;160209&quot;,&quot;160413&quot;,&quot;160616&quot;,&quot;160819&quot;,&quot;161023&quot;]}|ayoubg|default|1|1|5
+|92681323|{&quot;exams&quot;:[&quot;681379&quot;,&quot;681581&quot;,&quot;681781&quot;,&quot;681984&quot;,&quot;682186&quot;]}|ayoubg|default|1|1|5
+|92717185|{&quot;exams&quot;:[&quot;717245&quot;,&quot;717447&quot;,&quot;717649&quot;,&quot;717851&quot;,&quot;718053&quot;]}|ayoubg|default|1|1|5
+|93057899|{&quot;exams&quot;:[&quot;057950&quot;]}|ayoubg|default|1|1|1
+|93740432|{&quot;exams&quot;:[&quot;740511&quot;,&quot;740712&quot;,&quot;740913&quot;,&quot;741114&quot;,&quot;741315&quot;,&quot;741516&quot;,&quot;741717&quot;,&quot;741918&quot;,&quot;742120&quot;,&quot;742320&quot;,&quot;742521&quot;,&quot;742722&quot;]}|ayoubg|default|1|1|12
+== Table structure for table contact
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idc**//|int(11)|No|
+|nom|varchar(20)|Yes|NULL
+|email|varchar(20)|Yes|NULL
+|message|longtext|Yes|NULL
+|lire|bit(1)|Yes|b&#039;0&#039;
+== Dumping data for table contact
+
+|1|anas|anas@gmail.com|ahsaan site f l3alaam|0
+|2|habib|habib@gmail.com|3ndi mochkiiil f password|1
+|3|bilal|bilal@gmail.com|ana makhlastch 40 dh|0
+|4|yassmin|yasmmin@gmail.com|sabab ach hh|0
+|5|anouman|anouman@gmail.com|afin hania hh|0
+|6|lala|lala@gmail.com|nadi kanadi |1
+|7|adam|test@gmail.com|hy|0
+== Table structure for table exam
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idexam**//|int(11)|No|
+|**code**|longtext|Yes|NULL
+|username|varchar(40)|Yes|NULL
+|idbat|int(11)|Yes|NULL
+|vari|int(11)|Yes|NULL
+== Dumping data for table exam
+
+|57950|{&quot;code&quot;:[&quot;62b2e17372b12&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2e2df0cd47&quot;,&quot;10&quot;,&quot;6&quot;,&quot;62b2d9cb6407a&quot;,&quot;62b2da5d540a2&quot;,&quot;8&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e120e0840&quot;,&quot;62b2e22024a62&quot;,&quot;62b2e13cb2b8f&quot;,&quot;7&quot;,&quot;62b2dee3df3f3&quot;,&quot;5&quot;,&quot;4&quot;,&quot;2&quot;,&quot;62b2e1e537ad5&quot;]}|ayoubg|93057899|1
+|160209|{&quot;code&quot;:[&quot;62b2e08512c1b&quot;,&quot;62b2e24d52048&quot;,&quot;62b2e2c235ba7&quot;,&quot;4&quot;,&quot;62b2e0f8c9175&quot;,&quot;3&quot;,&quot;62b2e120e0840&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e2989aba2&quot;,&quot;6&quot;,&quot;62b2e19d6efba&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e22024a62&quot;,&quot;1&quot;,&quot;62b2e2df0cd47&quot;,&quot;5&quot;,&quot;62b2e17372b12&quot;,&quot;7&quot;,&quot;2&quot;]}|ayoubg|7160006|3
+|160413|{&quot;code&quot;:[&quot;62b2e13cb2b8f&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2e17372b12&quot;,&quot;10&quot;,&quot;2&quot;,&quot;62b2e19d6efba&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e24d52048&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e0f8c9175&quot;,&quot;9&quot;,&quot;62b2e2df0cd47&quot;,&quot;62b2e22024a62&quot;,&quot;6&quot;,&quot;62b2d9cb6407a&quot;,&quot;62b2e0a71a063&quot;,&quot;4&quot;,&quot;62b2e2989aba2&quot;,&quot;8&quot;,&quot;62b2e1e537ad5&quot;]}|ayoubg|7160006|2
+|160616|{&quot;code&quot;:[&quot;62b2e120e0840&quot;,&quot;62b2e0a71a063&quot;,&quot;2&quot;,&quot;5&quot;,&quot;62b2e22024a62&quot;,&quot;62b2dee3df3f3&quot;,&quot;10&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e2989aba2&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e17372b12&quot;,&quot;62b2d9cb6407a&quot;,&quot;1&quot;,&quot;8&quot;,&quot;62b2e19d6efba&quot;,&quot;62b2e1e537ad5&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2e08512c1b&quot;]}|ayoubg|7160006|5
+|160819|{&quot;code&quot;:[&quot;8&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2e17372b12&quot;,&quot;62b2e1e537ad5&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2d9cb6407a&quot;,&quot;62b2e2989aba2&quot;,&quot;10&quot;,&quot;62b2e24d52048&quot;,&quot;62b2e19d6efba&quot;,&quot;62b2e13cb2b8f&quot;,&quot;4&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2e22024a62&quot;,&quot;3&quot;,&quot;62b2e0a71a063&quot;,&quot;5&quot;]}|ayoubg|7160006|1
+|161023|{&quot;code&quot;:[&quot;62b2e0f8c9175&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e1e537ad5&quot;,&quot;3&quot;,&quot;62b2e2df0cd47&quot;,&quot;62b2e17372b12&quot;,&quot;62b2e2989aba2&quot;,&quot;4&quot;,&quot;7&quot;,&quot;62b2e24d52048&quot;,&quot;62b2e19d6efba&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2da5d540a2&quot;,&quot;10&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2d9cb6407a&quot;,&quot;9&quot;,&quot;6&quot;,&quot;5&quot;]}|ayoubg|7160006|4
+|454029|{&quot;code&quot;:[&quot;62b2d9cb6407a&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e22024a62&quot;,&quot;1&quot;,&quot;9&quot;,&quot;62b2e17372b12&quot;,&quot;10&quot;,&quot;62b2e2df0cd47&quot;,&quot;8&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e2989aba2&quot;,&quot;62b2e120e0840&quot;,&quot;4&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e19d6efba&quot;,&quot;3&quot;]}|ayoubg|3453969|3
+|454230|{&quot;code&quot;:[&quot;62b2e24d52048&quot;,&quot;62b2e120e0840&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2dee3df3f3&quot;,&quot;3&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2e1e537ad5&quot;,&quot;2&quot;,&quot;8&quot;,&quot;7&quot;,&quot;62b2e22024a62&quot;,&quot;6&quot;,&quot;10&quot;,&quot;62b2e08512c1b&quot;,&quot;1&quot;,&quot;62b2e2c235ba7&quot;]}|ayoubg|3453969|5
+|454432|{&quot;code&quot;:[&quot;62b2e2c235ba7&quot;,&quot;62b2e2df0cd47&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2d9cb6407a&quot;,&quot;8&quot;,&quot;9&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e2989aba2&quot;,&quot;62b2e278cdc64&quot;,&quot;5&quot;,&quot;2&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e19d6efba&quot;,&quot;7&quot;,&quot;62b2e24d52048&quot;,&quot;6&quot;,&quot;10&quot;,&quot;62b2e17372b12&quot;]}|ayoubg|3453969|1
+|454635|{&quot;code&quot;:[&quot;62b2da5d540a2&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e22024a62&quot;,&quot;62b2e120e0840&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2e1e537ad5&quot;,&quot;2&quot;,&quot;62b2da9b279fc&quot;,&quot;5&quot;,&quot;62b2e2df0cd47&quot;,&quot;7&quot;,&quot;6&quot;,&quot;62b2e19d6efba&quot;,&quot;4&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2dee3df3f3&quot;,&quot;8&quot;,&quot;3&quot;,&quot;10&quot;,&quot;62b2e17372b12&quot;]}|ayoubg|3453969|2
+|454836|{&quot;code&quot;:[&quot;62b2e2989aba2&quot;,&quot;62b2e24d52048&quot;,&quot;3&quot;,&quot;62b2e22024a62&quot;,&quot;62b2e17372b12&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e1e537ad5&quot;,&quot;2&quot;,&quot;6&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e2df0cd47&quot;,&quot;62b2e120e0840&quot;,&quot;8&quot;,&quot;62b2e19d6efba&quot;,&quot;5&quot;,&quot;62b2da9b279fc&quot;,&quot;7&quot;]}|ayoubg|3453969|4
+|681379|{&quot;code&quot;:[&quot;4&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2d9cb6407a&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2e0f8c9175&quot;,&quot;2&quot;,&quot;1&quot;,&quot;62b2e1e537ad5&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2da5d540a2&quot;,&quot;7&quot;,&quot;62b2e19d6efba&quot;,&quot;3&quot;,&quot;62b2e24d52048&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e08512c1b&quot;,&quot;8&quot;,&quot;5&quot;,&quot;62b2e0a71a063&quot;,&quot;9&quot;]}|ayoubg|92681323|1
+|681581|{&quot;code&quot;:[&quot;1&quot;,&quot;8&quot;,&quot;9&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2e2df0cd47&quot;,&quot;62b2e1e537ad5&quot;,&quot;4&quot;,&quot;10&quot;,&quot;62b2e22024a62&quot;,&quot;62b2e24d52048&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e08512c1b&quot;,&quot;2&quot;,&quot;62b2e17372b12&quot;,&quot;62b2e19d6efba&quot;,&quot;6&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e120e0840&quot;,&quot;5&quot;,&quot;7&quot;]}|ayoubg|92681323|2
+|681781|{&quot;code&quot;:[&quot;8&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2d9cb6407a&quot;,&quot;10&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e2989aba2&quot;,&quot;62b2e22024a62&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e08512c1b&quot;,&quot;1&quot;,&quot;62b2e17372b12&quot;,&quot;9&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e19d6efba&quot;,&quot;2&quot;,&quot;62b2e13cb2b8f&quot;,&quot;4&quot;,&quot;62b2e0f8c9175&quot;,&quot;7&quot;,&quot;3&quot;]}|ayoubg|92681323|3
+|681984|{&quot;code&quot;:[&quot;62b2e2df0cd47&quot;,&quot;6&quot;,&quot;8&quot;,&quot;62b2e0f8c9175&quot;,&quot;4&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2e17372b12&quot;,&quot;62b2e1e537ad5&quot;,&quot;9&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e120e0840&quot;,&quot;62b2dee3df3f3&quot;,&quot;5&quot;,&quot;1&quot;,&quot;3&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2e19d6efba&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e0a71a063&quot;]}|ayoubg|92681323|5
+|682186|{&quot;code&quot;:[&quot;2&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e19d6efba&quot;,&quot;62b2e120e0840&quot;,&quot;62b2e2df0cd47&quot;,&quot;1&quot;,&quot;8&quot;,&quot;62b2e278cdc64&quot;,&quot;3&quot;,&quot;62b2e1e537ad5&quot;,&quot;9&quot;,&quot;62b2e24d52048&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2e0f8c9175&quot;,&quot;4&quot;,&quot;6&quot;,&quot;7&quot;,&quot;62b2d9cb6407a&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e2989aba2&quot;]}|ayoubg|92681323|4
+|717245|{&quot;code&quot;:[&quot;62b2dee3df3f3&quot;,&quot;62b2e17372b12&quot;,&quot;6&quot;,&quot;62b2e0a71a063&quot;,&quot;4&quot;,&quot;62b2d9cb6407a&quot;,&quot;62b2e278cdc64&quot;,&quot;1&quot;,&quot;62b2e19d6efba&quot;,&quot;8&quot;,&quot;62b2e24d52048&quot;,&quot;62b2e1e537ad5&quot;,&quot;62b2e22024a62&quot;,&quot;62b2e08512c1b&quot;,&quot;5&quot;,&quot;2&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e13cb2b8f&quot;,&quot;3&quot;]}|ayoubg|92717185|1
+|717447|{&quot;code&quot;:[&quot;62b2da5d540a2&quot;,&quot;9&quot;,&quot;62b2e17372b12&quot;,&quot;5&quot;,&quot;8&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e2989aba2&quot;,&quot;62b2e2c235ba7&quot;,&quot;10&quot;,&quot;7&quot;,&quot;62b2e22024a62&quot;,&quot;62b2e24d52048&quot;,&quot;4&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2e120e0840&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e1e537ad5&quot;,&quot;62b2e13cb2b8f&quot;]}|ayoubg|92717185|3
+|717649|{&quot;code&quot;:[&quot;62b2d9cb6407a&quot;,&quot;62b2da5d540a2&quot;,&quot;10&quot;,&quot;62b2dee3df3f3&quot;,&quot;1&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2e17372b12&quot;,&quot;9&quot;,&quot;2&quot;,&quot;62b2e22024a62&quot;,&quot;6&quot;,&quot;4&quot;,&quot;62b2e1e537ad5&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2e2989aba2&quot;,&quot;62b2e120e0840&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2e0a71a063&quot;,&quot;7&quot;]}|ayoubg|92717185|4
+|717851|{&quot;code&quot;:[&quot;62b2e19d6efba&quot;,&quot;9&quot;,&quot;62b2e13cb2b8f&quot;,&quot;5&quot;,&quot;62b2e120e0840&quot;,&quot;6&quot;,&quot;4&quot;,&quot;62b2e1e537ad5&quot;,&quot;62b2e17372b12&quot;,&quot;2&quot;,&quot;8&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e2989aba2&quot;,&quot;62b2e22024a62&quot;,&quot;62b2dee3df3f3&quot;,&quot;3&quot;,&quot;62b2e24d52048&quot;,&quot;10&quot;,&quot;62b2e2c235ba7&quot;]}|ayoubg|92717185|5
+|718053|{&quot;code&quot;:[&quot;8&quot;,&quot;62b2e24d52048&quot;,&quot;62b2e19d6efba&quot;,&quot;62b2d9cb6407a&quot;,&quot;3&quot;,&quot;5&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2e1e537ad5&quot;,&quot;1&quot;,&quot;4&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2e2df0cd47&quot;,&quot;2&quot;,&quot;6&quot;,&quot;62b2e17372b12&quot;,&quot;62b2e22024a62&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e2989aba2&quot;,&quot;62b2e0a71a063&quot;,&quot;9&quot;]}|ayoubg|92717185|2
+|740511|{&quot;code&quot;:[&quot;62b2e24d52048&quot;,&quot;7&quot;,&quot;6&quot;,&quot;62b2e2df0cd47&quot;,&quot;9&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e13cb2b8f&quot;,&quot;1&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2e0f8c9175&quot;,&quot;8&quot;,&quot;5&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e2989aba2&quot;,&quot;62b2e19d6efba&quot;,&quot;3&quot;,&quot;62b2e17372b12&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e120e0840&quot;]}|ayoubg|93740432|1
+|740712|{&quot;code&quot;:[&quot;62b2e17372b12&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2e2c235ba7&quot;,&quot;3&quot;,&quot;9&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2d9cb6407a&quot;,&quot;5&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2e2989aba2&quot;,&quot;62b2da5d540a2&quot;,&quot;2&quot;,&quot;7&quot;,&quot;62b2e1e537ad5&quot;,&quot;62b2da9b279fc&quot;,&quot;1&quot;,&quot;62b2e24d52048&quot;,&quot;6&quot;]}|ayoubg|93740432|2
+|740913|{&quot;code&quot;:[&quot;62b2e17372b12&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2e120e0840&quot;,&quot;62b2e278cdc64&quot;,&quot;5&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e2df0cd47&quot;,&quot;62b2d9cb6407a&quot;,&quot;1&quot;,&quot;62b2e19d6efba&quot;,&quot;62b2da5d540a2&quot;,&quot;8&quot;,&quot;62b2e13cb2b8f&quot;,&quot;2&quot;,&quot;62b2e2989aba2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;62b2e1e537ad5&quot;,&quot;62b2e08512c1b&quot;,&quot;6&quot;]}|ayoubg|93740432|4
+|741114|{&quot;code&quot;:[&quot;62b2d9cb6407a&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e1e537ad5&quot;,&quot;2&quot;,&quot;62b2e24d52048&quot;,&quot;62b2e17372b12&quot;,&quot;4&quot;,&quot;10&quot;,&quot;9&quot;,&quot;62b2e19d6efba&quot;,&quot;1&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2e2989aba2&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2e2c235ba7&quot;,&quot;3&quot;,&quot;62b2e120e0840&quot;,&quot;62b2e22024a62&quot;]}|ayoubg|93740432|5
+|741315|{&quot;code&quot;:[&quot;62b2e2df0cd47&quot;,&quot;4&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2e2989aba2&quot;,&quot;7&quot;,&quot;8&quot;,&quot;62b2d9cb6407a&quot;,&quot;1&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e22024a62&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e24d52048&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e19d6efba&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2da9b279fc&quot;,&quot;3&quot;,&quot;62b2e120e0840&quot;,&quot;5&quot;,&quot;2&quot;]}|ayoubg|93740432|6
+|741516|{&quot;code&quot;:[&quot;62b2e24d52048&quot;,&quot;62b2e2c235ba7&quot;,&quot;7&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2e17372b12&quot;,&quot;9&quot;,&quot;1&quot;,&quot;10&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2e2989aba2&quot;,&quot;4&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2d9cb6407a&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e19d6efba&quot;,&quot;2&quot;,&quot;62b2da9b279fc&quot;,&quot;8&quot;,&quot;62b2e1e537ad5&quot;]}|ayoubg|93740432|8
+|741717|{&quot;code&quot;:[&quot;62b2e0f8c9175&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e2df0cd47&quot;,&quot;8&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e13cb2b8f&quot;,&quot;4&quot;,&quot;62b2e22024a62&quot;,&quot;62b2e120e0840&quot;,&quot;6&quot;,&quot;3&quot;,&quot;62b2d9cb6407a&quot;,&quot;9&quot;,&quot;62b2e24d52048&quot;,&quot;7&quot;,&quot;1&quot;,&quot;62b2e19d6efba&quot;,&quot;62b2e2989aba2&quot;,&quot;2&quot;,&quot;62b2da9b279fc&quot;]}|ayoubg|93740432|7
+|741918|{&quot;code&quot;:[&quot;9&quot;,&quot;62b2e2df0cd47&quot;,&quot;62b2e1e537ad5&quot;,&quot;62b2e17372b12&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2dee3df3f3&quot;,&quot;8&quot;,&quot;62b2e22024a62&quot;,&quot;6&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2d9cb6407a&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e2989aba2&quot;,&quot;4&quot;,&quot;62b2e19d6efba&quot;,&quot;10&quot;,&quot;5&quot;]}|ayoubg|93740432|12
+|742120|{&quot;code&quot;:[&quot;10&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e2df0cd47&quot;,&quot;62b2e0a71a063&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e24d52048&quot;,&quot;62b2d9cb6407a&quot;,&quot;5&quot;,&quot;62b2e120e0840&quot;,&quot;62b2da9b279fc&quot;,&quot;7&quot;,&quot;1&quot;,&quot;62b2e0f8c9175&quot;,&quot;3&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2e2989aba2&quot;,&quot;9&quot;,&quot;6&quot;,&quot;62b2e19d6efba&quot;]}|ayoubg|93740432|10
+|742320|{&quot;code&quot;:[&quot;62b2da9b279fc&quot;,&quot;9&quot;,&quot;62b2e278cdc64&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2e17372b12&quot;,&quot;62b2e1e537ad5&quot;,&quot;6&quot;,&quot;62b2e0a71a063&quot;,&quot;1&quot;,&quot;8&quot;,&quot;62b2d9cb6407a&quot;,&quot;62b2dee3df3f3&quot;,&quot;62b2e2df0cd47&quot;,&quot;3&quot;,&quot;10&quot;,&quot;62b2e2989aba2&quot;,&quot;62b2e2c235ba7&quot;,&quot;2&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2da5d540a2&quot;]}|ayoubg|93740432|3
+|742521|{&quot;code&quot;:[&quot;5&quot;,&quot;2&quot;,&quot;62b2e13cb2b8f&quot;,&quot;62b2e19d6efba&quot;,&quot;62b2e2df0cd47&quot;,&quot;62b2e22024a62&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2e17372b12&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e278cdc64&quot;,&quot;9&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2e120e0840&quot;,&quot;1&quot;,&quot;7&quot;,&quot;6&quot;,&quot;62b2e2c235ba7&quot;,&quot;4&quot;,&quot;8&quot;,&quot;62b2e24d52048&quot;]}|ayoubg|93740432|11
+|742722|{&quot;code&quot;:[&quot;62b2dee3df3f3&quot;,&quot;62b2e17372b12&quot;,&quot;62b2e22024a62&quot;,&quot;2&quot;,&quot;62b2e120e0840&quot;,&quot;10&quot;,&quot;9&quot;,&quot;62b2e2c235ba7&quot;,&quot;62b2e13cb2b8f&quot;,&quot;6&quot;,&quot;62b2da9b279fc&quot;,&quot;62b2e08512c1b&quot;,&quot;62b2d9cb6407a&quot;,&quot;62b2e278cdc64&quot;,&quot;5&quot;,&quot;7&quot;,&quot;62b2e1e537ad5&quot;,&quot;62b2da5d540a2&quot;,&quot;62b2e0f8c9175&quot;,&quot;62b2e24d52048&quot;]}|ayoubg|93740432|9
+== Table structure for table examings
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idexe**//|int(11)|No|
+|exam|longtext|Yes|NULL
+|idf|int(11)|Yes|NULL
+|idm|int(11)|Yes|NULL
+|username|varchar(40)|Yes|NULL
+|barem|int(11)|No|
+|header|varchar(255)|No|
+== Dumping data for table examings
+
+|2|[{&quot;type&quot;:1,&quot;id&quot;:&quot;7&quot;,&quot;barem&quot;:9},{&quot;type&quot;:1,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:8},{&quot;type&quot;:3,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;3&quot;,&quot;barem&quot;:1}]|1|2|ayoubg|20|none
+|5|[{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7},{&quot;type&quot;:1,&quot;id&quot;:&quot;7&quot;,&quot;barem&quot;:9},{&quot;type&quot;:1,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:4}]|1|1|ayoubg|20|none
+|6|[{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7},{&quot;type&quot;:1,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:8},{&quot;type&quot;:1,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:5}]|1|1|ayoubg|20|none
+|7|[{&quot;type&quot;:1,&quot;id&quot;:&quot;7&quot;,&quot;barem&quot;:9},{&quot;type&quot;:1,&quot;id&quot;:&quot;6&quot;,&quot;barem&quot;:9},{&quot;type&quot;:3,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:1}]|1|1|ayoubg|20|none
+|8|[{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7},{&quot;type&quot;:1,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:8},{&quot;type&quot;:1,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:5}]|1|1|ayoubg|20|none
+|9|[{&quot;type&quot;:1,&quot;id&quot;:&quot;3&quot;,&quot;barem&quot;:6},{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e13cb2b8f&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;10&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2dee3df3f3&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e19d6efba&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2da5d540a2&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e1e537ad5&quot;,&quot;barem&quot;:1}]|1|1|ayoubg|20|none
+|10|[{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7},{&quot;type&quot;:1,&quot;id&quot;:&quot;6&quot;,&quot;barem&quot;:9},{&quot;type&quot;:1,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:4}]|1|1|ayoubg|20|none
+|11|[{&quot;type&quot;:1,&quot;id&quot;:&quot;6&quot;,&quot;barem&quot;:9},{&quot;type&quot;:1,&quot;id&quot;:&quot;3&quot;,&quot;barem&quot;:6},{&quot;type&quot;:1,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:5}]|1|1|ayoubg|20|none
+|12|[{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7},{&quot;type&quot;:1,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:8},{&quot;type&quot;:1,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:5}]|1|1|ayoubg|20|none
+|13|[{&quot;type&quot;:1,&quot;id&quot;:&quot;3&quot;,&quot;barem&quot;:6},{&quot;type&quot;:1,&quot;id&quot;:&quot;7&quot;,&quot;barem&quot;:9},{&quot;type&quot;:1,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:5}]|1|1|ayoubg|20|none
+|14|[{&quot;type&quot;:1,&quot;id&quot;:&quot;3&quot;,&quot;barem&quot;:6},{&quot;type&quot;:1,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:8},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e24d52048&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e17372b12&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;8&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2dee3df3f3&quot;,&quot;barem&quot;:1}]|1|1|ayoubg|20|none
+|15|[{&quot;type&quot;:1,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:5},{&quot;type&quot;:1,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:4},{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7}]|1|1|ayoubg|16|none
+|16|[{&quot;type&quot;:1,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:4},{&quot;type&quot;:1,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:5},{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7}]|1|1|ayoubg|16|none
+|17|[{&quot;type&quot;:1,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:4},{&quot;type&quot;:1,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:5},{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7}]|1|1|ayoubg|16|none
+|18|[{&quot;type&quot;:1,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:5},{&quot;type&quot;:1,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:4},{&quot;type&quot;:3,&quot;id&quot;:&quot;7&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2da9b279fc&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e120e0840&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e2c235ba7&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e13cb2b8f&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e0a71a063&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e2989aba2&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;10&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e278cdc64&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e08512c1b&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e22024a62&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e24d52048&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;8&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2da5d540a2&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2d9cb6407a&quot;,&quot;barem&quot;:1}]|1|1|ayoubg|25|none
+|19|[{&quot;type&quot;:1,&quot;id&quot;:&quot;3&quot;,&quot;barem&quot;:6},{&quot;type&quot;:1,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:5},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e278cdc64&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e1e537ad5&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;3&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;10&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e17372b12&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e120e0840&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;8&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e2989aba2&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e0a71a063&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e24d52048&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e13cb2b8f&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e22024a62&quot;,&quot;barem&quot;:1}]|1|1|ayoubg|25|none
+|20|[{&quot;type&quot;:1,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:5},{&quot;type&quot;:1,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:8},{&quot;type&quot;:3,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2dee3df3f3&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e0f8c9175&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2da5d540a2&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e120e0840&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;10&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;6&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e1e537ad5&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;9&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2da9b279fc&quot;,&quot;barem&quot;:1}]|1|1|ayoubg|25|none
+|21|[{&quot;type&quot;:1,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:8},{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7},{&quot;type&quot;:1,&quot;id&quot;:&quot;8&quot;,&quot;barem&quot;:10}]|1|1|ayoubg|25|none
+|22|[{&quot;type&quot;:1,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:8},{&quot;type&quot;:1,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:4},{&quot;type&quot;:3,&quot;id&quot;:&quot;7&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;3&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e19d6efba&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2da9b279fc&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e24d52048&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e278cdc64&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e0f8c9175&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e2c235ba7&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;9&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e120e0840&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e13cb2b8f&quot;,&quot;barem&quot;:1}]|1|1|ayoubg|25|none
+|23|[{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7},{&quot;type&quot;:1,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:8},{&quot;type&quot;:1,&quot;id&quot;:&quot;8&quot;,&quot;barem&quot;:10}]|1|1|ayoubg|25|none
+|24|[{&quot;type&quot;:1,&quot;id&quot;:&quot;3&quot;,&quot;barem&quot;:6},{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2da5d540a2&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e1e537ad5&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e17372b12&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;3&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2da9b279fc&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e120e0840&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;7&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e0f8c9175&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e2989aba2&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e0a71a063&quot;,&quot;barem&quot;:1}]|1|1|ayoubg|25|none
+|25|[{&quot;type&quot;:1,&quot;id&quot;:&quot;5&quot;,&quot;barem&quot;:8},{&quot;type&quot;:1,&quot;id&quot;:&quot;1&quot;,&quot;barem&quot;:4},{&quot;type&quot;:3,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;6&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;8&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e24d52048&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e2df0cd47&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2da5d540a2&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;3&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e13cb2b8f&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e0a71a063&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2da9b279fc&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e278cdc64&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e17372b12&quot;,&quot;barem&quot;:1}]|1|1|ayoubg|25|none
+|26|[{&quot;type&quot;:1,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:7},{&quot;type&quot;:1,&quot;id&quot;:&quot;2&quot;,&quot;barem&quot;:5},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e0f8c9175&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e2df0cd47&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2da5d540a2&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;10&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e13cb2b8f&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;6&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e19d6efba&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2dee3df3f3&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e2c235ba7&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2da9b279fc&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;62b2e24d52048&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;3&quot;,&quot;barem&quot;:1},{&quot;type&quot;:3,&quot;id&quot;:&quot;4&quot;,&quot;barem&quot;:1}]|1|1|ayoubg|25|none
+== Table structure for table filier
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idf**//|int(11)|No|
+|nom|varchar(100)|Yes|NULL
+== Dumping data for table filier
+
+|1|TDI
+== Table structure for table matier
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idm**//|int(11)|No|
+|nom|varchar(100)|Yes|NULL
+== Dumping data for table matier
+
+|1|SGBD
+|2|MATH
+== Table structure for table passed
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idpass**//|varchar(255)|No|
+|username|varchar(40)|Yes|NULL
+|idbat|int(11)|No|
+|note|float|Yes|NULL
+|result|varchar(200)|Yes|NULL
+|datepassed|datetime|No|current_timestamp()
+== Dumping data for table passed
+
+|62b2ee3db236d|ayoubhh|92717185|0|fail|2022-06-22 11:26:05
+|62b2eea1dc382|ayoubhh|92717185|17|pass|2022-06-22 11:27:45
+|62b3255d95b1a|ayoubhh|93740432|10|pass|2022-06-29 15:21:17
+== Table structure for table passedhistory
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idph**//|int(11)|No|
+|idpass|varchar(255)|Yes|NULL
+|unsrs|longtext|Yes|NULL
+|exam|longtext|Yes|NULL
+== Dumping data for table passedhistory
+
+|1|62b2ee3db236d|[{&quot;qcm&quot;:0,&quot;idq&quot;:&quot;62b2dee3df3f3&quot;,&quot;idr&quot;:&quot;13&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:0,&quot;idq&quot;:&quot;62b2dee3df3f3&quot;,&quot;idr&quot;:&quot;14&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:0,&quot;idq&quot;:&quot;62b2dee3df3f3&quot;,&quot;idr&quot;:&quot;15&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:0,&quot;idq&quot;:&quot;62b2dee3df3f3&quot;,&quot;idr&quot;:&quot;16&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:10,&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idr&quot;:&quot;53&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:10,&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idr&quot;:&quot;54&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:10,&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idr&quot;:&quot;55&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:10,&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idr&quot;:&quot;56&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:11,&quot;idq&quot;:&quot;62b2e1e537ad5&quot;,&quot;idr&quot;:&quot;45&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:11,&quot;idq&quot;:&quot;62b2e1e537ad5&quot;,&quot;idr&quot;:&quot;46&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:11,&quot;idq&quot;:&quot;62b2e1e537ad5&quot;,&quot;idr&quot;:&quot;47&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:11,&quot;idq&quot;:&quot;62b2e1e537ad5&quot;,&quot;idr&quot;:&quot;48&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:12,&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idr&quot;:&quot;49&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:12,&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idr&quot;:&quot;50&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:12,&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idr&quot;:&quot;51&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:12,&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idr&quot;:&quot;52&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:14,&quot;idq&quot;:&quot;5&quot;,&quot;idr&quot;:&quot;115&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:14,&quot;idq&quot;:&quot;5&quot;,&quot;idr&quot;:&quot;116&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:14,&quot;idq&quot;:&quot;5&quot;,&quot;idr&quot;:&quot;117&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:14,&quot;idq&quot;:&quot;5&quot;,&quot;idr&quot;:&quot;118&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:13,&quot;idq&quot;:&quot;62b2e08512c1b&quot;,&quot;idr&quot;:&quot;17&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:13,&quot;idq&quot;:&quot;62b2e08512c1b&quot;,&quot;idr&quot;:&quot;18&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:13,&quot;idq&quot;:&quot;62b2e08512c1b&quot;,&quot;idr&quot;:&quot;19&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:13,&quot;idq&quot;:&quot;62b2e08512c1b&quot;,&quot;idr&quot;:&quot;20&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:15,&quot;idq&quot;:&quot;2&quot;,&quot;idr&quot;:&quot;225&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:15,&quot;idq&quot;:&quot;2&quot;,&quot;idr&quot;:&quot;226&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:15,&quot;idq&quot;:&quot;2&quot;,&quot;idr&quot;:&quot;227&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:15,&quot;idq&quot;:&quot;2&quot;,&quot;idr&quot;:&quot;228&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:6,&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idr&quot;:&quot;57&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:6,&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idr&quot;:&quot;58&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:6,&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idr&quot;:&quot;59&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:6,&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idr&quot;:&quot;60&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:16,&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idr&quot;:&quot;5&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:16,&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idr&quot;:&quot;6&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:16,&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idr&quot;:&quot;7&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:16,&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idr&quot;:&quot;8&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:1,&quot;idq&quot;:&quot;62b2e17372b12&quot;,&quot;idr&quot;:&quot;37&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:1,&quot;idq&quot;:&quot;62b2e17372b12&quot;,&quot;idr&quot;:&quot;38&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:1,&quot;idq&quot;:&quot;62b2e17372b12&quot;,&quot;idr&quot;:&quot;39&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:1,&quot;idq&quot;:&quot;62b2e17372b12&quot;,&quot;idr&quot;:&quot;40&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:2,&quot;idq&quot;:&quot;6&quot;,&quot;idr&quot;:&quot;119&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:2,&quot;idq&quot;:&quot;6&quot;,&quot;idr&quot;:&quot;120&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:2,&quot;idq&quot;:&quot;6&quot;,&quot;idr&quot;:&quot;121&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:2,&quot;idq&quot;:&quot;6&quot;,&quot;idr&quot;:&quot;122&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:4,&quot;idq&quot;:&quot;4&quot;,&quot;idr&quot;:&quot;111&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:4,&quot;idq&quot;:&quot;4&quot;,&quot;idr&quot;:&quot;112&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:4,&quot;idq&quot;:&quot;4&quot;,&quot;idr&quot;:&quot;113&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:4,&quot;idq&quot;:&quot;4&quot;,&quot;idr&quot;:&quot;114&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:5,&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idr&quot;:&quot;1&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:5,&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idr&quot;:&quot;2&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:5,&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idr&quot;:&quot;3&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:5,&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idr&quot;:&quot;4&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:3,&quot;idq&quot;:&quot;62b2e0a71a063&quot;,&quot;idr&quot;:&quot;21&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:3,&quot;idq&quot;:&quot;62b2e0a71a063&quot;,&quot;idr&quot;:&quot;22&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:3,&quot;idq&quot;:&quot;62b2e0a71a063&quot;,&quot;idr&quot;:&quot;23&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:3,&quot;idq&quot;:&quot;62b2e0a71a063&quot;,&quot;idr&quot;:&quot;24&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:7,&quot;idq&quot;:&quot;1&quot;,&quot;idr&quot;:&quot;221&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:7,&quot;idq&quot;:&quot;1&quot;,&quot;idr&quot;:&quot;222&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:7,&quot;idq&quot;:&quot;1&quot;,&quot;idr&quot;:&quot;223&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:7,&quot;idq&quot;:&quot;1&quot;,&quot;idr&quot;:&quot;224&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:8,&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idr&quot;:&quot;41&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:8,&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idr&quot;:&quot;42&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:8,&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idr&quot;:&quot;43&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:8,&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idr&quot;:&quot;44&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:9,&quot;idq&quot;:&quot;8&quot;,&quot;idr&quot;:&quot;127&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:9,&quot;idq&quot;:&quot;8&quot;,&quot;idr&quot;:&quot;128&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:9,&quot;idq&quot;:&quot;8&quot;,&quot;idr&quot;:&quot;129&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:9,&quot;idq&quot;:&quot;8&quot;,&quot;idr&quot;:&quot;130&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:17,&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idr&quot;:&quot;9&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:17,&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idr&quot;:&quot;10&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:17,&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idr&quot;:&quot;11&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:17,&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idr&quot;:&quot;12&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:18,&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idr&quot;:&quot;33&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:18,&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idr&quot;:&quot;34&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:18,&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idr&quot;:&quot;35&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:18,&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idr&quot;:&quot;36&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:19,&quot;idq&quot;:&quot;3&quot;,&quot;idr&quot;:&quot;210&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:19,&quot;idq&quot;:&quot;3&quot;,&quot;idr&quot;:&quot;229&quot;,&quot;on&quot;:false}]|{&quot;exam&quot;:[{&quot;idq&quot;:&quot;62b2dee3df3f3&quot;,&quot;idrs&quot;:[&quot;13&quot;,&quot;14&quot;,&quot;15&quot;,&quot;16&quot;]},{&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idrs&quot;:[&quot;53&quot;,&quot;54&quot;,&quot;55&quot;,&quot;56&quot;]},{&quot;idq&quot;:&quot;62b2e1e537ad5&quot;,&quot;idrs&quot;:[&quot;45&quot;,&quot;46&quot;,&quot;47&quot;,&quot;48&quot;]},{&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idrs&quot;:[&quot;49&quot;,&quot;50&quot;,&quot;51&quot;,&quot;52&quot;]},{&quot;idq&quot;:&quot;5&quot;,&quot;idrs&quot;:[&quot;115&quot;,&quot;116&quot;,&quot;117&quot;,&quot;118&quot;]},{&quot;idq&quot;:&quot;62b2e08512c1b&quot;,&quot;idrs&quot;:[&quot;17&quot;,&quot;18&quot;,&quot;19&quot;,&quot;20&quot;]},{&quot;idq&quot;:&quot;2&quot;,&quot;idrs&quot;:[&quot;225&quot;,&quot;226&quot;,&quot;227&quot;,&quot;228&quot;]},{&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idrs&quot;:[&quot;57&quot;,&quot;58&quot;,&quot;59&quot;,&quot;60&quot;]},{&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idrs&quot;:[&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;]},{&quot;idq&quot;:&quot;62b2e17372b12&quot;,&quot;idrs&quot;:[&quot;37&quot;,&quot;38&quot;,&quot;39&quot;,&quot;40&quot;]},{&quot;idq&quot;:&quot;6&quot;,&quot;idrs&quot;:[&quot;119&quot;,&quot;120&quot;,&quot;121&quot;,&quot;122&quot;]},{&quot;idq&quot;:&quot;4&quot;,&quot;idrs&quot;:[&quot;111&quot;,&quot;112&quot;,&quot;113&quot;,&quot;114&quot;]},{&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idrs&quot;:[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;]},{&quot;idq&quot;:&quot;62b2e0a71a063&quot;,&quot;idrs&quot;:[&quot;21&quot;,&quot;22&quot;,&quot;23&quot;,&quot;24&quot;]},{&quot;idq&quot;:&quot;1&quot;,&quot;idrs&quot;:[&quot;221&quot;,&quot;222&quot;,&quot;223&quot;,&quot;224&quot;]},{&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idrs&quot;:[&quot;41&quot;,&quot;42&quot;,&quot;43&quot;,&quot;44&quot;]},{&quot;idq&quot;:&quot;8&quot;,&quot;idrs&quot;:[&quot;127&quot;,&quot;128&quot;,&quot;129&quot;,&quot;130&quot;]},{&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idrs&quot;:[&quot;9&quot;,&quot;10&quot;,&quot;11&quot;,&quot;12&quot;]},{&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idrs&quot;:[&quot;33&quot;,&quot;34&quot;,&quot;35&quot;,&quot;36&quot;]},{&quot;idq&quot;:&quot;3&quot;,&quot;idrs&quot;:[&quot;210&quot;,&quot;229&quot;]}],&quot;correct&quot;:[[true,true,false,false],[true,false,false,false],[true,false,false,false],[true,false,false,false],[false,true,false,false],[true,false,false,false],[false,true,false,false],[true,false,false,false],[true,false,false,false],[true,false,false,false],[false,false,true,false],[true,false,false,false],[true,false,false,false],[true,false,false,false],[false,false,true,false],[true,false,false,false],[false,false,false,true],[true,false,false,false],[true,false,false,false],[false,true]]}
+|2|62b2eea1dc382|[{&quot;qcm&quot;:0,&quot;idq&quot;:&quot;62b2dee3df3f3&quot;,&quot;idr&quot;:&quot;13&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:0,&quot;idq&quot;:&quot;62b2dee3df3f3&quot;,&quot;idr&quot;:&quot;14&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:0,&quot;idq&quot;:&quot;62b2dee3df3f3&quot;,&quot;idr&quot;:&quot;15&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:0,&quot;idq&quot;:&quot;62b2dee3df3f3&quot;,&quot;idr&quot;:&quot;16&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:1,&quot;idq&quot;:&quot;62b2e17372b12&quot;,&quot;idr&quot;:&quot;37&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:1,&quot;idq&quot;:&quot;62b2e17372b12&quot;,&quot;idr&quot;:&quot;38&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:1,&quot;idq&quot;:&quot;62b2e17372b12&quot;,&quot;idr&quot;:&quot;39&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:1,&quot;idq&quot;:&quot;62b2e17372b12&quot;,&quot;idr&quot;:&quot;40&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:2,&quot;idq&quot;:&quot;6&quot;,&quot;idr&quot;:&quot;119&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:2,&quot;idq&quot;:&quot;6&quot;,&quot;idr&quot;:&quot;120&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:2,&quot;idq&quot;:&quot;6&quot;,&quot;idr&quot;:&quot;121&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:2,&quot;idq&quot;:&quot;6&quot;,&quot;idr&quot;:&quot;122&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:3,&quot;idq&quot;:&quot;62b2e0a71a063&quot;,&quot;idr&quot;:&quot;21&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:3,&quot;idq&quot;:&quot;62b2e0a71a063&quot;,&quot;idr&quot;:&quot;22&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:3,&quot;idq&quot;:&quot;62b2e0a71a063&quot;,&quot;idr&quot;:&quot;23&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:3,&quot;idq&quot;:&quot;62b2e0a71a063&quot;,&quot;idr&quot;:&quot;24&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:5,&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idr&quot;:&quot;1&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:5,&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idr&quot;:&quot;2&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:5,&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idr&quot;:&quot;3&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:5,&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idr&quot;:&quot;4&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:6,&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idr&quot;:&quot;57&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:6,&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idr&quot;:&quot;58&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:6,&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idr&quot;:&quot;59&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:6,&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idr&quot;:&quot;60&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:7,&quot;idq&quot;:&quot;1&quot;,&quot;idr&quot;:&quot;221&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:7,&quot;idq&quot;:&quot;1&quot;,&quot;idr&quot;:&quot;222&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:7,&quot;idq&quot;:&quot;1&quot;,&quot;idr&quot;:&quot;223&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:7,&quot;idq&quot;:&quot;1&quot;,&quot;idr&quot;:&quot;224&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:10,&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idr&quot;:&quot;53&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:10,&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idr&quot;:&quot;54&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:10,&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idr&quot;:&quot;55&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:10,&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idr&quot;:&quot;56&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:9,&quot;idq&quot;:&quot;8&quot;,&quot;idr&quot;:&quot;127&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:9,&quot;idq&quot;:&quot;8&quot;,&quot;idr&quot;:&quot;128&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:9,&quot;idq&quot;:&quot;8&quot;,&quot;idr&quot;:&quot;129&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:9,&quot;idq&quot;:&quot;8&quot;,&quot;idr&quot;:&quot;130&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:13,&quot;idq&quot;:&quot;62b2e08512c1b&quot;,&quot;idr&quot;:&quot;17&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:13,&quot;idq&quot;:&quot;62b2e08512c1b&quot;,&quot;idr&quot;:&quot;18&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:13,&quot;idq&quot;:&quot;62b2e08512c1b&quot;,&quot;idr&quot;:&quot;19&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:13,&quot;idq&quot;:&quot;62b2e08512c1b&quot;,&quot;idr&quot;:&quot;20&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:11,&quot;idq&quot;:&quot;62b2e1e537ad5&quot;,&quot;idr&quot;:&quot;45&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:11,&quot;idq&quot;:&quot;62b2e1e537ad5&quot;,&quot;idr&quot;:&quot;46&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:11,&quot;idq&quot;:&quot;62b2e1e537ad5&quot;,&quot;idr&quot;:&quot;47&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:11,&quot;idq&quot;:&quot;62b2e1e537ad5&quot;,&quot;idr&quot;:&quot;48&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:12,&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idr&quot;:&quot;49&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:12,&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idr&quot;:&quot;50&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:12,&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idr&quot;:&quot;51&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:12,&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idr&quot;:&quot;52&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:15,&quot;idq&quot;:&quot;2&quot;,&quot;idr&quot;:&quot;225&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:15,&quot;idq&quot;:&quot;2&quot;,&quot;idr&quot;:&quot;226&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:15,&quot;idq&quot;:&quot;2&quot;,&quot;idr&quot;:&quot;227&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:15,&quot;idq&quot;:&quot;2&quot;,&quot;idr&quot;:&quot;228&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:8,&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idr&quot;:&quot;41&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:8,&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idr&quot;:&quot;42&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:8,&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idr&quot;:&quot;43&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:8,&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idr&quot;:&quot;44&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:19,&quot;idq&quot;:&quot;3&quot;,&quot;idr&quot;:&quot;210&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:19,&quot;idq&quot;:&quot;3&quot;,&quot;idr&quot;:&quot;229&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:14,&quot;idq&quot;:&quot;5&quot;,&quot;idr&quot;:&quot;115&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:14,&quot;idq&quot;:&quot;5&quot;,&quot;idr&quot;:&quot;116&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:14,&quot;idq&quot;:&quot;5&quot;,&quot;idr&quot;:&quot;117&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:14,&quot;idq&quot;:&quot;5&quot;,&quot;idr&quot;:&quot;118&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:4,&quot;idq&quot;:&quot;4&quot;,&quot;idr&quot;:&quot;111&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:4,&quot;idq&quot;:&quot;4&quot;,&quot;idr&quot;:&quot;112&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:4,&quot;idq&quot;:&quot;4&quot;,&quot;idr&quot;:&quot;113&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:4,&quot;idq&quot;:&quot;4&quot;,&quot;idr&quot;:&quot;114&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:16,&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idr&quot;:&quot;5&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:16,&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idr&quot;:&quot;6&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:16,&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idr&quot;:&quot;7&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:16,&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idr&quot;:&quot;8&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:17,&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idr&quot;:&quot;9&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:17,&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idr&quot;:&quot;10&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:17,&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idr&quot;:&quot;11&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:17,&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idr&quot;:&quot;12&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:18,&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idr&quot;:&quot;33&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:18,&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idr&quot;:&quot;34&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:18,&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idr&quot;:&quot;35&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:18,&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idr&quot;:&quot;36&quot;,&quot;on&quot;:true}]|{&quot;exam&quot;:[{&quot;idq&quot;:&quot;62b2dee3df3f3&quot;,&quot;idrs&quot;:[&quot;13&quot;,&quot;14&quot;,&quot;15&quot;,&quot;16&quot;]},{&quot;idq&quot;:&quot;62b2e17372b12&quot;,&quot;idrs&quot;:[&quot;37&quot;,&quot;38&quot;,&quot;39&quot;,&quot;40&quot;]},{&quot;idq&quot;:&quot;6&quot;,&quot;idrs&quot;:[&quot;119&quot;,&quot;120&quot;,&quot;121&quot;,&quot;122&quot;]},{&quot;idq&quot;:&quot;62b2e0a71a063&quot;,&quot;idrs&quot;:[&quot;21&quot;,&quot;22&quot;,&quot;23&quot;,&quot;24&quot;]},{&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idrs&quot;:[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;]},{&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idrs&quot;:[&quot;57&quot;,&quot;58&quot;,&quot;59&quot;,&quot;60&quot;]},{&quot;idq&quot;:&quot;1&quot;,&quot;idrs&quot;:[&quot;221&quot;,&quot;222&quot;,&quot;223&quot;,&quot;224&quot;]},{&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idrs&quot;:[&quot;53&quot;,&quot;54&quot;,&quot;55&quot;,&quot;56&quot;]},{&quot;idq&quot;:&quot;8&quot;,&quot;idrs&quot;:[&quot;127&quot;,&quot;128&quot;,&quot;129&quot;,&quot;130&quot;]},{&quot;idq&quot;:&quot;62b2e08512c1b&quot;,&quot;idrs&quot;:[&quot;17&quot;,&quot;18&quot;,&quot;19&quot;,&quot;20&quot;]},{&quot;idq&quot;:&quot;62b2e1e537ad5&quot;,&quot;idrs&quot;:[&quot;45&quot;,&quot;46&quot;,&quot;47&quot;,&quot;48&quot;]},{&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idrs&quot;:[&quot;49&quot;,&quot;50&quot;,&quot;51&quot;,&quot;52&quot;]},{&quot;idq&quot;:&quot;2&quot;,&quot;idrs&quot;:[&quot;225&quot;,&quot;226&quot;,&quot;227&quot;,&quot;228&quot;]},{&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idrs&quot;:[&quot;41&quot;,&quot;42&quot;,&quot;43&quot;,&quot;44&quot;]},{&quot;idq&quot;:&quot;3&quot;,&quot;idrs&quot;:[&quot;210&quot;,&quot;229&quot;]},{&quot;idq&quot;:&quot;5&quot;,&quot;idrs&quot;:[&quot;115&quot;,&quot;116&quot;,&quot;117&quot;,&quot;118&quot;]},{&quot;idq&quot;:&quot;4&quot;,&quot;idrs&quot;:[&quot;111&quot;,&quot;112&quot;,&quot;113&quot;,&quot;114&quot;]},{&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idrs&quot;:[&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;]},{&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idrs&quot;:[&quot;9&quot;,&quot;10&quot;,&quot;11&quot;,&quot;12&quot;]},{&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idrs&quot;:[&quot;33&quot;,&quot;34&quot;,&quot;35&quot;,&quot;36&quot;]}],&quot;correct&quot;:[[true,true,false,false],[true,false,false,false],[false,false,true,false],[true,false,false,false],[true,false,false,false],[true,false,false,false],[false,false,true,false],[true,false,false,false],[false,false,false,true],[true,false,false,false],[true,false,false,false],[true,false,false,false],[false,true,false,false],[true,false,false,false],[false,true],[false,true,false,false],[true,false,false,false],[true,false,false,false],[true,false,false,false],[true,false,false,false]]}
+|3|62b3255d95b1a|[{&quot;qcm&quot;:0,&quot;idq&quot;:&quot;62b2e0f8c9175&quot;,&quot;idr&quot;:&quot;25&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:0,&quot;idq&quot;:&quot;62b2e0f8c9175&quot;,&quot;idr&quot;:&quot;26&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:0,&quot;idq&quot;:&quot;62b2e0f8c9175&quot;,&quot;idr&quot;:&quot;27&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:0,&quot;idq&quot;:&quot;62b2e0f8c9175&quot;,&quot;idr&quot;:&quot;28&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:15,&quot;idq&quot;:&quot;1&quot;,&quot;idr&quot;:&quot;221&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:15,&quot;idq&quot;:&quot;1&quot;,&quot;idr&quot;:&quot;222&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:15,&quot;idq&quot;:&quot;1&quot;,&quot;idr&quot;:&quot;223&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:15,&quot;idq&quot;:&quot;1&quot;,&quot;idr&quot;:&quot;224&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:16,&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idr&quot;:&quot;41&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:16,&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idr&quot;:&quot;42&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:16,&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idr&quot;:&quot;43&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:16,&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idr&quot;:&quot;44&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:17,&quot;idq&quot;:&quot;62b2e2989aba2&quot;,&quot;idr&quot;:&quot;61&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:17,&quot;idq&quot;:&quot;62b2e2989aba2&quot;,&quot;idr&quot;:&quot;62&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:17,&quot;idq&quot;:&quot;62b2e2989aba2&quot;,&quot;idr&quot;:&quot;63&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:17,&quot;idq&quot;:&quot;62b2e2989aba2&quot;,&quot;idr&quot;:&quot;64&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:18,&quot;idq&quot;:&quot;2&quot;,&quot;idr&quot;:&quot;225&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:18,&quot;idq&quot;:&quot;2&quot;,&quot;idr&quot;:&quot;226&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:18,&quot;idq&quot;:&quot;2&quot;,&quot;idr&quot;:&quot;227&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:18,&quot;idq&quot;:&quot;2&quot;,&quot;idr&quot;:&quot;228&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:19,&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idr&quot;:&quot;9&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:19,&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idr&quot;:&quot;10&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:19,&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idr&quot;:&quot;11&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:19,&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idr&quot;:&quot;12&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:1,&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idr&quot;:&quot;5&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:1,&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idr&quot;:&quot;6&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:1,&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idr&quot;:&quot;7&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:1,&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idr&quot;:&quot;8&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:2,&quot;idq&quot;:&quot;62b2e2df0cd47&quot;,&quot;idr&quot;:&quot;69&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:2,&quot;idq&quot;:&quot;62b2e2df0cd47&quot;,&quot;idr&quot;:&quot;70&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:2,&quot;idq&quot;:&quot;62b2e2df0cd47&quot;,&quot;idr&quot;:&quot;71&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:2,&quot;idq&quot;:&quot;62b2e2df0cd47&quot;,&quot;idr&quot;:&quot;72&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:3,&quot;idq&quot;:&quot;8&quot;,&quot;idr&quot;:&quot;127&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:3,&quot;idq&quot;:&quot;8&quot;,&quot;idr&quot;:&quot;128&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:3,&quot;idq&quot;:&quot;8&quot;,&quot;idr&quot;:&quot;129&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:3,&quot;idq&quot;:&quot;8&quot;,&quot;idr&quot;:&quot;130&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:4,&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idr&quot;:&quot;57&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:4,&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idr&quot;:&quot;58&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:4,&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idr&quot;:&quot;59&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:4,&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idr&quot;:&quot;60&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:5,&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idr&quot;:&quot;33&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:5,&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idr&quot;:&quot;34&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:5,&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idr&quot;:&quot;35&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:5,&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idr&quot;:&quot;36&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:6,&quot;idq&quot;:&quot;4&quot;,&quot;idr&quot;:&quot;111&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:6,&quot;idq&quot;:&quot;4&quot;,&quot;idr&quot;:&quot;112&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:6,&quot;idq&quot;:&quot;4&quot;,&quot;idr&quot;:&quot;113&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:6,&quot;idq&quot;:&quot;4&quot;,&quot;idr&quot;:&quot;114&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:7,&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idr&quot;:&quot;49&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:7,&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idr&quot;:&quot;50&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:7,&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idr&quot;:&quot;51&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:7,&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idr&quot;:&quot;52&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:8,&quot;idq&quot;:&quot;62b2e120e0840&quot;,&quot;idr&quot;:&quot;29&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:8,&quot;idq&quot;:&quot;62b2e120e0840&quot;,&quot;idr&quot;:&quot;30&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:8,&quot;idq&quot;:&quot;62b2e120e0840&quot;,&quot;idr&quot;:&quot;31&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:8,&quot;idq&quot;:&quot;62b2e120e0840&quot;,&quot;idr&quot;:&quot;32&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:9,&quot;idq&quot;:&quot;6&quot;,&quot;idr&quot;:&quot;119&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:9,&quot;idq&quot;:&quot;6&quot;,&quot;idr&quot;:&quot;120&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:9,&quot;idq&quot;:&quot;6&quot;,&quot;idr&quot;:&quot;121&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:9,&quot;idq&quot;:&quot;6&quot;,&quot;idr&quot;:&quot;122&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:10,&quot;idq&quot;:&quot;3&quot;,&quot;idr&quot;:&quot;210&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:10,&quot;idq&quot;:&quot;3&quot;,&quot;idr&quot;:&quot;229&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:11,&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idr&quot;:&quot;1&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:11,&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idr&quot;:&quot;2&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:11,&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idr&quot;:&quot;3&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:11,&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idr&quot;:&quot;4&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:12,&quot;idq&quot;:&quot;9&quot;,&quot;idr&quot;:&quot;131&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:12,&quot;idq&quot;:&quot;9&quot;,&quot;idr&quot;:&quot;132&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:12,&quot;idq&quot;:&quot;9&quot;,&quot;idr&quot;:&quot;133&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:12,&quot;idq&quot;:&quot;9&quot;,&quot;idr&quot;:&quot;134&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:13,&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idr&quot;:&quot;53&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:13,&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idr&quot;:&quot;54&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:13,&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idr&quot;:&quot;55&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:13,&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idr&quot;:&quot;56&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:14,&quot;idq&quot;:&quot;7&quot;,&quot;idr&quot;:&quot;123&quot;,&quot;on&quot;:true},{&quot;qcm&quot;:14,&quot;idq&quot;:&quot;7&quot;,&quot;idr&quot;:&quot;124&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:14,&quot;idq&quot;:&quot;7&quot;,&quot;idr&quot;:&quot;125&quot;,&quot;on&quot;:false},{&quot;qcm&quot;:14,&quot;idq&quot;:&quot;7&quot;,&quot;idr&quot;:&quot;126&quot;,&quot;on&quot;:false}]|{&quot;exam&quot;:[{&quot;idq&quot;:&quot;62b2e0f8c9175&quot;,&quot;idrs&quot;:[&quot;25&quot;,&quot;26&quot;,&quot;27&quot;,&quot;28&quot;]},{&quot;idq&quot;:&quot;1&quot;,&quot;idrs&quot;:[&quot;221&quot;,&quot;222&quot;,&quot;223&quot;,&quot;224&quot;]},{&quot;idq&quot;:&quot;62b2e19d6efba&quot;,&quot;idrs&quot;:[&quot;41&quot;,&quot;42&quot;,&quot;43&quot;,&quot;44&quot;]},{&quot;idq&quot;:&quot;62b2e2989aba2&quot;,&quot;idrs&quot;:[&quot;61&quot;,&quot;62&quot;,&quot;63&quot;,&quot;64&quot;]},{&quot;idq&quot;:&quot;2&quot;,&quot;idrs&quot;:[&quot;225&quot;,&quot;226&quot;,&quot;227&quot;,&quot;228&quot;]},{&quot;idq&quot;:&quot;62b2da9b279fc&quot;,&quot;idrs&quot;:[&quot;9&quot;,&quot;10&quot;,&quot;11&quot;,&quot;12&quot;]},{&quot;idq&quot;:&quot;62b2da5d540a2&quot;,&quot;idrs&quot;:[&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;]},{&quot;idq&quot;:&quot;62b2e2df0cd47&quot;,&quot;idrs&quot;:[&quot;69&quot;,&quot;70&quot;,&quot;71&quot;,&quot;72&quot;]},{&quot;idq&quot;:&quot;8&quot;,&quot;idrs&quot;:[&quot;127&quot;,&quot;128&quot;,&quot;129&quot;,&quot;130&quot;]},{&quot;idq&quot;:&quot;62b2e278cdc64&quot;,&quot;idrs&quot;:[&quot;57&quot;,&quot;58&quot;,&quot;59&quot;,&quot;60&quot;]},{&quot;idq&quot;:&quot;62b2e13cb2b8f&quot;,&quot;idrs&quot;:[&quot;33&quot;,&quot;34&quot;,&quot;35&quot;,&quot;36&quot;]},{&quot;idq&quot;:&quot;4&quot;,&quot;idrs&quot;:[&quot;111&quot;,&quot;112&quot;,&quot;113&quot;,&quot;114&quot;]},{&quot;idq&quot;:&quot;62b2e22024a62&quot;,&quot;idrs&quot;:[&quot;49&quot;,&quot;50&quot;,&quot;51&quot;,&quot;52&quot;]},{&quot;idq&quot;:&quot;62b2e120e0840&quot;,&quot;idrs&quot;:[&quot;29&quot;,&quot;30&quot;,&quot;31&quot;,&quot;32&quot;]},{&quot;idq&quot;:&quot;6&quot;,&quot;idrs&quot;:[&quot;119&quot;,&quot;120&quot;,&quot;121&quot;,&quot;122&quot;]},{&quot;idq&quot;:&quot;3&quot;,&quot;idrs&quot;:[&quot;210&quot;,&quot;229&quot;]},{&quot;idq&quot;:&quot;62b2d9cb6407a&quot;,&quot;idrs&quot;:[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;]},{&quot;idq&quot;:&quot;9&quot;,&quot;idrs&quot;:[&quot;131&quot;,&quot;132&quot;,&quot;133&quot;,&quot;134&quot;]},{&quot;idq&quot;:&quot;62b2e24d52048&quot;,&quot;idrs&quot;:[&quot;53&quot;,&quot;54&quot;,&quot;55&quot;,&quot;56&quot;]},{&quot;idq&quot;:&quot;7&quot;,&quot;idrs&quot;:[&quot;123&quot;,&quot;124&quot;,&quot;125&quot;,&quot;126&quot;]}],&quot;correct&quot;:[[true,false,false,false],[false,false,true,false],[true,false,false,false],[true,false,false,false],[false,true,false,false],[true,false,false,false],[true,false,false,false],[true,false,false,false],[false,false,false,true],[true,false,false,false],[true,false,false,false],[true,false,false,false],[true,false,false,false],[true,false,false,false],[false,false,true,false],[false,true],[true,false,false,false],[true,false,false,false],[true,false,false,false],[true,false,false,false]]}
+== Table structure for table pfpu
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idpfp**//|int(11)|No|
+|username|varchar(40)|Yes|NULL
+|link|varchar(2000)|Yes|NULL
+|datepf|datetime|No|current_timestamp()
+== Dumping data for table pfpu
+
+|1|ayoubg|IMG-62b57d599afdd1.44396562.png|2022-06-24 10:01:13
+== Table structure for table question
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idq**//|varchar(255)|No|
+|quest|varchar(1000)|Yes|NULL
+|idf|int(11)|Yes|NULL
+|idm|int(11)|Yes|NULL
+|username|varchar(40)|Yes|NULL
+== Dumping data for table question
+
+|1|MySQL est un système de gestion de base de données _____?|1|1|ayoubg
+|10|Le fichier créé par le serveur pour stocker les attributs de la base de données est _____?|1|1|ayoubg
+|2|À quoi correspondent les données d’une base de données MySQL?|1|1|ayoubg
+|3|MySQL est disponible gratuitement? Est-il open source ?|1|1|ayoubg
+|4|Comment la communication est-elle établie avec le serveur MySQL ?|1|1|ayoubg
+|5|Qu’est-ce qu’un tuple dans une base de données relationnelle ?|1|1|ayoubg
+|6|Qu’est-ce qui représente un attribut dans une base de données relationnelle ?|1|1|ayoubg
+|62b2d9cb6407a|Lequel est qualifié comme un SGBD libre de droit ?|1|1|ayoubg
+|62b2da5d540a2|En SQL quelle commande ne permet pas de valider automatiquement une transaction ?|1|1|ayoubg
+|62b2da9b279fc|Parmi les SGBDR suivants lequel est qualifié comme orienté objet ?|1|1|ayoubg
+|62b2dee3df3f3|Qu&#039;est-ce qu&#039;un shéma relationnel ?|1|1|ayoubg
+|62b2e08512c1b|Ce sont des bases de données manipulant des documents, des images, des sons.|1|1|ayoubg
+|62b2e0a71a063|Définit et catalogue les éléments d&#039;information et les relations entre les données de la base de données d&#039;une organisation.|1|1|ayoubg
+|62b2e0f8c9175|L&#039;élaboration et la mise à jour de normes et de contrôles relatifs aux bases de données d&#039;une organisation.|1|1|ayoubg
+|62b2e120e0840|Les bases de données sont dispersées au sein d&#039;une organisation.|1|1|ayoubg
+|62b2e13cb2b8f|La colonne d&#039;une table contenant par exemple le nom des clients.|1|1|ayoubg
+|62b2e17372b12|Permet de créer, d&#039;interroger et de mettre à jour une base de données, de produire des rapports et d&#039;élaborer des programmes d&#039;application.|1|1|ayoubg
+|62b2e19d6efba|Un effort pour lier la mise au point d&#039;une base de données à la prise en charge des traitements administratifs.|1|1|ayoubg
+|62b2e1e537ad5|Vous aide à caractériser et à produire les rapports d&#039;une base de données.|1|1|ayoubg
+|62b2e22024a62|L&#039; information doit être à jour lorsque nous la recevons.|1|1|ayoubg
+|62b2e24d52048|Il se sert des sorties du système d&#039;information.|1|1|ayoubg
+|62b2e278cdc64|la composante centrale d&#039;un système d&#039;information est :|1|1|ayoubg
+|62b2e2989aba2|un système d&#039;information est un ensemble organisé de ressources :|1|1|ayoubg
+|62b2e2c235ba7|la conception d&#039;un système d&#039;information doit se centrer sur :|1|1|ayoubg
+|62b2e2df0cd47|Les dirigeants ont surtout besoin d&#039;une information :|1|1|ayoubg
+|7|Quelle instruction est utilisée pour sélectionner une base de données par défaut?|1|1|ayoubg
+|8|Quel mot-clé est le synonyme de DATABASE?|1|1|ayoubg
+|9|Quel mot clé est utilisé pour créer une base de données?|1|1|ayoubg
+== Table structure for table questionimg
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idqmg**//|int(11)|No|
+|curl|varchar(1000)|Yes|NULL
+|idf|int(11)|Yes|NULL
+|idm|int(11)|Yes|NULL
+|deffi|varchar(250)|No|
+|username|varchar(40)|Yes|NULL
+|barem|int(11)|No|
+== Dumping data for table questionimg
+
+|1|IMG-62b2f1d9392ba7.06506924.png|1|1|difficile|ayoubg|4
+|2|IMG-62b2f1ef7091f0.97598511.png|1|1|difficile|ayoubg|5
+|3|IMG-62b2f1f6d046b4.70035590.png|1|1|difficile|ayoubg|6
+|4|IMG-62b2f201d57e01.12872764.png|1|1|difficile|ayoubg|7
+|5|IMG-62b2f2159b80c1.98785262.png|1|1|difficile|ayoubg|8
+|6|IMG-62b2f21fe14642.62834404.png|1|1|difficile|ayoubg|9
+|7|IMG-62b2f226a203b6.42276826.png|1|1|difficile|ayoubg|9
+|8|IMG-62b2f22ee43f75.18636843.png|1|1|difficile|ayoubg|10
+|9|IMG-62b2f2b63fcaf4.71275037.png|1|1|difficile|ayoubg|11
+== Table structure for table questiontxt
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idqtxt**//|int(11)|No|
+|txt|varchar(3000)|Yes|NULL
+|idf|int(11)|Yes|NULL
+|idm|int(11)|Yes|NULL
+|username|varchar(40)|Yes|NULL
+|deffi|varchar(250)|No|
+|barem|int(11)|No|
+== Dumping data for table questiontxt
+
+|1|test|1|1|ayoubg|facile|12
+== Table structure for table resetrequest
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idreq**//|varchar(50)|No|
+|username|varchar(40)|Yes|NULL
+|valid|int(11)|No|1
+== Dumping data for table resetrequest
+
+|62b2f62425399|ayoubhh|0
+== Table structure for table respond
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idr**//|int(11)|No|
+|chois|varchar(550)|Yes|NULL
+|qcm|tinyint(1)|Yes|NULL
+|idq|varchar(255)|Yes|NULL
+== Dumping data for table respond
+
+|1|SQL Server (V)|1|62b2d9cb6407a
+|2|Oracle|0|62b2d9cb6407a
+|3|PostgrEsql|0|62b2d9cb6407a
+|4|MySQL|0|62b2d9cb6407a
+|5|ALTER (V)|1|62b2da5d540a2
+|6|CREATE|0|62b2da5d540a2
+|7|DROP|0|62b2da5d540a2
+|8|UPDATE|0|62b2da5d540a2
+|9|INFORMIX (V)|1|62b2da9b279fc
+|10|PostgreSQL|0|62b2da9b279fc
+|11|O2|0|62b2da9b279fc
+|12|ORACLE|0|62b2da9b279fc
+|13| Un schéma qui représente logiquement les tables d&#039;une base de données (V)|1|62b2dee3df3f3
+|14|Une représentation d&#039;un ensemble de relations ayant des liens entre elles. (V)|1|62b2dee3df3f3
+|15|Un schéma qui represente le flux de données entre les acteurs.|0|62b2dee3df3f3
+|16|Un schéma qui explique les interactions entres les utilisateurs.|0|62b2dee3df3f3
+|17|Base de données distribuée (v)|1|62b2e08512c1b
+|18| Base de données individuelle|0|62b2e08512c1b
+|19|Base de données multimédia|0|62b2e08512c1b
+|20|ystème de gestion de bases de données|0|62b2e08512c1b
+|21|Accès aux bases de données  (V)|1|62b2e0a71a063
+|22|Administration de bases de données|0|62b2e0a71a063
+|23| Dépendance des données|0|62b2e0a71a063
+|24| Dictionnaire de données|0|62b2e0a71a063
+|25| Accès aux bases de données (v)|1|62b2e0f8c9175
+|26|Administration de bases de données|0|62b2e0f8c9175
+|27| Dépendance des données|0|62b2e0f8c9175
+|28|Dictionnaire de données|0|62b2e0f8c9175
+|29|Accès aux bases de données|1|62b2e120e0840
+|30|Administration de bases de données|0|62b2e120e0840
+|31|Base de données distribuée|0|62b2e120e0840
+|32| Duplication des données|0|62b2e120e0840
+|33|Champ |1|62b2e13cb2b8f
+|34| Champ de la clé primaire|0|62b2e13cb2b8f
+|35|Création d&#039;une base de données|0|62b2e13cb2b8f
+|36| Enregistrement|0|62b2e13cb2b8f
+|37| Modélisation des données (v)|1|62b2e17372b12
+|38| Planification des données|0|62b2e17372b12
+|39|Structure orientée objets|0|62b2e17372b12
+|40|Système de gestion de bases de données |0|62b2e17372b12
+|41|Modélisation des données(v)|1|62b2e19d6efba
+|42| Planification des données|0|62b2e19d6efba
+|43|Système de gestion de bases de données|0|62b2e19d6efba
+|44| Structure orientée objets|0|62b2e19d6efba
+|45| Générateur de rapports|1|62b2e1e537ad5
+|46| Interrogation d&#039;une base de données|0|62b2e1e537ad5
+|47|Langage d&#039;interrogation|0|62b2e1e537ad5
+|48|Limites du traitement de fichiers|0|62b2e1e537ad5
+|49|accessibilité (V)|1|62b2e22024a62
+|50| actualité|0|62b2e22024a62
+|51| efficacité|0|62b2e22024a62
+|52| exactitude|0|62b2e22024a62
+|53|utilisateur primaire (V)|1|62b2e24d52048
+|54| utilisateur secondaire|0|62b2e24d52048
+|55| utilisateur final|0|62b2e24d52048
+|56| utilisateur externe|0|62b2e24d52048
+|57|les données (V)|1|62b2e278cdc64
+|58|les technologies de l&#039;information|0|62b2e278cdc64
+|59|les personnes |0|62b2e278cdc64
+|60|les procédures|0|62b2e278cdc64
+|61| ordinateurs - applications - informaticiens - utilisateurs (V)|1|62b2e2989aba2
+|62| matériel - logiciel - personnel - données|0|62b2e2989aba2
+|63| procédures - données - personnes - technologies|0|62b2e2989aba2
+|64| individu - profil - problème - environnement|0|62b2e2989aba2
+|65|la technologie (V)|1|62b2e2c235ba7
+|66| les données|0|62b2e2c235ba7
+|67|  l&#039;utilisateur|0|62b2e2c235ba7
+|68|l&#039;environnement |0|62b2e2c235ba7
+|69| interne - agrégée - orientée vers le présent|1|62b2e2df0cd47
+|70|externe - détaillée - orientée vers le présent et le passé|0|62b2e2df0cd47
+|71|interne - détaillée - orientée vers le présent|0|62b2e2df0cd47
+|72| externe - agrégée - orientée vers le présent, le passé et le futur|0|62b2e2df0cd47
+|111|SQL( v)|1|4
+|112|Des appels réseau|0|4
+|113|Un langage de programmation comme C ++|0|4
+|114|APIs|0|4
+|115|Table|0|5
+|116|Ligne( v)|1|5
+|117|Colonne|0|5
+|118|Objet|0|5
+|119|Table|0|6
+|120|Ligne|0|6
+|121|Colonne( v)|1|6
+|122|Objet|0|6
+|123|USE( v)|1|7
+|124|CREATE|0|7
+|125|DROP|0|7
+|126|SCHEMA|0|7
+|127|TABLE|0|8
+|128|OBJECT|0|8
+|129|DB|0|8
+|130|SCHEMA( v)|1|8
+|131|CREATE( v)|1|9
+|132|SET|0|9
+|133|SETUP|0|9
+|134|LINK|0|9
+|135|db.otp|0|10
+|136|dp.zip|0|10
+|137|db.opt( v)|1|10
+|138|db.cls|0|10
+|210|Faux|0|3
+|221|Orienté objet|0|1
+|222|Hiérarchique|0|1
+|223|Relationnel ( v)|1|1
+|224|Réseau|0|1
+|225|Objets|0|2
+|226|Tables( v)|1|2
+|227|Réseaux|0|2
+|228|Systèmes de fichiers|0|2
+|229|Vrai( v)|1|3
+== Table structure for table sessionu
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idses**//|varchar(255)|No|
+|username|varchar(40)|Yes|NULL
+|browser|varchar(40)|Yes|NULL
+|ip|varchar(100)|Yes|NULL
+|location|varchar(1000)|Yes|NULL
+|os|varchar(40)|Yes|NULL
+|dateses|datetime|No|current_timestamp()
+|devicname|varchar(40)|Yes|NULL
+|stat|int(11)|Yes|NULL
+== Dumping data for table sessionu
+
+|U2FsdGVkX1+bCSLVGxnKvKxtnCRVLHKXIkIyx/ZiCd8=|admin|Webkit|160.176.71.231|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-24 08:57:19| , 1366x768|1
+|U2FsdGVkX1+C2xa+2uJahT5yhaoHy9O+trrTNyx90sk=|ayoubg|Webkit|196.64.160.106|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 15:07:38| , 1366x768|0
+|U2FsdGVkX1+dsqFXU9GvedquaqdN6ajf7wg53JrX64M=|admin|Webkit|160.176.71.231|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-24 08:54:32| , 1366x768|1
+|U2FsdGVkX1+k4/3GZHXDiNnWwf20hUiZi0kj1QFT91M=|ayoubg|Webkit|196.64.160.106|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 14:08:48| , 1366x768|0
+|U2FsdGVkX1+n/jXVp5P5GeOqjZFANJcBCzZo3DxrLB8=|ayoubhh|Webkit|196.64.160.106|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 15:19:53| , 1366x768|0
+|U2FsdGVkX1+UP6QoCzxq6HLQA70Vz1/tsHg6A/8Omvc=|admin|Webkit|196.92.8.128|Morocco , Africa , Casablanca, ( latitude : 33.5922 , longitude : -7.6184)|Windows OS|2022-06-29 21:09:49| , 1366x768|1
+|U2FsdGVkX1+x9IOwvBllVozv/c+75rlR9ZDV6enkFD8=|ayoubg|Webkit|196.64.160.106|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 14:35:07| , 1366x768|0
+|U2FsdGVkX1/KI8s5n3SuPEZIuNU1KBJoU1pgawDvY/k=|ayoubhh|Webkit|41.251.6.162|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-30 13:31:45| , 1366x768|1
+|U2FsdGVkX1/KX+HPCKryEEsX0foYrq8gm0fGLtTwkOw=|ayoubg|Webkit|196.77.36.75|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-30 10:31:53| , 1366x768|1
+|U2FsdGVkX1/lEsOGCvJ3S27Rnuc5pjdyuWeelaia6rI=|ayoubg|Webkit|196.64.160.106|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 15:19:41| , 1366x768|0
+|U2FsdGVkX1/mXnot7jQ3beflRD6l3b78RQzQZMm3nGI=|ayoubhh|Webkit|41.251.6.162|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-30 13:25:14| , 1366x768|1
+|U2FsdGVkX1/MzqdNES3+4yUPiYlc/mRizZd/KGqfNRY=|ayoubg|Webkit|196.64.160.106|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 14:30:05| , 1366x768|0
+|U2FsdGVkX1/rQnL/8B8iQz1Xw6drQthj8pVrnfezdx4=|admin|Webkit|196.77.35.7|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-29 10:34:33| , 1366x768|1
+|U2FsdGVkX1/vozkR1bJ7ddx8mgUVtn3sSSqaeFHgUQg=|ayoubg|Webkit|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 11:17:20| , 1366x768|0
+|U2FsdGVkX184vNTpBLz5UG35YzeKwiQNMTZPG/ClONE=|admin|Webkit|196.64.160.106|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 15:21:50| , 1366x768|0
+|U2FsdGVkX186UG+VEVyct7+674pzlehT1BaNIaxTdt8=|ayoubg|Webkit|196.77.36.75|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-30 09:14:14| , 1366x768|1
+|U2FsdGVkX188f4zkeP/OFAQttorSW6JzfwI9TQO7uLY=|admin|Webkit|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 11:55:24| , 1366x768|1
+|U2FsdGVkX188IVshynbGdeds1pP3mModWiWF6Hfcjd8=|ayoubg|Webkit|196.77.36.75|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-30 11:03:00| , 1366x768|0
+|U2FsdGVkX18cLPj2Dyi9VCAKEe5o/DYDGAJEPr9d2po=|ayoubg|Webkit|105.157.86.247|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-29 15:48:42| , 1366x768|1
+|U2FsdGVkX18DCS8PFdiislYh71kFm98iWK69KOzN+UU=|admin|Webkit|160.176.71.231|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-24 08:55:42| , 1366x768|1
+|U2FsdGVkX18EStK8Ja5DYhMlF/f5l4rUhGTAJM/RKpI=|ayoubg|Webkit|105.157.86.247|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-29 15:56:36| , 1366x768|0
+|U2FsdGVkX18GthDLdPwrLKWUC9Aht5kk2rk3gheUt9U=|ayoubg|Webkit|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 11:53:42| , 1366x768|0
+|U2FsdGVkX18iUkZvWqu/eMcH256lvcOzUXz9nVcWA5g=|ayoubg|Webkit|160.179.99.57|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-24 05:52:56| , 1366x768|1
+|U2FsdGVkX18IZ4p8dUSY+IwhmeqF4MNSLlD1IA/IJKE=|admin|Webkit|160.176.71.231|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-24 09:34:35| , 1366x768|1
+|U2FsdGVkX18MU0J2kwRYNDYTpMkdloHGqq9Fwlp4Tew=|ayoubg|Webkit|196.77.36.75|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-30 10:23:27| , 1366x768|1
+|U2FsdGVkX18pLy0n3wZ3rwRkwlBYg88q5UWPxVh0N3Q=|ayoubg|Webkit|160.179.99.57|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-24 05:59:12| , 1366x768|0
+|U2FsdGVkX18QdmPJ20ZUG8aQiV91+2rv3DxW4e24O4c=|ayoubg|Webkit|196.77.36.75|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-30 09:07:33| , 1366x768|1
+|U2FsdGVkX18qeKekr08GTuakpMQo/9pTJnWmAhJlM08=|ayoubg|Gecko|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 09:45:19| , 1708x960|1
+|U2FsdGVkX18rmUknG/DBd+WS2VPmLACsecX2aJ7M3ag=|ayoubg|Webkit|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 09:53:33| , 1366x768|0
+|U2FsdGVkX18uJy2dc1uNZon8yjyR8huDg2+xSxhMioE=|admin|Webkit|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 11:58:16| , 1366x768|0
+|U2FsdGVkX18yM2sBfB8qipbpswT2Na37ZORn6Vz+h+g=|ayoubhh|Webkit|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 11:25:48| , 1366x768|0
+|U2FsdGVkX190el9GedjJyaWHYFplkIuWbDx9AH9W+Zw=|admin|Webkit|160.176.71.231|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-24 09:14:16| , 1366x768|1
+|U2FsdGVkX19494kR9UojdRgsbfIr7l/5FCveRigFfd4=|ayoubg|Webkit|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 11:28:23| , 1366x768|1
+|U2FsdGVkX198Qd5IXOrCF5jx/TalUeH9pyeMOuUZ1U4=|ayoubhh|Webkit|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 11:24:50| , 1366x768|1
+|U2FsdGVkX19jIxQSJoXX5TYMLWGeDHprLp4q7JlmBgA=|ayoubg|Gecko|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 09:46:33| , 1708x960|1
+|U2FsdGVkX19l1n/CZlYatgI2VWKN5vmzG6Fu6//2qA0=|admin|Webkit|196.64.160.106|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 14:09:20| , 1366x768|0
+|U2FsdGVkX19lkxo4HwqvvYTDzCBUjnjHFod3eZ3sgws=|ayoubhh|Gecko|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 09:46:15| , 1708x960|1
+|U2FsdGVkX19llTEKiP6r+8GWMjIRLW695FE1g1KPMU8=|ayoubhh|Webkit|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 11:12:42| , 1366x768|0
+|U2FsdGVkX19M+BXM/mfEEZ/NJY7fgc0u2h8Vlr+kqxM=|admin|Webkit|160.176.71.231|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-24 09:25:45| , 1366x768|1
+|U2FsdGVkX19N5i5HJojnWvlPGge9YSmUwf/+9gTQCE0=|admin|Webkit|160.176.71.231|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-24 08:58:28| , 1366x768|1
+|U2FsdGVkX19P80VDMzM9dvHQ1aow9Z3MA0jiAxYJFaE=|admin|Webkit|160.176.71.231|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-24 09:38:01| , 1366x768|1
+|U2FsdGVkX19pakG5mONRQ9Whld99iX1d7pviBKM+M/4=|ayoubg|Gecko|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 09:32:43| , 1708x960|1
+|U2FsdGVkX19qPNU6TxjYtVLLRYu7TH/qJYphZr4NQF0=|admin|Webkit|196.77.35.7|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-29 10:39:04| , 1366x768|0
+|U2FsdGVkX19RkPmGTNDosNLaocrzs+B4WzVdemkV+mo=|admin|Webkit|196.92.8.128|Morocco , Africa , Casablanca, ( latitude : 33.5922 , longitude : -7.6184)|Windows OS|2022-06-29 21:13:53| , 1366x768|0
+|U2FsdGVkX19ruPzt/zWZZTKUEGY1hnpKPGo34AiWFG0=|Admin|Webkit|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 11:59:32| , 1366x768|0
+|U2FsdGVkX19sj2vjBUyve6Y4sFZGp81GX+gegHtF7Bg=|ayoubg|Webkit|160.179.99.57|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-24 05:56:12| , 1366x768|1
+|U2FsdGVkX19tGKJxK+vC1lGNYPBaV9qSbJpDIxCETPU=|ayoubg|Webkit|196.64.160.106|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 14:09:56| , 1366x768|0
+|U2FsdGVkX19x+aYGIJjRViXru5dASlzvaQ+dPAwA88o=|admin|Gecko|41.251.12.239|Morocco , Africa , Marrakesh, ( latitude : 31.6298 , longitude : -8.0101)|Windows OS|2022-06-22 09:31:33| , 1708x960|1
+== Table structure for table temusers
+
+|------
+|Column|Type|Null|Default
+|------
+|//**idtempu**//|int(11)|No|
+|username|varchar(40)|Yes|NULL
+|passw|varchar(40)|No|
+|email|varchar(200)|Yes|NULL
+|rank|varchar(30)|Yes|NULL
+|loger|varchar(20)|Yes|NULL
+|sessions|int(11)|Yes|NULL
+|confirmed|varchar(20)|Yes|NULL
+|dated|datetime|No|current_timestamp()
+== Dumping data for table temusers
+
+== Table structure for table users
+
+|------
+|Column|Type|Null|Default
+|------
+|//**username**//|varchar(40)|No|
+|passw|varchar(40)|No|
+|**email**|varchar(200)|Yes|NULL
+|rank|varchar(30)|Yes|NULL
+|loger|varchar(20)|Yes|NULL
+|sessions|int(11)|Yes|NULL
+|dated|datetime|No|current_timestamp()
+== Dumping data for table users
+
+|admin|1111|admin@gmail.com|Admin|true|21|2022-06-22 09:31:24
+|ayoubg|1111|ayoub223355@gmail.com|Teacher|true|25|2022-06-22 09:32:40
+|ayoubhh|1111|ayoubfwd@gmail.com|Student|true|8|2022-06-22 09:46:04
+
+
+

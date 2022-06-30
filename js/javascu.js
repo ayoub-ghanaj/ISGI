@@ -107,6 +107,7 @@ $(function() {
       $(".main_content").css('margin-top', '50px'); 
       $(".home").show();
       $(".eleves").hide();
+      $(".passexamrand").hide();
       $(".rec").hide();
       $(".menu").hide();
       $(".logo").click(()=>{
@@ -134,16 +135,18 @@ $(function() {
       $(".eleves").hide();
       $(".rec").hide();
       $(".menu").hide();
+      $(".passexamrand").hide();
   })
   $(document).on('click', '#eleves', function() {
       $(".home").hide();
       $(".eleves").show();
       $(".rec").hide();
       $(".menu").hide();
+      $(".passexamrand").hide();
   })
   $(document).on('click', '#rec', function() {
       $(".home").hide();
-      
+      $(".passexamrand").hide();
       $(".eleves").hide();
       $(".rec").show();
       $(".menu").hide();
@@ -153,7 +156,15 @@ $(function() {
           $(".eleves").hide();
           $(".rec").hide();
           $(".menu").show();
+          $(".passexamrand").hide();
   })
+  $(document).on('click', '#passexamrand', function() {
+    $(".home").hide();
+        $(".eleves").hide();
+        $(".rec").hide();
+        $(".menu").hide();
+        $(".passexamrand").show();
+})
   var w = window.innerWidth;
   function resizes(){
        w = window.innerWidth;
@@ -201,11 +212,69 @@ $(function() {
           }
          
        } 
-      }
+}
+function dbmatier() {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "getmatier.php",
+            data: {
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+                //////console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
+function dbfilier() {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "getfilier.php",
+            data: {
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // ////console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
+
 var str;
 const result = {};
 $(document).ready(()=>{
-
+    dbmatier().then((data)=>{
+        $("#dropmatier1").empty();
+        let datamat = JSON.parse(data);
+        $("#dropmatier1").append(`
+        <option value="" style="display:none;" disabled selected>Matiere</option>
+        `);
+        for(let i = 0 ; i<datamat.length;i++){
+            $("#dropmatier1").append(`
+            <option value="${datamat[i].idm}">${datamat[i].nom}</option>
+            `);
+        }
+    });
+    dbfilier().then((data)=>{
+        $("#dropfilier1").empty();
+        let datamat = JSON.parse(data);
+            $("#dropfilier1").append(`
+            <option value="" style="display:none;" disabled selected>Filier</option>
+            `);
+        for(let i = 0 ; i<datamat.length;i++){  
+            $("#dropfilier1").append(`
+            <option value="${datamat[i].idf}">${datamat[i].nom}</option>
+            `);
+        }
+    });
     $("#editeconf").click(()=>{
         let oldpass = $("#oldP").val();  ;
         let newpass = $("#newP").val(); ;
@@ -352,6 +421,31 @@ $(document).ready(()=>{
     $("#hidequiz").click(()=>{
         $("#divshow").hide();
     });
+    $("#passrandy").click(()=>{
+        let matier = $("#dropmatier1").val();
+        let filier = $("#dropfilier1").val();
+        
+        if(matier != null && filier != null){
+            getrandyexams(matier, filier).then((data)=>{
+                //console.log(data);
+                let jsnrandy= JSON.parse(data); 
+                //console.log(jsnrandy);
+                let id = randomise(1,(jsnrandy.length-1));
+                let val = jsnrandy[id].idbat;
+                if(val !=""){
+                    document.cookie = 'batch='+val+';expires='+new Date(2026,11,13).toUTCString()+'';
+                    document.cookie = 'exam='+val+';expires='+new Date(2026,11,13).toUTCString()+'';
+                    window.open('http://localhost:90/EFF/Project/quiz.html');
+                }
+            })
+        }   
+        // let val = ;
+        // if(val !=""){
+        // document.cookie = 'batch='+val+';expires='+new Date(2026,11,13).toUTCString()+'';
+        // document.cookie = 'exam='+val+';expires='+new Date(2026,11,13).toUTCString()+'';
+        // window.open('http://localhost:90/EFF/Project/quiz.html');
+        // }
+    })
     $("#lunch").click(()=>{
         let val = $("#ixmid").val();
         if(val !=""){
@@ -361,7 +455,9 @@ $(document).ready(()=>{
         }
     });
 })
-
+function randomise(min,max){
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
 function checkersess(){
     if(result.code == undefined || result.trader == undefined){
         window.location.href = "login.html";
@@ -399,7 +495,25 @@ function dbexistsess(sess) {
         });
     });
 }
-
+function getrandyexams(mat,fil) {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            method: "POST",
+            url: "getexamsfur.php",
+            data: {
+                "mat" : mat,
+                "fil" : fil,
+            },
+            success: function(data) {
+                resolve(data) // Resolve promise and go to then()
+            },
+            error: function(err) {
+               // console.log(err)
+                reject(err) // Reject the promise and go to catch()
+            }
+        });
+    });
+}
 // function getmypass(username) {
 //     return new Promise(function(resolve, reject) {
 //         $.ajax({
@@ -431,7 +545,7 @@ function dbexistsess(sess) {
 
 
 
-    document.getElementById("myBtn").onclick = function() {checkForm()};
+    //document.getElementById("myBtn").onclick = function() {checkForm()};
     function checkForm()
    {
     var oldP=document.getElementById("oldP").value;
